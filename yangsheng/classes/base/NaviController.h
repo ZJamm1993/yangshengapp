@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  NaviController.h
 //  yangsheng
 //
 //  Created by jam on 17/7/6.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface NaviController : UINavigationController
 
 @end
-

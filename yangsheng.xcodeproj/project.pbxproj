@@ -7,25 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */; };
+		396910BB1F0E855E00EF6D52 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910AF1F0E855E00EF6D52 /* BaseViewController.m */; };
+		396910BC1F0E855E00EF6D52 /* NaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910B11F0E855E00EF6D52 /* NaviController.m */; };
+		396910BD1F0E855E00EF6D52 /* TabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910B31F0E855E00EF6D52 /* TabbarController.m */; };
+		396910BE1F0E855E00EF6D52 /* ZZPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910B61F0E855E00EF6D52 /* ZZPagerController.m */; };
+		396910BF1F0E855E00EF6D52 /* ZZHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910B91F0E855E00EF6D52 /* ZZHttpTool.m */; };
+		396910C61F0E864200EF6D52 /* HomeRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910C51F0E864200EF6D52 /* HomeRootViewController.m */; };
+		396910C91F0E86EE00EF6D52 /* HomeStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910C81F0E86EE00EF6D52 /* HomeStoryViewController.m */; };
+		396910CC1F0E870200EF6D52 /* HomeTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910CB1F0E870200EF6D52 /* HomeTeamViewController.m */; };
 		3971BC091F0E7047004016C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3971BC081F0E7047004016C2 /* main.m */; };
 		3971BC0C1F0E7047004016C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3971BC0B1F0E7047004016C2 /* AppDelegate.m */; };
-		3971BC0F1F0E7047004016C2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3971BC0E1F0E7047004016C2 /* ViewController.m */; };
 		3971BC121F0E7047004016C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3971BC101F0E7047004016C2 /* Main.storyboard */; };
 		3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3971BC131F0E7047004016C2 /* Assets.xcassets */; };
 		3971BC171F0E7047004016C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3971BC151F0E7047004016C2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		396910AC1F0E855E00EF6D52 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		396910AE1F0E855E00EF6D52 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		396910AF1F0E855E00EF6D52 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		396910B01F0E855E00EF6D52 /* NaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviController.h; sourceTree = "<group>"; };
+		396910B11F0E855E00EF6D52 /* NaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviController.m; sourceTree = "<group>"; };
+		396910B21F0E855E00EF6D52 /* TabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarController.h; sourceTree = "<group>"; };
+		396910B31F0E855E00EF6D52 /* TabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarController.m; sourceTree = "<group>"; };
+		396910B51F0E855E00EF6D52 /* ZZPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPagerController.h; sourceTree = "<group>"; };
+		396910B61F0E855E00EF6D52 /* ZZPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPagerController.m; sourceTree = "<group>"; };
+		396910B81F0E855E00EF6D52 /* ZZHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZHttpTool.h; sourceTree = "<group>"; };
+		396910B91F0E855E00EF6D52 /* ZZHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZHttpTool.m; sourceTree = "<group>"; };
+		396910C41F0E864200EF6D52 /* HomeRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRootViewController.h; sourceTree = "<group>"; };
+		396910C51F0E864200EF6D52 /* HomeRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRootViewController.m; sourceTree = "<group>"; };
+		396910C71F0E86EE00EF6D52 /* HomeStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeStoryViewController.h; sourceTree = "<group>"; };
+		396910C81F0E86EE00EF6D52 /* HomeStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeStoryViewController.m; sourceTree = "<group>"; };
+		396910CA1F0E870200EF6D52 /* HomeTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTeamViewController.h; sourceTree = "<group>"; };
+		396910CB1F0E870200EF6D52 /* HomeTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTeamViewController.m; sourceTree = "<group>"; };
 		3971BC041F0E7047004016C2 /* yangsheng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yangsheng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3971BC081F0E7047004016C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3971BC0A1F0E7047004016C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3971BC0B1F0E7047004016C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3971BC0D1F0E7047004016C2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3971BC0E1F0E7047004016C2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3971BC111F0E7047004016C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3971BC131F0E7047004016C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3971BC161F0E7047004016C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3971BC181F0E7047004016C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3971BC2F1F0E7A07004016C2 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +64,87 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		396910AA1F0E855E00EF6D52 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				396910C31F0E85A900EF6D52 /* personal */,
+				396910C21F0E859900EF6D52 /* classroom */,
+				396910C11F0E858E00EF6D52 /* store */,
+				396910C01F0E858500EF6D52 /* home */,
+				396910AB1F0E855E00EF6D52 /* base */,
+				396910B41F0E855E00EF6D52 /* custom */,
+				396910B71F0E855E00EF6D52 /* tool */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		396910AB1F0E855E00EF6D52 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				396910AC1F0E855E00EF6D52 /* BaseTableViewController.h */,
+				396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */,
+				396910AE1F0E855E00EF6D52 /* BaseViewController.h */,
+				396910AF1F0E855E00EF6D52 /* BaseViewController.m */,
+				396910B01F0E855E00EF6D52 /* NaviController.h */,
+				396910B11F0E855E00EF6D52 /* NaviController.m */,
+				396910B21F0E855E00EF6D52 /* TabbarController.h */,
+				396910B31F0E855E00EF6D52 /* TabbarController.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		396910B41F0E855E00EF6D52 /* custom */ = {
+			isa = PBXGroup;
+			children = (
+				396910B51F0E855E00EF6D52 /* ZZPagerController.h */,
+				396910B61F0E855E00EF6D52 /* ZZPagerController.m */,
+			);
+			path = custom;
+			sourceTree = "<group>";
+		};
+		396910B71F0E855E00EF6D52 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				396910B81F0E855E00EF6D52 /* ZZHttpTool.h */,
+				396910B91F0E855E00EF6D52 /* ZZHttpTool.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		396910C01F0E858500EF6D52 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				396910C41F0E864200EF6D52 /* HomeRootViewController.h */,
+				396910C51F0E864200EF6D52 /* HomeRootViewController.m */,
+				396910C71F0E86EE00EF6D52 /* HomeStoryViewController.h */,
+				396910C81F0E86EE00EF6D52 /* HomeStoryViewController.m */,
+				396910CA1F0E870200EF6D52 /* HomeTeamViewController.h */,
+				396910CB1F0E870200EF6D52 /* HomeTeamViewController.m */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		396910C11F0E858E00EF6D52 /* store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = store;
+			sourceTree = "<group>";
+		};
+		396910C21F0E859900EF6D52 /* classroom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = classroom;
+			sourceTree = "<group>";
+		};
+		396910C31F0E85A900EF6D52 /* personal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = personal;
+			sourceTree = "<group>";
+		};
 		3971BBFB1F0E7047004016C2 = {
 			isa = PBXGroup;
 			children = (
@@ -58,25 +164,17 @@
 		3971BC061F0E7047004016C2 /* yangsheng */ = {
 			isa = PBXGroup;
 			children = (
+				396910AA1F0E855E00EF6D52 /* classes */,
+				3971BC2F1F0E7A07004016C2 /* PrefixHeader.pch */,
+				3971BC081F0E7047004016C2 /* main.m */,
 				3971BC0A1F0E7047004016C2 /* AppDelegate.h */,
 				3971BC0B1F0E7047004016C2 /* AppDelegate.m */,
-				3971BC0D1F0E7047004016C2 /* ViewController.h */,
-				3971BC0E1F0E7047004016C2 /* ViewController.m */,
 				3971BC101F0E7047004016C2 /* Main.storyboard */,
 				3971BC131F0E7047004016C2 /* Assets.xcassets */,
 				3971BC151F0E7047004016C2 /* LaunchScreen.storyboard */,
 				3971BC181F0E7047004016C2 /* Info.plist */,
-				3971BC071F0E7047004016C2 /* Supporting Files */,
 			);
 			path = yangsheng;
-			sourceTree = "<group>";
-		};
-		3971BC071F0E7047004016C2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3971BC081F0E7047004016C2 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +247,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3971BC0F1F0E7047004016C2 /* ViewController.m in Sources */,
+				396910C61F0E864200EF6D52 /* HomeRootViewController.m in Sources */,
 				3971BC0C1F0E7047004016C2 /* AppDelegate.m in Sources */,
+				396910BF1F0E855E00EF6D52 /* ZZHttpTool.m in Sources */,
+				396910BB1F0E855E00EF6D52 /* BaseViewController.m in Sources */,
+				396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */,
+				396910BE1F0E855E00EF6D52 /* ZZPagerController.m in Sources */,
 				3971BC091F0E7047004016C2 /* main.m in Sources */,
+				396910BC1F0E855E00EF6D52 /* NaviController.m in Sources */,
+				396910BD1F0E855E00EF6D52 /* TabbarController.m in Sources */,
+				396910CC1F0E870200EF6D52 /* HomeTeamViewController.m in Sources */,
+				396910C91F0E86EE00EF6D52 /* HomeStoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +367,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";
 				INFOPLIST_FILE = yangsheng/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.yangsheng;
@@ -272,6 +380,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";
 				INFOPLIST_FILE = yangsheng/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.yangsheng;
@@ -298,6 +408,7 @@
 				3971BC1D1F0E7047004016C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
