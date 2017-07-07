@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */; };
+		395C5C041F0FF8BF008B74D5 /* ClassroomRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C031F0FF8BF008B74D5 /* ClassroomRootViewController.m */; };
 		396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */; };
 		396910BB1F0E855E00EF6D52 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910AF1F0E855E00EF6D52 /* BaseViewController.m */; };
 		396910BC1F0E855E00EF6D52 /* NaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910B11F0E855E00EF6D52 /* NaviController.m */; };
@@ -63,6 +65,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		395C5BFF1F0FF6C4008B74D5 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
+		395C5C021F0FF8BF008B74D5 /* ClassroomRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomRootViewController.h; sourceTree = "<group>"; };
+		395C5C031F0FF8BF008B74D5 /* ClassroomRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomRootViewController.m; sourceTree = "<group>"; };
 		396910AC1F0E855E00EF6D52 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		396910AE1F0E855E00EF6D52 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -207,6 +213,8 @@
 				396910B31F0E855E00EF6D52 /* TabbarController.m */,
 				8FADBE561F0F2C4D002F5911 /* BaseModel.h */,
 				8FADBE571F0F2C4D002F5911 /* BaseModel.m */,
+				395C5BFF1F0FF6C4008B74D5 /* BaseWebViewController.h */,
+				395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -263,6 +271,8 @@
 		396910C21F0E859900EF6D52 /* classroom */ = {
 			isa = PBXGroup;
 			children = (
+				395C5C021F0FF8BF008B74D5 /* ClassroomRootViewController.h */,
+				395C5C031F0FF8BF008B74D5 /* ClassroomRootViewController.m */,
 			);
 			path = classroom;
 			sourceTree = "<group>";
@@ -425,7 +435,6 @@
 				TargetAttributes = {
 					3971BC031F0E7047004016C2 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 4NU738LHQ7;
 					};
 				};
 			};
@@ -468,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FADBE581F0F2C4D002F5911 /* BaseModel.m in Sources */,
+				395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */,
 				8FADBE9E1F0F39BF002F5911 /* UIButton+WebCache.m in Sources */,
 				8FADBE9C1F0F39BF002F5911 /* SDWebImageManager.m in Sources */,
 				8FADBEB81F0F5C17002F5911 /* HomeFounderHeaderCell.m in Sources */,
@@ -500,6 +510,7 @@
 				396910BC1F0E855E00EF6D52 /* NaviController.m in Sources */,
 				8FADBE411F0F1A80002F5911 /* HomeFeedbackViewController.m in Sources */,
 				8FADBE931F0F39BF002F5911 /* MKAnnotationView+WebCache.m in Sources */,
+				395C5C041F0FF8BF008B74D5 /* ClassroomRootViewController.m in Sources */,
 				8FADBE951F0F39BF002F5911 /* NSImage+WebCache.m in Sources */,
 				8FADBEAA1F0F3B62002F5911 /* UIView+WebCache.m in Sources */,
 				8FADBE991F0F39BF002F5911 /* SDWebImageDecoder.m in Sources */,

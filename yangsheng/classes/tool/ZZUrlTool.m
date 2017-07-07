@@ -12,7 +12,8 @@
 
 +(NSString*)main
 {
-    return @"http://192.168.1.131:8090";
+    return @"http://120.25.1.238:8090";
+//    return @"http://192.168.1.131:8090";
 }
 
 +(NSString*)fullUrlWithTail:(NSString *)tail
@@ -25,14 +26,9 @@
 
 @implementation NSString(Url)
 
--(NSString*)urlStringWithMainUrl
-{
-    return [ZZUrlTool fullUrlWithTail:self];
-}
-
 -(NSURL*)urlWithMainUrl
 {
-    return [NSURL URLWithString:[self urlStringWithMainUrl]];
+    return [NSURL URLWithString:[ZZUrlTool fullUrlWithTail:self]];
 }
 
 @end
