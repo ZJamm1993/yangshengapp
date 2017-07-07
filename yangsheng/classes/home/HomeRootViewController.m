@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSource=self;
+    
+//    UINavigationBar* naviBar=self.navigationController.navigationBar;
+//    naviBar.shadowImage=[[UIImage alloc]init];
     // Do any additional setup after loading the view.
 }
 
@@ -29,16 +32,22 @@
 
 -(NSInteger)numbersOfChildControllersInPagerController:(ZZPagerController *)pager
 {
-    return 2;
+    return 4;
 }
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
     if (index==0) {
-        return [[HomeStoryViewController alloc]init];
+        return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"HomeStory"];
     }
     else if (index==1) {
-        return [[HomeTeamViewController alloc]init];
+        return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"HomeTeam"];;
+    }
+    else if (index==2) {
+        return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"HomeFeedback"];;
+    }
+    else if (index==3) {
+        return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"HomeNews"];;
     }
     return nil;
 }
@@ -50,6 +59,12 @@
     }
     else if (index==1) {
         return @"服务团队";
+    }
+    else if (index==2) {
+        return @"案例反馈";
+    }
+    else if (index==3) {
+        return @"大事件";
     }
     return nil;
 }
@@ -63,7 +78,7 @@
 {
     CGRect menuR=[self pagerController:pager frameForMenuView:nil];
     CGFloat menuMy=CGRectGetMaxY(menuR);
-    return CGRectMake(0, menuMy, self.view.frame.size.width, self.view.frame.size.height-menuMy);
+    return CGRectMake(0, menuMy, self.view.frame.size.width, self.view.frame.size.height-menuMy-49-64);
 }
 
 @end

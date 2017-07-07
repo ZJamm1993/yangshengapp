@@ -10,7 +10,7 @@
 
 @interface BaseTableViewController ()
 {
-    UIRefreshControl* refreshControl;
+//    UIRefreshControl* refreshControl;
 }
 @end
 
@@ -19,10 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    refreshControl=[[UIRefreshControl alloc]init];
-    [self.tableView addSubview:refreshControl];
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
-    [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+//    refreshControl=[[UIRefreshControl alloc]init];
+//    [self.tableView addSubview:refreshControl];
+    self.refreshControl=[[UIRefreshControl alloc]init];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
 //    [refreshControl beginRefreshing];
 }
 
@@ -35,15 +38,22 @@
 
 -(void)refresh
 {
-    [self.dataSource removeAllObjects];
     
-    NSString* url=@"http://api.change.so/v1/videos/ranking.json";
-    NSDictionary* par=@{@"page":@"1",@"per_page":@"20",@"since":@"weekly"};
-    [ZZHttpTool get:url params:par success:^(NSDictionary *responseObject) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+    [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:2];
+//    [self.dataSource removeAllObjects];
+    
+//    NSString* url=@"http://api.change.so/v1/videos/ranking.json";
+//    NSDictionary* par=@{@"page":@"1",@"per_page":@"20",@"since":@"weekly"};
+//    [ZZHttpTool get:url params:par success:^(NSDictionary *responseObject) {
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
+}
+
+-(void)stopRefresh
+{
+    [self.refreshControl endRefreshing];
 }
 
 //-(void)loadMore

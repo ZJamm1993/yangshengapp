@@ -43,8 +43,12 @@
     menuView=[[ZZPagerMenu alloc]init];
     menuView.dataSource=self;
     menuView.delegate=self;
-    menuView.selectedColor=[UIColor colorWithRed:1 green:0.5 blue:0.5 alpha:1];
-    menuView.normalColor=[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1];
+    if (!self.menuNormalColor) {
+        menuView.normalColor= gray(100);
+    }
+    if (!self.menuSelectedColor) {
+        menuView.selectedColor=pinkColor;
+    }
     menuView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:menuView];
 }
@@ -228,6 +232,7 @@
     UIView* line;
     BOOL shouldManualAnimation;
     NSMutableArray* btns;
+    UIView* shadow;
 }
 @end
 
@@ -253,6 +258,12 @@
         [self addSubview:line];
     }
     
+    if (!shadow) {
+        shadow=[[UIView alloc]init];
+        shadow.backgroundColor=[UIColor lightGrayColor];
+        [self addSubview:shadow];
+    }
+    
     if(!titles){
         titles=[NSMutableArray array];
     }
@@ -260,6 +271,9 @@
     if (!btns) {
         btns=[NSMutableArray array];
     }
+    
+    
+    shadow.frame=CGRectMake(0, self.frame.size.height-0.5, self.frame.size.width, 0.5);
     
 //    bg.frame=self.bounds;
     

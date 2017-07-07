@@ -14,5 +14,6 @@
 @property (nonatomic,strong) NSString* urlString;
 
 -(void)refresh;
+-(void)stopRefresh;
 
 @end

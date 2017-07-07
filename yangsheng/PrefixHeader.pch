@@ -12,6 +12,8 @@
 //importer
 
 #import "ZZHttpTool.h"
+#import "ZZUrlTool.h"
+#import "UIImageView+WebCache.h"
 
 //UIcolors
 
@@ -21,6 +23,6 @@
 #define graya(w,a) [UIColor colorWithWhite:(w/255.0) alpha:a]
 #define gray(w) [UIColor colorWithWhite:(w/255.0) alpha:1]
 
-#define pinkColor rgb(255,128,128)
+#define pinkColor rgb(233,0,117)
 
 #endif /* PrefixHeader_pch */

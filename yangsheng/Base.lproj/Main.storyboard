@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F2109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="I0e-p1-fhi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="I0e-p1-fhi">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -29,7 +29,7 @@
         <scene sceneID="btc-t9-iQk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eeD-eo-v9l" customClass="NaviController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" id="nfv-cz-JrM"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="tab_home" selectedImage="tab_home_h" id="nfv-cz-JrM"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="akE-9b-vfY">
@@ -90,7 +90,7 @@
         <scene sceneID="a4V-4y-jgL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UHH-kk-Ukt" customClass="NaviController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="门店" id="UHH-1t-0Sy"/>
+                    <tabBarItem key="tabBarItem" title="门店" image="tab_store" selectedImage="tab_store_h" id="UHH-1t-0Sy"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QWm-Iw-aBR">
@@ -130,7 +130,7 @@
         <scene sceneID="5wE-w6-og1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kQm-tq-MiH" customClass="NaviController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="课堂" id="yT8-K8-Gqf"/>
+                    <tabBarItem key="tabBarItem" title="课堂" image="tab_learn" selectedImage="tab_learn_h" id="yT8-K8-Gqf"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l94-G4-Cw7">
@@ -170,7 +170,7 @@
         <scene sceneID="LAF-2D-OWB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cH1-h5-22B" customClass="NaviController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="lje-Fm-lin"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="tab_me" selectedImage="tab_me_h" id="lje-Fm-lin"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pql-KJ-6eQ">
@@ -187,4 +187,14 @@
             <point key="canvasLocation" x="620" y="1054"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_home" width="22" height="22"/>
+        <image name="tab_home_h" width="22" height="22"/>
+        <image name="tab_learn" width="22" height="22"/>
+        <image name="tab_learn_h" width="22" height="22"/>
+        <image name="tab_me" width="22" height="22"/>
+        <image name="tab_me_h" width="22" height="22"/>
+        <image name="tab_store" width="22" height="22"/>
+        <image name="tab_store_h" width="22" height="22"/>
+    </resources>
 </document>

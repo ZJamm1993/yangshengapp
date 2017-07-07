@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZZUrlTool.h"
 
 @interface ZZHttpTool : NSObject
 

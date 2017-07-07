@@ -50,25 +50,32 @@
         }
         
         
-        NSURLSession* session=[NSURLSession sharedSession];
+        NSURLSession* session=[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         NSURLSessionDataTask* dataTast=[session dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
 //            NSLog(@"data:\n%@",data);
 //            NSLog(@"resp:\n%@",response);
 //            NSLog(@"erro:\n%@",error);
             
-            if (data) {
-                NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-                
-                if (success) {
-                    success(result);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (data) {
+                    NSString *receiveStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                    
+                    receiveStr=[receiveStr stringByReplacingOccurrencesOfString:@"null" withString:@"{}"];
+                    
+                    NSData * data2 = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
+                    
+                    NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
+                    if (success) {
+                        success(result);
+                    }
                 }
-            }
-            else if(error)
-            {
-                if (failure) {
-                    failure(error);
+                else if(error)
+                {
+                    if (failure) {
+                        failure(error);
+                    }
                 }
-            }
+            });
             
         }];
         [dataTast resume];
@@ -76,3 +83,4 @@
 }
 
 @end
+
