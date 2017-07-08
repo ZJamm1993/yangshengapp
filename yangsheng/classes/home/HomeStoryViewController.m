@@ -16,10 +16,10 @@
 #import "HomeProductHeaderCell.h"
 
 #import "HomeQACell.h"
-#import "HomeQAHeaderCell.h"
 
 #import "HomeFounderCell.h"
-#import "HomeFounderHeaderCell.h"
+
+#import "HomeEnterprisePublicityCell.h"
 
 #import "HomeHttpTool.h"
 
@@ -29,6 +29,7 @@
     NSMutableArray* qaArray;
     NSMutableArray* founderArray;
     NSMutableArray* advsArray;
+    NSMutableArray* enterArray;
     
     UITapGestureRecognizer* tapGesture;
     
@@ -42,7 +43,7 @@
     [super viewDidLoad];
     
     advHeader=[[AdvertiseView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width*0.6)];
-    advHeader.backgroundColor=gray(200);
+    advHeader.backgroundColor=[UIColor lightGrayColor];
     self.tableView.tableHeaderView=advHeader;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HomeHeaderCell" bundle:nil] forCellReuseIdentifier:@"HomeHeaderCell"];
@@ -50,16 +51,25 @@
     [self.tableView addGestureRecognizer:tapGesture];
     
     
-//    self.tableView.estimatedRowHeight=200;
-//    self.tableView.rowHeight=UITableViewAutomaticDimension;
-    
-    [self refresh];
+    [self firstLoad];
     // Do any additional setup after loading the view.
+}
+
+-(void)firstLoad
+{
+    [super firstLoad];
+    [self getDataUsingCache:YES];
 }
 
 -(void)refresh
 {
     [super refresh];
+    [self getDataUsingCache:NO];
+    [self stopRefreshAfterSeconds];
+}
+
+-(void)getDataUsingCache:(BOOL)isCache
+{
     //
     [HomeHttpTool getAdversSuccess:^(NSArray *datasource) {
         advsArray=[NSMutableArray arrayWithArray:datasource];
@@ -70,33 +80,25 @@
             [pics addObject:fu];
         }
         advHeader.picturesUrls=pics;
-    }];
+    } isCache:isCache];
     
     //
     [HomeHttpTool getProductClassSuccess:^(NSArray *datasource) {
         productClassArray=[NSMutableArray arrayWithArray:datasource];
         [self.tableView reloadData];
-    }];
+    } isCache:isCache];
     
     //
     [HomeHttpTool getQuesAnsRandomSuccess:^(NSArray *datasource) {
         qaArray=[NSMutableArray arrayWithArray:datasource];
         [self.tableView reloadData];
-    }];
+    } isCache:isCache];
     
     //
     [HomeHttpTool getFoundersSuccess:^(NSArray *datasource) {
         founderArray=[NSMutableArray arrayWithArray:datasource];
         [self.tableView reloadData];
-    }];
-    
-//    founderArray=[NSMutableArray array];
-//    for (int i=0 ; i<31; i++) {
-//        ModelFounder* fond=[[ModelFounder alloc]init];
-//        fond.post_title=[NSString stringWithFormat:@"foun %d",i];
-//        [founderArray addObject:fond];
-//    }
-//    [self.tableView reloadData];
+    } isCache:isCache];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,7 +108,7 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 5;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -130,7 +132,11 @@
         }
         return rs+1;
     }
-    
+    else if(section==4)
+    {
+#warning testing
+        return 2;
+    }
     return 0;
 }
 
@@ -158,7 +164,7 @@
         }
         else
         {
-            return 180;
+            return UITableViewAutomaticDimension;
         }
     }
     else if(sec==3)
@@ -171,12 +177,17 @@
             return [[UIScreen mainScreen]bounds].size.width/2-25+35;
         }
     }
+    else if(sec==4)
+    {
+        if (row==0) {
+            return 90;
+        }
+        else
+        {
+            return UITableViewAutomaticDimension;
+        }
+    }
     return 0.0001;
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -214,7 +225,7 @@
     else if(sec==2)
     {
         if (row==0) {
-            HomeQAHeaderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeQAHeaderCell" forIndexPath:indexPath];
+            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeQAHeaderCell" forIndexPath:indexPath];
             return c;
         }
         else
@@ -230,7 +241,7 @@
     else if(sec==3)
     {
         if (row==0) {
-            HomeFounderHeaderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeFounderHeaderCell" forIndexPath:indexPath];
+            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeFounderHeaderCell" forIndexPath:indexPath];
             return c;
         }
         else
@@ -254,6 +265,18 @@
             return c;
         }
     }
+    else if(sec==4)
+    {
+        if (row==0) {
+            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomePublicityHeaderCell" forIndexPath:indexPath];
+            return c;
+        }
+        else
+        {
+            HomeEnterprisePublicityCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeEnterprisePublicityCell" forIndexPath:indexPath];
+            return c;
+        }
+    }
     else
     {
         return nil;
@@ -273,11 +296,12 @@
     CGPoint point = [ta locationInView:self.tableView];
     NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint:point];
     if (indexPath) {
+        NSInteger sec=indexPath.section;
+        NSInteger row=indexPath.row;
         
-        
-        if (indexPath.section==3) {
-            if (indexPath.row>0) {
-                NSInteger tr=indexPath.row-1;
+        if (sec==3) {
+            if (row>0) {
+                NSInteger tr=row-1;
                 NSInteger leftIndex=tr*2;
                 NSInteger rightIndex=leftIndex+1;
                 BOOL left=point.x<[[UIScreen mainScreen]bounds].size.width/2;

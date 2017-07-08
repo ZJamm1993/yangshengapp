@@ -14,12 +14,12 @@
 
 @interface HomeHttpTool : ZZHttpTool
 
-+(void)getProductClassSuccess:(void(^) (NSArray* datasource))success;
++(void)getProductClassSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getQuesAnsRandomSuccess:(void(^) (NSArray* datasource))success;
++(void)getQuesAnsRandomSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getFoundersSuccess:(void(^) (NSArray* datasource))success;
++(void)getFoundersSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getAdversSuccess:(void(^) (NSArray* datasource))success;
++(void)getAdversSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
 @end

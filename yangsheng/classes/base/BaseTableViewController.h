@@ -13,7 +13,8 @@
 @property (nonatomic,strong) NSMutableArray* dataSource;
 @property (nonatomic,strong) NSString* urlString;
 
+-(void)firstLoad;
 -(void)refresh;
--(void)stopRefresh;
+-(void)stopRefreshAfterSeconds;
 
 @end

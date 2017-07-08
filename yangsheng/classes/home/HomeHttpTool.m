@@ -10,10 +10,10 @@
 
 @implementation HomeHttpTool
 
-+(void)getProductClassSuccess:(void (^)(NSArray *))success
++(void)getProductClassSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Goods/classification"];
-    [self get:str params:nil success:^(NSDictionary *responseObject) {
+    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
         NSArray* data=[responseObject valueForKey:@"data"];
         NSMutableArray* datasource=[NSMutableArray array];
         for (NSDictionary* cl in data) {
@@ -30,11 +30,11 @@
     }];
 }
 
-+(void)getQuesAnsRandomSuccess:(void (^)(NSArray *))success
++(void)getQuesAnsRandomSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Qa/index"];
     NSDictionary* para=@{@"page":@"1",@"pagesize":@"3"};
-    [self get:str params:para success:^(NSDictionary *responseObject) {
+    [self get:str params:para usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];
@@ -52,10 +52,10 @@
     }];
 }
 
-+(void)getFoundersSuccess:(void (^)(NSArray *))success
++(void)getFoundersSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Founder/index"];
-    [self get:str params:nil success:^(NSDictionary *responseObject) {
+    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];
@@ -73,11 +73,11 @@
     }];
 }
 
-+(void)getAdversSuccess:(void (^)(NSArray *))success
++(void)getAdversSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Slide/index?cid=1"];
-    [self get:str params:nil success:^(NSDictionary *responseObject) {
+    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];

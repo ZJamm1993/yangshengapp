@@ -1,14 +1,14 @@
 //
-//  HomeProductCell.m
+//  HomeMonthStarCell.m
 //  yangsheng
 //
-//  Created by Macx on 17/7/7.
+//  Created by jam on 17/7/8.
 //  Copyright © 2017年 jam. All rights reserved.
 //
 
-#import "HomeProductCell.h"
+#import "HomeMonthStarCell.h"
 
-@implementation HomeProductCell
+@implementation HomeMonthStarCell
 
 - (void)awakeFromNib {
     // Initialization code

@@ -1,14 +1,14 @@
 //
-//  HomeFounderHeaderCell.m
+//  HomeEnterprisePublicityCell.m
 //  yangsheng
 //
-//  Created by Macx on 17/7/7.
+//  Created by jam on 17/7/8.
 //  Copyright © 2017年 jam. All rights reserved.
 //
 
-#import "HomeFounderHeaderCell.h"
+#import "HomeEnterprisePublicityCell.h"
 
-@implementation HomeFounderHeaderCell
+@implementation HomeEnterprisePublicityCell
 
 - (void)awakeFromNib {
     // Initialization code

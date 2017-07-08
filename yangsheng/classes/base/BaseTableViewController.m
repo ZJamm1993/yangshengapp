@@ -21,12 +21,12 @@
     
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
-//    refreshControl=[[UIRefreshControl alloc]init];
-//    [self.tableView addSubview:refreshControl];
+    self.tableView.estimatedRowHeight=100;
+    self.tableView.rowHeight=UITableViewAutomaticDimension;
+    
     self.refreshControl=[[UIRefreshControl alloc]init];
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-//    [refreshControl beginRefreshing];
 }
 
 #pragma mark - Refresh And Load More
@@ -36,13 +36,16 @@
     _urlString=urlString;
 }
 
--(void)refresh
+-(void)firstLoad
 {
     
-    [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:2];
+}
+
+-(void)refresh
+{
 //    [self.dataSource removeAllObjects];
     
-//    NSString* url=@"http://api.change.so/v1/videos/ranking.json";
+//    NSString* url=@"ht tp://api.change.so/v1/videos/ranking.json";
 //    NSDictionary* par=@{@"page":@"1",@"per_page":@"20",@"since":@"weekly"};
 //    [ZZHttpTool get:url params:par success:^(NSDictionary *responseObject) {
 //        
@@ -51,9 +54,9 @@
 //    }];
 }
 
--(void)stopRefresh
+-(void)stopRefreshAfterSeconds
 {
-    [self.refreshControl endRefreshing];
+    [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:2];
 }
 
 //-(void)loadMore
@@ -74,6 +77,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
+}
+
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
 }
 
 /*

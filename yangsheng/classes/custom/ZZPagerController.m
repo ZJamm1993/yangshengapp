@@ -143,10 +143,10 @@
             [vi removeFromSuperview];
             [contentView addSubview:vi];
             if (i==0) {
-                vi.userInteractionEnabled=YES;
+//                vi.userInteractionEnabled=YES;
             }
             else {
-                vi.userInteractionEnabled=NO;
+//                vi.userInteractionEnabled=NO;
                 vi.hidden=YES;
             }
             
@@ -165,7 +165,7 @@
         for (int i=0;i<controllers.count;i++) {
             UIViewController* vc=[controllers objectAtIndex:i];
             BOOL isThat=(index==i);
-            vc.view.userInteractionEnabled=isThat;
+//            vc.view.userInteractionEnabled=isThat;
             vc.view.hidden=!isThat;
         }
     }

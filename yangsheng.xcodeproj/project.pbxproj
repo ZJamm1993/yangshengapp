@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395247B91F111D5E000A6E20 /* PlayerController.m */; };
+		395247BD1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 395247BC1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m */; };
+		395247C21F11354E000A6E20 /* HomeMonthStarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 395247C11F11354E000A6E20 /* HomeMonthStarCell.m */; };
 		395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */; };
 		395C5C041F0FF8BF008B74D5 /* ClassroomRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C031F0FF8BF008B74D5 /* ClassroomRootViewController.m */; };
 		396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */; };
@@ -30,7 +33,6 @@
 		8FADBE4D1F0F1D81002F5911 /* HomeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FADBE4B1F0F1D81002F5911 /* HomeHeaderCell.xib */; };
 		8FADBE501F0F28DC002F5911 /* HomeProductHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBE4F1F0F28DC002F5911 /* HomeProductHeaderCell.m */; };
 		8FADBE521F0F291B002F5911 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FADBE511F0F291B002F5911 /* Home.storyboard */; };
-		8FADBE551F0F2BA4002F5911 /* HomeProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBE541F0F2BA4002F5911 /* HomeProductCell.m */; };
 		8FADBE581F0F2C4D002F5911 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBE571F0F2C4D002F5911 /* BaseModel.m */; };
 		8FADBE5F1F0F2E6E002F5911 /* HomeHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBE5E1F0F2E6E002F5911 /* HomeHttpTool.m */; };
 		8FADBE621F0F304F002F5911 /* ModelProductClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBE611F0F304F002F5911 /* ModelProductClass.m */; };
@@ -54,10 +56,8 @@
 		8FADBEA31F0F39BF002F5911 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBE8D1F0F39BF002F5911 /* UIImageView+WebCache.m */; };
 		8FADBEAA1F0F3B62002F5911 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEA71F0F3B62002F5911 /* UIView+WebCache.m */; };
 		8FADBEAB1F0F3B62002F5911 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEA91F0F3B62002F5911 /* UIView+WebCacheOperation.m */; };
-		8FADBEAE1F0F41F5002F5911 /* HomeQAHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEAD1F0F41F5002F5911 /* HomeQAHeaderCell.m */; };
 		8FADBEB11F0F4206002F5911 /* HomeQACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEB01F0F4206002F5911 /* HomeQACell.m */; };
 		8FADBEB41F0F5312002F5911 /* ModelQA.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEB31F0F5312002F5911 /* ModelQA.m */; };
-		8FADBEB81F0F5C17002F5911 /* HomeFounderHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEB71F0F5C17002F5911 /* HomeFounderHeaderCell.m */; };
 		8FADBEBB1F0F5C40002F5911 /* HomeFounderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEBA1F0F5C40002F5911 /* HomeFounderCell.m */; };
 		8FADBEC61F0F6B22002F5911 /* ModelFounder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEC51F0F6B22002F5911 /* ModelFounder.m */; };
 		8FADBEC91F0F7E60002F5911 /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEC81F0F7E60002F5911 /* AdvertiseView.m */; };
@@ -65,6 +65,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		395247B81F111D5E000A6E20 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
+		395247B91F111D5E000A6E20 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
+		395247BB1F112E7C000A6E20 /* HomeEnterprisePublicityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeEnterprisePublicityCell.h; sourceTree = "<group>"; };
+		395247BC1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeEnterprisePublicityCell.m; sourceTree = "<group>"; };
+		395247C01F11354E000A6E20 /* HomeMonthStarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMonthStarCell.h; sourceTree = "<group>"; };
+		395247C11F11354E000A6E20 /* HomeMonthStarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMonthStarCell.m; sourceTree = "<group>"; };
 		395C5BFF1F0FF6C4008B74D5 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		395C5C021F0FF8BF008B74D5 /* ClassroomRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomRootViewController.h; sourceTree = "<group>"; };
@@ -108,8 +114,6 @@
 		8FADBE4E1F0F28DC002F5911 /* HomeProductHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProductHeaderCell.h; sourceTree = "<group>"; };
 		8FADBE4F1F0F28DC002F5911 /* HomeProductHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeProductHeaderCell.m; sourceTree = "<group>"; };
 		8FADBE511F0F291B002F5911 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		8FADBE531F0F2BA4002F5911 /* HomeProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProductCell.h; sourceTree = "<group>"; };
-		8FADBE541F0F2BA4002F5911 /* HomeProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeProductCell.m; sourceTree = "<group>"; };
 		8FADBE561F0F2C4D002F5911 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		8FADBE571F0F2C4D002F5911 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		8FADBE5D1F0F2E6E002F5911 /* HomeHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHttpTool.h; sourceTree = "<group>"; };
@@ -157,14 +161,10 @@
 		8FADBEA71F0F3B62002F5911 /* UIView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCache.m"; sourceTree = "<group>"; };
 		8FADBEA81F0F3B62002F5911 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		8FADBEA91F0F3B62002F5911 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		8FADBEAC1F0F41F5002F5911 /* HomeQAHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeQAHeaderCell.h; sourceTree = "<group>"; };
-		8FADBEAD1F0F41F5002F5911 /* HomeQAHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeQAHeaderCell.m; sourceTree = "<group>"; };
 		8FADBEAF1F0F4206002F5911 /* HomeQACell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeQACell.h; sourceTree = "<group>"; };
 		8FADBEB01F0F4206002F5911 /* HomeQACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeQACell.m; sourceTree = "<group>"; };
 		8FADBEB21F0F5312002F5911 /* ModelQA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelQA.h; sourceTree = "<group>"; };
 		8FADBEB31F0F5312002F5911 /* ModelQA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelQA.m; sourceTree = "<group>"; };
-		8FADBEB61F0F5C17002F5911 /* HomeFounderHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFounderHeaderCell.h; sourceTree = "<group>"; };
-		8FADBEB71F0F5C17002F5911 /* HomeFounderHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFounderHeaderCell.m; sourceTree = "<group>"; };
 		8FADBEB91F0F5C40002F5911 /* HomeFounderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFounderCell.h; sourceTree = "<group>"; };
 		8FADBEBA1F0F5C40002F5911 /* HomeFounderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFounderCell.m; sourceTree = "<group>"; };
 		8FADBEC41F0F6B22002F5911 /* ModelFounder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelFounder.h; sourceTree = "<group>"; };
@@ -186,6 +186,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		395247BE1F11351F000A6E20 /* HomeStory */ = {
+			isa = PBXGroup;
+			children = (
+				8FADBE491F0F1D81002F5911 /* HomeHeaderCell.h */,
+				8FADBE4A1F0F1D81002F5911 /* HomeHeaderCell.m */,
+				8FADBE4B1F0F1D81002F5911 /* HomeHeaderCell.xib */,
+				8FADBE4E1F0F28DC002F5911 /* HomeProductHeaderCell.h */,
+				8FADBE4F1F0F28DC002F5911 /* HomeProductHeaderCell.m */,
+				8FADBE641F0F361B002F5911 /* HomeProductClassCell.h */,
+				8FADBE651F0F361B002F5911 /* HomeProductClassCell.m */,
+				8FADBEAF1F0F4206002F5911 /* HomeQACell.h */,
+				8FADBEB01F0F4206002F5911 /* HomeQACell.m */,
+				8FADBEB91F0F5C40002F5911 /* HomeFounderCell.h */,
+				8FADBEBA1F0F5C40002F5911 /* HomeFounderCell.m */,
+				8FADBEC71F0F7E60002F5911 /* AdvertiseView.h */,
+				8FADBEC81F0F7E60002F5911 /* AdvertiseView.m */,
+				395247BB1F112E7C000A6E20 /* HomeEnterprisePublicityCell.h */,
+				395247BC1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m */,
+			);
+			name = HomeStory;
+			sourceTree = "<group>";
+		};
+		395247BF1F113531000A6E20 /* HomeTeam */ = {
+			isa = PBXGroup;
+			children = (
+				395247C01F11354E000A6E20 /* HomeMonthStarCell.h */,
+				395247C11F11354E000A6E20 /* HomeMonthStarCell.m */,
+			);
+			name = HomeTeam;
+			sourceTree = "<group>";
+		};
 		396910AA1F0E855E00EF6D52 /* classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +246,8 @@
 				8FADBE571F0F2C4D002F5911 /* BaseModel.m */,
 				395C5BFF1F0FF6C4008B74D5 /* BaseWebViewController.h */,
 				395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */,
+				395247B81F111D5E000A6E20 /* PlayerController.h */,
+				395247B91F111D5E000A6E20 /* PlayerController.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -243,6 +276,7 @@
 		396910C01F0E858500EF6D52 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				8FADBE511F0F291B002F5911 /* Home.storyboard */,
 				396910C41F0E864200EF6D52 /* HomeRootViewController.h */,
 				396910C51F0E864200EF6D52 /* HomeRootViewController.m */,
 				396910C71F0E86EE00EF6D52 /* HomeStoryViewController.h */,
@@ -253,7 +287,6 @@
 				8FADBE401F0F1A80002F5911 /* HomeFeedbackViewController.m */,
 				8FADBE421F0F1A92002F5911 /* HomeNewsViewController.h */,
 				8FADBE431F0F1A92002F5911 /* HomeNewsViewController.m */,
-				8FADBE511F0F291B002F5911 /* Home.storyboard */,
 				8FADBE5D1F0F2E6E002F5911 /* HomeHttpTool.h */,
 				8FADBE5E1F0F2E6E002F5911 /* HomeHttpTool.m */,
 				8FADBE481F0F1C89002F5911 /* view */,
@@ -319,26 +352,9 @@
 		8FADBE481F0F1C89002F5911 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				395247BF1F113531000A6E20 /* HomeTeam */,
+				395247BE1F11351F000A6E20 /* HomeStory */,
 				8FADBEB51F0F531E002F5911 /* model */,
-				8FADBE491F0F1D81002F5911 /* HomeHeaderCell.h */,
-				8FADBE4A1F0F1D81002F5911 /* HomeHeaderCell.m */,
-				8FADBE4B1F0F1D81002F5911 /* HomeHeaderCell.xib */,
-				8FADBE4E1F0F28DC002F5911 /* HomeProductHeaderCell.h */,
-				8FADBE4F1F0F28DC002F5911 /* HomeProductHeaderCell.m */,
-				8FADBE531F0F2BA4002F5911 /* HomeProductCell.h */,
-				8FADBE541F0F2BA4002F5911 /* HomeProductCell.m */,
-				8FADBE641F0F361B002F5911 /* HomeProductClassCell.h */,
-				8FADBE651F0F361B002F5911 /* HomeProductClassCell.m */,
-				8FADBEAC1F0F41F5002F5911 /* HomeQAHeaderCell.h */,
-				8FADBEAD1F0F41F5002F5911 /* HomeQAHeaderCell.m */,
-				8FADBEAF1F0F4206002F5911 /* HomeQACell.h */,
-				8FADBEB01F0F4206002F5911 /* HomeQACell.m */,
-				8FADBEB61F0F5C17002F5911 /* HomeFounderHeaderCell.h */,
-				8FADBEB71F0F5C17002F5911 /* HomeFounderHeaderCell.m */,
-				8FADBEB91F0F5C40002F5911 /* HomeFounderCell.h */,
-				8FADBEBA1F0F5C40002F5911 /* HomeFounderCell.m */,
-				8FADBEC71F0F7E60002F5911 /* AdvertiseView.h */,
-				8FADBEC81F0F7E60002F5911 /* AdvertiseView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -480,7 +496,6 @@
 				395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */,
 				8FADBE9E1F0F39BF002F5911 /* UIButton+WebCache.m in Sources */,
 				8FADBE9C1F0F39BF002F5911 /* SDWebImageManager.m in Sources */,
-				8FADBEB81F0F5C17002F5911 /* HomeFounderHeaderCell.m in Sources */,
 				8FADBE441F0F1A92002F5911 /* HomeNewsViewController.m in Sources */,
 				396910C61F0E864200EF6D52 /* HomeRootViewController.m in Sources */,
 				3971BC0C1F0E7047004016C2 /* AppDelegate.m in Sources */,
@@ -488,10 +503,10 @@
 				8FADBE471F0F1B5A002F5911 /* ZZUrlTool.m in Sources */,
 				8FADBE981F0F39BF002F5911 /* SDWebImageCompat.m in Sources */,
 				396910BF1F0E855E00EF6D52 /* ZZHttpTool.m in Sources */,
-				8FADBE551F0F2BA4002F5911 /* HomeProductCell.m in Sources */,
 				8FADBE501F0F28DC002F5911 /* HomeProductHeaderCell.m in Sources */,
 				8FADBEAB1F0F3B62002F5911 /* UIView+WebCacheOperation.m in Sources */,
 				8FADBE5F1F0F2E6E002F5911 /* HomeHttpTool.m in Sources */,
+				395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */,
 				396910BB1F0E855E00EF6D52 /* BaseViewController.m in Sources */,
 				8FADBEC91F0F7E60002F5911 /* AdvertiseView.m in Sources */,
 				8FADBEA31F0F39BF002F5911 /* UIImageView+WebCache.m in Sources */,
@@ -504,6 +519,7 @@
 				8FADBEBB1F0F5C40002F5911 /* HomeFounderCell.m in Sources */,
 				396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */,
 				8FADBEA21F0F39BF002F5911 /* UIImageView+HighlightedWebCache.m in Sources */,
+				395247C21F11354E000A6E20 /* HomeMonthStarCell.m in Sources */,
 				8FADBE661F0F361B002F5911 /* HomeProductClassCell.m in Sources */,
 				396910BE1F0E855E00EF6D52 /* ZZPagerController.m in Sources */,
 				3971BC091F0E7047004016C2 /* main.m in Sources */,
@@ -517,8 +533,8 @@
 				396910BD1F0E855E00EF6D52 /* TabbarController.m in Sources */,
 				396910CC1F0E870200EF6D52 /* HomeTeamViewController.m in Sources */,
 				396910C91F0E86EE00EF6D52 /* HomeStoryViewController.m in Sources */,
+				395247BD1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m in Sources */,
 				8FADBE961F0F39BF002F5911 /* SDImageCache.m in Sources */,
-				8FADBEAE1F0F41F5002F5911 /* HomeQAHeaderCell.m in Sources */,
 				8FADBEC61F0F6B22002F5911 /* ModelFounder.m in Sources */,
 				8FADBE9D1F0F39BF002F5911 /* SDWebImagePrefetcher.m in Sources */,
 				8FADBE621F0F304F002F5911 /* ModelProductClass.m in Sources */,
