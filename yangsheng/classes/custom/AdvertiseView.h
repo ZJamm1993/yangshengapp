@@ -18,6 +18,7 @@
 
 @interface AdvertiseView : UIView
 
++(instancetype)defaultAdvertiseView;
 @property (nonatomic,weak) id<AdvertiseViewDelegate> delegate;
 @property (nonatomic,strong) NSArray* picturesUrls;
 

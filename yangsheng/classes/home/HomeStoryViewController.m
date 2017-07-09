@@ -21,14 +21,29 @@
 
 #import "HomeEnterprisePublicityCell.h"
 
+#import "ButtonsCell.h"
+
 #import "HomeHttpTool.h"
 
-@interface HomeStoryViewController ()
+#import "ProductListViewController.h"
+#import "QAListViewController.h"
+
+typedef NS_ENUM(NSInteger,HomeStorySection)
 {
+    HomeStorySectionHeader,
+    HomeStorySectionProduct,
+    HomeStorySectionQuestion,
+    HomeStorySectionFounder,
+    HomeStorySectionEnterprise,
+    HomeStorySectionNumbers
+};
+
+@interface HomeStoryViewController ()<ButtonsCellDelegate>
+{
+    NSMutableArray* advsArray;
     NSMutableArray* productClassArray;
     NSMutableArray* qaArray;
     NSMutableArray* founderArray;
-    NSMutableArray* advsArray;
     NSMutableArray* enterArray;
     
     UITapGestureRecognizer* tapGesture;
@@ -42,11 +57,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    advHeader=[[AdvertiseView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width*0.6)];
-    advHeader.backgroundColor=[UIColor lightGrayColor];
+    advHeader=[AdvertiseView defaultAdvertiseView];;
     self.tableView.tableHeaderView=advHeader;
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"HomeHeaderCell" bundle:nil] forCellReuseIdentifier:@"HomeHeaderCell"];
+//    [self.tableView registerNib:[UINib nibWithNibName:@"HomeHeaderCell" bundle:nil] forCellReuseIdentifier:@"HomeHeaderCell"];
+    [self.tableView registerClass:[ButtonsCell class] forCellReuseIdentifier:@"TopButtonsCell"];
+    
     tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureDidTap:)];
     [self.tableView addGestureRecognizer:tapGesture];
     
@@ -71,10 +87,10 @@
 -(void)getDataUsingCache:(BOOL)isCache
 {
     //
-    [HomeHttpTool getAdversSuccess:^(NSArray *datasource) {
+    [HomeHttpTool getAdversType:1 success:^(NSArray *datasource) {
         advsArray=[NSMutableArray arrayWithArray:datasource];
         NSMutableArray* pics=[NSMutableArray array];
-        for (ModelAdvs* ad in advsArray) {
+        for (BaseModel* ad in advsArray) {
             NSString* th=ad.thumb;
             NSString* fu=[ZZUrlTool fullUrlWithTail:th];
             [pics addObject:fu];
@@ -99,6 +115,12 @@
         founderArray=[NSMutableArray arrayWithArray:datasource];
         [self.tableView reloadData];
     } isCache:isCache];
+    
+    //
+    [HomeHttpTool getEnterAdvSuccess:^(NSArray *datasource) {
+        enterArray=[NSMutableArray arrayWithArray:datasource];
+        [self.tableView reloadData];
+    } isCache:isCache];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,23 +130,23 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return HomeStorySectionNumbers;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==0) {
+    if (section==HomeStorySectionHeader) {
         return 1;
     }
-    else if(section==1)
+    else if(section==HomeStorySectionProduct)
     {
         return productClassArray.count+1;
     }
-    else if(section==2)
+    else if(section==HomeStorySectionQuestion)
     {
         return qaArray.count+1;
     }
-    else if(section==3)
+    else if(section==HomeStorySectionFounder)
     {
         NSInteger rs=founderArray.count/2;
         if (founderArray.count%2>0) {
@@ -132,9 +154,9 @@
         }
         return rs+1;
     }
-    else if(section==4)
+    else if(section==HomeStorySectionEnterprise)
     {
-#warning testing
+//#warning testing
         return 2;
     }
     return 0;
@@ -143,50 +165,54 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger sec=indexPath.section;
-    NSInteger row=indexPath.row;
-    if (sec==0) {
+//    NSInteger row=indexPath.row;
+    if (sec==HomeStorySectionHeader) {
         return 100;
     }
-    else if(sec==1)
+    else
     {
-        if (row==0) {
-            return 60;
-        }
-        else
-        {
-            return 200;
-        }
+        return UITableViewAutomaticDimension;
     }
-    else if(sec==2)
-    {
-        if (row==0) {
-            return 100;
-        }
-        else
-        {
-            return UITableViewAutomaticDimension;
-        }
-    }
-    else if(sec==3)
-    {
-        if (row==0) {
-            return 90;
-        }
-        else
-        {
-            return [[UIScreen mainScreen]bounds].size.width/2-25+35;
-        }
-    }
-    else if(sec==4)
-    {
-        if (row==0) {
-            return 90;
-        }
-        else
-        {
-            return UITableViewAutomaticDimension;
-        }
-    }
+//    else if(sec==HomeStorySectionProduct)
+//    {
+//        if (row==0) {
+//            return 60;
+//        }
+//        else
+//        {
+//            return 200;
+//        }
+//    }
+//    else if(sec==HomeStorySectionQuestion)
+//    {
+//        if (row==0) {
+//            return 100;
+//        }
+//        else
+//        {
+//            return UITableViewAutomaticDimension;
+//        }
+//    }
+//    else if(sec==HomeStorySectionFounder)
+//    {
+//        if (row==0) {
+//            return 90;
+//        }
+//        else
+//        {
+//            return UITableViewAutomaticDimension;//[[UIScreen mainScreen]bounds].size.width/2-25+35;
+//        }
+//    }
+//    else if(sec==HomeStorySectionEnterprise)
+//    {
+//        if (row==0) {
+//            return 90;
+//        }
+//        else
+//        {
+//            return UITableViewAutomaticDimension;
+//        }
+//    }
     return 0.0001;
 }
 
@@ -194,16 +220,19 @@
 {
     NSInteger sec=indexPath.section;
     NSInteger row=indexPath.row;
-    if (sec==0) {
-        HomeHeaderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeHeaderCell" forIndexPath:indexPath];
+    if (sec==HomeStorySectionHeader) {
+        ButtonsCell* c=[tableView dequeueReusableCellWithIdentifier:@"TopButtonsCell" forIndexPath:indexPath];
+        c.delegate=self;
+        c.buttonsTitles=[NSArray arrayWithObjects:@"品牌故事",@"新闻中心",@"在线咨询",@"防伪查询", nil];
+        c.buttonsImageNames=[NSArray arrayWithObjects:@"tab_home_h",@"tab_home_h",@"tab_home_h",@"tab_home_h", nil];
         return c;
     }
-    else if(sec==1)
+    else if(sec==HomeStorySectionProduct)
     {
         if (row==0) {
             HomeProductHeaderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeProductHeaderCell" forIndexPath:indexPath];
             NSMutableArray* arr=[NSMutableArray array];
-            for (ModelProductClass* pro in productClassArray) {
+            for (BaseModel* pro in productClassArray) {
                 NSString* name=pro.name;
                 if (name) {
                     [arr addObject:name];
@@ -216,13 +245,13 @@
         else
         {
             HomeProductClassCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeProductClassCell" forIndexPath:indexPath];
-            ModelProductClass* pro=[productClassArray objectAtIndex:row-1];
+            BaseModel* pro=[productClassArray objectAtIndex:row-1];
             c.productName.text=pro.name;
             [c.productThumb sd_setImageWithURL:[pro.thumb urlWithMainUrl]];
             return c;
         }
     }
-    else if(sec==2)
+    else if(sec==HomeStorySectionQuestion)
     {
         if (row==0) {
             UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeQAHeaderCell" forIndexPath:indexPath];
@@ -231,14 +260,14 @@
         else
         {
             HomeQACell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeQACell" forIndexPath:indexPath];
-            ModelQA* qa=[qaArray objectAtIndex:row-1];
+            BaseModel* qa=[qaArray objectAtIndex:row-1];
             c.qaTitleLabel.text=[NSString stringWithFormat:@"# %@",qa.post_title];
             c.qaContentLabel.text=qa.post_excerpt;
             c.qaReadLabel.text=[NSString stringWithFormat:@"%ld阅览",(long)qa.post_hits];
             return c;
         }
     }
-    else if(sec==3)
+    else if(sec==HomeStorySectionFounder)
     {
         if (row==0) {
             UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeFounderHeaderCell" forIndexPath:indexPath];
@@ -265,7 +294,7 @@
             return c;
         }
     }
-    else if(sec==4)
+    else if(sec==HomeStorySectionEnterprise)
     {
         if (row==0) {
             UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomePublicityHeaderCell" forIndexPath:indexPath];
@@ -274,6 +303,12 @@
         else
         {
             HomeEnterprisePublicityCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeEnterprisePublicityCell" forIndexPath:indexPath];
+            BaseModel* en=[enterArray objectAtIndex:row-1];
+            c.pubContentLabel.text=en.ios_content;
+            c.pubTitleLabel.text=en.post_title;
+            [c.pubImageView sd_setImageWithURL:[en.thumb urlWithMainUrl]];
+//            [c.webView loadHTMLString:en.post_content baseURL:nil];
+//            c.webView.delegate=self;
             return c;
         }
     }
@@ -299,14 +334,14 @@
         NSInteger sec=indexPath.section;
         NSInteger row=indexPath.row;
         
-        if (sec==3) {
+        if (sec==HomeStorySectionFounder) {
             if (row>0) {
                 NSInteger tr=row-1;
                 NSInteger leftIndex=tr*2;
                 NSInteger rightIndex=leftIndex+1;
                 BOOL left=point.x<[[UIScreen mainScreen]bounds].size.width/2;
                 
-                ModelFounder* unknownFounder=nil;
+                BaseModel* unknownFounder=nil;
                 
                 if (left) {
                     if (leftIndex<founderArray.count) {
@@ -322,7 +357,40 @@
                 NSLog(@"founder %@",unknownFounder.description);
             }
         }
-        
+        else if(sec==HomeStorySectionProduct)
+        {
+            NSInteger tr=row-1;
+            BaseModel* pro=[productClassArray objectAtIndex:tr];
+            NSString* cid=pro.cid;
+            NSString* title=pro.name;
+            
+            ProductListViewController* list=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductListViewController"];
+            list.title=title;
+            list.idd=cid;
+            [self.navigationController pushViewController:list animated:YES];
+        }
+        else if(sec==HomeStorySectionQuestion)
+        {
+            if (row==0) {
+                QAListViewController* qa=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"QAListViewController"];
+                [self.navigationController pushViewController:qa animated:YES];
+            }
+            else
+            {
+                ////
+            }
+        }
+    }
+}
+
+-(void)buttonsCell:(ButtonsCell *)cell didClickedIndex:(NSInteger)index
+{
+    if (index==0) {
+        BaseWebViewController* we=[[BaseWebViewController alloc]init];
+        [we loadWithCustomUrl:[@"/Content/Page/show_brand" urlWithMainUrl] complete:^{
+            
+        }];
+        [self.navigationController pushViewController:we animated:YES];
     }
 }
 

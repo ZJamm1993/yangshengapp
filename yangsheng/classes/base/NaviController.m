@@ -8,7 +8,7 @@
 
 #import "NaviController.h"
 
-@interface NaviController ()
+@interface NaviController ()<UINavigationControllerDelegate>
 
 @end
 
@@ -17,7 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.delegate=self;
+    
     self.navigationBar.translucent=NO;
+    
+    self.navigationBar.tintColor=gray(50);
     // Do any additional setup after loading the view.
 }
 
@@ -34,7 +38,14 @@
     }
     [super pushViewController:viewController animated:animated];
     
-    
+//    UIBarButtonItem* ba=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    viewController.navigationItem.backBarButtonItem=ba;
+}
+
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    UIBarButtonItem* ba=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    viewController.navigationItem.backBarButtonItem=ba;
 }
 
 @end

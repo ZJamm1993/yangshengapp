@@ -10,4 +10,7 @@
 
 @interface HomeFeedbackViewController : BaseTableViewController
 
+@property (nonatomic,assign) BOOL isOneKindList;
+@property (nonatomic,assign) NSString* cid;
+
 @end

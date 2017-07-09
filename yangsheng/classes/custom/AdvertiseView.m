@@ -18,11 +18,18 @@
 
 @implementation AdvertiseView
 
++(instancetype)defaultAdvertiseView
+{
+    AdvertiseView* a=[[AdvertiseView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.width*0.6)];
+    a.backgroundColor=[UIColor lightGrayColor];
+    return a;
+}
+
 -(void)setPicturesUrls:(NSArray *)picturesUrls
 {
     if (!timer) {
-        timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(scrollToNextPage) userInfo:nil repeats:YES];
-        [timer setFireDate:[NSDate date]];
+        timer=[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scrollToNextPage) userInfo:nil repeats:YES];
+        [timer performSelector:@selector(setFireDate:) withObject:[NSDate date] afterDelay:5];
     }
     _picturesUrls=[NSArray arrayWithArray:picturesUrls];
     
@@ -48,6 +55,8 @@
     for (int i=0; i<picturesUrls.count; i++) {
         
         UIImageView* img=[[UIImageView alloc]initWithFrame:CGRectMake(w*i, 0, w, h)];
+        img.contentMode=UIViewContentModeScaleAspectFill;
+        img.clipsToBounds=YES;
         [img sd_setImageWithURL:[NSURL URLWithString:[picturesUrls objectAtIndex:i]]];
         [scroll addSubview:img];
     }
@@ -70,6 +79,10 @@
     pageControl.currentPageIndicatorTintColor=pinkColor;
     pageControl.center=CGPointMake(w/2, h-20);
     [self addSubview:pageControl];
+    
+    if (picturesUrls.count<=1) {
+        pageControl.hidden=YES;
+    }
 }
 
 -(void)buttonClick:(UIButton*)btn
@@ -83,7 +96,7 @@
 
 -(void)scrollToPage:(NSInteger)page
 {
-    NSLog(@"to %d",page);
+//    NSLog(@"to %d",page);
     if (page>=_picturesUrls.count) {
         page=0;
     }

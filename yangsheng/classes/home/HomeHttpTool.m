@@ -17,7 +17,7 @@
         NSArray* data=[responseObject valueForKey:@"data"];
         NSMutableArray* datasource=[NSMutableArray array];
         for (NSDictionary* cl in data) {
-            ModelProductClass* class=[[ModelProductClass alloc]initWithDictionary:cl];
+            BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
         if (datasource.count>0) {
@@ -39,7 +39,7 @@
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];
         for (NSDictionary* cl in list) {
-            ModelQA* class=[[ModelQA alloc]initWithDictionary:cl];
+            BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
         if (datasource.count>0) {
@@ -60,7 +60,7 @@
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];
         for (NSDictionary* cl in list) {
-            ModelFounder* class=[[ModelFounder alloc]initWithDictionary:cl];
+            BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
         if (datasource.count>0) {
@@ -73,16 +73,15 @@
     }];
 }
 
-+(void)getAdversSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
++(void)getAdversType:(NSInteger)type success:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
-    
-    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Slide/index?cid=1"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:[NSString stringWithFormat:@"/Content/Slide/index?cid=%d",(int)type]];
     [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];
         for (NSDictionary* cl in list) {
-            ModelAdvs* class=[[ModelAdvs alloc]initWithDictionary:cl];
+            BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
         if (datasource.count>0) {
@@ -94,5 +93,181 @@
         
     }];
 }
+
++(void)getEnterAdvSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Page/show_corporate"];
+    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
+        NSDictionary* data=[responseObject valueForKey:@"data"];
+//        NSArray* list=[data valueForKey:@"list"];
+        BaseModel* en=[[BaseModel alloc] initWithDictionary:data];
+        NSArray* sour=[NSArray arrayWithObject:en];
+        if (sour.count>0) {
+            if (success) {
+                success(sour);
+            }
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
++(void)getMonthStarSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Page/show_monthstar"];
+    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
+        NSDictionary* data=[responseObject valueForKey:@"data"];
+        //        NSArray* list=[data valueForKey:@"list"];
+        BaseModel* en=[[BaseModel alloc] initWithDictionary:data];
+        NSArray* sour=[NSArray arrayWithObject:en];
+        if (sour.count>0) {
+            if (success) {
+                success(sour);
+            }
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
++(void)getTeamsSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Team/index"];
+    [self get:str params:@{@"page":@"1"} usingCache:isCache success:^(NSDictionary *responseObject) {
+        NSDictionary* data=[responseObject valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* datasource=[NSMutableArray array];
+        for (NSDictionary* cl in list) {
+            BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
+            [datasource addObject:class];
+        }
+        if (datasource.count>0) {
+            if (success) {
+                success(datasource);
+            }
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
++(void)getExpandSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Expand/index"];
+    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
+        NSDictionary* data=[responseObject valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* datasource=[NSMutableArray array];
+        for (NSDictionary* cl in list) {
+            BaseModel * class=[[BaseModel alloc]initWithDictionary:cl];
+            [datasource addObject:class];
+        }
+        if (datasource.count>0) {
+            if (success) {
+                success(datasource);
+            }
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
++(void)getProductListType:(NSInteger)type page:(NSInteger)page success:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSMutableDictionary* d=[self pageParams];
+    [d setValue:[NSNumber numberWithInteger:page] forKey:@"page"];
+    [d setValue:[NSNumber numberWithInteger:type] forKey:@"cid"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Goods/index"];
+    [self get:str params:d usingCache:isCache success:^(NSDictionary *resp) {
+        NSDictionary* data=[resp valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* sou=[NSMutableArray array];
+        for (NSDictionary* cl in list) {
+            BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
+            [sou addObject:m];
+        }
+        if (sou.count>0) {
+            if (success) {
+                success(sou);
+            }
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
++(void)getQAListPage:(NSInteger)page success:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSMutableDictionary* d=[self pageParams];
+    [d setValue:[NSNumber numberWithInteger:page] forKey:@"page"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Qa/index"];
+    [self get:str params:d usingCache:isCache success:^(NSDictionary *resp) {
+        NSDictionary* data=[resp valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* sou=[NSMutableArray array];
+        for (NSDictionary* cl in list) {
+            BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
+            [sou addObject:m];
+        }
+        if (sou.count>0) {
+            if (success) {
+                success(sou);
+            }
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
++(void)getFeedbackAllListSize:(NSInteger)size success:(void (^)(NSArray *,NSArray*))success isCache:(BOOL)isCache
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Case/complex"];
+    [self get:str params:@{@"pagesize":[NSNumber numberWithInteger:size]} usingCache:isCache success:^(NSDictionary *resp) {
+        NSArray* data=[resp valueForKey:@"data"];
+        NSMutableArray* secs=[NSMutableArray array];
+        NSMutableArray* rows=[NSMutableArray array];
+        for (NSDictionary* cc in data) {
+            BaseModel* s=[[BaseModel alloc]initWithDictionary:cc];
+            [secs addObject:s];
+            NSMutableArray* rar=[NSMutableArray array];
+            NSArray* list=[cc valueForKey:@"list"];
+            for (NSDictionary* ll in list) {
+                BaseModel* r=[[BaseModel alloc]initWithDictionary:ll];
+                [rar addObject:r];
+            }
+            [rows addObject:rar];
+        }
+        if (success) {
+            success(secs,rows);
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
++(void)getFeedbackListType:(NSInteger)type page:(NSInteger)page success:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSMutableDictionary* d=[self pageParams];
+    [d setValue:[NSNumber numberWithInteger:page] forKey:@"page"];
+    [d setValue:[NSNumber numberWithInteger:type] forKey:@"cid"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Case/index"];
+    [self get:str params:d usingCache:isCache success:^(NSDictionary *resp) {
+        NSDictionary* data=[resp valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* sou=[NSMutableArray array];
+        for (NSDictionary* cl in list) {
+            BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
+            [sou addObject:m];
+        }
+        if (sou.count>0) {
+            if (success) {
+                success(sou);
+            }
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
 
 @end

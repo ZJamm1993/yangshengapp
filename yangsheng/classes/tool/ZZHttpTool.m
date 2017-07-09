@@ -10,6 +10,14 @@
 
 @implementation ZZHttpTool
 
++(NSMutableDictionary*)pageParams
+{
+    NSMutableDictionary* d=[NSMutableDictionary dictionary];
+    [d setValue:@"1" forKey:@"page"];
+    [d setValue:@"20" forKey:@"pagesize"];
+    return d;
+}
+
 +(void)get:(NSString *)url params:(NSDictionary *)params usingCache:(BOOL)isCache success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure
 {
     [self requestMethod:@"GET" url:url params:params usingCache:isCache success:success failure:failure];

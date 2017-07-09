@@ -13,8 +13,13 @@
 @property (nonatomic,strong) NSMutableArray* dataSource;
 @property (nonatomic,strong) NSString* urlString;
 
+@property (nonatomic,assign) NSInteger currentPage;
+@property (nonatomic,assign) BOOL shouldLoadMore;
+
 -(void)firstLoad;
 -(void)refresh;
 -(void)stopRefreshAfterSeconds;
+
+-(void)loadMore;
 
 @end

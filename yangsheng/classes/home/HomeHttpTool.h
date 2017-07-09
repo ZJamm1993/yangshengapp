@@ -7,10 +7,15 @@
 //
 
 #import "ZZHttpTool.h"
-#import "ModelProductClass.h"
-#import "ModelQA.h"
-#import "ModelFounder.h"
-#import "ModelAdvs.h"
+#import "BaseModel.h"
+
+//#import "ModelProductClass.h"
+//#import "ModelQA.h"
+//#import "ModelFounder.h"
+//#import "ModelAdvs.h"
+//#import "ModelEnterpriseAdv.h"
+//#import "ModelMonthStar.h"
+//#import "ModelTeamExpand.h"
 
 @interface HomeHttpTool : ZZHttpTool
 
@@ -20,6 +25,22 @@
 
 +(void)getFoundersSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getAdversSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
++(void)getAdversType:(NSInteger)type success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
++(void)getEnterAdvSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
++(void)getMonthStarSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
++(void)getTeamsSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
++(void)getExpandSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
++(void)getProductListType:(NSInteger)type page:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
++(void)getQAListPage:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
++(void)getFeedbackAllListSize:(NSInteger)size success:(void(^) (NSArray* sections,NSArray* rows))success isCache:(BOOL)isCache;
+
++(void)getFeedbackListType:(NSInteger)type page:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
 @end

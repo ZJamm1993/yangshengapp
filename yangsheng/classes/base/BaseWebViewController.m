@@ -30,6 +30,42 @@
     return self;
 }
 
+-(void)loadWithCustomUrl:(NSURL *)url complete:(void (^)())completeblock
+{
+    [ZZHttpTool get:url.absoluteString params:nil usingCache:YES success:^(NSDictionary * res) {
+        NSDictionary* data=[res valueForKey:@"data"];
+        
+        NSString* title=[data valueForKey:@"post_title"];
+        NSString* content=[data valueForKey:@"post_content"];
+        
+        self.url=url;
+        self.html=content;
+        
+        [self.webView loadHTMLString:content baseURL:url];
+        
+        self.title=title;
+        if (completeblock) {
+            completeblock();
+        }
+    } failure:^(NSError * err) {
+        
+    }];
+}
+
+-(UIWebView*)webView
+{
+    if (!webv) {
+        webv=[[UIWebView alloc]initWithFrame:self.view.bounds];
+        [self.view addSubview:webv];
+    }
+    return webv;
+}
+
+-(void)setHtml:(NSString *)html
+{
+    _html=html;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -38,14 +74,19 @@
     
     webv.delegate=self;
     webv.scalesPageToFit=YES;
-    if (self.url) {
+    
+    if(self.html.length>0)
+    {
+        [webv loadHTMLString:self.html baseURL:self.url];
+    }
+    else if (self.url) {
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];
         [webv loadRequest:req];
     }
-    else if(self.html.length>0)
-    {
-        [webv loadHTMLString:self.html baseURL:nil];
-    }
+    
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
     // Do any additional setup after loading the view.
 }
 

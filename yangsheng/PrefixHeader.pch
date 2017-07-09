@@ -14,6 +14,8 @@
 #import "ZZHttpTool.h"
 #import "ZZUrlTool.h"
 #import "UIImageView+WebCache.h"
+#import "UIView+ext.h"
+#import "BaseWebViewController.h"
 
 //UIcolors
 

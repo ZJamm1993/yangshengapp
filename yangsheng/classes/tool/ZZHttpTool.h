@@ -15,4 +15,6 @@
 
 +(void)post:(NSString *)url params:(NSDictionary *)params success:(void(^)(NSDictionary* responseObject))success failure:(void(^)(NSError *error))failure;
 
++(NSMutableDictionary*)pageParams;
+
 @end

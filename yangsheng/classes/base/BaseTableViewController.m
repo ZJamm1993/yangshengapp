@@ -10,7 +10,6 @@
 
 @interface BaseTableViewController ()
 {
-//    UIRefreshControl* refreshControl;
 }
 @end
 
@@ -19,7 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    self.shouldLoadMore=NO;
+//    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
     self.tableView.estimatedRowHeight=100;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
@@ -59,6 +59,11 @@
     [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:2];
 }
 
+-(void)loadMore
+{
+    
+}
+
 //-(void)loadMore
 //{
 //    
@@ -83,7 +88,15 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    
+    if (self.shouldLoadMore) {
+        if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section])) {
+            [self loadMore];
+        }
+    }
 }
+
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

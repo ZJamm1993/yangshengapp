@@ -7,12 +7,13 @@
 //
 
 #import "HomeFounderCell.h"
+#import "BaseModel.h"
 
 @implementation HomeFounderCell
 
 - (void)awakeFromNib {
     // Initialization code
-    
+    /*
     CGFloat scrw=[[UIScreen mainScreen]bounds].size.width;
     
     CGFloat w2=scrw/2;
@@ -23,6 +24,7 @@
     
     self.leftCenter.constant=-w/2-5;
     self.rightCenter.constant=w/2+5;
+    */
 }
 
 -(void)setFounders:(NSArray *)founders
@@ -31,14 +33,14 @@
     self.rightView.hidden=YES;
     if(founders.count>=1)
     {
-        ModelFounder* f=[founders objectAtIndex:0];
+        BaseModel* f=[founders objectAtIndex:0];
         self.leftView.hidden=NO;
         [self.leftImage sd_setImageWithURL:[f.thumb urlWithMainUrl]];
         self.leftLebel.text=f.post_title;
         
     }
     if (founders.count>=2) {
-        ModelFounder* f2=[founders objectAtIndex:1];
+        BaseModel* f2=[founders objectAtIndex:1];
         self.rightView.hidden=NO;
         [self.rightImage sd_setImageWithURL:[f2.thumb urlWithMainUrl]];
         self.rightLabel.text=f2.post_title;

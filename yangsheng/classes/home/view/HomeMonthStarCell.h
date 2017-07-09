@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeMonthStarCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *starImageView;
+@property (weak, nonatomic) IBOutlet UILabel *starTitle;
+@property (weak, nonatomic) IBOutlet UILabel *starContent;
 
 @end
