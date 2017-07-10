@@ -10,10 +10,16 @@
 
 @interface BaseTableViewController ()
 {
+    AdvertiseView* advHeader;
 }
 @end
 
 @implementation BaseTableViewController
+
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,21 +70,12 @@
     
 }
 
-//-(void)loadMore
-//{
-//    
-//}
-
 -(void)reloadWithDictionary:(NSDictionary*)dict
 {
     
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
@@ -87,7 +84,7 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+//    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     
     if (self.shouldLoadMore) {
         if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section])) {
@@ -96,60 +93,36 @@
     }
 }
 
+#pragma mark - table view delegate
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+#pragma mark - Advertiseview header
+
+-(void)setAdvertiseHeaderViewWithPicturesUrls:(NSArray *)picturesUrls
+{
+    if (!advHeader) {
+        
+        advHeader=[AdvertiseView defaultAdvertiseView];
+        advHeader.delegate=self;
+    }
     
-    // Configure the cell...
-    
-    return cell;
+    advHeader.picturesUrls=picturesUrls;
+    self.tableView.tableHeaderView=picturesUrls.count>0?advHeader:nil;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)advertiseView:(AdvertiseView *)adver didSelectedIndex:(NSInteger)index
+{
+    NSLog(@"advertise:%@ did selected index:%d",advHeader,(int)index);
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void)setNothingFooterView
+{
+    NothingFooterCell* ff=[NothingFooterCell defaultFooterCell];
+    self.tableView.tableFooterView=ff;
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

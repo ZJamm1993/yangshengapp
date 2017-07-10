@@ -8,10 +8,6 @@
 
 #import "HomeStoryViewController.h"
 
-#import "AdvertiseView.h"
-
-#import "HomeHeaderCell.h"
-
 #import "HomeProductClassCell.h"
 #import "HomeProductHeaderCell.h"
 
@@ -27,6 +23,9 @@
 
 #import "ProductListViewController.h"
 #import "QAListViewController.h"
+#import "NeewsListViewController.h"
+
+#import "PlayerController.h"
 
 typedef NS_ENUM(NSInteger,HomeStorySection)
 {
@@ -47,8 +46,6 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     NSMutableArray* enterArray;
     
     UITapGestureRecognizer* tapGesture;
-    
-    AdvertiseView* advHeader;
 }
 @end
 
@@ -56,9 +53,6 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    advHeader=[AdvertiseView defaultAdvertiseView];;
-    self.tableView.tableHeaderView=advHeader;
     
 //    [self.tableView registerNib:[UINib nibWithNibName:@"HomeHeaderCell" bundle:nil] forCellReuseIdentifier:@"HomeHeaderCell"];
     [self.tableView registerClass:[ButtonsCell class] forCellReuseIdentifier:@"TopButtonsCell"];
@@ -95,7 +89,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
             NSString* fu=[ZZUrlTool fullUrlWithTail:th];
             [pics addObject:fu];
         }
-        advHeader.picturesUrls=pics;
+        [self setAdvertiseHeaderViewWithPicturesUrls:pics];
     } isCache:isCache];
     
     //
@@ -131,6 +125,19 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return HomeStorySectionNumbers;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 4;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        return 0.0001;
+    }
+    return 4;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -224,7 +231,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
         ButtonsCell* c=[tableView dequeueReusableCellWithIdentifier:@"TopButtonsCell" forIndexPath:indexPath];
         c.delegate=self;
         c.buttonsTitles=[NSArray arrayWithObjects:@"品牌故事",@"新闻中心",@"在线咨询",@"防伪查询", nil];
-        c.buttonsImageNames=[NSArray arrayWithObjects:@"tab_home_h",@"tab_home_h",@"tab_home_h",@"tab_home_h", nil];
+        c.buttonsImageNames=[NSArray arrayWithObjects:@"home_page",@"home_news",@"home_Consultation",@"home_Security", nil];
         return c;
     }
     else if(sec==HomeStorySectionProduct)
@@ -318,14 +325,6 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     }
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    //
-//    NSLog(@"tab:%@",indexPath.description);
-}
-
 -(void)tapGestureDidTap:(UITapGestureRecognizer*)ta
 {
     CGPoint point = [ta locationInView:self.tableView];
@@ -359,6 +358,9 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
         }
         else if(sec==HomeStorySectionProduct)
         {
+            if (row==0) {
+                return;
+            }
             NSInteger tr=row-1;
             BaseModel* pro=[productClassArray objectAtIndex:tr];
             NSString* cid=pro.cid;
@@ -380,6 +382,16 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
                 ////
             }
         }
+        else if(sec==HomeStorySectionEnterprise)
+        {
+            if (row>0) {
+                BaseModel* b=[enterArray objectAtIndex:row-1];
+                NSURL* mp4url=[b.mp4_path urlWithMainUrl];
+                PlayerController* player=[[PlayerController alloc]init];
+                player.url=mp4url;
+                [self presentMoviePlayerViewControllerAnimated:player];
+            }
+        }
     }
 }
 
@@ -391,6 +403,10 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
             
         }];
         [self.navigationController pushViewController:we animated:YES];
+    }
+    else if (index==1) {
+        NeewsListViewController* nl=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"NeewsListViewController"];
+        [self.navigationController pushViewController:nl animated:YES];
     }
 }
 

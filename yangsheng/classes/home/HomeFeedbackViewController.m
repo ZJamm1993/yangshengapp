@@ -12,16 +12,12 @@
 #import "HomeFeedBackCell.h"
 #import "HomeFeedBackHeaderCell.h"
 
-#import "AdvertiseView.h"
-
 @interface HomeFeedbackViewController ()<AdvertiseViewDelegate>
 {
     NSArray* sectionsArray;
     NSArray* rowsArray;
     
     NSArray* oneKindArray;
-    
-    AdvertiseView* adv;
     NSArray* advsArray;
 }
 @end
@@ -36,9 +32,6 @@
     }
     else
     {
-        adv=[AdvertiseView defaultAdvertiseView];
-        self.tableView.tableHeaderView=adv;
-        
         [self firstLoad];
     }
     // Do any additional setup after loading the view.
@@ -103,7 +96,7 @@
             NSString* fu=[ZZUrlTool fullUrlWithTail:th];
             [pics addObject:fu];
         }
-        adv.picturesUrls=pics;
+        [self setAdvertiseHeaderViewWithPicturesUrls:pics];
     } isCache:isCache];
     
     [HomeHttpTool getFeedbackAllListSize:2 success:^(NSArray *sections, NSArray *rows) {
@@ -128,6 +121,19 @@
     }
     NSArray* rows=[rowsArray objectAtIndex:section];
     return rows.count+1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 4;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        return 0.0001;
+    }
+    return 4;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,8 +8,6 @@
 
 #import "HomeTeamViewController.h"
 
-#import "AdvertiseView.h"
-
 #import "HomeMonthStarCell.h"
 #import "HomeFounderCell.h"
 #import "HomeTeamExtCell.h"
@@ -32,7 +30,6 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     NSMutableArray* starsArray;
     NSMutableArray* teamsArray;
     NSMutableArray* extsArray;
-    AdvertiseView* adv;
     UITapGestureRecognizer* tapGesture;
 }
 
@@ -43,10 +40,7 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    adv=[AdvertiseView defaultAdvertiseView];
-    self.tableView.tableHeaderView=adv;
-    
-    self.tableView.tableFooterView=[NothingFooterCell defaultFooterCell];
+    [self setNothingFooterView];
     
     tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureDidTap:)];
     [self.tableView addGestureRecognizer:tapGesture];
@@ -81,7 +75,7 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
             NSString* fu=[ZZUrlTool fullUrlWithTail:th];
             [pics addObject:fu];
         }
-        adv.picturesUrls=pics;
+        [self setAdvertiseHeaderViewWithPicturesUrls:pics];
     } isCache:isCache];
     
     //
@@ -111,7 +105,7 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==HomeTeamSectionStar) {
-        return starsArray.count;
+        return starsArray.count+1;
     }
     else if(section==HomeTeamSectionCom)
     {
@@ -128,20 +122,35 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     return 0;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return UITableViewAutomaticDimension;
+    return 4;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        return 0.0001;
+    }
+    return 4;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==HomeTeamSectionStar) {
-        HomeMonthStarCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeMonthStarCell" forIndexPath:indexPath];
-        BaseModel* sta=[starsArray objectAtIndex:indexPath.row];
-        [c.starImageView sd_setImageWithURL:[sta.thumb urlWithMainUrl]];
-        c.starTitle.text=sta.post_title;
-        c.starContent.text=sta.ios_content;
-        return c;
+        if (indexPath.row==0) {
+            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"MonthStarHeaderCell" forIndexPath:indexPath];
+            return c;
+        }
+        else
+        {
+            HomeMonthStarCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeMonthStarCell" forIndexPath:indexPath];
+            BaseModel* sta=[starsArray objectAtIndex:indexPath.row-1];
+            [c.starImageView sd_setImageWithURL:[sta.thumb urlWithMainUrl]];
+            c.starTitle.text=sta.post_title;
+            c.starContent.text=sta.ios_content;
+            return c;
+        }
     }
     else if(indexPath.section==HomeTeamSectionCom)
     {

@@ -84,9 +84,7 @@
         [webv loadRequest:req];
     }
     
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
+    
     // Do any additional setup after loading the view.
 }
 
@@ -108,6 +106,12 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    if(navigationType==UIWebViewNavigationTypeLinkClicked)
+    {
+        
+        return NO;
+        
+    }
     return YES;
 }
 

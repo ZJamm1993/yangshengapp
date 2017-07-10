@@ -23,7 +23,8 @@
 +(instancetype)defaultFooterCell
 {
     NothingFooterCell* f=[[[UINib nibWithNibName:@"NothingFooterCell" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
-    
+    f.backgroundColor=[UIColor clearColor];
+    f.contentView.backgroundColor=[UIColor clearColor];
     return f;
 }
 

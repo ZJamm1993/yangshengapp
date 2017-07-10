@@ -1,21 +1,28 @@
 //
-//  BaseViewController.m
+//  PersonalRegisterViewController.m
 //  yangsheng
 //
-//  Created by jam on 17/7/6.
+//  Created by Macx on 17/7/10.
 //  Copyright © 2017年 jam. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "PersonalRegisterViewController.h"
 
-@interface BaseViewController ()
+@interface PersonalRegisterViewController ()
+
+
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
 
 @end
 
-@implementation BaseViewController
+@implementation PersonalRegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"注册";
     // Do any additional setup after loading the view.
 }
 
@@ -23,10 +30,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
+- (IBAction)getCode:(id)sender {
+}
+- (IBAction)goToRegister:(id)sender {
+}
+- (IBAction)goToLogin:(id)sender {
 }
 
 /*

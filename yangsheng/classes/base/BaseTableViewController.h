@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AdvertiseView.h"
+#import "NothingFooterCell.h"
 
-@interface BaseTableViewController : UITableViewController
+@interface BaseTableViewController : UITableViewController<AdvertiseViewDelegate>
 
 @property (nonatomic,strong) NSMutableArray* dataSource;
 @property (nonatomic,strong) NSString* urlString;
@@ -21,5 +23,8 @@
 -(void)stopRefreshAfterSeconds;
 
 -(void)loadMore;
+
+-(void)setAdvertiseHeaderViewWithPicturesUrls:(NSArray*)picturesUrls;
+-(void)setNothingFooterView;
 
 @end
