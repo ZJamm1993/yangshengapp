@@ -164,7 +164,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     else if(section==HomeStorySectionEnterprise)
     {
 //#warning testing
-        return 2;
+        return enterArray.count+1;
     }
     return 0;
 }
@@ -354,6 +354,12 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
                     }
                 }
                 NSLog(@"founder %@",unknownFounder.description);
+                if (unknownFounder) {
+                    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_founder_detail urlWithMainUrl]];
+                    we.idd=unknownFounder.idd.integerValue;
+                    we.title=@"创始人";
+                    [self.navigationController pushViewController:we animated:YES];
+                }
             }
         }
         else if(sec==HomeStorySectionProduct)
@@ -380,16 +386,26 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
             else
             {
                 ////
+                BaseModel* m=[qaArray objectAtIndex:indexPath.row-1];
+                BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_QA_detail urlWithMainUrl]];
+                we.idd=m.idd.integerValue;
+                we.title=@"问答详情";
+                [self.navigationController pushViewController:we animated:YES];
             }
         }
         else if(sec==HomeStorySectionEnterprise)
         {
             if (row>0) {
-                BaseModel* b=[enterArray objectAtIndex:row-1];
-                NSURL* mp4url=[b.mp4_path urlWithMainUrl];
-                PlayerController* player=[[PlayerController alloc]init];
-                player.url=mp4url;
-                [self presentMoviePlayerViewControllerAnimated:player];
+                UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否观看企业视频?" message:@"可能会产生额外流量费用" preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+                [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    BaseModel* b=[enterArray objectAtIndex:row-1];
+                    NSURL* mp4url=[b.mp4_path urlWithMainUrl];
+                    PlayerController* player=[[PlayerController alloc]init];
+                    player.url=mp4url;
+                    [self presentMoviePlayerViewControllerAnimated:player];
+                }]];
+                [self presentViewController:alert animated:YES completion:nil];
             }
         }
     }
@@ -398,10 +414,8 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
 -(void)buttonsCell:(ButtonsCell *)cell didClickedIndex:(NSInteger)index
 {
     if (index==0) {
-        BaseWebViewController* we=[[BaseWebViewController alloc]init];
-        [we loadWithCustomUrl:[@"/Content/Page/show_brand" urlWithMainUrl] complete:^{
-            
-        }];
+        BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_brandStory urlWithMainUrl]];
+        we.title=@"品牌故事";
         [self.navigationController pushViewController:we animated:YES];
     }
     else if (index==1) {

@@ -100,6 +100,9 @@
     [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
 //        NSArray* list=[data valueForKey:@"list"];
+        if (data.count==0) {
+            return;
+        }
         BaseModel* en=[[BaseModel alloc] initWithDictionary:data];
         NSArray* sour=[NSArray arrayWithObject:en];
         if (sour.count>0) {

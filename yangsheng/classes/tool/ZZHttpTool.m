@@ -116,9 +116,10 @@
     NSData * data2 = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
     
     NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
+    
+    NSLog(@"%@",result);
     return result;
 }
-
 
 
 @end

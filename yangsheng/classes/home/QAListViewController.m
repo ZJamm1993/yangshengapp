@@ -86,4 +86,16 @@
     return ce;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    BaseModel* m=[data objectAtIndex:indexPath.row];
+    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_QA_detail urlWithMainUrl]];
+    we.idd=m.idd.integerValue;
+    we.title=@"问答详情";
+    [self.navigationController pushViewController:we animated:YES];
+    
+}
+
 @end

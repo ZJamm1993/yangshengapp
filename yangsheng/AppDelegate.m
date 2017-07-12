@@ -7,9 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "Reachability.h"
 
 @interface AppDelegate ()
-
+{
+    Reachability* reach;
+}
 @end
 
 @implementation AppDelegate
@@ -17,6 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    reach=[Reachability reachabilityForInternetConnection];
+    [reach startNotifier];
+    
     return YES;
 }
 

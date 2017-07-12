@@ -17,4 +17,6 @@
 
 +(NSMutableDictionary*)pageParams;
 
++(NSDictionary*)dictionaryWithResponseData:(NSData*)data;
+
 @end

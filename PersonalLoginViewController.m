@@ -8,6 +8,9 @@
 
 #import "PersonalLoginViewController.h"
 #import "PersonalRegisterViewController.h"
+#import "PersonalForgetPasswordViewController.h"
+
+#import "PersonalHttpTool.h"
 
 @interface PersonalLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -33,27 +36,35 @@
 - (IBAction)loginWithWeChat:(id)sender {
 }
 - (IBAction)loginWithUserNamePassword:(id)sender {
+    NSString* mo=self.usernameTextField.text;
+    NSString* pa=self.passwordTextField.text;
+    if (mo.length>0&&pa.length>0) {
+        [MBProgressHUD showProgressMessage:@"正在登录.."];
+        [PersonalHttpTool loginUserWithMobile:mo password:pa success:^(UserModel *user) {
+            [MBProgressHUD hide];
+            if(user)
+            {
+                [UserModel saveUser:user];
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:user];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:@"用户名与密码不匹配"];
+            }
+        }];
+    }
 }
 - (IBAction)forgetPassword:(id)sender {
+    
+    PersonalForgetPasswordViewController* re=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalForgetPasswordViewController"];
+    [self.navigationController pushViewController:re animated:YES];
 }
+
 - (IBAction)goToRegister:(id)sender {
     PersonalRegisterViewController* re=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalRegisterViewController"];
     [self.navigationController pushViewController:re animated:YES];
 }
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

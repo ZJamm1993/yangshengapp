@@ -9,6 +9,7 @@
 #import "HomeRootViewController.h"
 #import "HomeStoryViewController.h"
 #import "HomeTeamViewController.h"
+#import "SystemMessageListViewController.h"
 
 @interface HomeRootViewController ()<ZZPagerControllerDataSource>
 
@@ -20,14 +21,19 @@
     [super viewDidLoad];
     self.dataSource=self;
     
-//    UINavigationBar* naviBar=self.navigationController.navigationBar;
-//    naviBar.shadowImage=[[UIImage alloc]init];
-    // Do any additional setup after loading the view.
+    UIBarButtonItem* msgBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_information"] style:UIBarButtonItemStylePlain target:self action:@selector(goToReadSystemMessage)];
+    self.navigationItem.rightBarButtonItem=msgBtn;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)goToReadSystemMessage
+{
+    SystemMessageListViewController* sys=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"SystemMessageListViewController"];
+    [self.navigationController pushViewController:sys animated:YES];
 }
 
 -(NSInteger)numbersOfChildControllersInPagerController:(ZZPagerController *)pager

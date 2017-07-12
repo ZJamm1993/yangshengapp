@@ -234,9 +234,26 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
                     }
                 }
                 NSLog(@"founder %@",unknownFounder.description);
+                if (unknownFounder) {
+                    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_team_detail urlWithMainUrl]];
+                    we.idd=unknownFounder.idd.integerValue;
+                    we.title=@"公司团队";
+                    [self.navigationController pushViewController:we animated:YES];
+                }
             }
         }
         
+        else if(sec==HomeTeamSectionStar)
+        {
+            if (row>0) {
+                NSInteger tr=row-1;
+                BaseModel* m=[teamsArray objectAtIndex:tr];
+                BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_star_detail urlWithMainUrl]];
+                we.idd=m.idd.integerValue;
+                we.title=@"每月之星";
+                [self.navigationController pushViewController:we animated:YES];
+            }
+        }
     }
 }
 

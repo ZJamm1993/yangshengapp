@@ -9,11 +9,16 @@
 #import "PersonalRootViewController.h"
 #import "PersonalHeaderCell.h"
 #import "PersonalLoginViewController.h"
+#import "PersonalAccountSettingViewController.h"
+
+#import "UserModel.h"
 
 @interface PersonalRootViewController ()<PersonalHeaderCellDelegate>
 {
     NSArray* imgsArray;
     NSArray* titsArray;
+    
+    UserModel* currentUser;
 }
 @end
 
@@ -29,6 +34,25 @@
     [self.tableView setTableFooterView:[[UIView alloc]init]];
     
     self.tableView.contentInset=UIEdgeInsetsMake(-20,0, 0, 0);
+    
+//    [self didLogin:nil];
+    
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didLogin:) name:LoginUserSuccessNotification object:nil];
+}
+
+//-(void)didLogin:(NSNotification*)noti
+//{
+//    if (noti) {
+//        NSLog(@"%@",noti);
+//    }
+//    [self refreshUser];
+//}
+
+-(void)refreshUser
+{
+    currentUser=[UserModel getUser];
+    self.isLoged=currentUser!=nil;
+    [self.tableView reloadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -37,6 +61,8 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [self refreshUser];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -79,6 +105,9 @@
         PersonalHeaderCell* cell=[tableView dequeueReusableCellWithIdentifier:@"PersonalHeaderCell" forIndexPath:indexPath];
         cell.isLoged=self.isLoged;
         cell.delegate=self;
+        cell.username.text=currentUser.user_nicename;
+        cell.userid.text=[NSString stringWithFormat:@"ID:%@",currentUser.mobile];
+        [cell.headImage sd_setImageWithURL:[currentUser.avatar urlWithMainUrl] placeholderImage:[UIImage imageNamed:@"user_tx"]];
         return cell;
     }
     else
@@ -97,8 +126,41 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section==0&&indexPath.row==0&&self.isLoged==NO) {
-        PersonalLoginViewController* lo=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalLoginViewController"];
-        [self.navigationController pushViewController:lo animated:YES];
+        [self goLoginPage];
+    }
+    else if(indexPath.section==4)
+    {
+        if (indexPath.row==0) {
+            if (self.isLoged) {
+                PersonalAccountSettingViewController* acc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalAccountSettingViewController"];
+                [self.navigationController pushViewController:acc animated:YES];
+            }
+            else
+            {
+                [self goLoginPage];
+            }
+        }
+    }
+}
+
+-(void)goLoginPage
+{
+    PersonalLoginViewController* lo=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalLoginViewController"];
+    [self.navigationController pushViewController:lo animated:YES];
+    
+}
+
+-(void)personalHeaderCell:(PersonalHeaderCell *)cell didSelectedScanButton:(UIButton *)btn
+{
+    
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+#warning testing login
+    if (scrollView.contentOffset.y<-100) {
+        [UserModel deleteUser];
+        [self refreshUser];
     }
 }
 

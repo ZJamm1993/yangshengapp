@@ -23,12 +23,3 @@
 }
 
 @end
-
-@implementation NSString(Url)
-
--(NSURL*)urlWithMainUrl
-{
-    return [NSURL URLWithString:[ZZUrlTool fullUrlWithTail:self]];
-}
-
-@end

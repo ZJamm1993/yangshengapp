@@ -10,4 +10,8 @@
 
 @interface BaseViewController : UIViewController
 
+-(void)startCountDownSeconds:(NSInteger)second;
+-(void)countingDownSeconds:(NSInteger)second;
+-(void)endingCountDown;
+
 @end

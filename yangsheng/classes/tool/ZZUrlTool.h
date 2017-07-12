@@ -15,9 +15,3 @@
 +(NSString*)fullUrlWithTail:(NSString*)tail;
 
 @end
-
-@interface NSString(Url)
-
--(NSURL*)urlWithMainUrl;
-
-@end

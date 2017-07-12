@@ -75,6 +75,26 @@
 		8FADBEAB1F0F3B62002F5911 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEA91F0F3B62002F5911 /* UIView+WebCacheOperation.m */; };
 		8FADBEB11F0F4206002F5911 /* HomeQACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEB01F0F4206002F5911 /* HomeQACell.m */; };
 		8FADBEBB1F0F5C40002F5911 /* HomeFounderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEBA1F0F5C40002F5911 /* HomeFounderCell.m */; };
+		8FC242B01F15B22F0064A845 /* PersonalForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242AF1F15B22F0064A845 /* PersonalForgetPasswordViewController.m */; };
+		8FC242B31F15B4A40064A845 /* PersonalHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242B21F15B4A40064A845 /* PersonalHttpTool.m */; };
+		8FC242B71F15B5F70064A845 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242B61F15B5F70064A845 /* UserModel.m */; };
+		8FC242BA1F15BD160064A845 /* NSDictionary+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242B91F15BD160064A845 /* NSDictionary+ext.m */; };
+		8FC242BE1F15C4F80064A845 /* ZZnotificationName.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242BD1F15C4F80064A845 /* ZZnotificationName.m */; };
+		8FC242C11F15C8750064A845 /* PersonalAccountSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242C01F15C8750064A845 /* PersonalAccountSettingViewController.m */; };
+		8FC242C51F15E5C60064A845 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242C41F15E5C60064A845 /* MBProgressHUD.m */; };
+		8FC242C71F15F7290064A845 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC242C61F15F7290064A845 /* SystemConfiguration.framework */; };
+		8FC242CB1F15F7900064A845 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242CA1F15F7900064A845 /* Reachability.m */; };
+		8FC242CE1F160C6B0064A845 /* PersonalChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242CD1F160C6B0064A845 /* PersonalChangePasswordViewController.m */; };
+		8FC242D11F1612A20064A845 /* NSString+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242D01F1612A20064A845 /* NSString+ext.m */; };
+		8FC242D51F16171E0064A845 /* Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FC242D21F16171E0064A845 /* Checkmark.png */; };
+		8FC242D61F16171E0064A845 /* Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FC242D31F16171E0064A845 /* Checkmark@2x.png */; };
+		8FC242D71F16171E0064A845 /* Checkmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FC242D41F16171E0064A845 /* Checkmark@3x.png */; };
+		8FC242DA1F16173E0064A845 /* MBProgressHUD+ZZCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242D91F16173E0064A845 /* MBProgressHUD+ZZCustom.m */; };
+		8FC242DD1F1621610064A845 /* PersonalChangeMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242DC1F1621610064A845 /* PersonalChangeMobileViewController.m */; };
+		8FC242E01F1626C70064A845 /* PersonalChangeNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242DF1F1626C70064A845 /* PersonalChangeNickNameViewController.m */; };
+		8FC242E21F162ADB0064A845 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242E11F162ADB0064A845 /* Foundation+Log.m */; };
+		8FC242E81F1630380064A845 /* SystemMessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242E71F1630380064A845 /* SystemMessageListViewController.m */; };
+		8FC242EB1F1630B60064A845 /* SystemMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242EA1F1630B60064A845 /* SystemMsgCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +231,41 @@
 		8FADBEB01F0F4206002F5911 /* HomeQACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeQACell.m; sourceTree = "<group>"; };
 		8FADBEB91F0F5C40002F5911 /* HomeFounderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFounderCell.h; sourceTree = "<group>"; };
 		8FADBEBA1F0F5C40002F5911 /* HomeFounderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFounderCell.m; sourceTree = "<group>"; };
+		8FC242AE1F15B22F0064A845 /* PersonalForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalForgetPasswordViewController.h; sourceTree = SOURCE_ROOT; };
+		8FC242AF1F15B22F0064A845 /* PersonalForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalForgetPasswordViewController.m; sourceTree = SOURCE_ROOT; };
+		8FC242B11F15B4A40064A845 /* PersonalHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHttpTool.h; sourceTree = SOURCE_ROOT; };
+		8FC242B21F15B4A40064A845 /* PersonalHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHttpTool.m; sourceTree = SOURCE_ROOT; };
+		8FC242B51F15B5F70064A845 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = SOURCE_ROOT; };
+		8FC242B61F15B5F70064A845 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = SOURCE_ROOT; };
+		8FC242B81F15BD160064A845 /* NSDictionary+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ext.h"; sourceTree = "<group>"; };
+		8FC242B91F15BD160064A845 /* NSDictionary+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ext.m"; sourceTree = "<group>"; };
+		8FC242BC1F15C4F80064A845 /* ZZnotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZnotificationName.h; sourceTree = "<group>"; };
+		8FC242BD1F15C4F80064A845 /* ZZnotificationName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZnotificationName.m; sourceTree = "<group>"; };
+		8FC242BF1F15C8750064A845 /* PersonalAccountSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalAccountSettingViewController.h; path = yangsheng/classes/tool/PersonalAccountSettingViewController.h; sourceTree = SOURCE_ROOT; };
+		8FC242C01F15C8750064A845 /* PersonalAccountSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalAccountSettingViewController.m; path = yangsheng/classes/tool/PersonalAccountSettingViewController.m; sourceTree = SOURCE_ROOT; };
+		8FC242C31F15E5C60064A845 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		8FC242C41F15E5C60064A845 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		8FC242C61F15F7290064A845 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8FC242C91F15F7900064A845 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8FC242CA1F15F7900064A845 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8FC242CC1F160C6B0064A845 /* PersonalChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalChangePasswordViewController.h; path = yangsheng/classes/tool/PersonalChangePasswordViewController.h; sourceTree = SOURCE_ROOT; };
+		8FC242CD1F160C6B0064A845 /* PersonalChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalChangePasswordViewController.m; path = yangsheng/classes/tool/PersonalChangePasswordViewController.m; sourceTree = SOURCE_ROOT; };
+		8FC242CF1F1612A20064A845 /* NSString+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ext.h"; sourceTree = "<group>"; };
+		8FC242D01F1612A20064A845 /* NSString+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ext.m"; sourceTree = "<group>"; };
+		8FC242D21F16171E0064A845 /* Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkmark.png; sourceTree = "<group>"; };
+		8FC242D31F16171E0064A845 /* Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@2x.png"; sourceTree = "<group>"; };
+		8FC242D41F16171E0064A845 /* Checkmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@3x.png"; sourceTree = "<group>"; };
+		8FC242D81F16173E0064A845 /* MBProgressHUD+ZZCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+ZZCustom.h"; sourceTree = "<group>"; };
+		8FC242D91F16173E0064A845 /* MBProgressHUD+ZZCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+ZZCustom.m"; sourceTree = "<group>"; };
+		8FC242DB1F1621610064A845 /* PersonalChangeMobileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalChangeMobileViewController.h; path = yangsheng/classes/tool/MBProgressHUD/PersonalChangeMobileViewController.h; sourceTree = SOURCE_ROOT; };
+		8FC242DC1F1621610064A845 /* PersonalChangeMobileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalChangeMobileViewController.m; path = yangsheng/classes/tool/MBProgressHUD/PersonalChangeMobileViewController.m; sourceTree = SOURCE_ROOT; };
+		8FC242DE1F1626C70064A845 /* PersonalChangeNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalChangeNickNameViewController.h; path = yangsheng/classes/tool/MBProgressHUD/PersonalChangeNickNameViewController.h; sourceTree = SOURCE_ROOT; };
+		8FC242DF1F1626C70064A845 /* PersonalChangeNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalChangeNickNameViewController.m; path = yangsheng/classes/tool/MBProgressHUD/PersonalChangeNickNameViewController.m; sourceTree = SOURCE_ROOT; };
+		8FC242E11F162ADB0064A845 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		8FC242E61F1630380064A845 /* SystemMessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMessageListViewController.h; sourceTree = "<group>"; };
+		8FC242E71F1630380064A845 /* SystemMessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessageListViewController.m; sourceTree = "<group>"; };
+		8FC242E91F1630B60064A845 /* SystemMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMsgCell.h; sourceTree = "<group>"; };
+		8FC242EA1F1630B60064A845 /* SystemMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMsgCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +273,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC242C71F15F7290064A845 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +297,8 @@
 				8FA936051F120E7A001E29CF /* ProductCell.m */,
 				8F54BDB91F132D90009E3C0B /* NeewsCell.h */,
 				8F54BDBA1F132D90009E3C0B /* NeewsCell.m */,
+				8FC242E91F1630B60064A845 /* SystemMsgCell.h */,
+				8FC242EA1F1630B60064A845 /* SystemMsgCell.m */,
 			);
 			name = HomeStory;
 			sourceTree = "<group>";
@@ -305,6 +363,10 @@
 				8FA935E81F11C9D0001E29CF /* NothingFooterCell.xib */,
 				8FA935F71F11E856001E29CF /* UIView+ext.h */,
 				8FA935F81F11E856001E29CF /* UIView+ext.m */,
+				8FC242B81F15BD160064A845 /* NSDictionary+ext.h */,
+				8FC242B91F15BD160064A845 /* NSDictionary+ext.m */,
+				8FC242CF1F1612A20064A845 /* NSString+ext.h */,
+				8FC242D01F1612A20064A845 /* NSString+ext.m */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -312,11 +374,16 @@
 		396910B71F0E855E00EF6D52 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				8FC242E11F162ADB0064A845 /* Foundation+Log.m */,
+				8FC242C81F15F7860064A845 /* Reachability */,
+				8FC242C21F15E5C60064A845 /* MBProgressHUD */,
 				8FADBE671F0F39BE002F5911 /* SDWebImage */,
 				396910B81F0E855E00EF6D52 /* ZZHttpTool.h */,
 				396910B91F0E855E00EF6D52 /* ZZHttpTool.m */,
 				8FADBE451F0F1B5A002F5911 /* ZZUrlTool.h */,
 				8FADBE461F0F1B5A002F5911 /* ZZUrlTool.m */,
+				8FC242BC1F15C4F80064A845 /* ZZnotificationName.h */,
+				8FC242BD1F15C4F80064A845 /* ZZnotificationName.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -344,6 +411,8 @@
 				8F54BDB41F132B2B009E3C0B /* NeewsListViewController.m */,
 				8FADBE5D1F0F2E6E002F5911 /* HomeHttpTool.h */,
 				8FADBE5E1F0F2E6E002F5911 /* HomeHttpTool.m */,
+				8FC242E61F1630380064A845 /* SystemMessageListViewController.h */,
+				8FC242E71F1630380064A845 /* SystemMessageListViewController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -367,14 +436,27 @@
 		396910C31F0E85A900EF6D52 /* personal */ = {
 			isa = PBXGroup;
 			children = (
+				8FC242B41F15B5970064A845 /* model */,
 				8F54BDBF1F13576A009E3C0B /* views */,
 				8F54BDBC1F13366F009E3C0B /* PersonalRootViewController.h */,
 				8F54BDBD1F13366F009E3C0B /* PersonalRootViewController.m */,
+				8FC242B11F15B4A40064A845 /* PersonalHttpTool.h */,
+				8FC242B21F15B4A40064A845 /* PersonalHttpTool.m */,
 				8F54BDC31F137106009E3C0B /* Personal.storyboard */,
 				8F54BDC51F13713B009E3C0B /* PersonalLoginViewController.h */,
 				8F54BDC61F13713B009E3C0B /* PersonalLoginViewController.m */,
 				8F54BDCB1F138BF6009E3C0B /* PersonalRegisterViewController.h */,
 				8F54BDCC1F138BF6009E3C0B /* PersonalRegisterViewController.m */,
+				8FC242AE1F15B22F0064A845 /* PersonalForgetPasswordViewController.h */,
+				8FC242AF1F15B22F0064A845 /* PersonalForgetPasswordViewController.m */,
+				8FC242CC1F160C6B0064A845 /* PersonalChangePasswordViewController.h */,
+				8FC242CD1F160C6B0064A845 /* PersonalChangePasswordViewController.m */,
+				8FC242BF1F15C8750064A845 /* PersonalAccountSettingViewController.h */,
+				8FC242C01F15C8750064A845 /* PersonalAccountSettingViewController.m */,
+				8FC242DB1F1621610064A845 /* PersonalChangeMobileViewController.h */,
+				8FC242DC1F1621610064A845 /* PersonalChangeMobileViewController.m */,
+				8FC242DE1F1626C70064A845 /* PersonalChangeNickNameViewController.h */,
+				8FC242DF1F1626C70064A845 /* PersonalChangeNickNameViewController.m */,
 			);
 			path = personal;
 			sourceTree = "<group>";
@@ -382,6 +464,7 @@
 		3971BBFB1F0E7047004016C2 = {
 			isa = PBXGroup;
 			children = (
+				8FC242C61F15F7290064A845 /* SystemConfiguration.framework */,
 				3971BC061F0E7047004016C2 /* yangsheng */,
 				3971BC051F0E7047004016C2 /* Products */,
 			);
@@ -499,6 +582,38 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		8FC242B41F15B5970064A845 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8FC242B51F15B5F70064A845 /* UserModel.h */,
+				8FC242B61F15B5F70064A845 /* UserModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		8FC242C21F15E5C60064A845 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				8FC242C31F15E5C60064A845 /* MBProgressHUD.h */,
+				8FC242C41F15E5C60064A845 /* MBProgressHUD.m */,
+				8FC242D21F16171E0064A845 /* Checkmark.png */,
+				8FC242D31F16171E0064A845 /* Checkmark@2x.png */,
+				8FC242D41F16171E0064A845 /* Checkmark@3x.png */,
+				8FC242D81F16173E0064A845 /* MBProgressHUD+ZZCustom.h */,
+				8FC242D91F16173E0064A845 /* MBProgressHUD+ZZCustom.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		8FC242C81F15F7860064A845 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				8FC242C91F15F7900064A845 /* Reachability.h */,
+				8FC242CA1F15F7900064A845 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -530,6 +645,7 @@
 				TargetAttributes = {
 					3971BC031F0E7047004016C2 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 9J7GGU5G9G;
 					};
 				};
 			};
@@ -558,9 +674,12 @@
 			files = (
 				8F54BDC41F137106009E3C0B /* Personal.storyboard in Resources */,
 				8FADBE521F0F291B002F5911 /* Home.storyboard in Resources */,
+				8FC242D51F16171E0064A845 /* Checkmark.png in Resources */,
 				3971BC171F0E7047004016C2 /* LaunchScreen.storyboard in Resources */,
 				3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */,
 				3971BC121F0E7047004016C2 /* Main.storyboard in Resources */,
+				8FC242D71F16171E0064A845 /* Checkmark@3x.png in Resources */,
+				8FC242D61F16171E0064A845 /* Checkmark@2x.png in Resources */,
 				8FA935EA1F11C9D0001E29CF /* NothingFooterCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +696,7 @@
 				8FADBE9E1F0F39BF002F5911 /* UIButton+WebCache.m in Sources */,
 				8FADBE9C1F0F39BF002F5911 /* SDWebImageManager.m in Sources */,
 				8FADBE441F0F1A92002F5911 /* HomeNewsViewController.m in Sources */,
+				8FC242E81F1630380064A845 /* SystemMessageListViewController.m in Sources */,
 				396910C61F0E864200EF6D52 /* HomeRootViewController.m in Sources */,
 				3971BC0C1F0E7047004016C2 /* AppDelegate.m in Sources */,
 				8FADBE9A1F0F39BF002F5911 /* SDWebImageDownloader.m in Sources */,
@@ -589,13 +709,21 @@
 				8FADBE5F1F0F2E6E002F5911 /* HomeHttpTool.m in Sources */,
 				395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */,
 				396910BB1F0E855E00EF6D52 /* BaseViewController.m in Sources */,
+				8FC242B01F15B22F0064A845 /* PersonalForgetPasswordViewController.m in Sources */,
 				8FA935F91F11E856001E29CF /* UIView+ext.m in Sources */,
+				8FC242E21F162ADB0064A845 /* Foundation+Log.m in Sources */,
 				8FA936061F120E7A001E29CF /* ProductCell.m in Sources */,
+				8FC242BA1F15BD160064A845 /* NSDictionary+ext.m in Sources */,
 				8FADBEA31F0F39BF002F5911 /* UIImageView+WebCache.m in Sources */,
+				8FC242B71F15B5F70064A845 /* UserModel.m in Sources */,
 				8FADBEA11F0F39BF002F5911 /* UIImage+WebP.m in Sources */,
+				8FC242CB1F15F7900064A845 /* Reachability.m in Sources */,
 				8FADBE971F0F39BF002F5911 /* SDImageCacheConfig.m in Sources */,
+				8FC242C51F15E5C60064A845 /* MBProgressHUD.m in Sources */,
 				8FADBE941F0F39BF002F5911 /* NSData+ImageContentType.m in Sources */,
 				8FA935F01F11DBE1001E29CF /* HomeTeamExtCell.m in Sources */,
+				8FC242CE1F160C6B0064A845 /* PersonalChangePasswordViewController.m in Sources */,
+				8FC242BE1F15C4F80064A845 /* ZZnotificationName.m in Sources */,
 				8FADBEA01F0F39BF002F5911 /* UIImage+MultiFormat.m in Sources */,
 				8FADBE9B1F0F39BF002F5911 /* SDWebImageDownloaderOperation.m in Sources */,
 				8FADBEBB1F0F5C40002F5911 /* HomeFounderCell.m in Sources */,
@@ -617,7 +745,9 @@
 				8FA935E41F11C965001E29CF /* ButtonsCell.m in Sources */,
 				395C5C041F0FF8BF008B74D5 /* ClassroomRootViewController.m in Sources */,
 				8FADBE951F0F39BF002F5911 /* NSImage+WebCache.m in Sources */,
+				8FC242DA1F16173E0064A845 /* MBProgressHUD+ZZCustom.m in Sources */,
 				8FADBEAA1F0F3B62002F5911 /* UIView+WebCache.m in Sources */,
+				8FC242B31F15B4A40064A845 /* PersonalHttpTool.m in Sources */,
 				8F54BDAE1F131175009E3C0B /* NewsLargeCell.m in Sources */,
 				8FA9360D1F1229FF001E29CF /* HomeFeedBackHeaderCell.m in Sources */,
 				8FA936101F122A13001E29CF /* HomeFeedBackCell.m in Sources */,
@@ -625,15 +755,20 @@
 				396910BD1F0E855E00EF6D52 /* TabbarController.m in Sources */,
 				8FA936021F120AE3001E29CF /* ProductListViewController.m in Sources */,
 				8FA935E01F11BE9D001E29CF /* AdvertiseView.m in Sources */,
+				8FC242E01F1626C70064A845 /* PersonalChangeNickNameViewController.m in Sources */,
+				8FC242D11F1612A20064A845 /* NSString+ext.m in Sources */,
 				396910CC1F0E870200EF6D52 /* HomeTeamViewController.m in Sources */,
 				396910C91F0E86EE00EF6D52 /* HomeStoryViewController.m in Sources */,
 				8F54BDB51F132B2B009E3C0B /* NeewsListViewController.m in Sources */,
 				395247BD1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m in Sources */,
+				8FC242EB1F1630B60064A845 /* SystemMsgCell.m in Sources */,
 				8FADBE961F0F39BF002F5911 /* SDImageCache.m in Sources */,
 				8FADBE9D1F0F39BF002F5911 /* SDWebImagePrefetcher.m in Sources */,
 				8F54BDB21F131191009E3C0B /* NewsSmallCell.m in Sources */,
 				8FADBE9F1F0F39BF002F5911 /* UIImage+GIF.m in Sources */,
 				8FADBEB11F0F4206002F5911 /* HomeQACell.m in Sources */,
+				8FC242DD1F1621610064A845 /* PersonalChangeMobileViewController.m in Sources */,
+				8FC242C11F15C8750064A845 /* PersonalAccountSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,12 +880,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";
 				INFOPLIST_FILE = yangsheng/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.yangsheng;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.yangshengapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -762,12 +898,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";
 				INFOPLIST_FILE = yangsheng/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.yangsheng;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.yangshengapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

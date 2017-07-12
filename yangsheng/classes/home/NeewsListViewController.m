@@ -9,6 +9,7 @@
 #import "NeewsListViewController.h"
 #import "HomeHttpTool.h"
 #import "NeewsCell.h"
+#import "BaseWebViewController.h"
 
 @interface NeewsListViewController ()
 {
@@ -86,6 +87,18 @@
     ce.neeCount.text=[NSString stringWithFormat:@"%d人正在学习",(int)m.post_hits];
     ce.neeDate.text=m.post_modified;
     return ce;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    BaseModel* m=[data objectAtIndex:indexPath.row];
+    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_news_detail urlWithMainUrl]];
+    we.idd=m.idd.integerValue;
+    we.title=@"新闻详情";
+    [self.navigationController pushViewController:we animated:YES];
+    
 }
 
 @end

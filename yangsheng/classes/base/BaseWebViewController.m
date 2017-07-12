@@ -7,6 +7,7 @@
 //
 
 #import "BaseWebViewController.h"
+#import "ZZUrlTool.h"
 
 @interface BaseWebViewController ()<UIWebViewDelegate>
 {
@@ -80,6 +81,14 @@
         [webv loadHTMLString:self.html baseURL:self.url];
     }
     else if (self.url) {
+        NSString* abs=[self.url absoluteString];
+        if (![abs containsString:@"?"]) {
+            abs=[NSString stringWithFormat:@"%@?id=%d",abs,(int)self.idd];
+        }
+        if (![abs containsString:[ZZUrlTool main]]) {
+            abs=[ZZUrlTool fullUrlWithTail:abs];
+            self.url=[NSURL URLWithString:abs];
+        }
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];
         [webv loadRequest:req];
     }
@@ -108,11 +117,18 @@
 {
     if(navigationType==UIWebViewNavigationTypeLinkClicked)
     {
-        
+        BaseWebViewController* w=[[BaseWebViewController alloc]initWithUrl:[request URL]];
+        [self.navigationController pushViewController:w animated:YES];
         return NO;
         
     }
     return YES;
 }
+
+//-(void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//
+//    self.title=[webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+//}
 
 @end

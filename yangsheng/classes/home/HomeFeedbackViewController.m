@@ -167,8 +167,13 @@
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.isOneKindList) {
-        
+//        BaseModel* m=[oneKindArray objectAtIndex:indexPath.row];
+//        BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_QA_detail urlWithMainUrl]];
+//        we.idd=m.idd.integerValue;
+//        we.title=@"问答详情";
+//        [self.navigationController pushViewController:we animated:YES];
     }
     else
     {

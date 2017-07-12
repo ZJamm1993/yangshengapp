@@ -23,14 +23,16 @@
         self.moviePlayer.movieSourceType=MPMovieSourceTypeStreaming;
         self.moviePlayer.contentURL=self.url;
     }
+//    self.moviePlayer.controlStyle=MPMovieControlStyleFullscreen;
     [self.moviePlayer play];
     
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
 }
 
--(UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskLandscape;
-}
+//-(UIInterfaceOrientationMask)supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationMaskLandscape;
+//}
 
 @end

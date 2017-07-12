@@ -7,10 +7,14 @@
 //
 
 #import "BaseTableViewController.h"
+#import <SystemConfiguration/SystemConfiguration.h>
+#import "Reachability.h"
 
 @interface BaseTableViewController ()
 {
     AdvertiseView* advHeader;
+    
+    BOOL hasNetwork;
 }
 @end
 
@@ -24,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    hasNetwork=NO;
+    
     self.shouldLoadMore=NO;
 //    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
@@ -33,6 +39,30 @@
     self.refreshControl=[[UIRefreshControl alloc]init];
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
+}
+
+-(void)networkStateChange:(NSNotification*)noti
+{
+    Reachability* reach=[noti object];
+    if (reach.currentReachabilityStatus!=NotReachable) {
+        if (hasNetwork==NO) {
+            if (self.currentPage<=0) {
+                [self refresh];
+            }
+        }
+        hasNetwork=YES;
+    }
+    else
+    {
+        hasNetwork=NO;
+    }
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 #pragma mark - Refresh And Load More
@@ -76,10 +106,6 @@
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
 
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

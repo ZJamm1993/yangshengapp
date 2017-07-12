@@ -9,7 +9,10 @@
 #import "BaseViewController.h"
 
 @interface BaseViewController ()
-
+{
+    NSTimer* timer;
+    NSInteger seconds;
+}
 @end
 
 @implementation BaseViewController
@@ -27,6 +30,49 @@
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+-(void)startCountDownSeconds:(NSInteger)second
+{
+    if(timer==nil)
+    {
+        timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countingDown) userInfo:nil repeats:YES];
+        [timer setFireDate:[NSDate date]];
+    }
+    seconds=second;
+}
+
+-(void)countingDown
+{
+    if (seconds<=0) {
+        [self endingCountDown];
+    }
+    else
+    {
+        seconds=seconds-1;
+        [self countingDownSeconds:seconds];
+    }
+}
+
+-(void)countingDownSeconds:(NSInteger)second
+{
+    
+}
+
+-(void)endingCountDown
+{
+    
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [timer invalidate];
 }
 
 /*

@@ -7,9 +7,10 @@
 //
 
 #import "PersonalRegisterViewController.h"
+#import "PersonalLoginViewController.h"
+#import "PersonalHttpTool.h"
 
 @interface PersonalRegisterViewController ()
-
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -31,10 +32,87 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)getCode:(id)sender {
+    NSString* mobi=self.usernameTextField.text;
+    if (mobi.length>0) {
+        [self.codeTextField becomeFirstResponder];
+        [MBProgressHUD showProgressMessage:@"正在请求验证码"];
+        [PersonalHttpTool getCodeWithMobile:mobi success:^(BOOL sent) {
+            [MBProgressHUD hide];
+            if (sent) {
+                [self startCountDownSeconds:60];
+                [MBProgressHUD showSuccessMessage:@"已发送验证码短信"];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:@"请求不成功"];
+            }
+        }];
+    }
 }
+
+-(void)countingDownSeconds:(NSInteger)second
+{
+    self.getCodeButton.enabled=NO;
+    [self.getCodeButton setTitle:[NSString stringWithFormat:@"%d",(int)second] forState:UIControlStateDisabled];
+    
+}
+
+-(void)endingCountDown
+{
+    self.getCodeButton.enabled=YES;
+}
+
 - (IBAction)goToRegister:(id)sender {
+    NSString* mobile=self.usernameTextField.text;
+    NSString* password=self.passwordTextField.text;
+    NSString* code=self.codeTextField.text;
+    
+    if (mobile.length>0&&password.passwordLength&&code.length>0) {
+        
+        [MBProgressHUD showProgressMessage:@"正在注册"];
+        [PersonalHttpTool registerUserWithMobile:mobile password:password code:code invite:@"20" success:^(UserModel *user) {
+            [MBProgressHUD hide];
+            if (user!=nil) {
+                //            [UserModel saveUser:user];
+                [[NSNotificationCenter defaultCenter]postNotificationName:RegisterUserSuccessNotification object:user];
+                [self goToLogin:nil];
+                [MBProgressHUD showSuccessMessage:@"注册成功"];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:@"注册出现问题"];
+            }
+        }];
+    }
+    else
+    {
+        [MBProgressHUD showErrorMessage:@"请填写完整"];
+    }
 }
 - (IBAction)goToLogin:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+//    NSArray* controllers=self.navigationController.viewControllers;
+//    UIViewController* log=nil;
+//    BOOL containsLogin=NO;
+//    for (UIViewController* vc in controllers) {
+//        if ([vc isMemberOfClass:[PersonalLoginViewController class]]) {
+//            log=vc;
+//            containsLogin=YES;
+//            break;
+//        }
+//    }
+//    if (containsLogin&&log) {
+//        [self.navigationController popToViewController:log animated:YES];
+//    }
+//    else
+//    {
+//        log=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalLoginViewController"];
+//        [self.navigationController pushViewController:log animated:YES];
+//    }
+}
+- (IBAction)goReadProtocol:(id)sender {
 }
 
 /*
