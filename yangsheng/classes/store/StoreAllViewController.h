@@ -10,4 +10,7 @@
 
 @interface StoreAllViewController : BaseTableViewController
 
+@property (nonatomic,strong) NSString* lat;
+@property (nonatomic,strong) NSString* lng;
+
 @end

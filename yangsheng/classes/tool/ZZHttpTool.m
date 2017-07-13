@@ -7,6 +7,7 @@
 //
 
 #import "ZZHttpTool.h"
+#import "Reachability.h"
 
 @implementation ZZHttpTool
 
@@ -30,6 +31,11 @@
 
 +(void)requestMethod:(NSString*)method url:(NSString *)url params:(NSDictionary *)params usingCache:(BOOL)isCache success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure
 {
+//    if (![Reachability reachabilityWithHostName:[ZZUrlTool main]]) {
+//        if (failure) {
+//            failure([NSError errorWithDomain:@"" code:404 userInfo:nil]);
+//        }
+//    }
     BOOL isGet=[method isEqualToString:@"GET"];
     BOOL isPost=[method isEqualToString:@"POST"];
     if (isGet||isPost) {
@@ -91,14 +97,20 @@
                     NSDictionary* result=[ZZHttpTool dictionaryWithResponseData:data];
                     if (success) {
                         success(result);
+                        
                     }
+                    return;
                 }
                 else if(error)
                 {
                     if (failure) {
                         failure(error);
+                        
                     }
+                    return;
                 }
+                failure(error);
+                return;
             });
             
         }];

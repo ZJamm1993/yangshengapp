@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     self.bgView.layer.borderColor=[UIColor colorWithWhite:0.8 alpha:1].CGColor;
-    self.bgView.layer.borderWidth=1;
+    self.bgView.layer.borderWidth=0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

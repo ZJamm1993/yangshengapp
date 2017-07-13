@@ -9,6 +9,7 @@
 #import "StoreRootViewController.h"
 #import "StoreSearchViewController.h"
 #import "StoreAllViewController.h"
+#import "StoreObjectsViewController.h"
 
 #import "StoreHttpTool.h"
 #import "HomeHttpTool.h"
@@ -16,10 +17,19 @@
 #import "ButtonsCell.h"
 #import "StoreSmallCell.h"
 
-@interface StoreRootViewController ()<ButtonsCellDelegate>
+#import <CoreLocation/CoreLocation.h>
+
+#define UserLastLocationKey @"ojijoiooiijo"
+#define UserLastLocationLatitudeKey @"iiuiuuhwefiu"
+#define UserLastLocationLongitudeKey @"i298sdfiosdfoi"
+
+@interface StoreRootViewController ()<ButtonsCellDelegate,CLLocationManagerDelegate>
 {
     NSArray* advsArray;
     StoreSearchViewController* searchVc;
+    CLLocationManager* locationManager;
+    NSString* currentLng;
+    NSString* currentLat;
 }
 @end
 
@@ -30,14 +40,24 @@
     
     [self.tableView registerClass:[ButtonsCell class] forCellReuseIdentifier:@"TopButtonsCell"];
     // Do any additional setup after loading the view.
-    [self refreshWithCache:YES];
+    
     
     self.title=@"门店";
     
     UIBarButtonItem* sea=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(goToSearch)];
     self.navigationItem.rightBarButtonItem=sea;
     
-//    self.navigationItem.backBarButtonItem=nil;
+    locationManager=[[CLLocationManager alloc]init];
+    locationManager.delegate=self;
+    locationManager.desiredAccuracy=kCLLocationAccuracyHundredMeters;
+    
+    if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        NSLog(@"requestAlwaysAuthorization");
+        [locationManager requestWhenInUseAuthorization];
+    }
+    [locationManager startUpdatingLocation];
+    
+    [self refreshWithCache:YES];
 }
 
 -(void)goToSearch
@@ -66,7 +86,12 @@
         [self setAdvertiseHeaderViewWithPicturesUrls:pics];
     } isCache:cache];
     
-    [StoreHttpTool getNeighbourStoreListPage:1 lng:@"" lat:@"" mult:5 success:^(NSArray *datasource) {
+    NSDictionary* loca=[[NSUserDefaults standardUserDefaults]valueForKey:UserLastLocationKey];
+    
+    currentLng=[loca valueForKey:UserLastLocationLongitudeKey];
+    currentLat=[loca valueForKey:UserLastLocationLatitudeKey];
+    
+    [StoreHttpTool getNeighbourStoreListPage:1 lng:currentLng lat:currentLat mult:5 success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         [self.tableView reloadData];
@@ -154,8 +179,34 @@
     if (indexPath.section==1) {
         if (indexPath.row==0) {
             StoreAllViewController* all=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreAllViewController"];
+            all.lat=currentLat;
+            all.lng=currentLng;
             [self.navigationController pushViewController:all animated:YES];
         }
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation* location=[locations lastObject];
+    CLLocationCoordinate2D coor=location.coordinate;
+    
+    NSMutableDictionary* locaDic=[NSMutableDictionary dictionary];
+    currentLat=[[NSNumber numberWithDouble:coor.latitude]stringValue];
+    currentLng=[[NSNumber numberWithDouble:coor.longitude]stringValue];
+
+    [locaDic setValue:currentLat forKey:UserLastLocationLatitudeKey];
+    [locaDic setValue:currentLng forKey:UserLastLocationLongitudeKey];
+    [[NSUserDefaults standardUserDefaults]setValue:locaDic forKey:UserLastLocationKey];
+    
+    [manager stopUpdatingLocation];
+}
+
+-(void)buttonsCell:(ButtonsCell *)cell didClickedIndex:(NSInteger)index
+{
+    if (index==0) {
+        StoreObjectsViewController* ob=[[StoreObjectsViewController alloc]init];
+        [self.navigationController pushViewController:ob animated:YES];
     }
 }
 

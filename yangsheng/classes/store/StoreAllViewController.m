@@ -29,7 +29,7 @@
 }
 -(void)refresh
 {
-    [StoreHttpTool getNeighbourStoreListPage:1 lng:@"" lat:@"" mult:5 success:^(NSArray *datasource) {
+    [StoreHttpTool getNeighbourStoreListPage:1 lng:self.lng lat:self.lat mult:5 success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         [self.tableView reloadData];
@@ -42,7 +42,7 @@
 
 -(void)loadMore
 {
-    [StoreHttpTool getNeighbourStoreListPage:1+self.currentPage lng:@"" lat:@"" mult:5 success:^(NSArray *datasource) {
+    [StoreHttpTool getNeighbourStoreListPage:1+self.currentPage lng:self.lng lat:self.lat mult:5 success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
         [self.tableView reloadData];
         if (datasource.count>0) {
