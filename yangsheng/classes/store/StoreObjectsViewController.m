@@ -27,12 +27,12 @@
     flow=[[UICollectionViewFlowLayout alloc]init];
     
     CGFloat sw=[[UIScreen mainScreen]bounds].size.width;
-    CGFloat m=1;
-    CGFloat w=sw/3-1*m;
+    CGFloat m=2;
+    CGFloat w=(sw-2*m)/3;
     CGFloat h=w;
     
     flow.itemSize=CGSizeMake(w, h);
-    flow.minimumLineSpacing=2*m;
+    flow.minimumLineSpacing=m;
     flow.minimumInteritemSpacing=m;
     flow.sectionInset=UIEdgeInsetsMake(0,0,0,0);
     
