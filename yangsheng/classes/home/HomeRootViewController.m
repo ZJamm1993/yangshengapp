@@ -11,6 +11,8 @@
 #import "HomeTeamViewController.h"
 #import "SystemMessageListViewController.h"
 
+#import "FakeSearchBar.h"
+
 @interface HomeRootViewController ()<ZZPagerControllerDataSource>
 
 @end
@@ -23,11 +25,20 @@
     
     UIBarButtonItem* msgBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_information"] style:UIBarButtonItemStylePlain target:self action:@selector(goToReadSystemMessage)];
     self.navigationItem.rightBarButtonItem=msgBtn;
+    
+    FakeSearchBar* searchBar=[FakeSearchBar defaultSearchBarWithTitle:@"瘦身减肥"];
+    self.navigationItem.titleView=searchBar;
+    [searchBar addTarget:self action:@selector(goToSearch) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)goToSearch
+{
+    NSLog(@"search");
 }
 
 -(void)goToReadSystemMessage

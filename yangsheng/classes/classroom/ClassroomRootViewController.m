@@ -37,6 +37,7 @@
     }
     else if (index==2) {
         return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_3.html" urlWithMainUrl]];
+//        return [[UIStoryboard storyboardWithName:@"Classroom" bundle:nil]instantiateViewControllerWithIdentifier:@"ClassroomVideoShareListViewController"];
     }
     return nil;
 }

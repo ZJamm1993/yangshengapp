@@ -254,6 +254,17 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
                 [self.navigationController pushViewController:we animated:YES];
             }
         }
+        else if(sec==HomeTeamSectionExt)
+        {
+            if (row>0) {
+                NSInteger tr=row-1;
+                BaseModel* m=[extsArray objectAtIndex:tr];
+                BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_activity_detail urlWithMainUrl]];
+                we.idd=m.idd.integerValue;
+                we.title=@"团队拓展";
+                [self.navigationController pushViewController:we animated:YES];
+            }
+        }
     }
 }
 

@@ -34,4 +34,7 @@
 
 @property (nonatomic,strong) NSString* ddescription;
 
+@property (nonatomic,strong) NSString* post_author;
+@property (nonatomic,strong) NSString* post_label;
+
 @end

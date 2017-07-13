@@ -69,7 +69,7 @@
 -(void)loadMore
 {
     if (self.isOneKindList) {
-        [HomeHttpTool getFeedbackListType:[self.cid integerValue] page:++self.currentPage success:^(NSArray *datasource) {
+        [HomeHttpTool getFeedbackListType:[self.cid integerValue] page:1+self.currentPage success:^(NSArray *datasource) {
             NSMutableArray* arr=[NSMutableArray array];
             [arr addObjectsFromArray:oneKindArray?:[NSArray array]];
             [arr addObjectsFromArray:datasource];
@@ -169,11 +169,12 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.isOneKindList) {
-//        BaseModel* m=[oneKindArray objectAtIndex:indexPath.row];
-//        BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_QA_detail urlWithMainUrl]];
-//        we.idd=m.idd.integerValue;
-//        we.title=@"问答详情";
-//        [self.navigationController pushViewController:we animated:YES];
+        BaseModel* m=[oneKindArray objectAtIndex:indexPath.row];
+        BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_case_detail urlWithMainUrl]];
+        we.idd=m.idd.integerValue;
+        we.title=@"反馈详情";
+        [self.navigationController pushViewController:we animated:YES];
+        
     }
     else
     {
@@ -184,6 +185,15 @@
             fe.cid=m.cid;
             fe.isOneKindList=YES;
             [self.navigationController pushViewController:fe animated:YES];
+        }
+        else
+        {
+            NSArray* arr=[rowsArray objectAtIndex:indexPath.section];
+            BaseModel* m=[arr objectAtIndex:indexPath.row-1];
+            BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_case_detail urlWithMainUrl]];
+            we.idd=m.idd.integerValue;
+            we.title=@"反馈详情";
+            [self.navigationController pushViewController:we animated:YES];
         }
     }
 }

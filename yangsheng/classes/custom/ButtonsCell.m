@@ -44,6 +44,8 @@
 {
     [self.contentView removeAllSubviews];
     
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
+    
     if (!btns) {
         btns=[NSMutableArray array];
     }

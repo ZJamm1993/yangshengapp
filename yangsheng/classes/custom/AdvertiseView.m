@@ -13,6 +13,7 @@
     NSTimer* timer;
     UIScrollView* scroll;
     UIPageControl* pageControl;
+    UIView* shadow;
 }
 @end
 
@@ -20,7 +21,7 @@
 
 +(instancetype)defaultAdvertiseView
 {
-    AdvertiseView* a=[[AdvertiseView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.width*0.6)];
+    AdvertiseView* a=[[AdvertiseView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.width*0.45)];
     a.backgroundColor=[UIColor lightGrayColor];
     return a;
 }
@@ -83,6 +84,11 @@
     if (picturesUrls.count<=1) {
         pageControl.hidden=YES;
     }
+    
+    shadow=[[UIView alloc]init];
+    shadow.backgroundColor=[UIColor lightGrayColor];
+    shadow.frame=CGRectMake(0, self.frame.size.height-0.5, self.frame.size.width, 0.5);
+    [self addSubview:shadow];
 }
 
 -(void)buttonClick:(UIButton*)btn

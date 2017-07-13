@@ -35,6 +35,9 @@
         _post_subtitle=[dictionary valueForKey:@"post_subtitle"];
         
         _ddescription=[dictionary valueForKey:@"description"];
+        
+        _post_author=[dictionary valueForKey:@"post_author"];
+        _post_label=[dictionary valueForKey:@"post_label"];
     }
     
     return self;

@@ -38,6 +38,7 @@
         NSMutableArray* keysAndValues=[NSMutableArray array];
         for (NSString* key in keys) {
             NSString* value=[params valueForKey:key];
+            
             NSString* kv=[NSString stringWithFormat:@"%@=%@",key,value];
             [keysAndValues addObject:kv];
         }
@@ -46,6 +47,7 @@
         
         if (isGet&&body.length>0) {
             url=[NSString stringWithFormat:@"%@?%@",url,body];
+            url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         }
         
         NSURL* _ur=[NSURL URLWithString:url];
@@ -111,7 +113,7 @@
     }
     NSString *receiveStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
-    receiveStr=[receiveStr stringByReplacingOccurrencesOfString:@"null" withString:@"{}"];
+    receiveStr=[receiveStr stringByReplacingOccurrencesOfString:@"null" withString:@""];
     
     NSData * data2 = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
     

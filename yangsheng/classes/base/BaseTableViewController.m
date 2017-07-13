@@ -20,6 +20,14 @@
 
 @implementation BaseTableViewController
 
+-(NSMutableArray*)dataSource
+{
+    if (_dataSource==nil) {
+        _dataSource=[NSMutableArray array];
+    }
+    return _dataSource;
+}
+
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
@@ -27,6 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    self.dataSource=[NSMutableArray array];
     
     hasNetwork=NO;
     

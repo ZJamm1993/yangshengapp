@@ -15,6 +15,10 @@
 #define html_QA_detail @"/themes/ys_ios/home/QA_detail.html"
 #define html_star_detail @"/themes/ys_ios/home/star_detail.html"
 #define html_team_detail @"/themes/ys_ios/home/team_detail.html"
+#define html_activity_detail @"/themes/ys_ios/home/activity_detail.html"
+#define html_brandBigEvent_detail @"/themes/ys_ios/home/brandBigEvent_detail.html"
+#define html_newBigEvent_detail @"/themes/ys_ios/home/newBigEvent_detail.html"
+#define html_case_detail @"/themes/ys_ios/home/case_detail.html"
 
 @interface BaseWebViewController : BaseViewController
 

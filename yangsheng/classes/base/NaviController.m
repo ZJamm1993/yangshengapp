@@ -21,7 +21,7 @@
     
     self.navigationBar.translucent=NO;
     
-    self.navigationBar.tintColor=gray(50);
+    self.navigationBar.tintColor=gray(120);
     // Do any additional setup after loading the view.
 }
 

@@ -40,7 +40,7 @@
 -(void)loadMore
 {
     
-    [HomeHttpTool getProductListType:[self.idd integerValue] page:++self.currentPage success:^(NSArray *datasource) {
+    [HomeHttpTool getProductListType:[self.idd integerValue] page:1+self.currentPage success:^(NSArray *datasource) {
         NSMutableArray* arr=[NSMutableArray array];
         [arr addObjectsFromArray:data?:[NSArray array]];
         [arr addObjectsFromArray:datasource];

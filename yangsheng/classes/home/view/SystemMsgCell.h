@@ -16,7 +16,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *msgDate;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *msgImageRadio;
-
-
 @end

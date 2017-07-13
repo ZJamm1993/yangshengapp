@@ -49,4 +49,6 @@
 
 +(void)getNeewsListPage:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
++(void)getSysMsgListPage:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
 @end

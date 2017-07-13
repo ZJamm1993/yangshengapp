@@ -15,6 +15,7 @@
 {
     NSMutableArray* brandEvents;
     NSMutableArray* latestEvents;
+    NSArray* advsArray;
 }
 @end
 
@@ -43,6 +44,18 @@
 
 -(void)getDataUsingCache:(BOOL)isCache
 {
+    //
+    [HomeHttpTool getAdversType:8 success:^(NSArray *datasource) {
+        advsArray=[NSMutableArray arrayWithArray:datasource];
+        NSMutableArray* pics=[NSMutableArray array];
+        for (BaseModel* ad in advsArray) {
+            NSString* th=ad.thumb;
+            NSString* fu=[ZZUrlTool fullUrlWithTail:th];
+            [pics addObject:fu];
+        }
+        [self setAdvertiseHeaderViewWithPicturesUrls:pics];
+    } isCache:isCache];
+    
     //
     [HomeHttpTool getBrandEventSuccess:^(NSArray *datasource) {
         brandEvents=[NSMutableArray arrayWithArray:datasource];
@@ -126,6 +139,22 @@
     else
     {
         return nil;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger sec=indexPath.section;
+    NSInteger row=indexPath.row;
+    NSArray* arr=sec==0?brandEvents:latestEvents;
+    NSString* url=sec==0?html_brandBigEvent_detail:html_newBigEvent_detail;
+    if (sec<=1) {
+        BaseModel* m=[arr objectAtIndex:row-1];
+        BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[url urlWithMainUrl]];
+        we.idd=m.idd.integerValue;
+        we.title=m.post_title;
+        [self.navigationController pushViewController:we animated:YES];
     }
 }
 

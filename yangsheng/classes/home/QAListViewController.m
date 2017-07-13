@@ -42,7 +42,7 @@
 -(void)loadMore
 {
     
-    [HomeHttpTool getQAListPage:++self.currentPage success:^(NSArray *datasource) {
+    [HomeHttpTool getQAListPage:1+self.currentPage success:^(NSArray *datasource) {
         NSMutableArray* arr=[NSMutableArray array];
         [arr addObjectsFromArray:data?:[NSArray array]];
         [arr addObjectsFromArray:datasource];

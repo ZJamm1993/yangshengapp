@@ -339,4 +339,27 @@
     }];
 }
 
++(void)getSysMsgListPage:(NSInteger)page success:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSMutableDictionary* d=[self pageParams];
+    [d setValue:[NSNumber numberWithInteger:page] forKey:@"page"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Sysmsg/index"];
+    [self get:str params:d usingCache:isCache success:^(NSDictionary *resp) {
+        NSDictionary* data=[resp valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* sou=[NSMutableArray array];
+        for (NSDictionary* cl in list) {
+            BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
+            [sou addObject:m];
+        }
+        if (sou.count>0) {
+            if (success) {
+                success(sou);
+            }
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
 @end

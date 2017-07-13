@@ -11,6 +11,8 @@
 #import "PersonalLoginViewController.h"
 #import "PersonalAccountSettingViewController.h"
 
+#import "CodeScanerViewController.h"
+
 #import "UserModel.h"
 
 @interface PersonalRootViewController ()<PersonalHeaderCellDelegate>
@@ -153,6 +155,8 @@
 -(void)personalHeaderCell:(PersonalHeaderCell *)cell didSelectedScanButton:(UIButton *)btn
 {
     
+    CodeScanerViewController* scaner=[[CodeScanerViewController alloc]init];
+    [self.navigationController pushViewController:scaner animated:YES];
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate

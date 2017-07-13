@@ -8,9 +8,12 @@
 
 #import "SystemMessageListViewController.h"
 #import "SystemMsgCell.h"
+#import "HomeHttpTool.h"
 
 @interface SystemMessageListViewController ()
-
+{
+    NSArray* data;
+}
 @end
 
 @implementation SystemMessageListViewController
@@ -18,31 +21,72 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"系统消息";
+
+    
+    [self loadMore];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)refresh
+{
+    [HomeHttpTool getSysMsgListPage:1 success:^(NSArray *datasource) {
+        data=datasource;
+        [self.tableView reloadData];
+        [self stopRefreshAfterSeconds];
+        if (data.count>0) {
+            self.currentPage=1;
+        }
+    } isCache:NO];
+}
+
+-(void)loadMore
+{
+    
+    [HomeHttpTool getSysMsgListPage:1+self.currentPage success:^(NSArray *datasource) {
+        NSMutableArray* arr=[NSMutableArray array];
+        [arr addObjectsFromArray:data?:[NSArray array]];
+        [arr addObjectsFromArray:datasource];
+        data=arr;
+        [self.tableView reloadData];
+        if (datasource.count>0) {
+            self.currentPage++;
+        }
+        self.shouldLoadMore=datasource.count>=20;
+        
+    } isCache:YES];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    return data.count;
 }
+
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SystemMsgCell* c=[tableView dequeueReusableCellWithIdentifier:@"SystemMsgCell" forIndexPath:indexPath];
-    int r=indexPath.row%3;
+    BaseModel* m=[data objectAtIndex:indexPath.row];
     
-    BOOL hasImage=r!=2;
-    BOOL hasContent=r!=0;
+    BOOL hasImage=m.thumb.length>0;
+    BOOL hasContent=m.post_excerpt.length>0;
     
-    NSString* imgName=hasImage?nil:@"my_bg";
-    NSString* content=hasContent?@"":@"计算机阿佛啊就是佛i额外加我i 哦我 鸡窝科技佛 i 忘记否决我烦我i 家哦 i 文件我家哦 i 围巾哦是旅行，每次恤女裤口袋就离开肌肤上地理课肌肤 ";
-    c.msgContent.text=content;
-    c.msgImage.image=[UIImage imageNamed:imgName];
+    NSString* idd=@"SystemMsgCellImageAndContent";
+    if (hasImage&&!hasContent) {
+        idd=@"SystemMsgCellImageOnly";
+    }
+    else if(!hasImage&&hasContent)
+    {
+        idd=@"SystemMsgCellContentOnly";
+    }
+    SystemMsgCell* c=[tableView dequeueReusableCellWithIdentifier:idd forIndexPath:indexPath];
+    c.msgContent.text=m.post_excerpt;
+    [c.msgImage sd_setImageWithURL:[m.thumb urlWithMainUrl]];
+    c.msgTitle.text=m.post_title;
+    c.msgDate.text=m.post_modified;
 //    c.msgImageRadio.multiplier=hasImage?2:100000000;
     
     return c;

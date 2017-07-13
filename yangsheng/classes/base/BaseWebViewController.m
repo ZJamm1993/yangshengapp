@@ -87,8 +87,8 @@
         }
         if (![abs containsString:[ZZUrlTool main]]) {
             abs=[ZZUrlTool fullUrlWithTail:abs];
-            self.url=[NSURL URLWithString:abs];
         }
+        self.url=[NSURL URLWithString:abs];
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];
         [webv loadRequest:req];
     }

@@ -24,6 +24,7 @@
 #import "ProductListViewController.h"
 #import "QAListViewController.h"
 #import "NeewsListViewController.h"
+#import "CodeScanerViewController.h"
 
 #import "PlayerController.h"
 
@@ -396,10 +397,14 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
         else if(sec==HomeStorySectionEnterprise)
         {
             if (row>0) {
+                BaseModel* b=[enterArray objectAtIndex:row-1];
+                if (b.mp4_path.length==0) {
+                    return;
+                }
                 UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否观看企业视频?" message:@"可能会产生额外流量费用" preferredStyle:UIAlertControllerStyleAlert];
                 [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
                 [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    BaseModel* b=[enterArray objectAtIndex:row-1];
+                    
                     NSURL* mp4url=[b.mp4_path urlWithMainUrl];
                     PlayerController* player=[[PlayerController alloc]init];
                     player.url=mp4url;
@@ -421,6 +426,11 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     else if (index==1) {
         NeewsListViewController* nl=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"NeewsListViewController"];
         [self.navigationController pushViewController:nl animated:YES];
+    }
+    else if(index==3)
+    {
+        CodeScanerViewController* scaner=[[CodeScanerViewController alloc]init];
+        [self.navigationController pushViewController:scaner animated:YES];
     }
 }
 
