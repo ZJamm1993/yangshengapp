@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F2109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -27,10 +28,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vYi-rH-0qp">
-                        <rect key="frame" x="51" y="32" width="64" height="64"/>
+                        <rect key="frame" x="61" y="52" width="44" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="64" id="LlI-2R-ObB"/>
-                            <constraint firstAttribute="width" constant="64" id="q44-eT-hDh"/>
+                            <constraint firstAttribute="width" secondItem="vYi-rH-0qp" secondAttribute="height" multiplier="1:1" id="7Ul-NP-JRI"/>
+                            <constraint firstAttribute="width" constant="44" id="J5n-AJ-bYy"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -41,19 +42,11 @@
                 <constraint firstItem="8xF-XY-OPA" firstAttribute="top" secondItem="vYi-rH-0qp" secondAttribute="bottom" constant="-20" id="1m3-Zp-TlQ"/>
                 <constraint firstItem="vYi-rH-0qp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Hdi-NR-h1e"/>
                 <constraint firstItem="8xF-XY-OPA" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Lba-XZ-XG8"/>
-                <constraint firstItem="vYi-rH-0qp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="WiE-TJ-6z8"/>
-                <constraint firstItem="vYi-rH-0qp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="aHw-zN-RhX"/>
                 <constraint firstItem="uHf-h2-7OJ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="hHA-hJ-anx"/>
                 <constraint firstItem="8xF-XY-OPA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="li3-ns-5hq"/>
                 <constraint firstItem="uHf-h2-7OJ" firstAttribute="top" secondItem="8xF-XY-OPA" secondAttribute="bottom" constant="18" id="x4N-lh-JIt"/>
             </constraints>
             <size key="customSize" width="166" height="166"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="WiE-TJ-6z8"/>
-                    <exclude reference="aHw-zN-RhX"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="img" destination="vYi-rH-0qp" id="IC2-3I-rgw"/>
                 <outlet property="title" destination="uHf-h2-7OJ" id="Fze-6j-8je"/>

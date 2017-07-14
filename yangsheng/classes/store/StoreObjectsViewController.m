@@ -29,6 +29,7 @@
 
 -(void)refresh
 {
+    [self stopRefreshAfterSeconds];
     [StoreHttpTool getStoreItemsSuccess:^(NSArray *datasource) {
         if (datasource.count>0) {
             [self.dataSource removeAllObjects];
