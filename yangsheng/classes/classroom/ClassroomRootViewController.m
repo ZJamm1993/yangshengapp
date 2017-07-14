@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"养生课堂";
+    self.title=@"课堂";
     self.dataSource=self;
     // Do any additional setup after loading the view.
 }
@@ -36,8 +36,8 @@
         return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_2.html" urlWithMainUrl]];
     }
     else if (index==2) {
-        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_3.html" urlWithMainUrl]];
-//        return [[UIStoryboard storyboardWithName:@"Classroom" bundle:nil]instantiateViewControllerWithIdentifier:@"ClassroomVideoShareListViewController"];
+//        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_3.html" urlWithMainUrl]];
+        return [[UIStoryboard storyboardWithName:@"Classroom" bundle:nil]instantiateViewControllerWithIdentifier:@"ClassroomVideoShareListViewController"];
     }
     return nil;
 }

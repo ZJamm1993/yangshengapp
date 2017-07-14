@@ -25,6 +25,43 @@
         _lng=[dictionary valueForKey:@"lng"];
         _lat=[dictionary valueForKey:@"lat"];
         _distance=[dictionary valueForKey:@"distance"];
+        
+        _store_content=[dictionary valueForKey:@"store_content"];
+        
+        NSDictionary* smeta_json=[dictionary valueForKey:@"smeta_json"];
+        NSArray* list=[smeta_json valueForKey:@"list"];
+        NSMutableArray* urls=[NSMutableArray array];
+        for (NSDictionary* u in list) {
+            NSString* url=[u valueForKey:@"url"];
+            if (url.length>0) {
+                [urls addObject:url];
+            }
+        }
+        _smetas=[NSArray arrayWithArray:urls];
+        
+        NSArray* items=[dictionary valueForKey:@"item"];
+        NSMutableArray* its=[NSMutableArray array];
+        for (NSDictionary* i in items) {
+            StoreItem* item=[[StoreItem alloc]initWithDictionary:i];
+            [its addObject:item];
+        }
+        _items=[NSArray arrayWithArray:its];
+    }
+    return self;
+}
+
+@end
+
+@implementation StoreItem
+
+-(instancetype)initWithDictionary:(NSDictionary*)dictionary
+{
+    self=[super init];
+    if ([dictionary isKindOfClass:[NSDictionary class]]) {
+        self.item_id=[dictionary valueForKey:@"item_id"];
+        self.name=[dictionary valueForKey:@"name"];
+        self.code=[dictionary valueForKey:@"code"];
+        self.thumb=[dictionary valueForKey:@"thumb"];
     }
     return self;
 }

@@ -30,7 +30,7 @@
 {
     if (!timer) {
         timer=[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scrollToNextPage) userInfo:nil repeats:YES];
-        [timer performSelector:@selector(setFireDate:) withObject:[NSDate date] afterDelay:5];
+        [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:5]];
     }
     _picturesUrls=[NSArray arrayWithArray:picturesUrls];
     
@@ -124,7 +124,7 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [timer setFireDate:[NSDate date]];
+    [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:5]];
 }
 
 -(NSInteger)currentPage

@@ -17,6 +17,8 @@
 
 +(NSMutableDictionary*)pageParams;
 
++(NSMutableDictionary*)pageParamsWithPage:(NSInteger)page size:(NSInteger)size;
+
 +(NSDictionary*)dictionaryWithResponseData:(NSData*)data;
 
 @end

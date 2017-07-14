@@ -19,6 +19,7 @@
 #define html_brandBigEvent_detail @"/themes/ys_ios/home/brandBigEvent_detail.html"
 #define html_newBigEvent_detail @"/themes/ys_ios/home/newBigEvent_detail.html"
 #define html_case_detail @"/themes/ys_ios/home/case_detail.html"
+#define html_course_detail @"/themes/ys_ios/course/detail.html"
 
 @interface BaseWebViewController : BaseViewController
 
@@ -26,6 +27,7 @@
 -(instancetype)initWithHtml:(NSString*)html;
 
 @property (nonatomic,assign) NSInteger idd;
+@property (nonatomic,strong) NSString* type;
 @property (nonatomic,strong) NSURL* url;
 @property (nonatomic,strong) NSString* html;
 @property (nonatomic,strong,readonly) UIWebView* webView;

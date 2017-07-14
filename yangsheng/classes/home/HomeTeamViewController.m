@@ -11,8 +11,14 @@
 #import "HomeMonthStarCell.h"
 #import "HomeFounderCell.h"
 #import "HomeTeamExtCell.h"
+#import "HomeTeamHeaderCell.h"
 
 #import "NothingFooterCell.h"
+
+#import "TeamCompanyListViewController.h"
+#import "TeamExpandListViewController.h"
+#import "TeamMonthStarViewController.h"
+#import "TeamExpandListViewController.h"
 
 #import "HomeHttpTool.h"
 
@@ -66,6 +72,7 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
 
 -(void)getDataUsingCache:(BOOL)isCache
 {
+    self.pageSize=5;
     //
     [HomeHttpTool getAdversType:6 success:^(NSArray *datasource) {
         advsArray=[NSMutableArray arrayWithArray:datasource];
@@ -79,21 +86,21 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     } isCache:isCache];
     
     //
-    [HomeHttpTool getTeamsSuccess:^(NSArray *datasource) {
+    [HomeHttpTool getTeamsPage:1 size:1 success:^(NSArray *datasource) {
         teamsArray=[NSMutableArray arrayWithArray:datasource];
-        [self.tableView reloadData];
+        [self tableViewReloadData];
     } isCache:isCache];
     
     //
-    [HomeHttpTool getMonthStarSuccess:^(NSArray *datasource) {
+    [HomeHttpTool getMonthStarPage:1 size:self.pageSize success:^(NSArray *datasource) {
         starsArray=[NSMutableArray arrayWithArray:datasource];
-        [self.tableView reloadData];
+        [self tableViewReloadData];
     } isCache:isCache];
     
     //
-    [HomeHttpTool getExpandSuccess:^(NSArray *datasource) {
+    [HomeHttpTool getExpandPage:1 size:self.pageSize success:^(NSArray *datasource) {
         extsArray=[NSMutableArray arrayWithArray:datasource];
-        [self.tableView reloadData];
+        [self tableViewReloadData];
     } isCache:isCache];
 }
 
@@ -137,29 +144,39 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==HomeTeamSectionStar) {
-        if (indexPath.row==0) {
-            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"MonthStarHeaderCell" forIndexPath:indexPath];
-            return c;
+    if (indexPath.row==0) {
+        HomeTeamHeaderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeTeamHeaderCell" forIndexPath:indexPath];
+        NSArray* titles=@[@"每日之星",@"公司团队",@"团队拓展"];
+        NSArray* details=@[@"努力不一定有回报，不努力那就一定没有",@"没有团队，哪来的成功",@"人生处处是课堂 累并快乐着"];
+        if (indexPath.section<titles.count) {
+            c.title.text=[titles objectAtIndex:indexPath.section];
+            c.detail.text=[details objectAtIndex:indexPath.section];
         }
-        else
-        {
+        return c;
+    }
+    else if (indexPath.section==HomeTeamSectionStar) {
+//        if (indexPath.row==0) {
+//            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"MonthStarHeaderCell" forIndexPath:indexPath];
+//            return c;
+//        }
+//        else
+//        {
             HomeMonthStarCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeMonthStarCell" forIndexPath:indexPath];
             BaseModel* sta=[starsArray objectAtIndex:indexPath.row-1];
             [c.starImageView sd_setImageWithURL:[sta.thumb urlWithMainUrl]];
             c.starTitle.text=sta.post_title;
             c.starContent.text=sta.ios_content;
             return c;
-        }
+//        }
     }
     else if(indexPath.section==HomeTeamSectionCom)
     {
-        if (indexPath.row==0) {
-            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"CompanyHeaderCell" forIndexPath:indexPath];
-            return c;
-        }
-        else
-        {
+//        if (indexPath.row==0) {
+//            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"CompanyHeaderCell" forIndexPath:indexPath];
+//            return c;
+//        }
+//        else
+//        {
             HomeFounderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeFounderCell" forIndexPath:indexPath];
             
             NSInteger tr=indexPath.row-1;
@@ -177,16 +194,16 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
             c.founders=fous;
             
             return c;
-        }
+//        }
     }
     else if(indexPath.section==HomeTeamSectionExt)
     {
-        if (indexPath.row==0) {
-            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"TeamExtHeaderCell" forIndexPath:indexPath];
-            return c;
-        }
-        else
-        {
+//        if (indexPath.row==0) {
+//            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"TeamExtHeaderCell" forIndexPath:indexPath];
+//            return c;
+//        }
+//        else
+//        {
             HomeTeamExtCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeTeamExtCell" forIndexPath:indexPath];
             
             BaseModel* ext=[extsArray objectAtIndex:indexPath.row-1];
@@ -195,7 +212,7 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
             c.extContent.text=ext.post_excerpt;
             c.extDateLabel.text=ext.post_modified;
             return c;
-        }
+//        }
         
     }
     
@@ -241,17 +258,27 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
                     [self.navigationController pushViewController:we animated:YES];
                 }
             }
+            else
+            {
+                TeamCompanyListViewController* com=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"TeamCompanyListViewController"];
+                [self.navigationController pushViewController:com animated:YES];
+            }
         }
         
         else if(sec==HomeTeamSectionStar)
         {
             if (row>0) {
                 NSInteger tr=row-1;
-                BaseModel* m=[teamsArray objectAtIndex:tr];
+                BaseModel* m=[starsArray objectAtIndex:tr];
                 BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_star_detail urlWithMainUrl]];
                 we.idd=m.idd.integerValue;
                 we.title=@"每月之星";
                 [self.navigationController pushViewController:we animated:YES];
+            }
+            else
+            {
+                TeamMonthStarViewController* mon=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"TeamMonthStarViewController"];
+                [self.navigationController pushViewController:mon animated:YES];
             }
         }
         else if(sec==HomeTeamSectionExt)
@@ -263,6 +290,11 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
                 we.idd=m.idd.integerValue;
                 we.title=@"团队拓展";
                 [self.navigationController pushViewController:we animated:YES];
+            }
+            else
+            {
+                TeamExpandListViewController* ext=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"TeamExpandListViewController"];
+                [self.navigationController pushViewController:ext animated:YES];
             }
         }
     }

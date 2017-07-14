@@ -6,8 +6,8 @@
 //  Copyright © 2017年 jam. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseCollectionViewController.h"
 
-@interface StoreObjectsViewController : BaseViewController
+@interface StoreObjectsViewController : BaseCollectionViewController
 
 @end

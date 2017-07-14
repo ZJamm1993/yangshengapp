@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AdvertiseView.h"
 #import "NothingFooterCell.h"
+#import "ZZHttpTool.h"
 
 @interface BaseTableViewController : UITableViewController<AdvertiseViewDelegate>
 
@@ -16,6 +17,7 @@
 @property (nonatomic,strong) NSString* urlString;
 
 @property (nonatomic,assign) NSInteger currentPage;
+@property (nonatomic,assign) NSInteger pageSize;
 @property (nonatomic,assign) BOOL shouldLoadMore;
 
 -(void)firstLoad;
@@ -26,5 +28,7 @@
 
 -(void)setAdvertiseHeaderViewWithPicturesUrls:(NSArray*)picturesUrls;
 -(void)setNothingFooterView;
+
+-(void)tableViewReloadData;
 
 @end

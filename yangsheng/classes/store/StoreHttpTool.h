@@ -15,4 +15,6 @@
 
 +(void)searchStoreWithKeyword:(NSString*)keyword page:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
++(void)getStoreItemsSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
 @end

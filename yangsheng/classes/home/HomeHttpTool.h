@@ -29,11 +29,11 @@
 
 +(void)getEnterAdvSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getMonthStarSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
++(void)getMonthStarPage:(NSInteger)page size:(NSInteger)size success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getTeamsSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
++(void)getTeamsPage:(NSInteger)page size:(NSInteger)size success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getExpandSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
++(void)getExpandPage:(NSInteger)page size:(NSInteger)size success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
 +(void)getProductListType:(NSInteger)type page:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 

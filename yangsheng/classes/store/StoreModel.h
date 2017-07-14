@@ -24,5 +24,19 @@
 @property (nonatomic,strong) NSString* lat;
 @property (nonatomic,strong) NSString* distance;
 
+@property (nonatomic,strong) NSString* store_content;
+@property (nonatomic,strong) NSArray* smetas;
+@property (nonatomic,strong) NSArray* items;
+
+@end
+
+@interface StoreItem : NSObject
+
+@property (nonatomic,strong) NSString* item_id;
+@property (nonatomic,strong) NSString* name;
+@property (nonatomic,strong) NSString* code;
+@property (nonatomic,strong) NSString* thumb;
+
+-(instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
 @end

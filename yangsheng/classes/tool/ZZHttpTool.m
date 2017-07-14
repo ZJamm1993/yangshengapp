@@ -15,7 +15,15 @@
 {
     NSMutableDictionary* d=[NSMutableDictionary dictionary];
     [d setValue:@"1" forKey:@"page"];
-    [d setValue:@"20" forKey:@"pagesize"];
+    [d setValue:@"10" forKey:@"pagesize"];
+    return d;
+}
+
++(NSMutableDictionary*)pageParamsWithPage:(NSInteger)page size:(NSInteger)size
+{
+    NSMutableDictionary* d=[NSMutableDictionary dictionary];
+    [d setValue:[NSNumber numberWithInteger:page] forKey:@"page"];
+    [d setValue:[NSNumber numberWithInteger:size] forKey:@"pagesize"];
     return d;
 }
 

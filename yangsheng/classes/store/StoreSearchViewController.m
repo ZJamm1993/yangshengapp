@@ -42,12 +42,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     if (self.dataSource.count==0) {
         [_searchBar becomeFirstResponder];
     }
+    _searchBar.backgroundColor=[UIColor clearColor];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -67,7 +68,7 @@
     [StoreHttpTool searchStoreWithKeyword:searchingString page:1 success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
-        [self.tableView reloadData];
+        [self tableViewReloadData];
         [self stopRefreshAfterSeconds];
         if (self.dataSource.count>0) {
             self.currentPage=1;
@@ -79,11 +80,11 @@
 {
     [StoreHttpTool searchStoreWithKeyword:searchingString page:1+self.currentPage success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
-        [self.tableView reloadData];
+        [self tableViewReloadData];
         if (datasource.count>0) {
             self.currentPage++;
         }
-        self.shouldLoadMore=datasource.count>=20;
+//        self.shouldLoadMore=datasource.count>=self.pageSize;
         
     } isCache:YES];
 }
@@ -116,7 +117,7 @@
     StoreModel* m=[self.dataSource objectAtIndex:indexPath.row];
     c.storeAddress.text=m.store_address;
     c.storeContact.text=[NSString stringWithFormat:@"%@/%@",m.store_author,m.store_tel];
-    c.storeName.text=m.store_title;
+    c.storeName.text=[NSString stringWithFormat:@"%d,%@",indexPath.row,m.store_title];
     [c.storeImage sd_setImageWithURL:[m.thumb urlWithMainUrl]];
     return c;
 }

@@ -8,11 +8,9 @@
 
 #import "StoreObjectsViewController.h"
 #import "ServiceObjectCell.h"
+#import "StoreHttpTool.h"
 
-@interface StoreObjectsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
-{
-    UICollectionView* coll;
-    UICollectionViewFlowLayout* flow;
+@interface StoreObjectsViewController (){
 }
 
 @end
@@ -22,12 +20,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"服务项目";
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the
     
-    flow=[[UICollectionViewFlowLayout alloc]init];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ServiceObjectCell" bundle:nil] forCellWithReuseIdentifier:@"ServiceObjectCell"];
+    self.collectionView.backgroundColor=[UIColor colorWithWhite:0.9 alpha:1];
+    [self firstLoad];
+}
+
+-(void)refresh
+{
+    [StoreHttpTool getStoreItemsSuccess:^(NSArray *datasource) {
+        if (datasource.count>0) {
+            [self.dataSource removeAllObjects];
+            [self.dataSource addObjectsFromArray:datasource];
+            [self.collectionView reloadData];
+        }
+    } isCache:NO];
+}
+
+-(void)firstLoad
+{
+    [StoreHttpTool getStoreItemsSuccess:^(NSArray *datasource) {
+        if (datasource.count>0) {
+            [self.dataSource removeAllObjects];
+            [self.dataSource addObjectsFromArray:datasource];
+            [self.collectionView reloadData];
+        }
+    } isCache:YES];
+}
+
+-(UICollectionViewLayout*)collectionViewLayout
+{
+    UICollectionViewFlowLayout* flow=[[UICollectionViewFlowLayout alloc]init];
     
     CGFloat sw=[[UIScreen mainScreen]bounds].size.width;
-    CGFloat m=2;
+    CGFloat m=0.5;
     CGFloat w=(sw-2*m)/3;
     CGFloat h=w;
     
@@ -36,12 +63,7 @@
     flow.minimumInteritemSpacing=m;
     flow.sectionInset=UIEdgeInsetsMake(0,0,0,0);
     
-    coll=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flow];
-    [coll registerNib:[UINib nibWithNibName:@"ServiceObjectCell" bundle:nil] forCellWithReuseIdentifier:@"ServiceObjectCell"];
-    coll.backgroundColor=[UIColor lightGrayColor];
-    coll.delegate=self;
-    coll.dataSource=self;
-    [self.view addSubview:coll];
+    return flow;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,13 +78,16 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 100;
+    return self.dataSource.count;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ServiceObjectCell* c=[collectionView dequeueReusableCellWithReuseIdentifier:@"ServiceObjectCell" forIndexPath:indexPath];
 //    c.backgroundColor=[UIColor redColor];
+    StoreItem* i=[self.dataSource objectAtIndex:indexPath.row];
+    [c.img sd_setImageWithURL:[i.thumb urlWithMainUrl]];
+    c.title.text=i.name;
     return c;
 }
 

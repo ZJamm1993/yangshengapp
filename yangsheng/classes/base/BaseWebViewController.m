@@ -74,7 +74,7 @@
     [self.view addSubview:webv];
     
     webv.delegate=self;
-    webv.scalesPageToFit=YES;
+//    webv.scalesPageToFit=YES;
     
     if(self.html.length>0)
     {
@@ -85,10 +85,18 @@
         if (![abs containsString:@"?"]) {
             abs=[NSString stringWithFormat:@"%@?id=%d",abs,(int)self.idd];
         }
+        if (self.type.length>0) {
+            if([abs containsString:@"?"])
+            {
+                NSArray* arr=[abs componentsSeparatedByString:@"?"];
+                abs=[NSString stringWithFormat:@"%@?type=%@&%@",arr.firstObject,self.type,arr.lastObject];
+            }
+        }
         if (![abs containsString:[ZZUrlTool main]]) {
             abs=[ZZUrlTool fullUrlWithTail:abs];
         }
         self.url=[NSURL URLWithString:abs];
+        NSLog(@"webview:  %@",abs);
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];
         [webv loadRequest:req];
     }

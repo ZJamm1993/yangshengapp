@@ -24,15 +24,23 @@
     reach=[Reachability reachabilityForInternetConnection];
     [reach startNotifier];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
-
+//    [self performSelector:@selector withObject:(nullable id) afterDelay:(NSTimeInterval)
     return YES;
 }
 
 -(void)networkStateChange:(NSNotification*)noti
 {
     Reachability* r=reach;
-    if (r.currentReachabilityStatus!=NotReachable) {
+    if (r.currentReachabilityStatus==NotReachable) {
         [MBProgressHUD showErrorMessage:@"似乎网络已断开"];
+    }
+    else if(r.currentReachabilityStatus==ReachableViaWiFi)
+    {
+        [MBProgressHUD showErrorMessage:@"已连接到WIFI"];
+    }
+    else if(r.currentReachabilityStatus==ReachableViaWWAN)
+    {
+        [MBProgressHUD showErrorMessage:@"已连接到移动网络"];
     }
 }
 

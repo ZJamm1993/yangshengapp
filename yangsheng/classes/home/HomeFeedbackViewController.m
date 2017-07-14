@@ -52,7 +52,7 @@
         
         [HomeHttpTool getFeedbackListType:[self.cid integerValue] page:1 success:^(NSArray *datasource) {
             oneKindArray=datasource;
-            [self.tableView reloadData];
+            [self tableViewReloadData];
             [self stopRefreshAfterSeconds];
             if (oneKindArray.count>0) {
                 self.currentPage=1;
@@ -74,11 +74,11 @@
             [arr addObjectsFromArray:oneKindArray?:[NSArray array]];
             [arr addObjectsFromArray:datasource];
             oneKindArray=arr;
-            [self.tableView reloadData];
+            [self tableViewReloadData];
             if (datasource.count>0) {
                 self.currentPage++;
             }
-            self.shouldLoadMore=datasource.count>=20;
+            self.shouldLoadMore=datasource.count>=self.pageSize;
             
         } isCache:YES];
     }
@@ -102,7 +102,7 @@
     [HomeHttpTool getFeedbackAllListSize:2 success:^(NSArray *sections, NSArray *rows) {
         sectionsArray=sections;
         rowsArray=rows;
-        [self.tableView reloadData];
+        [self tableViewReloadData];
     } isCache:isCache];
 }
 

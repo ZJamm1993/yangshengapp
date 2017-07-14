@@ -24,7 +24,7 @@
     icon.frame=CGRectMake(5, 0, frame.size.height, frame.size.height);
     [bar addSubview:icon];
     
-    UILabel* text=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(icon.frame), 0, frame.size.width-CGRectGetMaxX(icon.frame)-10, frame.size.height)];
+    UILabel* text=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(icon.frame), 0, frame.size.width, frame.size.height)];
     text.textColor=gray(130);
     text.text=title;
     text.font=[UIFont systemFontOfSize:13];
@@ -35,7 +35,7 @@
 
 +(instancetype)defaultSearchBarWithTitle:(NSString*)title
 {
-    CGRect fr=CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width-92, 28);
+    CGRect fr=CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, 28);
     FakeSearchBar* bar=[self fakeSearchBarWithFrame:fr title:title];
     return bar;
 }

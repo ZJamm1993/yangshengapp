@@ -115,14 +115,18 @@
     }];
 }
 
-+(void)getMonthStarSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
++(void)getMonthStarPage:(NSInteger)page size:(NSInteger)size success:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Page/show_monthstar"];
-    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
+    
+    [self get:str params:[self pageParamsWithPage:page size:size] usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         //        NSArray* list=[data valueForKey:@"list"];
         BaseModel* en=[[BaseModel alloc] initWithDictionary:data];
         NSArray* sour=[NSArray arrayWithObject:en];
+        if (en.idd.length==0) {
+            sour=nil;
+        }
         if (sour.count>0) {
             if (success) {
                 success(sour);
@@ -133,10 +137,11 @@
     }];
 }
 
-+(void)getTeamsSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
++(void)getTeamsPage:(NSInteger)page size:(NSInteger)size success:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Team/index"];
-    [self get:str params:@{@"page":@"1"} usingCache:isCache success:^(NSDictionary *responseObject) {
+    
+    [self get:str params:[self pageParamsWithPage:page size:size] usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];
@@ -154,10 +159,10 @@
     }];
 }
 
-+(void)getExpandSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
++(void)getExpandPage:(NSInteger)page size:(NSInteger)size success:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Expand/index"];
-    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
+    [self get:str params:[self pageParamsWithPage:page size:size] usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];

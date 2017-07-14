@@ -17,8 +17,7 @@
 @implementation UIImageView (WebCache)
 
 - (void)sd_setImageWithURL:(nullable NSURL *)url {
-    self.backgroundColor=[UIColor colorWithWhite:0.9 alpha:1];
-    [self sd_setImageWithURL:url placeholderImage:nil options:0 progress:nil completed:nil];
+    [self sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_tu"] options:0 progress:nil completed:nil];
 }
 
 - (void)sd_setImageWithURL:(nullable NSURL *)url placeholderImage:(nullable UIImage *)placeholder {

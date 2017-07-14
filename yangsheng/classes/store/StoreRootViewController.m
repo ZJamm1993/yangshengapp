@@ -44,9 +44,9 @@
     
     self.title=@"门店";
     
-    UIBarButtonItem* sea=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(goToSearch)];
-    self.navigationItem.rightBarButtonItem=sea;
-    
+//    UIBarButtonItem* sea=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(goToSearch)];
+//    self.navigationItem.rightBarButtonItem=sea;
+//    
     locationManager=[[CLLocationManager alloc]init];
     locationManager.delegate=self;
     locationManager.desiredAccuracy=kCLLocationAccuracyHundredMeters;
@@ -94,7 +94,7 @@
     [StoreHttpTool getNeighbourStoreListPage:1 lng:currentLng lat:currentLat mult:5 success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
-        [self.tableView reloadData];
+        [self tableViewReloadData];
         [self stopRefreshAfterSeconds];
         //        if (self.dataSource.count>0) {
         //            self.currentPage=1;
@@ -106,11 +106,11 @@
 //{
 //    [StoreHttpTool getNeighbourStoreListPage:1+self.currentPage lng:@"" lat:@"" mult:5 success:^(NSArray *datasource) {
 //        [self.dataSource addObjectsFromArray:datasource];
-//        [self.tableView reloadData];
+//        [self tableViewReloadData];
 //        if (datasource.count>0) {
 //            self.currentPage++;
 //        }
-//        self.shouldLoadMore=datasource.count>=20;
+//        self.shouldLoadMore=datasource.count>=self.pageSize;
 //        
 //    } isCache:YES];
 //}
@@ -145,8 +145,8 @@
     if (indexPath.section==0) {
         ButtonsCell* c=[tableView dequeueReusableCellWithIdentifier:@"TopButtonsCell" forIndexPath:indexPath];
         c.delegate=self;
-        c.buttonsTitles=[NSArray arrayWithObjects:@"服务项目",@"服务预约",@"申请开店",@"门店地图", nil];
-        c.buttonsImageNames=[NSArray arrayWithObjects:@"store_project",@"store_reservation",@"store_Shop",@"store_map", nil];
+        c.buttonsTitles=[NSArray arrayWithObjects:@"服务项目",@"搜索门店",@"申请开店",@"门店地图", nil];
+        c.buttonsImageNames=[NSArray arrayWithObjects:@"store_project",@"store_search",@"store_Shop",@"store_map", nil];
         return c;
     }
     else if(indexPath.section==1)
@@ -205,8 +205,12 @@
 -(void)buttonsCell:(ButtonsCell *)cell didClickedIndex:(NSInteger)index
 {
     if (index==0) {
-        StoreObjectsViewController* ob=[[StoreObjectsViewController alloc]init];
+        StoreObjectsViewController* ob=[[StoreObjectsViewController alloc]initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc]init]];
         [self.navigationController pushViewController:ob animated:YES];
+    }
+    else if(index==1)
+    {
+        [self goToSearch];
     }
 }
 

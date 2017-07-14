@@ -54,7 +54,7 @@
 {
     currentUser=[UserModel getUser];
     self.isLoged=currentUser!=nil;
-    [self.tableView reloadData];
+    [self tableViewReloadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated

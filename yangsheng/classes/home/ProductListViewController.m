@@ -12,7 +12,7 @@
 
 @interface ProductListViewController ()
 {
-    NSArray* data;
+     
 }
 @end
 
@@ -28,10 +28,10 @@
 -(void)refresh
 {
     [HomeHttpTool getProductListType:[self.idd integerValue] page:1 success:^(NSArray *datasource) {
-        data=datasource;
-        [self.tableView reloadData];
+        self.dataSource=[NSMutableArray arrayWithArray:datasource];
+        [self tableViewReloadData];
         [self stopRefreshAfterSeconds];
-        if (data.count>0) {
+        if ( self.dataSource.count>0) {
             self.currentPage=1;
         }
     } isCache:NO];
@@ -41,15 +41,12 @@
 {
     
     [HomeHttpTool getProductListType:[self.idd integerValue] page:1+self.currentPage success:^(NSArray *datasource) {
-        NSMutableArray* arr=[NSMutableArray array];
-        [arr addObjectsFromArray:data?:[NSArray array]];
-        [arr addObjectsFromArray:datasource];
-        data=arr;
-        [self.tableView reloadData];
+        [self.dataSource addObjectsFromArray:datasource];
+        [self tableViewReloadData];
         if (datasource.count>0) {
             self.currentPage++;
         }
-        self.shouldLoadMore=datasource.count>=20;
+        self.shouldLoadMore=datasource.count>=self.pageSize;
         
     } isCache:YES];
 }
@@ -61,7 +58,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return data.count;
+    return  self.dataSource.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -77,7 +74,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductCell* ce=[tableView dequeueReusableCellWithIdentifier:@"ProductCell" forIndexPath:indexPath];
-    BaseModel* m=[data objectAtIndex:indexPath.row];
+    BaseModel* m=[ self.dataSource objectAtIndex:indexPath.row];
     [ce.proImageView sd_setImageWithURL:[m.thumb urlWithMainUrl]];
     [ce.proTitle setText:m.post_title];
     [ce.proContent setText:m.post_subtitle];
@@ -88,7 +85,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    BaseModel* m=[data objectAtIndex:indexPath.row];
+    BaseModel* m=[ self.dataSource objectAtIndex:indexPath.row];
     BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_product_detail urlWithMainUrl]];
     we.idd=m.idd.integerValue;
     we.title=@"产品详情";

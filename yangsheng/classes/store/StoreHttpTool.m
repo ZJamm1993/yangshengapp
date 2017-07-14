@@ -67,4 +67,23 @@
     }];
 }
 
++(void)getStoreItemsSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSString* ur=[ZZUrlTool fullUrlWithTail:@"/Entity/Item/list"];
+    
+    [self get:ur params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
+        NSArray* data=[responseObject valueForKey:@"data"];
+        NSMutableArray* result=[NSMutableArray array];
+        for (NSDictionary* d in data) {
+            StoreItem* item=[[StoreItem alloc]initWithDictionary:d];
+            [result addObject:item];
+        }
+        if (success) {
+            success(result);
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
 @end

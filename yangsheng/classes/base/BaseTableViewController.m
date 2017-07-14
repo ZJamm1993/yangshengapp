@@ -13,7 +13,7 @@
 @interface BaseTableViewController ()
 {
     AdvertiseView* advHeader;
-    
+    NSInteger lastCount;
     BOOL hasNetwork;
 }
 @end
@@ -25,6 +25,7 @@
     if (_dataSource==nil) {
         _dataSource=[NSMutableArray array];
     }
+//    lastCount=_dataSource.count;
     return _dataSource;
 }
 
@@ -36,11 +37,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.dataSource=[NSMutableArray array];
     
     hasNetwork=NO;
     
-    self.shouldLoadMore=NO;
+    self.shouldLoadMore=YES;
 //    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
     self.tableView.estimatedRowHeight=100;
@@ -51,6 +51,16 @@
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
+}
+
+-(NSInteger)pageSize
+{
+    if (_pageSize<=0) {
+        NSDictionary* d=[ZZHttpTool pageParams];
+        
+        _pageSize=[[d valueForKey:@"pagesize"]integerValue];
+    }
+    return _pageSize;
 }
 
 -(void)networkStateChange:(NSNotification*)noti
@@ -89,15 +99,6 @@
 
 -(void)refresh
 {
-//    [self.dataSource removeAllObjects];
-    
-//    NSString* url=@"ht tp://api.change.so/v1/videos/ranking.json";
-//    NSDictionary* par=@{@"page":@"1",@"per_page":@"20",@"since":@"weekly"};
-//    [ZZHttpTool get:url params:par success:^(NSDictionary *responseObject) {
-//        
-//    } failure:^(NSError *error) {
-//        
-//    }];
 }
 
 -(void)stopRefreshAfterSeconds
@@ -115,15 +116,21 @@
     
 }
 
+-(void)tableViewReloadData
+{
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    
-    if (self.shouldLoadMore) {
-        if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section])) {
+    if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section]-1)) {
+        self.shouldLoadMore=_dataSource.count!=lastCount;
+        lastCount=_dataSource.count;
+        if (self.shouldLoadMore) {
             [self loadMore];
         }
     }

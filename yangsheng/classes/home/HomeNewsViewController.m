@@ -59,13 +59,13 @@
     //
     [HomeHttpTool getBrandEventSuccess:^(NSArray *datasource) {
         brandEvents=[NSMutableArray arrayWithArray:datasource];
-        [self.tableView reloadData];
+        [self tableViewReloadData];
     } isCache:isCache];
     
     //
     [HomeHttpTool getLatestEventSuccess:^(NSArray *datasource) {
         latestEvents=[NSMutableArray arrayWithArray:datasource];
-        [self.tableView reloadData];
+        [self tableViewReloadData];
     } isCache:isCache];
 }
 

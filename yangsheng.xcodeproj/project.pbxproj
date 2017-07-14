@@ -114,6 +114,18 @@
 		8FC2435E1F17584C0064A845 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC2435D1F17584C0064A845 /* AVFoundation.framework */; };
 		8FC243611F176F460064A845 /* ProductCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243601F176F460064A845 /* ProductCheckViewController.m */; };
 		8FC243641F1783FD0064A845 /* StoreAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243631F1783FD0064A845 /* StoreAllViewController.m */; };
+		8FC243681F18529B0064A845 /* WebViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243661F18529B0064A845 /* WebViewTableViewCell.m */; };
+		8FC243691F18529B0064A845 /* WebViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC243671F18529B0064A845 /* WebViewTableViewCell.xib */; };
+		8FC2436C1F1854E60064A845 /* HomeTeamHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2436B1F1854E60064A845 /* HomeTeamHeaderCell.m */; };
+		8FC243721F18628F0064A845 /* TeamMonthStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243711F18628F0064A845 /* TeamMonthStarViewController.m */; };
+		8FC243751F1862B60064A845 /* TeamCompanyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243741F1862B60064A845 /* TeamCompanyListViewController.m */; };
+		8FC243781F1862DE0064A845 /* TeamExpandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243771F1862DE0064A845 /* TeamExpandListViewController.m */; };
+		8FC2437B1F1863590064A845 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2437A1F1863590064A845 /* BaseCollectionViewController.m */; };
+		8FC2437E1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2437D1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m */; };
+		8FC243811F1873E40064A845 /* ClassroomHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243801F1873E40064A845 /* ClassroomHttpTool.m */; };
+		8FC243851F18952C0064A845 /* CollectionViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243831F18952C0064A845 /* CollectionViewTableViewCell.m */; };
+		8FC243861F18952C0064A845 /* CollectionViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC243841F18952C0064A845 /* CollectionViewTableViewCell.xib */; };
+		8FC243891F18D5820064A845 /* StoreDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243881F18D5820064A845 /* StoreDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -317,6 +329,28 @@
 		8FC243601F176F460064A845 /* ProductCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCheckViewController.m; sourceTree = "<group>"; };
 		8FC243621F1783FD0064A845 /* StoreAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreAllViewController.h; sourceTree = "<group>"; };
 		8FC243631F1783FD0064A845 /* StoreAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreAllViewController.m; sourceTree = "<group>"; };
+		8FC243651F18529B0064A845 /* WebViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewTableViewCell.h; sourceTree = "<group>"; };
+		8FC243661F18529B0064A845 /* WebViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewTableViewCell.m; sourceTree = "<group>"; };
+		8FC243671F18529B0064A845 /* WebViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewTableViewCell.xib; sourceTree = "<group>"; };
+		8FC2436A1F1854E60064A845 /* HomeTeamHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTeamHeaderCell.h; sourceTree = "<group>"; };
+		8FC2436B1F1854E60064A845 /* HomeTeamHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTeamHeaderCell.m; sourceTree = "<group>"; };
+		8FC243701F18628F0064A845 /* TeamMonthStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamMonthStarViewController.h; sourceTree = "<group>"; };
+		8FC243711F18628F0064A845 /* TeamMonthStarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamMonthStarViewController.m; sourceTree = "<group>"; };
+		8FC243731F1862B60064A845 /* TeamCompanyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCompanyListViewController.h; sourceTree = "<group>"; };
+		8FC243741F1862B60064A845 /* TeamCompanyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCompanyListViewController.m; sourceTree = "<group>"; };
+		8FC243761F1862DE0064A845 /* TeamExpandListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamExpandListViewController.h; sourceTree = "<group>"; };
+		8FC243771F1862DE0064A845 /* TeamExpandListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamExpandListViewController.m; sourceTree = "<group>"; };
+		8FC243791F1863590064A845 /* BaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewController.h; sourceTree = "<group>"; };
+		8FC2437A1F1863590064A845 /* BaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewController.m; sourceTree = "<group>"; };
+		8FC2437C1F1868CE0064A845 /* TeamCompanyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCompanyCollectionViewCell.h; sourceTree = "<group>"; };
+		8FC2437D1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCompanyCollectionViewCell.m; sourceTree = "<group>"; };
+		8FC2437F1F1873E40064A845 /* ClassroomHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomHttpTool.h; sourceTree = "<group>"; };
+		8FC243801F1873E40064A845 /* ClassroomHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomHttpTool.m; sourceTree = "<group>"; };
+		8FC243821F18952C0064A845 /* CollectionViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewTableViewCell.h; sourceTree = "<group>"; };
+		8FC243831F18952C0064A845 /* CollectionViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewTableViewCell.m; sourceTree = "<group>"; };
+		8FC243841F18952C0064A845 /* CollectionViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewTableViewCell.xib; sourceTree = "<group>"; };
+		8FC243871F18D5820064A845 /* StoreDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailViewController.h; sourceTree = "<group>"; };
+		8FC243881F18D5820064A845 /* StoreDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +397,10 @@
 				395247C11F11354E000A6E20 /* HomeMonthStarCell.m */,
 				8FA935EE1F11DBE1001E29CF /* HomeTeamExtCell.h */,
 				8FA935EF1F11DBE1001E29CF /* HomeTeamExtCell.m */,
+				8FC2436A1F1854E60064A845 /* HomeTeamHeaderCell.h */,
+				8FC2436B1F1854E60064A845 /* HomeTeamHeaderCell.m */,
+				8FC2437C1F1868CE0064A845 /* TeamCompanyCollectionViewCell.h */,
+				8FC2437D1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m */,
 			);
 			name = HomeTeam;
 			sourceTree = "<group>";
@@ -370,10 +408,10 @@
 		396910AA1F0E855E00EF6D52 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				8FC243021F1703C50064A845 /* personal */,
+				396910C01F0E858500EF6D52 /* home */,
 				8FC243011F1703850064A845 /* store */,
 				396910C21F0E859900EF6D52 /* classroom */,
-				396910C01F0E858500EF6D52 /* home */,
+				8FC243021F1703C50064A845 /* personal */,
 				396910AB1F0E855E00EF6D52 /* base */,
 				8FC243171F1704060064A845 /* ext */,
 				396910B41F0E855E00EF6D52 /* custom */,
@@ -401,6 +439,8 @@
 				395247B91F111D5E000A6E20 /* PlayerController.m */,
 				8FC2435A1F17582A0064A845 /* CodeScanerViewController.h */,
 				8FC2435B1F17582A0064A845 /* CodeScanerViewController.m */,
+				8FC243791F1863590064A845 /* BaseCollectionViewController.h */,
+				8FC2437A1F1863590064A845 /* BaseCollectionViewController.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -419,6 +459,12 @@
 				8FA935E81F11C9D0001E29CF /* NothingFooterCell.xib */,
 				8FC243211F17070A0064A845 /* FakeSearchBar.h */,
 				8FC243221F17070A0064A845 /* FakeSearchBar.m */,
+				8FC243651F18529B0064A845 /* WebViewTableViewCell.h */,
+				8FC243661F18529B0064A845 /* WebViewTableViewCell.m */,
+				8FC243671F18529B0064A845 /* WebViewTableViewCell.xib */,
+				8FC243821F18952C0064A845 /* CollectionViewTableViewCell.h */,
+				8FC243831F18952C0064A845 /* CollectionViewTableViewCell.m */,
+				8FC243841F18952C0064A845 /* CollectionViewTableViewCell.xib */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -467,6 +513,12 @@
 				8FC242E71F1630380064A845 /* SystemMessageListViewController.m */,
 				8FC2435F1F176F460064A845 /* ProductCheckViewController.h */,
 				8FC243601F176F460064A845 /* ProductCheckViewController.m */,
+				8FC243701F18628F0064A845 /* TeamMonthStarViewController.h */,
+				8FC243711F18628F0064A845 /* TeamMonthStarViewController.m */,
+				8FC243731F1862B60064A845 /* TeamCompanyListViewController.h */,
+				8FC243741F1862B60064A845 /* TeamCompanyListViewController.m */,
+				8FC243761F1862DE0064A845 /* TeamExpandListViewController.h */,
+				8FC243771F1862DE0064A845 /* TeamExpandListViewController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -480,6 +532,8 @@
 				8FC2434D1F174B2B0064A845 /* Classroom.storyboard */,
 				8FC243521F174C520064A845 /* ClassroomVideoShareListViewController.h */,
 				8FC243531F174C520064A845 /* ClassroomVideoShareListViewController.m */,
+				8FC2437F1F1873E40064A845 /* ClassroomHttpTool.h */,
+				8FC243801F1873E40064A845 /* ClassroomHttpTool.m */,
 			);
 			path = classroom;
 			sourceTree = "<group>";
@@ -638,6 +692,8 @@
 				8FC243631F1783FD0064A845 /* StoreAllViewController.m */,
 				3956636A1F17B26F0084E2E2 /* StoreObjectsViewController.h */,
 				3956636B1F17B26F0084E2E2 /* StoreObjectsViewController.m */,
+				8FC243871F18D5820064A845 /* StoreDetailViewController.h */,
+				8FC243881F18D5820064A845 /* StoreDetailViewController.m */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -774,10 +830,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FADBE521F0F291B002F5911 /* Home.storyboard in Resources */,
+				8FC243861F18952C0064A845 /* CollectionViewTableViewCell.xib in Resources */,
 				8FC242D51F16171E0064A845 /* Checkmark.png in Resources */,
 				8FC2434B1F1721770064A845 /* Store.storyboard in Resources */,
 				8FC243591F17518A0064A845 /* ClassroomVideoShareCollectionCell.xib in Resources */,
 				8FC2434E1F174B2B0064A845 /* Classroom.storyboard in Resources */,
+				8FC243691F18529B0064A845 /* WebViewTableViewCell.xib in Resources */,
 				3971BC171F0E7047004016C2 /* LaunchScreen.storyboard in Resources */,
 				3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */,
 				3971BC121F0E7047004016C2 /* Main.storyboard in Resources */,
@@ -798,7 +856,9 @@
 			files = (
 				8FADBE581F0F2C4D002F5911 /* BaseModel.m in Sources */,
 				8FC243581F17518A0064A845 /* ClassroomVideoShareCollectionCell.m in Sources */,
+				8FC243721F18628F0064A845 /* TeamMonthStarViewController.m in Sources */,
 				395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */,
+				8FC2436C1F1854E60064A845 /* HomeTeamHeaderCell.m in Sources */,
 				8FC243351F170D2D0064A845 /* PersonalChangeNickNameViewController.m in Sources */,
 				8FADBE9E1F0F39BF002F5911 /* UIButton+WebCache.m in Sources */,
 				8FC243611F176F460064A845 /* ProductCheckViewController.m in Sources */,
@@ -816,11 +876,13 @@
 				8FADBE471F0F1B5A002F5911 /* ZZUrlTool.m in Sources */,
 				8FADBE981F0F39BF002F5911 /* SDWebImageCompat.m in Sources */,
 				396910BF1F0E855E00EF6D52 /* ZZHttpTool.m in Sources */,
+				8FC243811F1873E40064A845 /* ClassroomHttpTool.m in Sources */,
 				8FADBE501F0F28DC002F5911 /* HomeProductHeaderCell.m in Sources */,
 				8FC243401F1710190064A845 /* StoreSmallCell.m in Sources */,
 				8FC243641F1783FD0064A845 /* StoreAllViewController.m in Sources */,
 				8FADBEAB1F0F3B62002F5911 /* UIView+WebCacheOperation.m in Sources */,
 				8FADBE5F1F0F2E6E002F5911 /* HomeHttpTool.m in Sources */,
+				8FC243681F18529B0064A845 /* WebViewTableViewCell.m in Sources */,
 				395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */,
 				8FC243131F1703C50064A845 /* PersonalHttpTool.m in Sources */,
 				396910BB1F0E855E00EF6D52 /* BaseViewController.m in Sources */,
@@ -837,6 +899,7 @@
 				8FC243151F1703C50064A845 /* PersonalRegisterViewController.m in Sources */,
 				8FADBE941F0F39BF002F5911 /* NSData+ImageContentType.m in Sources */,
 				8FA935F01F11DBE1001E29CF /* HomeTeamExtCell.m in Sources */,
+				8FC243751F1862B60064A845 /* TeamCompanyListViewController.m in Sources */,
 				8FC242BE1F15C4F80064A845 /* ZZnotificationName.m in Sources */,
 				8FADBEA01F0F39BF002F5911 /* UIImage+MultiFormat.m in Sources */,
 				8FADBE9B1F0F39BF002F5911 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -851,6 +914,7 @@
 				8FC2432C1F170CB30064A845 /* PersonalAccountSettingViewController.m in Sources */,
 				396910BE1F0E855E00EF6D52 /* ZZPagerController.m in Sources */,
 				395663681F17B2460084E2E2 /* ServiceObjectCell.m in Sources */,
+				8FC243781F1862DE0064A845 /* TeamExpandListViewController.m in Sources */,
 				3971BC091F0E7047004016C2 /* main.m in Sources */,
 				8FC243281F170C3C0064A845 /* PersonalRootViewController.m in Sources */,
 				8FC2432F1F170CDD0064A845 /* PersonalChangePasswordViewController.m in Sources */,
@@ -866,6 +930,7 @@
 				8FADBEAA1F0F3B62002F5911 /* UIView+WebCache.m in Sources */,
 				8FC243431F1712A80064A845 /* StoreHttpTool.m in Sources */,
 				8FC2431E1F1704060064A845 /* NSDictionary+ext.m in Sources */,
+				8FC2437E1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m in Sources */,
 				8FC243321F170D0D0064A845 /* PersonalChangeMobileViewController.m in Sources */,
 				8F54BDAE1F131175009E3C0B /* NewsLargeCell.m in Sources */,
 				8FA9360D1F1229FF001E29CF /* HomeFeedBackHeaderCell.m in Sources */,
@@ -878,7 +943,10 @@
 				396910CC1F0E870200EF6D52 /* HomeTeamViewController.m in Sources */,
 				396910C91F0E86EE00EF6D52 /* HomeStoryViewController.m in Sources */,
 				8F54BDB51F132B2B009E3C0B /* NeewsListViewController.m in Sources */,
+				8FC2437B1F1863590064A845 /* BaseCollectionViewController.m in Sources */,
+				8FC243851F18952C0064A845 /* CollectionViewTableViewCell.m in Sources */,
 				395247BD1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m in Sources */,
+				8FC243891F18D5820064A845 /* StoreDetailViewController.m in Sources */,
 				8FC243201F1704060064A845 /* UIView+ext.m in Sources */,
 				8FC242EB1F1630B60064A845 /* SystemMsgCell.m in Sources */,
 				8FADBE961F0F39BF002F5911 /* SDImageCache.m in Sources */,

@@ -12,7 +12,7 @@
 
 @interface SystemMessageListViewController ()
 {
-    NSArray* data;
+     
 }
 @end
 
@@ -30,10 +30,10 @@
 -(void)refresh
 {
     [HomeHttpTool getSysMsgListPage:1 success:^(NSArray *datasource) {
-        data=datasource;
-        [self.tableView reloadData];
+        self.dataSource=[NSMutableArray arrayWithArray:datasource];
+        [self tableViewReloadData];
         [self stopRefreshAfterSeconds];
-        if (data.count>0) {
+        if ( self.dataSource.count>0) {
             self.currentPage=1;
         }
     } isCache:NO];
@@ -43,15 +43,12 @@
 {
     
     [HomeHttpTool getSysMsgListPage:1+self.currentPage success:^(NSArray *datasource) {
-        NSMutableArray* arr=[NSMutableArray array];
-        [arr addObjectsFromArray:data?:[NSArray array]];
-        [arr addObjectsFromArray:datasource];
-        data=arr;
-        [self.tableView reloadData];
+        [self.dataSource addObjectsFromArray:datasource];
+        [self tableViewReloadData];
         if (datasource.count>0) {
             self.currentPage++;
         }
-        self.shouldLoadMore=datasource.count>=20;
+//        self.shouldLoadMore=datasource.count>=self.pageSize;
         
     } isCache:YES];
 }
@@ -63,13 +60,13 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return data.count;
+    return  self.dataSource.count;
 }
 
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BaseModel* m=[data objectAtIndex:indexPath.row];
+    BaseModel* m=[ self.dataSource objectAtIndex:indexPath.row];
     
     BOOL hasImage=m.thumb.length>0;
     BOOL hasContent=m.post_excerpt.length>0;
