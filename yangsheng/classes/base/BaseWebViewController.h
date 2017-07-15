@@ -20,6 +20,8 @@
 #define html_newBigEvent_detail @"/themes/ys_ios/home/newBigEvent_detail.html"
 #define html_case_detail @"/themes/ys_ios/home/case_detail.html"
 #define html_course_detail @"/themes/ys_ios/course/detail.html"
+#define html_protocol @"/public/protocal.html"
+#define html_contract @"/public/contract.html"
 
 @interface BaseWebViewController : BaseViewController
 

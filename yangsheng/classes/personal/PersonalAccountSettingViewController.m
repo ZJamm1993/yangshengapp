@@ -82,6 +82,11 @@
         PersonalChangePasswordViewController* c=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalChangePasswordViewController"];
         [self.navigationController pushViewController:c animated:YES];
     }
+    else if(indexPath.row==5)
+    {
+        [UserModel deleteUser];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
