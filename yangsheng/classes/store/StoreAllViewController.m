@@ -10,6 +10,8 @@
 #import "StoreHttpTool.h"
 #import "StoreSmallCell.h"
 
+#import "StoreDetailViewController.h"
+
 @interface StoreAllViewController ()
 
 @end
@@ -29,7 +31,7 @@
 }
 -(void)refresh
 {
-    [StoreHttpTool getNeighbourStoreListPage:1 lng:self.lng lat:self.lat mult:5 success:^(NSArray *datasource) {
+    [StoreHttpTool getNeighbourStoreListPage:1 lng:self.lng lat:self.lat mult:5 cityCode:self.citycode success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         [self tableViewReloadData];
@@ -42,7 +44,7 @@
 
 -(void)loadMore
 {
-    [StoreHttpTool getNeighbourStoreListPage:1+self.currentPage lng:self.lng lat:self.lat mult:5 success:^(NSArray *datasource) {
+    [StoreHttpTool getNeighbourStoreListPage:1+self.currentPage lng:self.lng lat:self.lat mult:5 cityCode:self.citycode success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
         [self tableViewReloadData];
         if (datasource.count>0) {
@@ -109,6 +111,16 @@
 //    {
 //        return nil;
 //    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    StoreModel* m=[self.dataSource objectAtIndex:indexPath.row];
+    StoreDetailViewController* detail=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreDetailViewController"];
+    detail.detailStoreModel=m;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 @end

@@ -14,8 +14,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="347" height="226"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="C91-Dj-ToS">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="C91-Dj-ToS">
                         <rect key="frame" x="0.0" y="0.0" width="347" height="226"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="Obd-jr-pu7">
                             <size key="itemSize" width="110" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>

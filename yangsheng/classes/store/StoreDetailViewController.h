@@ -7,7 +7,10 @@
 //
 
 #import "BaseTableViewController.h"
+#import "StoreHttpTool.h"
 
 @interface StoreDetailViewController : BaseTableViewController
+
+@property (nonatomic,strong) StoreModel* detailStoreModel;
 
 @end

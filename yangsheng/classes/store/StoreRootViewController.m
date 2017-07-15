@@ -10,6 +10,9 @@
 #import "StoreSearchViewController.h"
 #import "StoreAllViewController.h"
 #import "StoreObjectsViewController.h"
+#import "StoreDetailViewController.h"
+#import "PopOverNavigationController.h"
+#import "StoreCitySelectionViewController.h"
 
 #import "StoreHttpTool.h"
 #import "HomeHttpTool.h"
@@ -30,6 +33,10 @@
     CLLocationManager* locationManager;
     NSString* currentLng;
     NSString* currentLat;
+    
+    UIBarButtonItem* cityItem;
+    
+    CityModel* selectedCity;
 }
 @end
 
@@ -44,9 +51,16 @@
     
     self.title=@"门店";
     
+    cityItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(selectCity)];
+    self.navigationItem.leftBarButtonItem=cityItem;
+    
 //    UIBarButtonItem* sea=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(goToSearch)];
 //    self.navigationItem.rightBarButtonItem=sea;
-//    
+//
+#if TARGET_IPHONE_SIMULATOR
+    currentLat=@"";
+    currentLng=@"";
+#else
     locationManager=[[CLLocationManager alloc]init];
     locationManager.delegate=self;
     locationManager.desiredAccuracy=kCLLocationAccuracyHundredMeters;
@@ -56,8 +70,28 @@
         [locationManager requestWhenInUseAuthorization];
     }
     [locationManager startUpdatingLocation];
+#endif
     
+//    [self refreshWithCache:YES];
+    [self reloadCity];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadCity) name:SelectedNewCityNotification object:nil];
+}
+
+
+
+-(void)reloadCity
+{
+    CityModel* c=[CityModel getCity];
+    cityItem.title=c.name.length>0?c.name:@"选择城市";
     [self refreshWithCache:YES];
+}
+
+-(void)selectCity
+{
+    UIViewController* ob=[[StoreCitySelectionViewController alloc]initWithStyle:UITableViewStylePlain];;
+    PopOverNavigationController* pop=[[PopOverNavigationController alloc]initWithRootViewController:ob sourceView:self.navigationController.navigationBar];
+    [self presentViewController:pop animated:YES completion:nil];
 }
 
 -(void)goToSearch
@@ -86,12 +120,16 @@
         [self setAdvertiseHeaderViewWithPicturesUrls:pics];
     } isCache:cache];
     
+#if TARGET_IPHONE_SIMULATOR
+    currentLat=@"";
+    currentLng=@"";
+#else
     NSDictionary* loca=[[NSUserDefaults standardUserDefaults]valueForKey:UserLastLocationKey];
     
     currentLng=[loca valueForKey:UserLastLocationLongitudeKey];
     currentLat=[loca valueForKey:UserLastLocationLatitudeKey];
-    
-    [StoreHttpTool getNeighbourStoreListPage:1 lng:currentLng lat:currentLat mult:5 success:^(NSArray *datasource) {
+#endif
+    [StoreHttpTool getNeighbourStoreListPage:1 lng:currentLng lat:currentLat mult:5 cityCode:selectedCity.citycode success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         [self tableViewReloadData];
@@ -181,7 +219,15 @@
             StoreAllViewController* all=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreAllViewController"];
             all.lat=currentLat;
             all.lng=currentLng;
+            all.citycode=selectedCity.citycode;
             [self.navigationController pushViewController:all animated:YES];
+        }
+        else
+        {
+            StoreModel* m=[self.dataSource objectAtIndex:indexPath.row-1];
+            StoreDetailViewController* detail=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreDetailViewController"];
+            detail.detailStoreModel=m;
+            [self.navigationController pushViewController:detail animated:YES];
         }
     }
 }

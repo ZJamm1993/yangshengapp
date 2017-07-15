@@ -8,13 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CollectionViewTableViewCell : UITableViewCell<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate>
+@class CollectionViewTableViewCell;
 
-@property (nonatomic,strong) NSMutableArray* dataSource;
+@protocol CollectionViewTableViewCellDelegate <NSObject>
+
+-(void)collectionViewTableViewCell:(CollectionViewTableViewCell*)cell didSelectItemAtIndexPath:(NSIndexPath*)indexPath;
+-(void)collectionViewTableViewCell:(CollectionViewTableViewCell *)tableViewcell willShowCollectionViewCell:(UICollectionViewCell*)collectionViewCell atIndexPath:(NSIndexPath *)indexPath;
+-(NSInteger)numberOfItemsForCollectionViewTableViewCell:(CollectionViewTableViewCell*)cell;
+
+@end
+
+@interface CollectionViewTableViewCell : UITableViewCell
+
+@property (nonatomic,weak) id<CollectionViewTableViewCellDelegate>delegate;
 
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-
+- (void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier;
+- (void)registerNib:(UINib *)nib forCellWithReuseIdentifier:(NSString *)identifier;
 
 @end

@@ -11,6 +11,8 @@
 #define RegisterUserSuccessNotification @"RegisterUserSuccessNotification"
 #define LoginUserSuccessNotification @"LoginUserSuccessNotification"
 
+#define SelectedNewCityNotification @"SelectedNewCityNotification"
+
 @interface ZZnotificationName : NSObject
 
 @end

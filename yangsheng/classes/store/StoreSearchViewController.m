@@ -9,6 +9,7 @@
 #import "StoreSearchViewController.h"
 #import "StoreHttpTool.h"
 #import "StoreSmallCell.h"
+#import "StoreDetailViewController.h"
 
 @interface StoreSearchViewController ()<UISearchBarDelegate>
 {
@@ -25,6 +26,8 @@
     _searchBar=[[UISearchBar alloc]init];
     _searchBar.tintColor=pinkColor;
     _searchBar.placeholder=@"搜索门店";
+#warning test searching
+    _searchBar.text=@"品";
     _searchBar.delegate=self;
     _searchBar.backgroundColor=[UIColor clearColor];
     
@@ -117,9 +120,18 @@
     StoreModel* m=[self.dataSource objectAtIndex:indexPath.row];
     c.storeAddress.text=m.store_address;
     c.storeContact.text=[NSString stringWithFormat:@"%@/%@",m.store_author,m.store_tel];
-    c.storeName.text=[NSString stringWithFormat:@"%d,%@",indexPath.row,m.store_title];
+    c.storeName.text=m.store_title;
     [c.storeImage sd_setImageWithURL:[m.thumb urlWithMainUrl]];
     return c;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    StoreModel* m=[self.dataSource objectAtIndex:indexPath.row];
+    StoreDetailViewController* detail=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreDetailViewController"];
+    detail.detailStoreModel=m;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 

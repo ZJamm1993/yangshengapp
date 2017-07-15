@@ -13,4 +13,6 @@
 @property (nonatomic,strong) NSString* lat;
 @property (nonatomic,strong) NSString* lng;
 
+@property (nonatomic,strong) NSString* citycode;
+
 @end

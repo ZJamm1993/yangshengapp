@@ -16,9 +16,12 @@
     [self post:str params:[NSDictionary dictionaryWithObject:mobile forKey:@"mobile"] success:^(NSDictionary *responseObject) {
         NSString* msg=[responseObject valueForKey:@"message"];
         NSLog(@"msg:%@",msg);
+        
         if (success) {
             if (responseObject.code==0) {
                 success(YES);
+//#warning 不要告诉我验证码
+//                [MBProgressHUD showSuccessMessage:msg];
             }
             else
             {

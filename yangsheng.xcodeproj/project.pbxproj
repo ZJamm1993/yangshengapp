@@ -126,6 +126,12 @@
 		8FC243851F18952C0064A845 /* CollectionViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243831F18952C0064A845 /* CollectionViewTableViewCell.m */; };
 		8FC243861F18952C0064A845 /* CollectionViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC243841F18952C0064A845 /* CollectionViewTableViewCell.xib */; };
 		8FC243891F18D5820064A845 /* StoreDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243881F18D5820064A845 /* StoreDetailViewController.m */; };
+		8FC2438C1F19A78F0064A845 /* StoreDetailBaseMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2438B1F19A78F0064A845 /* StoreDetailBaseMessageCell.m */; };
+		8FC2438F1F19C7A10064A845 /* StoreAppointmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2438E1F19C7A10064A845 /* StoreAppointmentView.m */; };
+		8FC243911F19C7BA0064A845 /* StoreAppointmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC243901F19C7BA0064A845 /* StoreAppointmentView.xib */; };
+		8FC243941F19E7E70064A845 /* PopOverNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243931F19E7E70064A845 /* PopOverNavigationController.m */; };
+		8FC243971F19EBEE0064A845 /* StoreCitySelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243961F19EBEE0064A845 /* StoreCitySelectionViewController.m */; };
+		8FC2439A1F19ED880064A845 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243991F19ED880064A845 /* CityModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -351,6 +357,17 @@
 		8FC243841F18952C0064A845 /* CollectionViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewTableViewCell.xib; sourceTree = "<group>"; };
 		8FC243871F18D5820064A845 /* StoreDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailViewController.h; sourceTree = "<group>"; };
 		8FC243881F18D5820064A845 /* StoreDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailViewController.m; sourceTree = "<group>"; };
+		8FC2438A1F19A78F0064A845 /* StoreDetailBaseMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailBaseMessageCell.h; sourceTree = "<group>"; };
+		8FC2438B1F19A78F0064A845 /* StoreDetailBaseMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailBaseMessageCell.m; sourceTree = "<group>"; };
+		8FC2438D1F19C7A10064A845 /* StoreAppointmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreAppointmentView.h; sourceTree = "<group>"; };
+		8FC2438E1F19C7A10064A845 /* StoreAppointmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreAppointmentView.m; sourceTree = "<group>"; };
+		8FC243901F19C7BA0064A845 /* StoreAppointmentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreAppointmentView.xib; sourceTree = "<group>"; };
+		8FC243921F19E7E70064A845 /* PopOverNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverNavigationController.h; sourceTree = "<group>"; };
+		8FC243931F19E7E70064A845 /* PopOverNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopOverNavigationController.m; sourceTree = "<group>"; };
+		8FC243951F19EBEE0064A845 /* StoreCitySelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCitySelectionViewController.h; sourceTree = "<group>"; };
+		8FC243961F19EBEE0064A845 /* StoreCitySelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCitySelectionViewController.m; sourceTree = "<group>"; };
+		8FC243981F19ED880064A845 /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		8FC243991F19ED880064A845 /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +440,8 @@
 		396910AB1F0E855E00EF6D52 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				8FC243921F19E7E70064A845 /* PopOverNavigationController.h */,
+				8FC243931F19E7E70064A845 /* PopOverNavigationController.m */,
 				396910AC1F0E855E00EF6D52 /* BaseTableViewController.h */,
 				396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */,
 				396910AE1F0E855E00EF6D52 /* BaseViewController.h */,
@@ -694,6 +713,10 @@
 				3956636B1F17B26F0084E2E2 /* StoreObjectsViewController.m */,
 				8FC243871F18D5820064A845 /* StoreDetailViewController.h */,
 				8FC243881F18D5820064A845 /* StoreDetailViewController.m */,
+				8FC243951F19EBEE0064A845 /* StoreCitySelectionViewController.h */,
+				8FC243961F19EBEE0064A845 /* StoreCitySelectionViewController.m */,
+				8FC243981F19ED880064A845 /* CityModel.h */,
+				8FC243991F19ED880064A845 /* CityModel.m */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -757,6 +780,11 @@
 				395663671F17B2460084E2E2 /* ServiceObjectCell.xib */,
 				8FC2433E1F1710190064A845 /* StoreSmallCell.h */,
 				8FC2433F1F1710190064A845 /* StoreSmallCell.m */,
+				8FC2438A1F19A78F0064A845 /* StoreDetailBaseMessageCell.h */,
+				8FC2438B1F19A78F0064A845 /* StoreDetailBaseMessageCell.m */,
+				8FC2438D1F19C7A10064A845 /* StoreAppointmentView.h */,
+				8FC2438E1F19C7A10064A845 /* StoreAppointmentView.m */,
+				8FC243901F19C7BA0064A845 /* StoreAppointmentView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -829,6 +857,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC243911F19C7BA0064A845 /* StoreAppointmentView.xib in Resources */,
 				8FADBE521F0F291B002F5911 /* Home.storyboard in Resources */,
 				8FC243861F18952C0064A845 /* CollectionViewTableViewCell.xib in Resources */,
 				8FC242D51F16171E0064A845 /* Checkmark.png in Resources */,
@@ -863,12 +892,14 @@
 				8FADBE9E1F0F39BF002F5911 /* UIButton+WebCache.m in Sources */,
 				8FC243611F176F460064A845 /* ProductCheckViewController.m in Sources */,
 				8FC2433D1F170EDE0064A845 /* StoreRootViewController.m in Sources */,
+				8FC2438F1F19C7A10064A845 /* StoreAppointmentView.m in Sources */,
 				8FC243161F1703C50064A845 /* UserModel.m in Sources */,
 				8FADBE9C1F0F39BF002F5911 /* SDWebImageManager.m in Sources */,
 				8FADBE441F0F1A92002F5911 /* HomeNewsViewController.m in Sources */,
 				8FC242E81F1630380064A845 /* SystemMessageListViewController.m in Sources */,
 				396910C61F0E864200EF6D52 /* HomeRootViewController.m in Sources */,
 				3971BC0C1F0E7047004016C2 /* AppDelegate.m in Sources */,
+				8FC2438C1F19A78F0064A845 /* StoreDetailBaseMessageCell.m in Sources */,
 				8FC2435C1F17582A0064A845 /* CodeScanerViewController.m in Sources */,
 				8FC243141F1703C50064A845 /* PersonalLoginViewController.m in Sources */,
 				8FC243491F1721650064A845 /* StoreSearchViewController.m in Sources */,
@@ -880,6 +911,7 @@
 				8FADBE501F0F28DC002F5911 /* HomeProductHeaderCell.m in Sources */,
 				8FC243401F1710190064A845 /* StoreSmallCell.m in Sources */,
 				8FC243641F1783FD0064A845 /* StoreAllViewController.m in Sources */,
+				8FC243971F19EBEE0064A845 /* StoreCitySelectionViewController.m in Sources */,
 				8FADBEAB1F0F3B62002F5911 /* UIView+WebCacheOperation.m in Sources */,
 				8FADBE5F1F0F2E6E002F5911 /* HomeHttpTool.m in Sources */,
 				8FC243681F18529B0064A845 /* WebViewTableViewCell.m in Sources */,
@@ -891,6 +923,7 @@
 				8FC242E21F162ADB0064A845 /* Foundation+Log.m in Sources */,
 				8FA936061F120E7A001E29CF /* ProductCell.m in Sources */,
 				8FC243461F1713690064A845 /* StoreModel.m in Sources */,
+				8FC243941F19E7E70064A845 /* PopOverNavigationController.m in Sources */,
 				8FADBEA31F0F39BF002F5911 /* UIImageView+WebCache.m in Sources */,
 				8FADBEA11F0F39BF002F5911 /* UIImage+WebP.m in Sources */,
 				8FC242CB1F15F7900064A845 /* Reachability.m in Sources */,
@@ -916,6 +949,7 @@
 				395663681F17B2460084E2E2 /* ServiceObjectCell.m in Sources */,
 				8FC243781F1862DE0064A845 /* TeamExpandListViewController.m in Sources */,
 				3971BC091F0E7047004016C2 /* main.m in Sources */,
+				8FC2439A1F19ED880064A845 /* CityModel.m in Sources */,
 				8FC243281F170C3C0064A845 /* PersonalRootViewController.m in Sources */,
 				8FC2432F1F170CDD0064A845 /* PersonalChangePasswordViewController.m in Sources */,
 				396910BC1F0E855E00EF6D52 /* NaviController.m in Sources */,

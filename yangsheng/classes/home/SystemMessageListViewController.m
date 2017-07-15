@@ -21,8 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"系统消息";
-
-    
     [self loadMore];
     // Do any additional setup after loading the view.
 }
@@ -63,10 +61,14 @@
     return  self.dataSource.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.0001;
+}
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BaseModel* m=[ self.dataSource objectAtIndex:indexPath.row];
+    BaseModel* m=[self.dataSource objectAtIndex:indexPath.row];
     
     BOOL hasImage=m.thumb.length>0;
     BOOL hasContent=m.post_excerpt.length>0;
@@ -85,7 +87,8 @@
     c.msgTitle.text=m.post_title;
     c.msgDate.text=m.post_modified;
 //    c.msgImageRadio.multiplier=hasImage?2:100000000;
-    
+    c.backgroundColor=[UIColor clearColor];
+    c.contentView.backgroundColor=[UIColor clearColor];
     return c;
 }
 

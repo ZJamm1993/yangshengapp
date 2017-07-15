@@ -161,11 +161,11 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-#warning testing login
-    if (scrollView.contentOffset.y<-100) {
-        [UserModel deleteUser];
-        [self refreshUser];
-    }
+//#warning testing login
+//    if (scrollView.contentOffset.y<-100) {
+//        [UserModel deleteUser];
+//        [self refreshUser];
+//    }
 }
 
 @end

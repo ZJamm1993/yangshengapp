@@ -1623,13 +1623,13 @@
         <scene sceneID="ym7-JO-rlD">
             <objects>
                 <tableViewController storyboardIdentifier="SystemMessageListViewController" id="yfY-Bp-6AS" customClass="SystemMessageListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" id="P0W-36-ZPu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="250" sectionHeaderHeight="18" sectionFooterHeight="18" id="P0W-36-ZPu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SystemMsgCellImageAndContent" rowHeight="250" id="zGt-xf-FGf" customClass="SystemMsgCell">
-                                <rect key="frame" x="0.0" y="28" width="320" height="250"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zGt-xf-FGf" id="IfK-gk-c9k">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
@@ -1704,7 +1704,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SystemMsgCellImageOnly" rowHeight="214" id="szZ-98-u2q" customClass="SystemMsgCell">
-                                <rect key="frame" x="0.0" y="278" width="320" height="214"/>
+                                <rect key="frame" x="0.0" y="300" width="320" height="214"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="szZ-98-u2q" id="e1h-pL-MuD">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
@@ -1776,7 +1776,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SystemMsgCellContentOnly" rowHeight="286" id="CIB-oc-3Hp" customClass="SystemMsgCell">
-                                <rect key="frame" x="0.0" y="492" width="320" height="286"/>
+                                <rect key="frame" x="0.0" y="514" width="320" height="286"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CIB-oc-3Hp" id="ygP-Wl-bbp">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="286"/>

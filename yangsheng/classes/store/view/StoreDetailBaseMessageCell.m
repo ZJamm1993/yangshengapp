@@ -1,20 +1,17 @@
 //
-//  WebViewTableViewCell.m
+//  StoreDetailBaseMessageCell.m
 //  yangsheng
 //
-//  Created by Macx on 17/7/14.
+//  Created by Macx on 17/7/15.
 //  Copyright © 2017年 jam. All rights reserved.
 //
 
-#import "WebViewTableViewCell.h"
+#import "StoreDetailBaseMessageCell.h"
 
-@implementation WebViewTableViewCell
+@implementation StoreDetailBaseMessageCell
 
 - (void)awakeFromNib {
     // Initialization code
-    
-    self.webView.scrollView.scrollEnabled=NO;
-    self.webView.scrollView.scrollsToTop=NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

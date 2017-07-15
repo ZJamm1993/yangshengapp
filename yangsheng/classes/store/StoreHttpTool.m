@@ -10,7 +10,7 @@
 
 @implementation StoreHttpTool
 
-+(void)getNeighbourStoreListPage:(NSInteger)page lng:(NSString *)lng lat:(NSString *)lat mult:(NSInteger)mult success:(void (^)(NSArray *))success isCache:(BOOL)isCache
++(void)getNeighbourStoreListPage:(NSInteger)page lng:(NSString *)lng lat:(NSString *)lat mult:(NSInteger)mult cityCode:(NSString*)cityCode success:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Entity/Store/list"];
     if (lng.length==0) {
@@ -24,6 +24,7 @@
     [par setValue:lng forKey:@"lng"];
     [par setValue:lat forKey:@"lat"];
     [par setValue:[NSNumber numberWithInteger:mult] forKey:@"mult"];
+    [par setValue:cityCode forKey:@"citycode"];
     
     [self get:str params:par usingCache:isCache success:^(NSDictionary *resp) {
         NSDictionary* data=[resp valueForKey:@"data"];
@@ -76,6 +77,49 @@
         NSMutableArray* result=[NSMutableArray array];
         for (NSDictionary* d in data) {
             StoreItem* item=[[StoreItem alloc]initWithDictionary:d];
+            [result addObject:item];
+        }
+        if (success) {
+            success(result);
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
++(void)getStoreDetailWithId:(NSString *)idd success:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Entity/Store/show"];
+    
+    NSMutableDictionary* p=[NSMutableDictionary dictionary];
+    [p setValue:idd forKey:@"id"];
+    [self get:str params:p usingCache:isCache success:^(NSDictionary *re) {
+        NSDictionary* data=[re valueForKey:@"data"];
+        NSDictionary* store=[data valueForKey:@"store"];
+        NSMutableArray* arr=[NSMutableArray array];
+        StoreModel* sm=[[StoreModel alloc]initWithDictionary:store];
+        [arr addObject:sm];
+        if (success) {
+            success(arr);
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
++(void)getCitysWithLevel:(NSString *)level keywords:(NSString *)keywords success:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSString* ur=[ZZUrlTool fullUrlWithTail:@"/Api/map/getdistrict"];
+    
+    NSMutableDictionary* p=[NSMutableDictionary dictionary];
+    [p setValue:level forKey:@"level"];
+    [p setValue:keywords forKey:@"keywords"];
+    
+    [self get:ur params:p usingCache:isCache success:^(NSDictionary *responseObject) {
+        NSArray* data=[responseObject valueForKey:@"data"];
+        NSMutableArray* result=[NSMutableArray array];
+        for (NSDictionary* d in data) {
+            CityModel* item=[[CityModel alloc]initWithDictionary:d];
             [result addObject:item];
         }
         if (success) {
