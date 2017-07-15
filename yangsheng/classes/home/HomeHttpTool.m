@@ -117,21 +117,21 @@
 
 +(void)getMonthStarPage:(NSInteger)page size:(NSInteger)size success:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
-    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Page/show_monthstar"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/monthstar/index"];
     
     [self get:str params:[self pageParamsWithPage:page size:size] usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
-        //        NSArray* list=[data valueForKey:@"list"];
-        BaseModel* en=[[BaseModel alloc] initWithDictionary:data];
-        NSArray* sour=[NSArray arrayWithObject:en];
-        if (en.idd.length==0) {
-            sour=nil;
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* arr=[NSMutableArray array];
+        for (NSDictionary* d in list) {
+            BaseModel* en=[[BaseModel alloc] initWithDictionary:d];
+            [arr  addObject:en];
         }
-        if (sour.count>0) {
+//        if (sour.count>0) {
             if (success) {
-                success(sour);
+                success(arr);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
