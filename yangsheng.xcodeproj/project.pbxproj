@@ -14,6 +14,10 @@
 		395663681F17B2460084E2E2 /* ServiceObjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 395663661F17B2460084E2E2 /* ServiceObjectCell.m */; };
 		395663691F17B2460084E2E2 /* ServiceObjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395663671F17B2460084E2E2 /* ServiceObjectCell.xib */; };
 		3956636C1F17B26F0084E2E2 /* StoreObjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3956636B1F17B26F0084E2E2 /* StoreObjectsViewController.m */; };
+		395AD5991F1B1F7D0009F44D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395AD5981F1B1F7D0009F44D /* MapKit.framework */; };
+		395AD59C1F1B209D0009F44D /* StoreMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD59B1F1B209D0009F44D /* StoreMapViewController.m */; };
+		395AD5A21F1B2B540009F44D /* ClassroomAnalystListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD5A11F1B2B540009F44D /* ClassroomAnalystListViewController.m */; };
+		395AD5A51F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD5A41F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m */; };
 		395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */; };
 		395C5C041F0FF8BF008B74D5 /* ClassroomRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C031F0FF8BF008B74D5 /* ClassroomRootViewController.m */; };
 		396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */; };
@@ -147,6 +151,13 @@
 		395663671F17B2460084E2E2 /* ServiceObjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceObjectCell.xib; sourceTree = "<group>"; };
 		3956636A1F17B26F0084E2E2 /* StoreObjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreObjectsViewController.h; sourceTree = "<group>"; };
 		3956636B1F17B26F0084E2E2 /* StoreObjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreObjectsViewController.m; sourceTree = "<group>"; };
+		395AD5981F1B1F7D0009F44D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		395AD59A1F1B209D0009F44D /* StoreMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreMapViewController.h; sourceTree = "<group>"; };
+		395AD59B1F1B209D0009F44D /* StoreMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreMapViewController.m; sourceTree = "<group>"; };
+		395AD5A01F1B2B540009F44D /* ClassroomAnalystListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomAnalystListViewController.h; sourceTree = "<group>"; };
+		395AD5A11F1B2B540009F44D /* ClassroomAnalystListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomAnalystListViewController.m; sourceTree = "<group>"; };
+		395AD5A31F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomKnowledgeListViewController.h; sourceTree = "<group>"; };
+		395AD5A41F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomKnowledgeListViewController.m; sourceTree = "<group>"; };
 		395C5BFF1F0FF6C4008B74D5 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		395C5C021F0FF8BF008B74D5 /* ClassroomRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomRootViewController.h; sourceTree = "<group>"; };
@@ -375,6 +386,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				395AD5991F1B1F7D0009F44D /* MapKit.framework in Frameworks */,
 				3956635C1F17A5980084E2E2 /* CoreLocation.framework in Frameworks */,
 				8FC2435E1F17584C0064A845 /* AVFoundation.framework in Frameworks */,
 				8FC242C71F15F7290064A845 /* SystemConfiguration.framework in Frameworks */,
@@ -549,6 +561,10 @@
 				395C5C021F0FF8BF008B74D5 /* ClassroomRootViewController.h */,
 				395C5C031F0FF8BF008B74D5 /* ClassroomRootViewController.m */,
 				8FC2434D1F174B2B0064A845 /* Classroom.storyboard */,
+				395AD5A31F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.h */,
+				395AD5A41F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m */,
+				395AD5A01F1B2B540009F44D /* ClassroomAnalystListViewController.h */,
+				395AD5A11F1B2B540009F44D /* ClassroomAnalystListViewController.m */,
 				8FC243521F174C520064A845 /* ClassroomVideoShareListViewController.h */,
 				8FC243531F174C520064A845 /* ClassroomVideoShareListViewController.m */,
 				8FC2437F1F1873E40064A845 /* ClassroomHttpTool.h */,
@@ -560,6 +576,7 @@
 		3971BBFB1F0E7047004016C2 = {
 			isa = PBXGroup;
 			children = (
+				395AD5981F1B1F7D0009F44D /* MapKit.framework */,
 				3956635B1F17A5980084E2E2 /* CoreLocation.framework */,
 				8FC2435D1F17584C0064A845 /* AVFoundation.framework */,
 				8FC242C61F15F7290064A845 /* SystemConfiguration.framework */,
@@ -717,6 +734,8 @@
 				8FC243961F19EBEE0064A845 /* StoreCitySelectionViewController.m */,
 				8FC243981F19ED880064A845 /* CityModel.h */,
 				8FC243991F19ED880064A845 /* CityModel.m */,
+				395AD59A1F1B209D0009F44D /* StoreMapViewController.h */,
+				395AD59B1F1B209D0009F44D /* StoreMapViewController.m */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -885,6 +904,7 @@
 			files = (
 				8FADBE581F0F2C4D002F5911 /* BaseModel.m in Sources */,
 				8FC243581F17518A0064A845 /* ClassroomVideoShareCollectionCell.m in Sources */,
+				395AD5A21F1B2B540009F44D /* ClassroomAnalystListViewController.m in Sources */,
 				8FC243721F18628F0064A845 /* TeamMonthStarViewController.m in Sources */,
 				395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */,
 				8FC2436C1F1854E60064A845 /* HomeTeamHeaderCell.m in Sources */,
@@ -950,6 +970,7 @@
 				8FC243781F1862DE0064A845 /* TeamExpandListViewController.m in Sources */,
 				3971BC091F0E7047004016C2 /* main.m in Sources */,
 				8FC2439A1F19ED880064A845 /* CityModel.m in Sources */,
+				395AD5A51F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m in Sources */,
 				8FC243281F170C3C0064A845 /* PersonalRootViewController.m in Sources */,
 				8FC2432F1F170CDD0064A845 /* PersonalChangePasswordViewController.m in Sources */,
 				396910BC1F0E855E00EF6D52 /* NaviController.m in Sources */,
@@ -987,6 +1008,7 @@
 				8FC243391F170E610064A845 /* PersonalHeaderCell.m in Sources */,
 				8FADBE9D1F0F39BF002F5911 /* SDWebImagePrefetcher.m in Sources */,
 				8F54BDB21F131191009E3C0B /* NewsSmallCell.m in Sources */,
+				395AD59C1F1B209D0009F44D /* StoreMapViewController.m in Sources */,
 				8FADBE9F1F0F39BF002F5911 /* UIImage+GIF.m in Sources */,
 				8FADBEB11F0F4206002F5911 /* HomeQACell.m in Sources */,
 			);

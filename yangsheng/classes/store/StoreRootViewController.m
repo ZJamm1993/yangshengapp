@@ -13,6 +13,7 @@
 #import "StoreDetailViewController.h"
 #import "PopOverNavigationController.h"
 #import "StoreCitySelectionViewController.h"
+#import "StoreMapViewController.h"
 
 #import "StoreHttpTool.h"
 #import "HomeHttpTool.h"
@@ -30,6 +31,7 @@
 {
     NSArray* advsArray;
     StoreSearchViewController* searchVc;
+    StoreMapViewController* mapVc;
     CLLocationManager* locationManager;
     NSString* currentLng;
     NSString* currentLat;
@@ -58,8 +60,8 @@
 //    self.navigationItem.rightBarButtonItem=sea;
 //
 #if TARGET_IPHONE_SIMULATOR
-    currentLat=@"";
-    currentLng=@"";
+    currentLat=@"23.12672";
+    currentLng=@"113.395";
 #else
     locationManager=[[CLLocationManager alloc]init];
     locationManager.delegate=self;
@@ -121,8 +123,8 @@
     } isCache:cache];
     
 #if TARGET_IPHONE_SIMULATOR
-    currentLat=@"";
-    currentLng=@"";
+//    currentLat=@"";
+//    currentLng=@"";
 #else
     NSDictionary* loca=[[NSUserDefaults standardUserDefaults]valueForKey:UserLastLocationKey];
     
@@ -257,6 +259,14 @@
     else if(index==1)
     {
         [self goToSearch];
+    }
+    else if(index==3)
+    {
+        if (mapVc==nil) {
+            mapVc=[[StoreMapViewController alloc]init];
+        }
+        mapVc.center=CLLocationCoordinate2DMake(currentLat.doubleValue, currentLng.doubleValue);
+        [self.navigationController pushViewController:mapVc animated:YES];
     }
 }
 

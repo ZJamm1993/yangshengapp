@@ -42,6 +42,7 @@
 
 -(void)refresh
 {
+    [self stopRefreshAfterSeconds];
     //
     [HomeHttpTool getAdversType:5 success:^(NSArray *datasource) {
         advsArray=[NSMutableArray arrayWithArray:datasource];
@@ -58,7 +59,6 @@
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         [self.collectionView reloadData];
-        [self stopRefreshAfterSeconds];
         if (datasource.count>0) {
             self.currentPage=1;
         }
@@ -150,7 +150,7 @@
     BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_course_detail urlWithMainUrl]];
     we.idd=m.idd.integerValue;
     we.type=@"c3";
-    we.title=@"视频详情";
+    we.title=@"详情";
     [self.navigationController pushViewController:we animated:YES];
 }
 

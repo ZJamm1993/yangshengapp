@@ -30,10 +30,12 @@
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
     if (index==0) {
-        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_1.html" urlWithMainUrl]];
+//        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_1.html" urlWithMainUrl]];
+        return [[UIStoryboard storyboardWithName:@"Classroom" bundle:nil]instantiateViewControllerWithIdentifier:@"ClassroomKnowledgeListViewController"];
     }
     else if (index==1) {
-        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_2.html" urlWithMainUrl]];
+//        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_2.html" urlWithMainUrl]];
+        return [[UIStoryboard storyboardWithName:@"Classroom" bundle:nil]instantiateViewControllerWithIdentifier:@"ClassroomAnalystListViewController"];
     }
     else if (index==2) {
 //        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_3.html" urlWithMainUrl]];
