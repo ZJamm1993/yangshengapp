@@ -18,6 +18,8 @@
 		395AD59C1F1B209D0009F44D /* StoreMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD59B1F1B209D0009F44D /* StoreMapViewController.m */; };
 		395AD5A21F1B2B540009F44D /* ClassroomAnalystListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD5A11F1B2B540009F44D /* ClassroomAnalystListViewController.m */; };
 		395AD5A51F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD5A41F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m */; };
+		395AD5A81F1B42CE0009F44D /* StoreApplySubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD5A71F1B42CE0009F44D /* StoreApplySubmitViewController.m */; };
+		395AD5AB1F1B42F50009F44D /* StoreApplyResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD5AA1F1B42F50009F44D /* StoreApplyResultViewController.m */; };
 		395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */; };
 		395C5C041F0FF8BF008B74D5 /* ClassroomRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C031F0FF8BF008B74D5 /* ClassroomRootViewController.m */; };
 		396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */; };
@@ -158,6 +160,10 @@
 		395AD5A11F1B2B540009F44D /* ClassroomAnalystListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomAnalystListViewController.m; sourceTree = "<group>"; };
 		395AD5A31F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomKnowledgeListViewController.h; sourceTree = "<group>"; };
 		395AD5A41F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomKnowledgeListViewController.m; sourceTree = "<group>"; };
+		395AD5A61F1B42CE0009F44D /* StoreApplySubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreApplySubmitViewController.h; sourceTree = "<group>"; };
+		395AD5A71F1B42CE0009F44D /* StoreApplySubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreApplySubmitViewController.m; sourceTree = "<group>"; };
+		395AD5A91F1B42F50009F44D /* StoreApplyResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreApplyResultViewController.h; sourceTree = "<group>"; };
+		395AD5AA1F1B42F50009F44D /* StoreApplyResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreApplyResultViewController.m; sourceTree = "<group>"; };
 		395C5BFF1F0FF6C4008B74D5 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		395C5C021F0FF8BF008B74D5 /* ClassroomRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomRootViewController.h; sourceTree = "<group>"; };
@@ -736,6 +742,10 @@
 				8FC243991F19ED880064A845 /* CityModel.m */,
 				395AD59A1F1B209D0009F44D /* StoreMapViewController.h */,
 				395AD59B1F1B209D0009F44D /* StoreMapViewController.m */,
+				395AD5A61F1B42CE0009F44D /* StoreApplySubmitViewController.h */,
+				395AD5A71F1B42CE0009F44D /* StoreApplySubmitViewController.m */,
+				395AD5A91F1B42F50009F44D /* StoreApplyResultViewController.h */,
+				395AD5AA1F1B42F50009F44D /* StoreApplyResultViewController.m */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -946,6 +956,7 @@
 				8FC243941F19E7E70064A845 /* PopOverNavigationController.m in Sources */,
 				8FADBEA31F0F39BF002F5911 /* UIImageView+WebCache.m in Sources */,
 				8FADBEA11F0F39BF002F5911 /* UIImage+WebP.m in Sources */,
+				395AD5A81F1B42CE0009F44D /* StoreApplySubmitViewController.m in Sources */,
 				8FC242CB1F15F7900064A845 /* Reachability.m in Sources */,
 				8FADBE971F0F39BF002F5911 /* SDImageCacheConfig.m in Sources */,
 				8FC242C51F15E5C60064A845 /* MBProgressHUD.m in Sources */,
@@ -989,6 +1000,7 @@
 				8FC243321F170D0D0064A845 /* PersonalChangeMobileViewController.m in Sources */,
 				8F54BDAE1F131175009E3C0B /* NewsLargeCell.m in Sources */,
 				8FA9360D1F1229FF001E29CF /* HomeFeedBackHeaderCell.m in Sources */,
+				395AD5AB1F1B42F50009F44D /* StoreApplyResultViewController.m in Sources */,
 				8FA936101F122A13001E29CF /* HomeFeedBackCell.m in Sources */,
 				8FADBE991F0F39BF002F5911 /* SDWebImageDecoder.m in Sources */,
 				396910BD1F0E855E00EF6D52 /* TabbarController.m in Sources */,
