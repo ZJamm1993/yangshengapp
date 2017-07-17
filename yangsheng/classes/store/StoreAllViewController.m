@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"附近所有门店";
+    self.title=@"所有门店";
     [self loadMore];
     // Do any additional setup after loading the view.
 }
@@ -31,7 +31,7 @@
 }
 -(void)refresh
 {
-    [StoreHttpTool getNeighbourStoreListPage:1 lng:self.lng lat:self.lat mult:5 cityCode:self.citycode success:^(NSArray *datasource) {
+    [StoreHttpTool getAllStoreListPage:1 success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         [self tableViewReloadData];
@@ -44,7 +44,7 @@
 
 -(void)loadMore
 {
-    [StoreHttpTool getNeighbourStoreListPage:1+self.currentPage lng:self.lng lat:self.lat mult:5 cityCode:self.citycode success:^(NSArray *datasource) {
+    [StoreHttpTool getAllStoreListPage:1+self.currentPage success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
         [self tableViewReloadData];
         if (datasource.count>0) {

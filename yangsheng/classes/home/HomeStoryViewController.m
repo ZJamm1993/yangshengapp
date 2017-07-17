@@ -427,6 +427,15 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
         NeewsListViewController* nl=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"NeewsListViewController"];
         [self.navigationController pushViewController:nl animated:YES];
     }
+    else if(index==2)
+    {
+        UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否打开QQ联系客服" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[UIApplication sharedApplication]openURL:QQURL];
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
     else if(index==3)
     {
         CodeScanerViewController* scaner=[[CodeScanerViewController alloc]init];

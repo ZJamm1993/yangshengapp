@@ -64,7 +64,9 @@
         pick.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         pick.delegate=self;
         pick.allowsEditing=YES;
-        [self presentViewController:pick animated:YES completion:nil];
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+            [self presentViewController:pick animated:YES completion:nil];
+        }
     }
     else if(indexPath.row==1)
     {

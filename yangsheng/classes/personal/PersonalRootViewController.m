@@ -10,9 +10,11 @@
 #import "PersonalHeaderCell.h"
 #import "PersonalLoginViewController.h"
 #import "PersonalAccountSettingViewController.h"
-
+#import "StoreApplyProtocolViewController.h"
+#import "StoreApplyResultViewController.h"
 #import "CodeScanerViewController.h"
 
+#import "StoreHttpTool.h"
 #import "UserModel.h"
 
 @interface PersonalRootViewController ()<PersonalHeaderCellDelegate>
@@ -29,8 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    imgsArray=@[@[@"header"],@[@"my_Shop"],@[@"my_distributor"],@[@"my_curriculum"],@[@"my_account",@"my_Invitation",@"my_Service"]];
-    titsArray=@[@[@"header"],@[@"申请开店"],@[@"我的预约"],@[@"收藏课程"],@[@"账户设置",@"邀请好友",@"联系客服"]];
+    imgsArray=@[@[@"header"],@[@"my_Shop"],@[@"my_distributor"],@[@"my_curriculum"],@[@"my_account",@"my_Service"]];
+    titsArray=@[@[@"header"],@[@"申请开店"],@[@"我的预约"],@[@"收藏课程"],@[@"账户设置",@"联系客服"]];
     
     [self.refreshControl removeFromSuperview];
     [self.tableView setTableFooterView:[[UIView alloc]init]];
@@ -130,6 +132,33 @@
     if (indexPath.section==0&&indexPath.row==0&&self.isLoged==NO) {
         [self goLoginPage];
     }
+    if (indexPath.section==1) {
+        if (currentUser.access_token.length==0) {
+            // did not log in
+            [MBProgressHUD showErrorMessage:@"请登录后再操作"];
+            [self goLoginPage];
+        }
+        else
+        {
+            [MBProgressHUD showProgressMessage:@"正在查询信息"];
+            [StoreHttpTool getApplyResultWithToken:currentUser.access_token success:^(StoreApplyModel *applyModel) {
+                [MBProgressHUD hide];
+                if (applyModel.name.length>0) {
+                    //yes
+                    StoreApplyResultViewController* pro=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreApplyResultViewController"];
+                    pro.applyResult=applyModel;
+                    [self.navigationController pushViewController:pro animated:YES];
+                }
+                else
+                {
+                    StoreApplyProtocolViewController* pro=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreApplyProtocolViewController"];
+                    
+                    [self.navigationController pushViewController:pro animated:YES];
+                }
+            }];
+        }
+
+    }
     else if(indexPath.section==4)
     {
         if (indexPath.row==0) {
@@ -141,6 +170,15 @@
             {
                 [self goLoginPage];
             }
+        }
+        else if(indexPath.row==1)
+        {
+            UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否打开QQ联系客服" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [[UIApplication sharedApplication]openURL:QQURL];
+            }]];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }
 }

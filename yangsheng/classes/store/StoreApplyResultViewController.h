@@ -7,7 +7,10 @@
 //
 
 #import "BaseTableViewController.h"
+#import "StoreHttpTool.h"
 
 @interface StoreApplyResultViewController : BaseTableViewController
+
+@property (nonatomic,strong) StoreApplyModel* applyResult;
 
 @end

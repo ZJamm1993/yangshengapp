@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title=[self.level isEqualToString:CityLevelProvince]?@"选择省":@"选择市";
+    self.title=[self.level isEqualToString:CityLevelProvince]?@"选择省":[self.level isEqualToString:CityLevelCity]?@"选择市":@"选择区";
     
     [self refresh];
     // Do any additional setup after loading the view.
@@ -76,18 +76,55 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     CityModel* city=[self.dataSource objectAtIndex:indexPath.row];
+    
+    StoreCitySelectionViewController* ob=[[StoreCitySelectionViewController alloc]initWithStyle:UITableViewStylePlain];
+    ob.isStoreLocation=self.isStoreLocation;
+    if (city) {
+        NSMutableArray* thisCities=[NSMutableArray arrayWithArray:self.lastLevelCities];
+        [thisCities addObject:city];
+        ob.lastLevelCities=thisCities;
+    }
+    ob.keywords=city.adcode;
     if ([self.level isEqualToString:CityLevelProvince]) {
-        StoreCitySelectionViewController* ob=[[StoreCitySelectionViewController alloc]initWithStyle:UITableViewStylePlain];
         ob.level=CityLevelCity;
-        ob.keywords=city.adcode;
-        [self.navigationController pushViewController:ob animated:YES];
+    }
+    else if([self.level isEqualToString:CityLevelCity])
+    {
+        if (self.isStoreLocation) {
+            ob.level=CityLevelDistrict;
+        }
+        else
+        {
+            [CityModel saveCity:city];
+            [[NSNotificationCenter defaultCenter]postNotificationName:SelectedNewCityNotification object:nil];
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            return;
+        }
+    }
+    else if([self.level isEqualToString:CityLevelDistrict])
+    {
+        if (self.isStoreLocation) {
+            NSArray* cities=ob.lastLevelCities;
+            [[NSNotificationCenter defaultCenter]postNotificationName:SelectedNewCityNotification object:nil userInfo:[NSDictionary dictionaryWithObject:cities forKey:CityLevelCity]];
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            return;
+        }
     }
     else
     {
-        [CityModel saveCity:city];
-        [[NSNotificationCenter defaultCenter]postNotificationName:SelectedNewCityNotification object:nil];
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        return;
     }
+    
+    [self.navigationController pushViewController:ob animated:YES];
+}
+
+-(NSArray*)lastLevelCities
+{
+    if (_lastLevelCities==nil) {
+        _lastLevelCities=[NSArray array];
+    }
+    return _lastLevelCities;
 }
 
 @end

@@ -18,7 +18,8 @@
     UIButton* phone=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, v.frame.size.width/2, v.frame.size.height)];
     phone.backgroundColor=[UIColor whiteColor];
     [phone setTitle:@"电话预约" forState:UIControlStateNormal];
-    [phone.titleLabel setFont:[UIFont systemFontOfSize:13]];
+    [phone setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateNormal];
+    [phone.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [phone setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [phone addTarget:v action:@selector(phoneAppointment:) forControlEvents:UIControlEventTouchUpInside];
     [v addSubview:phone];
@@ -26,7 +27,7 @@
     UIButton* rig=[[UIButton alloc]initWithFrame:CGRectMake(v.frame.size.width/2, 0, v.frame.size.width/2, v.frame.size.height)];
     rig.backgroundColor=pinkColor;
     [rig setTitle:@"立即预约" forState:UIControlStateNormal];
-    [rig.titleLabel setFont:[UIFont systemFontOfSize:13]];
+    [rig.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [rig setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [rig addTarget:v action:@selector(rightnowAppointment:) forControlEvents:UIControlEventTouchUpInside];
     [v addSubview:rig];

@@ -12,4 +12,6 @@
 
 @property (nonatomic,assign) NSInteger code;
 
+@property (nonatomic,assign) NSUInteger length;
+
 @end

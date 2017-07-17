@@ -40,3 +40,25 @@
 -(instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
 @end
+
+////
+
+@interface StoreApplyModel : NSObject
+
+-(instancetype)initWithDictionary:(NSDictionary*)dictionary;
+
+@property (nonatomic,strong) NSDictionary* rawDictionary;
+
+@property (nonatomic,strong) NSString* name;
+@property (nonatomic,strong) NSString* tel;
+@property (nonatomic,strong) NSString* idcard;
+@property (nonatomic,strong) NSString* area;
+@property (nonatomic,strong) NSString* address;
+@property (nonatomic,strong) NSString* lng;
+@property (nonatomic,strong) NSString* lat;
+@property (nonatomic,assign) NSInteger status;
+@property (nonatomic,strong) NSString* info;
+@property (nonatomic,strong) NSString* positive;
+@property (nonatomic,strong) NSString* negative;
+
+@end

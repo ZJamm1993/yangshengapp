@@ -133,12 +133,15 @@
     }
     NSString *receiveStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
-    receiveStr=[receiveStr stringByReplacingOccurrencesOfString:@"null" withString:@""];
+    receiveStr=[receiveStr stringByReplacingOccurrencesOfString:@"null" withString:@"{\"zzz\":\"nillllll!\"}"];
     
     NSData * data2 = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
     
     NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
-    
+    if(result==nil)
+    {
+        NSLog(@"%@",result);//why nil??
+    }
     NSLog(@"%@",result);
     return result;
 }

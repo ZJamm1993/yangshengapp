@@ -14,9 +14,15 @@
 #import "PopOverNavigationController.h"
 #import "StoreCitySelectionViewController.h"
 #import "StoreMapViewController.h"
+#import "StoreApplyProtocolViewController.h"
+#import "StoreApplySubmitViewController.h"
+#import "StoreApplyResultViewController.h"
+
+#import "PersonalLoginViewController.h"
 
 #import "StoreHttpTool.h"
 #import "HomeHttpTool.h"
+#import "UserModel.h"
 
 #import "ButtonsCell.h"
 #import "StoreSmallCell.h"
@@ -31,7 +37,7 @@
 {
     NSArray* advsArray;
     StoreSearchViewController* searchVc;
-    StoreMapViewController* mapVc;
+//    StoreMapViewController* mapVc;
     CLLocationManager* locationManager;
     NSString* currentLng;
     NSString* currentLat;
@@ -260,11 +266,40 @@
     {
         [self goToSearch];
     }
+    else if(index==2)
+    {
+        UserModel* currentUser=[UserModel getUser];
+        if (currentUser.access_token.length==0) {
+            // did not log in
+            [MBProgressHUD showErrorMessage:@"请登录后再操作"];
+            PersonalLoginViewController* lo=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalLoginViewController"];
+            [self.navigationController pushViewController:lo animated:YES];
+        }
+        else
+        {
+            [MBProgressHUD showProgressMessage:@"正在查询信息"];
+            [StoreHttpTool getApplyResultWithToken:currentUser.access_token success:^(StoreApplyModel *applyModel) {
+                [MBProgressHUD hide];
+                if (applyModel.name.length>0) {
+                    //yes
+                    StoreApplyResultViewController* pro=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreApplyResultViewController"];
+                    pro.applyResult=applyModel;
+                    [self.navigationController pushViewController:pro animated:YES];
+                }
+                else
+                {
+                    StoreApplyProtocolViewController* pro=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreApplyProtocolViewController"];
+                    
+                    [self.navigationController pushViewController:pro animated:YES];
+                }
+            }];
+        }
+    }
     else if(index==3)
     {
-        if (mapVc==nil) {
-            mapVc=[[StoreMapViewController alloc]init];
-        }
+//        if (mapVc==nil) {
+         StoreMapViewController* mapVc=[[StoreMapViewController alloc]init];
+//        }
         mapVc.center=CLLocationCoordinate2DMake(currentLat.doubleValue, currentLng.doubleValue);
         [self.navigationController pushViewController:mapVc animated:YES];
     }

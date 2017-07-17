@@ -204,6 +204,30 @@
     }];
 }
 
++(void)searchProductName:(NSString *)name page:(NSInteger)page success:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSMutableDictionary* d=[self pageParams];
+    [d setValue:[NSNumber numberWithInteger:page] forKey:@"page"];
+    [d setValue:name forKey:@"keywords"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Goods/search"];
+    [self get:str params:d usingCache:isCache success:^(NSDictionary *resp) {
+        NSDictionary* data=[resp valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* sou=[NSMutableArray array];
+        for (NSDictionary* cl in list) {
+            BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
+            [sou addObject:m];
+        }
+        if (sou.count>0) {
+            if (success) {
+                success(sou);
+            }
+        }
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
 +(void)getQAListPage:(NSInteger)page success:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     NSMutableDictionary* d=[self pageParams];

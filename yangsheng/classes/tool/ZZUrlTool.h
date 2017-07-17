@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define QQURL [NSURL URLWithString:@"mqq://im/chat?chat_type=wpa&uin=493638384&version=1&src_type=web"]
+
 @interface ZZUrlTool : NSObject
 
 +(NSString*)main;

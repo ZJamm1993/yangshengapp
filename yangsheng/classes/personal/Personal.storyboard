@@ -428,16 +428,25 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Tj-81-kFA" userLabel="hideQQ">
+                                <rect key="frame" x="0.0" y="373" width="320" height="195"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="195" id="29T-2t-aFe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6kH-rc-2G4" firstAttribute="centerY" secondItem="Ofw-gR-fF4" secondAttribute="centerY" id="5JH-fI-XYl"/>
                             <constraint firstItem="Ofw-gR-fF4" firstAttribute="centerX" secondItem="kOr-zJ-SPs" secondAttribute="centerX" id="7Li-aC-anq"/>
+                            <constraint firstItem="OoU-5v-8gU" firstAttribute="top" secondItem="5Tj-81-kFA" secondAttribute="bottom" id="BK6-7g-G36"/>
                             <constraint firstItem="CLw-dH-nFP" firstAttribute="width" secondItem="3JY-K7-gHJ" secondAttribute="width" id="IMN-2S-tCL"/>
                             <constraint firstItem="kOr-zJ-SPs" firstAttribute="centerX" secondItem="UBZ-dY-woj" secondAttribute="centerX" id="J6C-0i-bzd"/>
                             <constraint firstItem="wUI-35-lqU" firstAttribute="centerX" secondItem="CLw-dH-nFP" secondAttribute="centerX" id="JwD-vD-YrT"/>
                             <constraint firstItem="CLw-dH-nFP" firstAttribute="height" secondItem="3JY-K7-gHJ" secondAttribute="height" id="RgL-LJ-sQL"/>
                             <constraint firstItem="kOr-zJ-SPs" firstAttribute="leading" secondItem="CLw-dH-nFP" secondAttribute="trailing" constant="3" id="Rtz-FV-lpK"/>
+                            <constraint firstAttribute="trailing" secondItem="5Tj-81-kFA" secondAttribute="trailing" id="TYf-nB-oRW"/>
                             <constraint firstItem="3JY-K7-gHJ" firstAttribute="leading" secondItem="kOr-zJ-SPs" secondAttribute="trailing" id="UYJ-LY-Prz"/>
                             <constraint firstItem="4nw-Ze-to3" firstAttribute="top" secondItem="UBZ-dY-woj" secondAttribute="top" id="Ucp-mz-HO7"/>
                             <constraint firstItem="wUI-35-lqU" firstAttribute="top" secondItem="CLw-dH-nFP" secondAttribute="bottom" constant="8" id="Xg6-Vs-o9Z"/>
@@ -455,6 +464,7 @@
                             <constraint firstItem="lQ5-tj-tg9" firstAttribute="centerY" secondItem="Ofw-gR-fF4" secondAttribute="centerY" id="tQj-nz-FBI"/>
                             <constraint firstItem="ydw-DX-pdg" firstAttribute="centerX" secondItem="3JY-K7-gHJ" secondAttribute="centerX" id="tbH-YC-iYw"/>
                             <constraint firstItem="lQ5-tj-tg9" firstAttribute="leading" secondItem="UBZ-dY-woj" secondAttribute="leading" constant="50" id="vru-HF-ij3"/>
+                            <constraint firstItem="5Tj-81-kFA" firstAttribute="leading" secondItem="UBZ-dY-woj" secondAttribute="leading" id="wQe-SB-SHD"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

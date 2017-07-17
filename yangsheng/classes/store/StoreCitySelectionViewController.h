@@ -7,10 +7,15 @@
 //
 
 #import "BaseTableViewController.h"
+#import "CityModel.h"
 
 @interface StoreCitySelectionViewController : BaseTableViewController
 
 @property (nonatomic,strong) NSString* level;
 @property (nonatomic,strong) NSString* keywords;
+
+@property (nonatomic,strong) NSArray* lastLevelCities;
+
+@property (nonatomic,assign) BOOL isStoreLocation;
 
 @end

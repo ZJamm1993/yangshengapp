@@ -1,33 +1,32 @@
 //
-//  StoreSearchViewController.m
+//  ProductSearchViewController.m
 //  yangsheng
 //
-//  Created by Macx on 17/7/13.
+//  Created by Macx on 17/7/17.
 //  Copyright © 2017年 jam. All rights reserved.
 //
 
-#import "StoreSearchViewController.h"
-#import "StoreHttpTool.h"
-#import "StoreSmallCell.h"
-#import "StoreDetailViewController.h"
+#import "ProductSearchViewController.h"
+#import "HomeHttpTool.h"
+#import "ProductCell.h"
 
-@interface StoreSearchViewController ()<UISearchBarDelegate>
+@interface ProductSearchViewController ()<UISearchBarDelegate>
 {
     UISearchBar* _searchBar;
     NSString* searchingString;
 }
 @end
 
-@implementation StoreSearchViewController
+@implementation ProductSearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _searchBar=[[UISearchBar alloc]init];
     _searchBar.tintColor=pinkColor;
-    _searchBar.placeholder=@"搜索门店";
-//#warning test searching
-//    _searchBar.text=@"品";
+    _searchBar.placeholder=@"搜索产品";
+    //#warning test searching
+    //    _searchBar.text=@"品";
     _searchBar.delegate=self;
     _searchBar.backgroundColor=[UIColor clearColor];
     
@@ -61,19 +60,18 @@
 
 -(void)refresh
 {
-//    if (!self.refreshControl.isRefreshing) {
-//        [self.refreshControl beginRefreshing];
-//    }
+    //    if (!self.refreshControl.isRefreshing) {
+    //        [self.refreshControl beginRefreshing];
+    //    }
     if (searchingString.length==0) {
         [self stopRefreshAfterSeconds];
         return;
     }
-    [StoreHttpTool searchStoreWithKeyword:searchingString page:1 success:^(NSArray *datasource) {
-        [self.dataSource removeAllObjects];
-        [self.dataSource addObjectsFromArray:datasource];
+    [HomeHttpTool searchProductName:searchingString page:1 success:^(NSArray *datasource) {
+        self.dataSource=[NSMutableArray arrayWithArray:datasource];
         [self tableViewReloadData];
         [self stopRefreshAfterSeconds];
-        if (self.dataSource.count>0) {
+        if ( self.dataSource.count>0) {
             self.currentPage=1;
         }
     } isCache:NO];
@@ -81,13 +79,13 @@
 
 -(void)loadMore
 {
-    [StoreHttpTool searchStoreWithKeyword:searchingString page:1+self.currentPage success:^(NSArray *datasource) {
+    [HomeHttpTool searchProductName:searchingString page:1+self.currentPage success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
         [self tableViewReloadData];
         if (datasource.count>0) {
             self.currentPage++;
         }
-//        self.shouldLoadMore=datasource.count>=self.pageSize;
+        //        self.shouldLoadMore=datasource.count>=self.pageSize;
         
     } isCache:YES];
 }
@@ -114,25 +112,31 @@
     return self.dataSource.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.0001;
+}
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    StoreSmallCell* c=[tableView dequeueReusableCellWithIdentifier:@"StoreSmallCell" forIndexPath:indexPath];
-    StoreModel* m=[self.dataSource objectAtIndex:indexPath.row];
-    c.storeAddress.text=m.store_address;
-    c.storeContact.text=[NSString stringWithFormat:@"%@/%@",m.store_author,m.store_tel];
-    c.storeName.text=m.store_title;
-    [c.storeImage sd_setImageWithURL:[m.thumb urlWithMainUrl]];
-    return c;
+    ProductCell* ce=[tableView dequeueReusableCellWithIdentifier:@"ProductCell" forIndexPath:indexPath];
+    BaseModel* m=[ self.dataSource objectAtIndex:indexPath.row];
+    [ce.proImageView sd_setImageWithURL:[m.thumb urlWithMainUrl]];
+    [ce.proTitle setText:m.post_title];
+    [ce.proContent setText:m.post_subtitle];
+    return ce;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    StoreModel* m=[self.dataSource objectAtIndex:indexPath.row];
-    StoreDetailViewController* detail=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreDetailViewController"];
-    detail.detailStoreModel=m;
-    [self.navigationController pushViewController:detail animated:YES];
+    
+    BaseModel* m=[ self.dataSource objectAtIndex:indexPath.row];
+    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_product_detail urlWithMainUrl]];
+    we.idd=m.idd.integerValue;
+    we.title=@"产品详情";
+    [self.navigationController pushViewController:we animated:YES];
+    
 }
-
 
 @end

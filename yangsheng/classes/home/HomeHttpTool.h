@@ -37,6 +37,8 @@
 
 +(void)getProductListType:(NSInteger)type page:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
++(void)searchProductName:(NSString*)name page:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
 +(void)getQAListPage:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
 +(void)getFeedbackAllListSize:(NSInteger)size success:(void(^) (NSArray* sections,NSArray* rows))success isCache:(BOOL)isCache;

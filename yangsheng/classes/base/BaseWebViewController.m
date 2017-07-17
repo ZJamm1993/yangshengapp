@@ -8,6 +8,7 @@
 
 #import "BaseWebViewController.h"
 #import "ZZUrlTool.h"
+#import "UserModel.h"
 
 @interface BaseWebViewController ()<UIWebViewDelegate>
 {
@@ -91,7 +92,12 @@
                 NSArray* arr=[abs componentsSeparatedByString:@"?"];
                 abs=[NSString stringWithFormat:@"%@?type=%@&%@",arr.firstObject,self.type,arr.lastObject];
             }
+            NSString* access_token=[[UserModel getUser]access_token];
+            if (access_token.length>0 ) {
+                abs=[NSString stringWithFormat:@"%@&access_token=%@",abs,access_token];
+            }
         }
+        
         if (![abs containsString:[ZZUrlTool main]]) {
             abs=[ZZUrlTool fullUrlWithTail:abs];
         }

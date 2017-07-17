@@ -77,3 +77,45 @@
 }
 
 @end
+
+@implementation StoreApplyModel
+
+-(instancetype)initWithDictionary:(NSDictionary*)dictionary
+{
+    self=[super init];
+    if ([dictionary isKindOfClass:[NSDictionary class]]) {
+        self.rawDictionary=dictionary;
+        
+        self.name=[dictionary valueForKey:@"name"];
+        self.tel=[dictionary valueForKey:@"tel"];
+        self.idcard=[dictionary valueForKey:@"idcard"];
+        self.area=[dictionary valueForKey:@"area"];
+        self.address=[dictionary valueForKey:@"address"];
+        self.lng=[dictionary valueForKey:@"lng"];
+        self.lat=[dictionary valueForKey:@"lat"];
+//        NSInteger st=[[dictionary valueForKey:@"status"]integerValue];
+//        if (st==0) {
+//            self.status=@"未审核";
+//        }
+//        else if(st==1)
+//        {
+//            self.status=@"已审核";
+//        }
+//        else if(st==2)
+//        {
+//            self.status=@"审核驳回";
+//        }
+        
+        self.status=[[dictionary valueForKey:@"status"]integerValue];
+        
+        self.info=[dictionary valueForKey:@"info"];
+        NSDictionary* thumb=[dictionary valueForKey:@"thumb"];
+        if ([thumb isKindOfClass:[NSDictionary class]]) {
+            self.positive=[thumb valueForKey:@"positive"];
+            self.negative=[thumb valueForKey:@"negative"];
+        }
+    }
+    return self;
+}
+
+@end

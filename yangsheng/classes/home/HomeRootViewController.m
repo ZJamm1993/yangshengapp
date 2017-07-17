@@ -10,11 +10,13 @@
 #import "HomeStoryViewController.h"
 #import "HomeTeamViewController.h"
 #import "SystemMessageListViewController.h"
-
+#import "ProductSearchViewController.h"
 #import "FakeSearchBar.h"
 
 @interface HomeRootViewController ()<ZZPagerControllerDataSource>
-
+{
+    ProductSearchViewController* searchVc;
+}
 @end
 
 @implementation HomeRootViewController
@@ -39,6 +41,10 @@
 -(void)goToSearch
 {
     NSLog(@"search");
+    if (searchVc==nil) {
+        searchVc=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchViewController"];
+    }
+    [self.navigationController pushViewController:searchVc animated:YES];
 }
 
 -(void)goToReadSystemMessage

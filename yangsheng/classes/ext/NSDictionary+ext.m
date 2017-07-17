@@ -17,7 +17,21 @@
 
 -(NSInteger)code
 {
-    return [[self valueForKey:@"code"]integerValue];
+    if([[self allKeys]containsObject:@"code"])
+    {
+        return [[self valueForKey:@"code"]integerValue];
+    }
+    return -1;
+}
+
+-(void)setLength:(NSUInteger)length
+{
+    
+}
+
+-(NSUInteger)length
+{
+    return self.count;
 }
 
 @end

@@ -12,6 +12,7 @@
 
 #define CityLevelProvince @"province"
 #define CityLevelCity @"city"
+#define CityLevelDistrict @"district"
 
 @interface CityModel : NSObject
 
