@@ -12,6 +12,8 @@
 #import "PersonalAccountSettingViewController.h"
 #import "StoreApplyProtocolViewController.h"
 #import "StoreApplyResultViewController.h"
+#import "StoreAllAppoinmentListViewController.h"
+#import "ClassroomCollectionViewController.h"
 #import "CodeScanerViewController.h"
 
 #import "StoreHttpTool.h"
@@ -158,6 +160,30 @@
             }];
         }
 
+    }
+    else if(indexPath.section==2)
+    {
+        if (!self.isLoged) {
+            PersonalAccountSettingViewController* acc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalAccountSettingViewController"];
+            [self.navigationController pushViewController:acc animated:YES];
+        }
+        else
+        {
+            StoreAllAppoinmentListViewController* app=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreAllAppoinmentListViewController"];
+            [self.navigationController pushViewController:app animated:YES];
+        }
+    }
+    else if (indexPath.section==3)
+    {
+        if (!self.isLoged) {
+            PersonalAccountSettingViewController* acc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalAccountSettingViewController"];
+            [self.navigationController pushViewController:acc animated:YES];
+        }
+        else
+        {
+            ClassroomCollectionViewController* app=[[UIStoryboard storyboardWithName:@"Classroom" bundle:nil]instantiateViewControllerWithIdentifier:@"ClassroomCollectionViewController"];
+            [self.navigationController pushViewController:app animated:YES];
+        }
     }
     else if(indexPath.section==4)
     {

@@ -15,6 +15,7 @@
 @property (nonatomic,strong) NSDictionary* rawDictionary;
 
 @property (nonatomic,strong) NSString* idd;
+
 @property (nonatomic,strong) NSString* store_title;
 @property (nonatomic,strong) NSString* store_author;
 @property (nonatomic,strong) NSString* store_tel;
@@ -27,6 +28,14 @@
 @property (nonatomic,strong) NSString* store_content;
 @property (nonatomic,strong) NSArray* smetas;
 @property (nonatomic,strong) NSArray* items;
+
+//appointments
+@property (nonatomic,strong) NSString* app_id;
+@property (nonatomic,strong) NSString* u_tel;
+@property (nonatomic,strong) NSString* date;
+@property (nonatomic,assign) BOOL finish;
+@property (nonatomic,strong) NSString* item_name;
+
 
 @end
 

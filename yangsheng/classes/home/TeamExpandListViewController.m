@@ -72,7 +72,7 @@
     BaseModel* ext=[self.dataSource objectAtIndex:indexPath.row];
     [c.extBgImageView sd_setImageWithURL:[ext.thumb urlWithMainUrl]];
     c.extTitle.text=ext.post_title;
-    c.extContent.text=ext.post_excerpt;
+    c.extContent.text=ext.post_subtitle;
     c.extDateLabel.text=ext.post_modified;
     return c;
 }

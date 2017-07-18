@@ -1,26 +1,25 @@
 //
-//  ClassroomAnalystListViewController.m
+//  ClassroomCollectionViewController.m
 //  yangsheng
 //
-//  Created by jam on 17/7/16.
+//  Created by Macx on 17/7/18.
 //  Copyright © 2017年 jam. All rights reserved.
 //
 
-#import "ClassroomAnalystListViewController.h"
-#import "HomeTeamExtCell.h"
+#import "ClassroomCollectionViewController.h"
+#import "ClassroomCollectionCell.h"
 #import "ClassroomHttpTool.h"
-#import "HomeHttpTool.h"
+#import "UserModel.h"
 
-@interface ClassroomAnalystListViewController ()
-{
-    NSArray* advsArray;
-}
+@interface ClassroomCollectionViewController ()<ClassroomCollectionCellDelegate>
+
 @end
 
-@implementation ClassroomAnalystListViewController
+@implementation ClassroomCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"收藏课程";
     // Do any additional setup after loading the view.
     [self loadMore];
     // Do any additional setup after loading the view.
@@ -38,18 +37,7 @@
     //
     
     [self stopRefreshAfterSeconds];
-    [HomeHttpTool getAdversType:4 success:^(NSArray *datasource) {
-        advsArray=[NSMutableArray arrayWithArray:datasource];
-        NSMutableArray* pics=[NSMutableArray array];
-        for (BaseModel* ad in advsArray) {
-            NSString* th=ad.thumb;
-            NSString* fu=[ZZUrlTool fullUrlWithTail:th];
-            [pics addObject:fu];
-        }
-        [self setAdvertiseHeaderViewWithPicturesUrls:pics];
-    } isCache:NO];
-    
-    [ClassroomHttpTool getClassroomListType:3 page:1 size:self.pageSize success:^(NSArray *datasource) {
+    [ClassroomHttpTool getClassroomCollectionListPage:1 size:self.pageSize token:[UserModel getUser].access_token success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         [self.tableView reloadData];
@@ -63,18 +51,8 @@
 -(void)loadMore
 {
     //
-    [HomeHttpTool getAdversType:4 success:^(NSArray *datasource) {
-        advsArray=[NSMutableArray arrayWithArray:datasource];
-        NSMutableArray* pics=[NSMutableArray array];
-        for (BaseModel* ad in advsArray) {
-            NSString* th=ad.thumb;
-            NSString* fu=[ZZUrlTool fullUrlWithTail:th];
-            [pics addObject:fu];
-        }
-        [self setAdvertiseHeaderViewWithPicturesUrls:pics];
-    } isCache:YES];
     
-    [ClassroomHttpTool getClassroomListType:3 page:1+self.currentPage size:self.pageSize success:^(NSArray *datasource) {
+    [ClassroomHttpTool getClassroomCollectionListPage:1+self.currentPage size:self.pageSize token:[UserModel getUser].access_token success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
         [self.tableView reloadData];
         if (datasource.count>0) {
@@ -82,7 +60,7 @@
         }
         self.shouldLoadMore=datasource.count>=self.pageSize;
         
-    } isCache:YES];
+    } isCache:NO];
 }
 
 /*
@@ -104,12 +82,13 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeTeamExtCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeTeamExtCell" forIndexPath:indexPath];
+    ClassroomCollectionCell* c=[tableView dequeueReusableCellWithIdentifier:@"ClassroomCollectionCell" forIndexPath:indexPath];
     BaseModel* ext=[self.dataSource objectAtIndex:indexPath.row];
-    [c.extBgImageView sd_setImageWithURL:[ext.thumb urlWithMainUrl]];
-    c.extTitle.text=ext.post_title;
-    c.extContent.text=ext.post_label;
-    c.extDateLabel.text=ext.post_modified;
+    [c.image sd_setImageWithURL:[ext.thumb urlWithMainUrl]];
+    [c.title setText:ext.title];
+    [c.date setText:ext.createtime];
+    c.delegate=self;
+    c.index=indexPath.row;
     return c;
 }
 
@@ -122,7 +101,7 @@
     BaseModel* m=[self.dataSource objectAtIndex:indexPath.row];
     BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_course_detail urlWithMainUrl]];
     we.idd=m.idd.integerValue;
-    we.type=@"c2";
+    we.type=@"c0";
     we.title=@"详情";
     [self.navigationController pushViewController:we animated:YES];
 }
@@ -137,5 +116,30 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+-(void)collectionCell:(ClassroomCollectionCell *)cell didCancelAtIndex:(NSInteger)index
+{
+    BaseModel* m=[self.dataSource objectAtIndex:index];
+    NSString* msg=[NSString stringWithFormat:@"是否取消收藏课程：%@？",m.title];
+    UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否取消收藏？" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"不" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [MBProgressHUD showProgressMessage:@"正在取消"];
+        [ClassroomHttpTool cancelCollectionId:m.idd token:[[UserModel getUser]access_token] success:^(BOOL applied, NSString *msg) {
+            if (applied) {
+                [MBProgressHUD showSuccessMessage:@"已取消"];
+                
+                [self.dataSource removeObjectAtIndex:index];
+                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+            }
+        }];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 @end

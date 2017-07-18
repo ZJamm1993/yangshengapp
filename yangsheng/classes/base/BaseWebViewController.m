@@ -94,7 +94,7 @@
             }
             NSString* access_token=[[UserModel getUser]access_token];
             if (access_token.length>0 ) {
-                abs=[NSString stringWithFormat:@"%@&access_token=%@",abs,access_token];
+                abs=[NSString stringWithFormat:@"%@&access_token=%@&time=0",abs,access_token];
             }
         }
         

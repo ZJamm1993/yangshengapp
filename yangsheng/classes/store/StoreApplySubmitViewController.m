@@ -194,6 +194,9 @@
     }
 }
 - (IBAction)goToProtocal:(id)sender {
+    BaseWebViewController* proto=[[BaseWebViewController alloc]initWithUrl:[html_gsrdprivate urlWithMainUrl]];
+    proto.title=@"服务条款";
+    [self.navigationController pushViewController:proto animated:YES];
 }
 
 -(void)selectImageToPositive:(BOOL)isPositive

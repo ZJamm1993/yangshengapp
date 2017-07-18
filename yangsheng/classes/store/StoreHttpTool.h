@@ -32,4 +32,10 @@
 
 +(void)applyStoreSubmitName:(NSString*)name tel:(NSString*)tel idcard:(NSString*)idcard area:(NSString*)area address:(NSString*)address positive:(NSString*)positive negative:(NSString*)negative token:(NSString*)token success:(void(^)(BOOL applied,NSString* msg))success;
 
++(void)appointStoreWithStoreId:(NSString*)storeid date:(NSString*)date tel:(NSString*)tel itemName:(NSString*)itemName token:(NSString*)token success:(void(^)(BOOL appointed,NSString* msg))success;
+
++(void)getAllAppointmentListPage:(NSInteger)page token:(NSString *)token success:(void (^)(NSArray *))success isCache:(BOOL)isCache;
+
++(void)cancelAppointmentId:(NSString*)idd token:(NSString*)token success:(void(^)(BOOL applied,NSString* msg))success;
+
 @end

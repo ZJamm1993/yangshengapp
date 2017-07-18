@@ -113,7 +113,7 @@
 //    }
 }
 - (IBAction)goReadProtocol:(id)sender {
-    BaseWebViewController* proto=[[BaseWebViewController alloc]initWithUrl:[html_protocol urlWithMainUrl]];
+    BaseWebViewController* proto=[[BaseWebViewController alloc]initWithUrl:[html_userprotocol urlWithMainUrl]];
     proto.title=@"用户协议";
     [self.navigationController pushViewController:proto animated:YES];
 }

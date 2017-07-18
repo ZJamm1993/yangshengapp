@@ -168,4 +168,11 @@
     self.tableView.tableFooterView=ff;
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (scrollView==self.tableView) {
+        [self.tableView endEditing:YES];
+    }
+}
+
 @end

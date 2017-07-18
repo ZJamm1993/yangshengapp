@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Reachability.h"
+#import "UserModel.h"
+#import "PersonalHttpTool.h"
 
 @interface AppDelegate ()
 {
@@ -24,6 +26,8 @@
     reach=[Reachability reachabilityForInternetConnection];
     [reach startNotifier];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
+    
+    [self autoLoginAgain];
 //    [self performSelector:@selector(networkStateChange:) withObject:nil afterDelay:10];
     return YES;
 }
@@ -44,6 +48,39 @@
     }
 }
 
+-(void)autoLoginAgain
+{
+    UserModel* lastUser=[UserModel getUser];
+    NSString* password=[UserModel getPassword];
+    if (lastUser.mobile.length>0&&password.length>0) {
+        [PersonalHttpTool loginUserWithMobile:lastUser.mobile password:password success:^(UserModel *user) {
+            if (user.access_token.length>0) {
+                [UserModel saveUser:user];
+            }
+            else
+            {
+                UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"登录信息已过期" message:@"是否重新登录" preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [UserModel deleteUser];
+                    [UserModel deletePassword];
+                }]];
+                [alert addAction:[UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    UIViewController* root=self.window.rootViewController;
+                    if ([root isKindOfClass:[UITabBarController class]]) {
+                        UITabBarController* tab=(UITabBarController*)root;
+                        UIViewController* selectedVc=tab.selectedViewController;
+                        if ([selectedVc isKindOfClass:[UINavigationController class]]) {
+                            UINavigationController* nav=(UINavigationController*)selectedVc;
+                            UIViewController* lo=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalLoginViewController"];
+                            [nav pushViewController:lo animated:YES];
+                        }
+                    }
+                }]];
+                [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+            }
+        }];
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

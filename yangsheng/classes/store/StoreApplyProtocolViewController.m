@@ -20,6 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"开店协议";
+    
+    NSURL* urlstr=[html_storeprotocol urlWithMainUrl];
+    NSURLRequest* req=[NSURLRequest requestWithURL:urlstr];
+    [self.web loadRequest:req];
+    
     // Do any additional setup after loading the view.
 }
 

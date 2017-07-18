@@ -38,6 +38,13 @@
         
         _post_author=[dictionary valueForKey:@"post_author"];
         _post_label=[dictionary valueForKey:@"post_label"];
+        
+        _createtime=[dictionary valueForKey:@"createtime"];
+        _title=[dictionary valueForKey:@"title"];
+        
+        if (_idd.length==0) {
+            _idd=[dictionary valueForKey:@"post_id"];
+        }
     }
     
     return self;

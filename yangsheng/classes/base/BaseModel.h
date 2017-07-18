@@ -37,4 +37,10 @@
 @property (nonatomic,strong) NSString* post_author;
 @property (nonatomic,strong) NSString* post_label;
 
+
+//collection
+@property (nonatomic,strong) NSString* createtime;
+
+@property (nonatomic,strong) NSString* title;
+
 @end

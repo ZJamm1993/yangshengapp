@@ -24,6 +24,9 @@
     [super viewDidLoad];
     
     self.title=@"登录";
+    
+    self.usernameTextField.text=[[UserModel getUser]mobile];
+    [UserModel deleteUser];
     // Do any additional setup after loading the view.
 }
 
@@ -45,6 +48,7 @@
             if(user)
             {
                 [UserModel saveUser:user];
+                [UserModel savePassword:pa];
                 [self.navigationController popViewControllerAnimated:YES];
                 
                 [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:user];

@@ -12,6 +12,7 @@
 #import "StoreDetailBaseMessageCell.h"
 #import "ServiceObjectCell.h"
 #import "StoreAppointmentView.h"
+#import "StoreAppointmentViewController.h"
 
 #import "StoreHttpTool.h"
 
@@ -279,9 +280,11 @@
             }];
         }
     }
-    else
+    else if(type==AppointmentTypeNormal)
     {
-        
+        StoreAppointmentViewController* app=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreAppointmentViewController"];
+        app.store=self.detailStoreModel;
+        [self.navigationController pushViewController:app animated:YES];
     }
 }
 

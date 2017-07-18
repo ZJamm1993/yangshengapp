@@ -39,6 +39,13 @@
 		8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */; };
 		8F507D291F1CAE14003DF63D /* StoreMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D281F1CAE14003DF63D /* StoreMapAnnotation.m */; };
 		8F507D2C1F1CBBFF003DF63D /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D2B1F1CBBFF003DF63D /* ProductSearchViewController.m */; };
+		8F507D2F1F1D9942003DF63D /* StoreAppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D2E1F1D9942003DF63D /* StoreAppointmentViewController.m */; };
+		8F507D321F1DB263003DF63D /* StoreAllAppoinmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D311F1DB263003DF63D /* StoreAllAppoinmentListViewController.m */; };
+		8F507D3C1F1DB8EC003DF63D /* StoreAppointmentHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D3B1F1DB8EC003DF63D /* StoreAppointmentHeaderCell.m */; };
+		8F507D3F1F1DB93C003DF63D /* StoreAppointmentFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D3E1F1DB93C003DF63D /* StoreAppointmentFooterCell.m */; };
+		8F507D451F1DD0EE003DF63D /* ClassroomCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D441F1DD0EE003DF63D /* ClassroomCollectionCell.m */; };
+		8F507D481F1DD78B003DF63D /* ClassroomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D471F1DD78B003DF63D /* ClassroomCollectionViewController.m */; };
+		8F507D4B1F1DE4D8003DF63D /* StoreAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D4A1F1DE4D8003DF63D /* StoreAnnotationView.m */; };
 		8F54BDAE1F131175009E3C0B /* NewsLargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDAD1F131175009E3C0B /* NewsLargeCell.m */; };
 		8F54BDB21F131191009E3C0B /* NewsSmallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDB11F131191009E3C0B /* NewsSmallCell.m */; };
 		8F54BDB51F132B2B009E3C0B /* NeewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDB41F132B2B009E3C0B /* NeewsListViewController.m */; };
@@ -203,6 +210,20 @@
 		8F507D281F1CAE14003DF63D /* StoreMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreMapAnnotation.m; sourceTree = "<group>"; };
 		8F507D2A1F1CBBFF003DF63D /* ProductSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductSearchViewController.h; sourceTree = "<group>"; };
 		8F507D2B1F1CBBFF003DF63D /* ProductSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSearchViewController.m; sourceTree = "<group>"; };
+		8F507D2D1F1D9942003DF63D /* StoreAppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreAppointmentViewController.h; sourceTree = "<group>"; };
+		8F507D2E1F1D9942003DF63D /* StoreAppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreAppointmentViewController.m; sourceTree = "<group>"; };
+		8F507D301F1DB263003DF63D /* StoreAllAppoinmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreAllAppoinmentListViewController.h; sourceTree = "<group>"; };
+		8F507D311F1DB263003DF63D /* StoreAllAppoinmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreAllAppoinmentListViewController.m; sourceTree = "<group>"; };
+		8F507D3A1F1DB8EC003DF63D /* StoreAppointmentHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreAppointmentHeaderCell.h; sourceTree = "<group>"; };
+		8F507D3B1F1DB8EC003DF63D /* StoreAppointmentHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreAppointmentHeaderCell.m; sourceTree = "<group>"; };
+		8F507D3D1F1DB93C003DF63D /* StoreAppointmentFooterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreAppointmentFooterCell.h; sourceTree = "<group>"; };
+		8F507D3E1F1DB93C003DF63D /* StoreAppointmentFooterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreAppointmentFooterCell.m; sourceTree = "<group>"; };
+		8F507D431F1DD0EE003DF63D /* ClassroomCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomCollectionCell.h; sourceTree = "<group>"; };
+		8F507D441F1DD0EE003DF63D /* ClassroomCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomCollectionCell.m; sourceTree = "<group>"; };
+		8F507D461F1DD78B003DF63D /* ClassroomCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomCollectionViewController.h; sourceTree = "<group>"; };
+		8F507D471F1DD78B003DF63D /* ClassroomCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomCollectionViewController.m; sourceTree = "<group>"; };
+		8F507D491F1DE4D8003DF63D /* StoreAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreAnnotationView.h; sourceTree = "<group>"; };
+		8F507D4A1F1DE4D8003DF63D /* StoreAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreAnnotationView.m; sourceTree = "<group>"; };
 		8F54BDAC1F131175009E3C0B /* NewsLargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsLargeCell.h; sourceTree = "<group>"; };
 		8F54BDAD1F131175009E3C0B /* NewsLargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsLargeCell.m; sourceTree = "<group>"; };
 		8F54BDB01F131191009E3C0B /* NewsSmallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSmallCell.h; sourceTree = "<group>"; };
@@ -584,6 +605,8 @@
 				8FC243531F174C520064A845 /* ClassroomVideoShareListViewController.m */,
 				8FC2437F1F1873E40064A845 /* ClassroomHttpTool.h */,
 				8FC243801F1873E40064A845 /* ClassroomHttpTool.m */,
+				8F507D461F1DD78B003DF63D /* ClassroomCollectionViewController.h */,
+				8F507D471F1DD78B003DF63D /* ClassroomCollectionViewController.m */,
 			);
 			path = classroom;
 			sourceTree = "<group>";
@@ -757,6 +780,10 @@
 				395AD5AA1F1B42F50009F44D /* StoreApplyResultViewController.m */,
 				8F507D241F1C481A003DF63D /* StoreApplyProtocolViewController.h */,
 				8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */,
+				8F507D2D1F1D9942003DF63D /* StoreAppointmentViewController.h */,
+				8F507D2E1F1D9942003DF63D /* StoreAppointmentViewController.m */,
+				8F507D301F1DB263003DF63D /* StoreAllAppoinmentListViewController.h */,
+				8F507D311F1DB263003DF63D /* StoreAllAppoinmentListViewController.m */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -826,6 +853,12 @@
 				8FC2438E1F19C7A10064A845 /* StoreAppointmentView.m */,
 				8F507D271F1CAE14003DF63D /* StoreMapAnnotation.h */,
 				8F507D281F1CAE14003DF63D /* StoreMapAnnotation.m */,
+				8F507D3A1F1DB8EC003DF63D /* StoreAppointmentHeaderCell.h */,
+				8F507D3B1F1DB8EC003DF63D /* StoreAppointmentHeaderCell.m */,
+				8F507D3D1F1DB93C003DF63D /* StoreAppointmentFooterCell.h */,
+				8F507D3E1F1DB93C003DF63D /* StoreAppointmentFooterCell.m */,
+				8F507D491F1DE4D8003DF63D /* StoreAnnotationView.h */,
+				8F507D4A1F1DE4D8003DF63D /* StoreAnnotationView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -836,6 +869,8 @@
 				8FC243551F17518A0064A845 /* ClassroomVideoShareCollectionCell.h */,
 				8FC243561F17518A0064A845 /* ClassroomVideoShareCollectionCell.m */,
 				8FC243571F17518A0064A845 /* ClassroomVideoShareCollectionCell.xib */,
+				8F507D431F1DD0EE003DF63D /* ClassroomCollectionCell.h */,
+				8F507D441F1DD0EE003DF63D /* ClassroomCollectionCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -923,6 +958,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F507D4B1F1DE4D8003DF63D /* StoreAnnotationView.m in Sources */,
+				8F507D3C1F1DB8EC003DF63D /* StoreAppointmentHeaderCell.m in Sources */,
 				8FADBE581F0F2C4D002F5911 /* BaseModel.m in Sources */,
 				8FC243581F17518A0064A845 /* ClassroomVideoShareCollectionCell.m in Sources */,
 				395AD5A21F1B2B540009F44D /* ClassroomAnalystListViewController.m in Sources */,
@@ -960,6 +997,7 @@
 				395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */,
 				8FC243131F1703C50064A845 /* PersonalHttpTool.m in Sources */,
 				396910BB1F0E855E00EF6D52 /* BaseViewController.m in Sources */,
+				8F507D321F1DB263003DF63D /* StoreAllAppoinmentListViewController.m in Sources */,
 				8FC243111F1703C50064A845 /* PersonalForgetPasswordViewController.m in Sources */,
 				8FC243541F174C520064A845 /* ClassroomVideoShareListViewController.m in Sources */,
 				8FC242E21F162ADB0064A845 /* Foundation+Log.m in Sources */,
@@ -999,6 +1037,7 @@
 				8FC2432F1F170CDD0064A845 /* PersonalChangePasswordViewController.m in Sources */,
 				396910BC1F0E855E00EF6D52 /* NaviController.m in Sources */,
 				8F54BDBB1F132D90009E3C0B /* NeewsCell.m in Sources */,
+				8F507D2F1F1D9942003DF63D /* StoreAppointmentViewController.m in Sources */,
 				8FADBE411F0F1A80002F5911 /* HomeFeedbackViewController.m in Sources */,
 				8FADBE931F0F39BF002F5911 /* MKAnnotationView+WebCache.m in Sources */,
 				8FA935E41F11C965001E29CF /* ButtonsCell.m in Sources */,
@@ -1022,11 +1061,13 @@
 				8FC2431F1F1704060064A845 /* NSString+ext.m in Sources */,
 				396910CC1F0E870200EF6D52 /* HomeTeamViewController.m in Sources */,
 				396910C91F0E86EE00EF6D52 /* HomeStoryViewController.m in Sources */,
+				8F507D3F1F1DB93C003DF63D /* StoreAppointmentFooterCell.m in Sources */,
 				8F54BDB51F132B2B009E3C0B /* NeewsListViewController.m in Sources */,
 				8FC2437B1F1863590064A845 /* BaseCollectionViewController.m in Sources */,
 				8FC243851F18952C0064A845 /* CollectionViewTableViewCell.m in Sources */,
 				8F507D2C1F1CBBFF003DF63D /* ProductSearchViewController.m in Sources */,
 				395247BD1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m in Sources */,
+				8F507D481F1DD78B003DF63D /* ClassroomCollectionViewController.m in Sources */,
 				8FC243891F18D5820064A845 /* StoreDetailViewController.m in Sources */,
 				8FC243201F1704060064A845 /* UIView+ext.m in Sources */,
 				8FC242EB1F1630B60064A845 /* SystemMsgCell.m in Sources */,
@@ -1035,6 +1076,7 @@
 				8FADBE9D1F0F39BF002F5911 /* SDWebImagePrefetcher.m in Sources */,
 				8F54BDB21F131191009E3C0B /* NewsSmallCell.m in Sources */,
 				395AD59C1F1B209D0009F44D /* StoreMapViewController.m in Sources */,
+				8F507D451F1DD0EE003DF63D /* ClassroomCollectionCell.m in Sources */,
 				8FADBE9F1F0F39BF002F5911 /* UIImage+GIF.m in Sources */,
 				8FADBEB11F0F4206002F5911 /* HomeQACell.m in Sources */,
 			);

@@ -227,6 +227,30 @@
     }];
 }
 
++(void)appointStoreWithStoreId:(NSString *)storeid date:(NSString *)date tel:(NSString *)tel itemName:(NSString *)itemName token:(NSString *)token success:(void (^)(BOOL, NSString *))success
+{
+    NSMutableDictionary* di=[NSMutableDictionary dictionary];
+    [di setValue:storeid forKey:@"store_id"];
+    [di setValue:date forKey:@"date"];
+    [di setValue:tel forKey:@"u_tel"];
+    [di setValue:itemName forKey:@"item_name"];
+    [di setValue:token forKey:@"access_token"];
+    
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Retention/do_retain"];
+    
+    [self post:str params:di success:^(NSDictionary *responseObject) {
+        BOOL ok=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
+        if (success) {
+            success(ok,msg);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(NO,@"请求失败");
+        }
+    }];
+}
+
 /////upload idcard
 
 +(void)uploadIDCard:(UIImage *)idcard token:(NSString *)token success:(void (^)(NSString *))success
@@ -323,5 +347,48 @@
     [dataTast resume];
 }
 
++(void)getAllAppointmentListPage:(NSInteger)page token:(NSString *)token success:(void (^)(NSArray *))success isCache:(BOOL)isCache
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Retention/list"];
+    NSMutableDictionary* par=[self pageParams];
+    [par setValue:token forKey:@"access_token"];
+    [par setValue:[NSNumber numberWithInteger:page] forKey:@"page"];
+    
+    [self get:str params:par usingCache:isCache success:^(NSDictionary *resp) {
+        NSDictionary* data=[resp valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* arr=[NSMutableArray array];
+        for (NSDictionary* st in list) {
+            StoreModel* store=[[StoreModel alloc]initWithDictionary:st];
+            [arr addObject:store];
+        }
+        if (success) {
+            success(arr);
+        }
+    } failure:^(NSError *f) {
+        
+    }];
+}
+
++(void)cancelAppointmentId:(NSString *)idd token:(NSString *)token success:(void (^)(BOOL, NSString *))success
+{
+    NSMutableDictionary* di=[NSMutableDictionary dictionary];
+    [di setValue:idd forKey:@"id"];
+    [di setValue:token forKey:@"access_token"];
+    
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Retention/delete_retain"];
+    
+    [self post:str params:di success:^(NSDictionary *responseObject) {
+        BOOL ok=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
+        if (success) {
+            success(ok,msg);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(NO,@"请求失败");
+        }
+    }];
+}
 
 @end

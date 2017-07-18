@@ -9,6 +9,7 @@
 #import "UserModel.h"
 
 #define UserKey @"CW5QPB0hXYfXt3zY8QKLI8ahj95yMPdF"
+#define UserPasswordKey @"CW5QPB0hXYfXt3zY8QK99I8ahj95yMPdF"
 
 @implementation UserModel
 
@@ -32,6 +33,9 @@
 
 +(void)saveUser:(UserModel *)user
 {
+    if (user.access_token.length==0) {
+        return;
+    }
     NSMutableDictionary* d=[NSMutableDictionary dictionary];
     
     [d setValue:user.access_token forKey:@"access_token"];
@@ -39,13 +43,22 @@
     [d setValue:user.avatar forKey:@"avatar"];
     [d setValue:user.mobile forKey:@"mobile"];
     
-    [[NSUserDefaults standardUserDefaults]setValue:d forKey:UserKey];
+    NSData* data=[NSJSONSerialization dataWithJSONObject:d options:NSJSONWritingPrettyPrinted error:nil];
+    
+    [[NSUserDefaults standardUserDefaults]setValue:data forKey:UserKey];
 }
 
 +(instancetype)getUser
 {
-    NSDictionary* d=[[NSUserDefaults standardUserDefaults]valueForKey:UserKey];
-    
+    NSData * data=[[NSUserDefaults standardUserDefaults]valueForKey:UserKey];
+    if (![data isKindOfClass:[NSData class]]) {
+        [self deleteUser];
+        return nil;
+    }
+    if (data.length==0) {
+        return nil;
+    }
+    NSDictionary* d=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     UserModel* user=[[UserModel alloc]initWithDictionary:d];
     NSLog(@"%@",d);
     return user;
@@ -53,7 +66,35 @@
 
 +(void)deleteUser
 {
-    [[NSUserDefaults standardUserDefaults]setValue:nil forKey:UserKey];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:UserKey];
+}
+
++(NSString*)getPassword
+{
+    NSData* data=[[NSUserDefaults standardUserDefaults]valueForKey:UserPasswordKey];
+    if (![data isKindOfClass:[NSData class]]) {
+        [self deletePassword];
+        return nil;
+    }
+    if (data.length==0) {
+        return nil;
+    }
+    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    return str;
+}
+
++(void)savePassword:(NSString *)password
+{
+    if (password.length==0) {
+        return;
+    }
+    NSData* data=[password dataUsingEncoding:NSUTF8StringEncoding];
+    [[NSUserDefaults standardUserDefaults]setValue:data forKey:UserPasswordKey];
+}
+
++(void)deletePassword
+{
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:UserPasswordKey];
 }
 
 @end

@@ -13,4 +13,8 @@
 
 +(void)getClassroomListType:(NSInteger)type page:(NSInteger)page size:(NSInteger)size success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
++(void)getClassroomCollectionListPage:(NSInteger)page size:(NSInteger)size token:(NSString*)token success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
+
++(void)cancelCollectionId:(NSString *)idd token:(NSString *)token success:(void (^)(BOOL, NSString *))success;
+
 @end

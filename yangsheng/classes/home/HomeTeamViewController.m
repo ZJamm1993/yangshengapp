@@ -209,7 +209,7 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
             BaseModel* ext=[extsArray objectAtIndex:indexPath.row-1];
             [c.extBgImageView sd_setImageWithURL:[ext.thumb urlWithMainUrl]];
             c.extTitle.text=ext.post_title;
-            c.extContent.text=ext.post_excerpt;
+            c.extContent.text=ext.post_subtitle;
             c.extDateLabel.text=ext.post_modified;
             return c;
 //        }

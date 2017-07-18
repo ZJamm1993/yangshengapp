@@ -16,7 +16,18 @@
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
         _rawDictionary=dictionary;
         
-        _idd=[dictionary valueForKey:@"id"];
+        NSString* store_id=[dictionary valueForKey:@"store_id"];
+        if (store_id.length>0) {
+            //the key "id" is app's id;
+            _app_id=[dictionary valueForKey:@"id"];
+            _idd=store_id;
+        }
+        else
+        {
+            //the key "id" is store's id;
+            _idd=[dictionary valueForKey:@"id"];
+        }
+        
         _store_title=[dictionary valueForKey:@"store_title"];
         _store_author=[dictionary valueForKey:@"store_author"];
         _store_tel=[dictionary valueForKey:@"store_tel"];
@@ -56,6 +67,13 @@
             [its addObject:item];
         }
         _items=[NSArray arrayWithArray:its];
+        
+        _u_tel=[dictionary valueForKey:@"u_tel"];
+        _date=[dictionary valueForKey:@"date"];
+        _finish=[[dictionary valueForKey:@"finish"]integerValue]!=0;
+        _item_name=[dictionary valueForKey:@"item_name"];
+        
+        
     }
     return self;
 }

@@ -9,6 +9,7 @@
 #import "StoreMapViewController.h"
 #import "StoreHttpTool.h"
 #import "StoreMapAnnotation.h"
+#import "StoreAnnotationView.h"
 
 @interface StoreMapViewController ()<MKMapViewDelegate>
 {
@@ -17,6 +18,9 @@
     
     NSArray* storeList;
     NSArray* annotations;
+    
+//    NSTimer* timeer;
+    BOOL moved;
 }
 @end
 
@@ -38,6 +42,7 @@
     
 //    map.showsScale=YES;
 //    map.showsCompass=YES; //ios9
+    
     [self.view addSubview:map];
     
     
@@ -56,9 +61,10 @@
             [an addObject:ma];
         }
         annotations=an;
-        
+        [map removeAnnotations:map.annotations];
         [map addAnnotations:annotations];
     } isCache:NO];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -68,25 +74,71 @@
     map.frame=self.view.bounds;
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    [self refreshMap];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    map.delegate=nil;
+    [map removeFromSuperview];
+}
+
+-(void)refreshMap
+{
+    map.mapType=MKMapTypeHybrid;
+    map.mapType=MKMapTypeStandard;
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    
+    if (moved==NO) {
+        
+        CLLocationCoordinate2D center = userLocation.location.coordinate;
+        
+        // 设置区域跨度
+        MKCoordinateSpan span = MKCoordinateSpanMake(20, 20);
+        
+        // 创建一个区域
+        MKCoordinateRegion regn = MKCoordinateRegionMake(center, span);
+        // 设置地图显示区域
+        [mapView setRegion:regn animated:YES];
+    }
+    moved=YES;
 }
 
 -(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    NSString* idd=@"mmmm";
-    MKAnnotationView* view=[map dequeueReusableAnnotationViewWithIdentifier:idd];
-    if (view==nil) {
-        view=[[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:idd];
+    if([annotation isKindOfClass:[MKUserLocation class]])
+    {
+        NSString* idd=@"userlocation";
+        MKPinAnnotationView* view=(MKPinAnnotationView*)[map dequeueReusableAnnotationViewWithIdentifier:idd];
+        if (view==nil) {
+            view=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:idd];
+//            view.pinTintColor=[UIColor blueColor];
+            view.canShowCallout=YES;
+        }
+        return view;
     }
-    view.image=[UIImage imageNamed:@"position"];
-    return view;
+    else if([annotation isKindOfClass:[StoreMapAnnotation class]])
+    {
+        
+        NSString* idd=@"mmmm";
+        StoreAnnotationView* view=(StoreAnnotationView*)[map dequeueReusableAnnotationViewWithIdentifier:idd];
+        if (view==nil) {
+            view=[[StoreAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:idd];
+        }
+        return view;
+    }
+    
+    return nil;
 }
 /*
 #pragma mark - Navigation
