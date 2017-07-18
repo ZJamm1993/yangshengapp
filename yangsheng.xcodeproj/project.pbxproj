@@ -35,7 +35,6 @@
 		3971BC0C1F0E7047004016C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3971BC0B1F0E7047004016C2 /* AppDelegate.m */; };
 		3971BC121F0E7047004016C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3971BC101F0E7047004016C2 /* Main.storyboard */; };
 		3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3971BC131F0E7047004016C2 /* Assets.xcassets */; };
-		3971BC171F0E7047004016C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3971BC151F0E7047004016C2 /* LaunchScreen.storyboard */; };
 		8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */; };
 		8F507D291F1CAE14003DF63D /* StoreMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D281F1CAE14003DF63D /* StoreMapAnnotation.m */; };
 		8F507D2C1F1CBBFF003DF63D /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D2B1F1CBBFF003DF63D /* ProductSearchViewController.m */; };
@@ -201,7 +200,6 @@
 		3971BC0B1F0E7047004016C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3971BC111F0E7047004016C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3971BC131F0E7047004016C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3971BC161F0E7047004016C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3971BC181F0E7047004016C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3971BC2F1F0E7A07004016C2 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8F507D241F1C481A003DF63D /* StoreApplyProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreApplyProtocolViewController.h; sourceTree = "<group>"; };
@@ -641,7 +639,6 @@
 				3971BC0B1F0E7047004016C2 /* AppDelegate.m */,
 				3971BC101F0E7047004016C2 /* Main.storyboard */,
 				3971BC131F0E7047004016C2 /* Assets.xcassets */,
-				3971BC151F0E7047004016C2 /* LaunchScreen.storyboard */,
 				3971BC181F0E7047004016C2 /* Info.plist */,
 			);
 			path = yangsheng;
@@ -940,7 +937,6 @@
 				8FC243591F17518A0064A845 /* ClassroomVideoShareCollectionCell.xib in Resources */,
 				8FC2434E1F174B2B0064A845 /* Classroom.storyboard in Resources */,
 				8FC243691F18529B0064A845 /* WebViewTableViewCell.xib in Resources */,
-				3971BC171F0E7047004016C2 /* LaunchScreen.storyboard in Resources */,
 				3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */,
 				3971BC121F0E7047004016C2 /* Main.storyboard in Resources */,
 				8FC242D71F16171E0064A845 /* Checkmark@3x.png in Resources */,
@@ -1093,14 +1089,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3971BC151F0E7047004016C2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3971BC161F0E7047004016C2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1188,6 +1176,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1206,6 +1195,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
