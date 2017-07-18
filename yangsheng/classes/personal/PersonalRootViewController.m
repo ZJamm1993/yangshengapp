@@ -135,7 +135,7 @@
         [self goLoginPage];
     }
     if (indexPath.section==1) {
-        if (currentUser.access_token.length==0) {
+        if (!self.isLoged) {
             // did not log in
             [MBProgressHUD showErrorMessage:@"请登录后再操作"];
             [self goLoginPage];
@@ -164,8 +164,7 @@
     else if(indexPath.section==2)
     {
         if (!self.isLoged) {
-            PersonalAccountSettingViewController* acc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalAccountSettingViewController"];
-            [self.navigationController pushViewController:acc animated:YES];
+            [self goLoginPage];
         }
         else
         {
@@ -176,8 +175,7 @@
     else if (indexPath.section==3)
     {
         if (!self.isLoged) {
-            PersonalAccountSettingViewController* acc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalAccountSettingViewController"];
-            [self.navigationController pushViewController:acc animated:YES];
+            [self goLoginPage];
         }
         else
         {

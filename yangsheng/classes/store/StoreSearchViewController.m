@@ -25,7 +25,7 @@
     
     _searchBar=[[UISearchBar alloc]init];
     _searchBar.tintColor=pinkColor;
-    _searchBar.placeholder=@"搜索门店";
+    _searchBar.placeholder=@"请输入名称/地址/店长姓名";
 //#warning test searching
 //    _searchBar.text=@"品";
     _searchBar.delegate=self;

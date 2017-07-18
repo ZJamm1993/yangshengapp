@@ -149,7 +149,7 @@
     NSInteger row=indexPath.row;
     NSArray* arr=sec==0?brandEvents:latestEvents;
     NSString* url=sec==0?html_brandBigEvent_detail:html_newBigEvent_detail;
-    if (sec<=1) {
+    if (row>0) {
         BaseModel* m=[arr objectAtIndex:row-1];
         BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[url urlWithMainUrl]];
         we.idd=m.idd.integerValue;

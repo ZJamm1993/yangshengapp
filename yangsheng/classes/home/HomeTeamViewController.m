@@ -86,19 +86,19 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     } isCache:isCache];
     
     //
-    [HomeHttpTool getTeamsPage:1 size:1 success:^(NSArray *datasource) {
+    [HomeHttpTool getTeamsPage:1 size:4 success:^(NSArray *datasource) {
         teamsArray=[NSMutableArray arrayWithArray:datasource];
         [self tableViewReloadData];
     } isCache:isCache];
     
     //
-    [HomeHttpTool getMonthStarPage:1 size:self.pageSize success:^(NSArray *datasource) {
+    [HomeHttpTool getMonthStarPage:1 size:1 success:^(NSArray *datasource) {
         starsArray=[NSMutableArray arrayWithArray:datasource];
         [self tableViewReloadData];
     } isCache:isCache];
     
     //
-    [HomeHttpTool getExpandPage:1 size:self.pageSize success:^(NSArray *datasource) {
+    [HomeHttpTool getExpandPage:1 size:4 success:^(NSArray *datasource) {
         extsArray=[NSMutableArray arrayWithArray:datasource];
         [self tableViewReloadData];
     } isCache:isCache];
