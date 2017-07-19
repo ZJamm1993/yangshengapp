@@ -120,7 +120,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="fRz-YD-emh"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.95304319370000001" green="0.95304319370000001" blue="0.95304319370000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

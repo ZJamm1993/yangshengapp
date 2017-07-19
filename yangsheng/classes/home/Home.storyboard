@@ -628,7 +628,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Jcl-WM-N4j"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.95304319370000001" green="0.95304319370000001" blue="0.95304319370000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1375,7 +1375,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="9eM-c1-fC7"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
