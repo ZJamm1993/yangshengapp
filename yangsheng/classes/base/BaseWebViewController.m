@@ -78,7 +78,7 @@
     loadingImageView=[[UIImageView alloc]initWithFrame:self.view.bounds];
     loadingImageView.image=[UIImage imageNamed:@"webview_loading"];
     [self.view addSubview:loadingImageView];
-    loadingImageView.alpha=0.5;
+//    loadingImageView.alpha=0.5;
     loadingImageView.hidden=YES;
     
     webv.delegate=self;

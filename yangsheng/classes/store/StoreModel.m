@@ -39,15 +39,19 @@
         
         _store_content=[dictionary valueForKey:@"store_content"];
         NSString* html=_store_content;
-        html=[html stringByReplacingOccurrencesOfString:@"img" withString:@"img width=\"100%\""];
-        if (![html containsString:@"<html>"]) {
-            if (![html containsString:@"<body>"]) {
-                html=[NSString stringWithFormat:@"<body>%@</body>",html];
+        if(html.length>0)
+        {
+            html=[html stringByReplacingOccurrencesOfString:@"img" withString:@"img width=\"100%\""];
+            if (![html containsString:@"<html>"]) {
+                if (![html containsString:@"<body>"]) {
+                    html=[NSString stringWithFormat:@"<body>%@</body>",html];
+                }
+                html=[NSString stringWithFormat:@"<html>%@</html>",html];
             }
-            html=[NSString stringWithFormat:@"<html>%@</html>",html];
+            NSString* js=@"<script>window.onload = function() {window.location.href = \"ready://\" + document.body.scrollHeight;}</script>";
+            html=[NSString stringWithFormat:@"%@%@",html,js];
         }
-        NSString* js=@"<script>window.onload = function() {window.location.href = \"ready://\" + document.body.scrollHeight;}</script>";
-        html=[NSString stringWithFormat:@"%@%@",html,js];
+        
         _store_content=html;
     
         NSDictionary* smeta_json=[dictionary valueForKey:@"smeta_json"];
