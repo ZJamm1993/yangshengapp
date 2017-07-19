@@ -10,13 +10,14 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "Reachability.h"
 
-@interface BaseCollectionViewController ()
+@interface BaseCollectionViewController ()<UICollectionViewDelegateFlowLayout>
 {
     UIRefreshControl* refreshControl;
-    AdvertiseView* advHeader;
     BOOL hasNetwork;
     NSInteger lastCount;
 }
+
+@property (nonatomic,strong) AdvertiseView* advHeader;
 @end
 
 @implementation BaseCollectionViewController
@@ -43,9 +44,10 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
     self.collectionView.collectionViewLayout=self.collectionViewLayout;
-    self.collectionView.bounces=YES;
-    self.collectionView.alwaysBounceVertical=YES;
+//    self.collectionView.bounces=YES;
+//    self.collectionView.alwaysBounceVertical=YES;
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"h"];
     self.collectionView.backgroundColor=[UIColor colorWithWhite:1 alpha:1];
     
 //    [self setAdvertiseHeaderViewWithPicturesUrls:@[@"",@""]];
@@ -152,51 +154,63 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - Advertiseview header
 
+-(AdvertiseView*)advHeader
+{
+    if (!_advHeader) {
+        
+        _advHeader=[AdvertiseView defaultAdvertiseView];
+        //        CGRect fr=advHeader.frame;
+        //        fr.origin.y=-fr.size.height;
+        //        advHeader.frame=fr;
+        _advHeader.delegate=self;
+    }
+    return _advHeader;
+}
+
 -(void)setAdvertiseHeaderViewWithPicturesUrls:(NSArray *)picturesUrls
 {
-    if (!advHeader) {
-        
-        advHeader=[AdvertiseView defaultAdvertiseView];
-        CGRect fr=advHeader.frame;
-        fr.origin.y=-fr.size.height;
-        advHeader.frame=fr;
-        advHeader.delegate=self;
+    self.advHeader.picturesUrls=picturesUrls;
+    [self.advHeader removeFromSuperview];
+    
+    if (picturesUrls.count>0) {
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
+//#warning header
+        [self.collectionView addSubview:self.advHeader];
     }
     
-    advHeader.picturesUrls=picturesUrls;
-    if (picturesUrls.count>0) {
-        [advHeader removeFromSuperview];
-        [self.collectionView addSubview:advHeader];
-        CGFloat top=advHeader.frame.size.height;
-        if (refreshControl.isRefreshing) {
-            top=top+60;
-        }
-        self.collectionView.contentInset=UIEdgeInsetsMake(top, 0, 0, 0);
-        
-//        CGRect refreshFrame=refreshControl.frame;
-//        refreshFrame.origin.y=-advHeader.frame.size.height-refreshFrame.size.height;
-//        refreshControl.frame=refreshFrame;
-    }
-    else
-    {
-        [advHeader removeFromSuperview];
-        CGFloat top=0;
-        if (refreshControl.isRefreshing) {
-            top=top+60;
-        }
-        self.collectionView.contentInset=UIEdgeInsetsMake(top, 0, 0, 0);
-        
-//        CGRect refreshFrame=refreshControl.frame;
-//        refreshFrame.origin.y=-refreshFrame.size.height;
-//        refreshControl.frame=refreshFrame;
-    }
-    [refreshControl removeFromSuperview];
-    [self.collectionView addSubview:refreshControl];
+//    if (picturesUrls.count>0) {
+//        [advHeader removeFromSuperview];
+//        [self.collectionView addSubview:advHeader];
+//        CGFloat top=advHeader.frame.size.height;
+//        if (refreshControl.isRefreshing) {
+//            top=top+60;
+//        }
+//        self.collectionView.contentInset=UIEdgeInsetsMake(top, 0, 0, 0);
+//        
+////        CGRect refreshFrame=refreshControl.frame;
+////        refreshFrame.origin.y=-advHeader.frame.size.height-refreshFrame.size.height;
+////        refreshControl.frame=refreshFrame;
+//    }
+//    else
+//    {
+//        [advHeader removeFromSuperview];
+//        CGFloat top=0;
+//        if (refreshControl.isRefreshing) {
+//            top=top+60;
+//        }
+//        self.collectionView.contentInset=UIEdgeInsetsMake(top, 0, 0, 0);
+//        
+////        CGRect refreshFrame=refreshControl.frame;
+////        refreshFrame.origin.y=-refreshFrame.size.height;
+////        refreshControl.frame=refreshFrame;
+//    }
+//    [refreshControl removeFromSuperview];
+//    [self.collectionView addSubview:refreshControl];
 }
 
 -(void)advertiseView:(AdvertiseView *)adver didSelectedIndex:(NSInteger)index
 {
-    NSLog(@"advertise:%@ did selected index:%d",advHeader,(int)index);
+    NSLog(@"advertise:%@ did selected index:%d",adver,(int)index);
 }
 
 //-(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -257,7 +271,7 @@ static NSString * const reuseIdentifier = @"Cell";
     flow.minimumInteritemSpacing=m;
     flow.sectionInset=UIEdgeInsetsMake(0,0,0,0);
 
-    flow.headerReferenceSize=advHeader.frame.size;
+//    flow.headerReferenceSize=advHeader.frame.size;
     
     return flow;
 }
@@ -290,6 +304,26 @@ static NSString * const reuseIdentifier = @"Cell";
     // Configure the cell
     
     return cell;
+}
+
+-(UICollectionReusableView*)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+//    if ([kind isEqualToString:UICollectionElementKindSectionHeader]&&indexPath.section==0) {
+        UICollectionReusableView* view=[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"h" forIndexPath:indexPath];
+        view.backgroundColor=[UIColor redColor];
+        return view;
+//    }
+//    return nil;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        if (self.advHeader.picturesUrls.count>0) {
+            return self.advHeader.frame.size;
+        }
+    }
+    return CGSizeZero;
 }
 
 #pragma mark <UICollectionViewDelegate>
