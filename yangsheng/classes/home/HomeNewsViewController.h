@@ -8,6 +8,15 @@
 
 #import "BaseTableViewController.h"
 
+typedef NS_ENUM(NSInteger,HomeNewsControllerType)
+{
+    HomeNewsControllerTypeDefault,
+    HomeNewsControllerTypeBrandOnly,
+    HomeNewsControllerTypeLatestOnly
+};
+
 @interface HomeNewsViewController : BaseTableViewController
+
+@property (nonatomic,assign) HomeNewsControllerType type;
 
 @end

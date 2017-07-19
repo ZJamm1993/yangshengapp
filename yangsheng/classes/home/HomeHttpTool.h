@@ -45,9 +45,9 @@
 
 +(void)getFeedbackListType:(NSInteger)type page:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getBrandEventSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
++(void)getBrandEventPage:(NSInteger)page size:(NSInteger)size success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getLatestEventSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
++(void)getLatestEventPage:(NSInteger)page size:(NSInteger)size success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
 +(void)getNeewsListPage:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 

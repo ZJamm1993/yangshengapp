@@ -301,10 +301,11 @@
     }];
 }
 
-+(void)getBrandEventSuccess:(void (^)(NSArray *))success isCache:(BOOL)isCache
++(void)getBrandEventPage:(NSInteger)page size:(NSInteger)size success:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Event/brand_event"];
-    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
+    
+    [self get:str params:[self pageParamsWithPage:page size:size] usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];
@@ -324,10 +325,14 @@
 }
 
 
-+(void)getLatestEventSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache
++(void)getLatestEventPage:(NSInteger)page size:(NSInteger)size success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Event/latest_event"];
-    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
+    
+    NSMutableDictionary* d=[self pageParams];
+    [d setValue:[NSNumber numberWithInteger:page] forKey:@"page"];
+    [d setValue:[NSNumber numberWithInteger:size] forKey:@"pagesize"];
+    [self get:str params:d usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];

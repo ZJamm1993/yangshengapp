@@ -164,8 +164,8 @@
 
 -(void)setNothingFooterView
 {
-    NothingFooterCell* ff=[NothingFooterCell defaultFooterCell];
-    self.tableView.tableFooterView=ff;
+    //NothingFooterCell* ff=[NothingFooterCell defaultFooterCell];
+    //self.tableView.tableFooterView=ff;
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
