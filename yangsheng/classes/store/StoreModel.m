@@ -39,6 +39,7 @@
         
         _store_content=[dictionary valueForKey:@"store_content"];
         NSString* html=_store_content;
+        html=[html stringByReplacingOccurrencesOfString:@"img" withString:@"img width=\"100%\""];
         if (![html containsString:@"<html>"]) {
             if (![html containsString:@"<body>"]) {
                 html=[NSString stringWithFormat:@"<body>%@</body>",html];
@@ -86,7 +87,7 @@
 {
     self=[super init];
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
-        self.item_id=[dictionary valueForKey:@"item_id"];
+        self.idd=[dictionary valueForKey:@"id"];
         self.name=[dictionary valueForKey:@"name"];
         self.code=[dictionary valueForKey:@"code"];
         self.thumb=[dictionary valueForKey:@"thumb"];

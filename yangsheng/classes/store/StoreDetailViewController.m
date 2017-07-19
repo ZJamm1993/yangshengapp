@@ -218,7 +218,7 @@
         else
         {
             WebViewTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"StoreIntroCell" forIndexPath:indexPath];
-            [cell.webView loadHTMLString:self.detailStoreModel.store_content baseURL:nil];
+            [cell.webView loadHTMLString:self.detailStoreModel.store_content baseURL:[NSURL URLWithString:[ZZUrlTool main]]];
             return cell;
         }
     }
@@ -237,7 +237,11 @@
 
 -(void)collectionViewTableViewCell:(CollectionViewTableViewCell *)cell didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    StoreItem* m=[self.detailStoreModel.items objectAtIndex:indexPath.row];
+    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_store_item_detail urlWithMainUrl]];
+    we.idd=m.idd.integerValue;
+    we.title=m.name;
+    [self.navigationController pushViewController:we animated:YES];
 }
 
 -(void)collectionViewTableViewCell:(CollectionViewTableViewCell *)tableViewcell willShowCollectionViewCell:(UICollectionViewCell *)collectionViewCell atIndexPath:(NSIndexPath *)indexPath

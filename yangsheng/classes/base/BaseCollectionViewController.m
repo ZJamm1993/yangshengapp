@@ -44,8 +44,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
     self.collectionView.collectionViewLayout=self.collectionViewLayout;
-//    self.collectionView.bounces=YES;
-//    self.collectionView.alwaysBounceVertical=YES;
+    self.collectionView.bounces=YES;
+    self.collectionView.alwaysBounceVertical=YES;
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"h"];
     self.collectionView.backgroundColor=[UIColor colorWithWhite:1 alpha:1];

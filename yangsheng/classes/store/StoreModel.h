@@ -41,7 +41,7 @@
 
 @interface StoreItem : NSObject
 
-@property (nonatomic,strong) NSString* item_id;
+@property (nonatomic,strong) NSString* idd;
 @property (nonatomic,strong) NSString* name;
 @property (nonatomic,strong) NSString* code;
 @property (nonatomic,strong) NSString* thumb;

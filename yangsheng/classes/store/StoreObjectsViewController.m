@@ -92,4 +92,15 @@
     return c;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    StoreItem* m=[ self.dataSource objectAtIndex:indexPath.row];
+    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_store_item_detail urlWithMainUrl]];
+    we.idd=m.idd.integerValue;
+    we.title=m.name;
+    [self.navigationController pushViewController:we animated:YES];
+}
+
 @end
