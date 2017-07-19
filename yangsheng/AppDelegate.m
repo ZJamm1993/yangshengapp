@@ -11,7 +11,9 @@
 #import "UserModel.h"
 #import "PersonalHttpTool.h"
 
-@interface AppDelegate ()
+#import "WXApi.h"
+
+@interface AppDelegate ()<WXApiDelegate>
 {
     Reachability* reach;
 }
@@ -28,7 +30,9 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
     
     [self autoLoginAgain];
-//    [self performSelector:@selector(networkStateChange:) withObject:nil afterDelay:10];
+    
+    [WXApi registerApp:@"wxa2d7f862857d33f7"];
+    
     return YES;
 }
 
@@ -80,6 +84,18 @@
             }
         }];
     }
+}
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    [WXApi handleOpenURL:url delegate:self];
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [WXApi handleOpenURL:url delegate:self];
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -92,6 +92,7 @@
 {
     CityModel* c=[CityModel getCity];
     cityItem.title=c.name.length>0?c.name:@"选择城市";
+    selectedCity=c;
     [self refreshWithCache:YES];
 }
 

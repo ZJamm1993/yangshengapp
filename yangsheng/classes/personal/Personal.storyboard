@@ -257,14 +257,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOr-zJ-SPs">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOr-zJ-SPs" userLabel="QQWXbg">
                                 <rect key="frame" x="124" y="418" width="72" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="F8c-rq-zeQ"/>
                                     <constraint firstAttribute="width" constant="72" id="FU2-sg-ZxN"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLw-dH-nFP">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLw-dH-nFP" userLabel="qQ">
                                 <rect key="frame" x="77" y="475" width="44" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="Land_qq">
@@ -274,8 +274,8 @@
                                     <action selector="loginWithQQ:" destination="8IN-bp-Fow" eventType="touchUpInside" id="Wwj-KK-wsU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3JY-K7-gHJ">
-                                <rect key="frame" x="196" y="475" width="44" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3JY-K7-gHJ" userLabel="wX">
+                                <rect key="frame" x="138" y="475" width="44" height="36"/>
                                 <state key="normal" image="Land_wx">
                                     <color key="titleColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -283,14 +283,14 @@
                                     <action selector="loginWithWeChat:" destination="8IN-bp-Fow" eventType="touchUpInside" id="brM-Np-zBV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-35-lqU">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-35-lqU">
                                 <rect key="frame" x="88" y="519" width="23" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydw-DX-pdg">
-                                <rect key="frame" x="203" y="519" width="30" height="18"/>
+                                <rect key="frame" x="145" y="519" width="30" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -301,14 +301,14 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQ5-tj-tg9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQ5-tj-tg9" userLabel="lineL">
                                 <rect key="frame" x="50" y="426" width="63" height="0.0"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.76078431369999999" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="CXm-9b-z2r"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-rc-2G4">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-rc-2G4" userLabel="lineR">
                                 <rect key="frame" x="207" y="426" width="63" height="0.0"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.76078431369999999" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -428,11 +428,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Tj-81-kFA" userLabel="hideQQ">
-                                <rect key="frame" x="0.0" y="373" width="320" height="195"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Tj-81-kFA" userLabel="hideQQ">
+                                <rect key="frame" x="0.0" y="568" width="320" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="195" id="29T-2t-aFe"/>
+                                    <constraint firstAttribute="height" id="29T-2t-aFe"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -441,6 +441,7 @@
                             <constraint firstItem="6kH-rc-2G4" firstAttribute="centerY" secondItem="Ofw-gR-fF4" secondAttribute="centerY" id="5JH-fI-XYl"/>
                             <constraint firstItem="Ofw-gR-fF4" firstAttribute="centerX" secondItem="kOr-zJ-SPs" secondAttribute="centerX" id="7Li-aC-anq"/>
                             <constraint firstItem="OoU-5v-8gU" firstAttribute="top" secondItem="5Tj-81-kFA" secondAttribute="bottom" id="BK6-7g-G36"/>
+                            <constraint firstItem="3JY-K7-gHJ" firstAttribute="centerX" secondItem="kOr-zJ-SPs" secondAttribute="centerX" id="Hsr-Iu-tKj"/>
                             <constraint firstItem="CLw-dH-nFP" firstAttribute="width" secondItem="3JY-K7-gHJ" secondAttribute="width" id="IMN-2S-tCL"/>
                             <constraint firstItem="kOr-zJ-SPs" firstAttribute="centerX" secondItem="UBZ-dY-woj" secondAttribute="centerX" id="J6C-0i-bzd"/>
                             <constraint firstItem="wUI-35-lqU" firstAttribute="centerX" secondItem="CLw-dH-nFP" secondAttribute="centerX" id="JwD-vD-YrT"/>
@@ -466,6 +467,11 @@
                             <constraint firstItem="lQ5-tj-tg9" firstAttribute="leading" secondItem="UBZ-dY-woj" secondAttribute="leading" constant="50" id="vru-HF-ij3"/>
                             <constraint firstItem="5Tj-81-kFA" firstAttribute="leading" secondItem="UBZ-dY-woj" secondAttribute="leading" id="wQe-SB-SHD"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UYJ-LY-Prz"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

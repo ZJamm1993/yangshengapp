@@ -12,6 +12,8 @@
 
 #import "PersonalHttpTool.h"
 
+#import "WXApi.h"
+
 @interface PersonalLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -37,6 +39,16 @@
 - (IBAction)loginWithQQ:(id)sender {
 }
 - (IBAction)loginWithWeChat:(id)sender {
+    if ([WXApi isWXAppInstalled]) {
+        SendAuthReq* req=[[SendAuthReq alloc]init];
+        req.scope=@"snsapi_userinfo";
+        req.state=@"123";
+        [WXApi sendReq:req];
+    }
+    else
+    {
+        [MBProgressHUD showErrorMessage:@"未安装微信"];
+    }
 }
 - (IBAction)loginWithUserNamePassword:(id)sender {
     NSString* mo=self.usernameTextField.text;
