@@ -98,6 +98,15 @@
     return YES;
 }
 
+-(void)onResp:(BaseResp *)resp
+{
+    if ([resp isKindOfClass:[SendAuthResp class]]) {
+        SendAuthResp* auth=(SendAuthResp*)resp;
+        UIAlertView* alert=[[UIAlertView alloc]initWithTitle:@"we auth code:" message:auth.code delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -380,9 +380,22 @@
                                             <color key="textColor" red="0.4584424084" green="0.4584424084" blue="0.4584424084" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="▶︎" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PK-nJ-hpJ">
-                                            <rect key="frame" x="137" y="49" width="47" height="57"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APW-we-d63">
+                                            <rect key="frame" x="130" y="48" width="60" height="60"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="2i4-ll-7bh"/>
+                                                <constraint firstAttribute="height" constant="60" id="PDl-H5-gqG"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="30"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="▶︎" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PK-nJ-hpJ">
+                                            <rect key="frame" x="141" y="54" width="40" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="1" height="0.0"/>
@@ -393,12 +406,14 @@
                                         <constraint firstAttribute="trailing" secondItem="vIK-UC-Ahs" secondAttribute="trailing" constant="15" id="4dc-2a-JUP"/>
                                         <constraint firstItem="4PK-nJ-hpJ" firstAttribute="centerX" secondItem="zT9-Hj-e7M" secondAttribute="centerX" id="5a1-dd-adc"/>
                                         <constraint firstItem="vIK-UC-Ahs" firstAttribute="leading" secondItem="YEu-Ct-RXB" secondAttribute="leading" constant="15" id="7PD-6b-9Kj"/>
+                                        <constraint firstItem="APW-we-d63" firstAttribute="centerX" secondItem="zT9-Hj-e7M" secondAttribute="centerX" id="OfW-SO-RR9"/>
                                         <constraint firstItem="vIK-UC-Ahs" firstAttribute="top" secondItem="ne8-9L-4rM" secondAttribute="bottom" constant="10" id="WcI-O2-Q56"/>
                                         <constraint firstItem="4PK-nJ-hpJ" firstAttribute="centerY" secondItem="zT9-Hj-e7M" secondAttribute="centerY" id="dJR-BG-Bcg"/>
                                         <constraint firstItem="zT9-Hj-e7M" firstAttribute="top" secondItem="YEu-Ct-RXB" secondAttribute="top" id="dMs-5W-f2k"/>
                                         <constraint firstItem="zT9-Hj-e7M" firstAttribute="leading" secondItem="YEu-Ct-RXB" secondAttribute="leading" constant="15" id="ftu-qV-UDb"/>
                                         <constraint firstItem="ne8-9L-4rM" firstAttribute="top" secondItem="zT9-Hj-e7M" secondAttribute="bottom" constant="10" id="kBh-sR-O9m"/>
                                         <constraint firstAttribute="trailing" secondItem="zT9-Hj-e7M" secondAttribute="trailing" constant="15" id="l91-jg-HuO"/>
+                                        <constraint firstItem="APW-we-d63" firstAttribute="centerY" secondItem="zT9-Hj-e7M" secondAttribute="centerY" id="lpo-3X-4iS"/>
                                         <constraint firstItem="ne8-9L-4rM" firstAttribute="leading" secondItem="YEu-Ct-RXB" secondAttribute="leading" constant="15" id="q15-ya-v5S"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -983,7 +998,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="新闻中心标题新闻中心标题新闻中心标题新闻中心标题" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brl-mg-ohl">
                                             <rect key="frame" x="139" y="3" width="160" height="61"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>

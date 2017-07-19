@@ -17,6 +17,7 @@
     bar.backgroundColor=gray(240);
     bar.textColor=pinkColor;
     bar.font=[UIFont systemFontOfSize:13];
+    bar.returnKeyType=UIReturnKeySearch;
     
     UIImageView* icon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_search"]];
     icon.contentMode=UIViewContentModeCenter;

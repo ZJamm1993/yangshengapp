@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *surePasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
 
@@ -72,8 +73,8 @@
     NSString* mobile=self.usernameTextField.text;
     NSString* password=self.passwordTextField.text;
     NSString* code=self.codeTextField.text;
-    
-    if (mobile.length>0&&password.passwordLength&&code.length>0) {
+    BOOL isSamePassword=[password isEqualToString:self.surePasswordTextField.text];
+    if (mobile.length>0&&password.passwordLength&&code.length>0&&isSamePassword) {
         
         [MBProgressHUD showProgressMessage:@"正在注册"];
         [PersonalHttpTool registerUserWithMobile:mobile password:password code:code invite:@"20" success:^(UserModel *user) {
@@ -89,6 +90,10 @@
                 [MBProgressHUD showErrorMessage:@"注册出现问题"];
             }
         }];
+    }
+    else if(!isSamePassword)
+    {
+        [MBProgressHUD showErrorMessage:@"两次密码不一致"];
     }
     else
     {
