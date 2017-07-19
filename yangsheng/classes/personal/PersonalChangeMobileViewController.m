@@ -51,6 +51,10 @@
     }
     
     if (mobi.length>0) {
+        if (![mobi isMobileNumber]) {
+            [MBProgressHUD showErrorMessage:@"请填写正确的手机号"];
+            return;
+        }
         [self.codeTextField becomeFirstResponder];
         [MBProgressHUD showProgressMessage:@"正在请求验证码"];
         [PersonalHttpTool getCodeWithMobile:mobi success:^(BOOL sent) {

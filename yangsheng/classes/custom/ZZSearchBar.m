@@ -36,6 +36,7 @@
 -(void)clearText
 {
     self.text=@"";
+    [self becomeFirstResponder];
 }
 
 @end

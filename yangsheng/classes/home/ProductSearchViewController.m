@@ -36,6 +36,7 @@
     self.navigationItem.rightBarButtonItem=back;
     
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
 }
 
 -(void)cancel
@@ -72,11 +73,16 @@
         if ( self.dataSource.count>0) {
             self.currentPage=1;
             [self hideNothingLabel];
+            
+            self.tableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
         }
         else
         {
             [self showNothingLabelText:@"没有搜索到相关产品"];
+            self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
         }
+        
+        [self tableViewReloadData];
     } isCache:NO];
 }
 

@@ -12,6 +12,8 @@
 
 -(NSURL*)urlWithMainUrl;
 
+-(BOOL)isMobileNumber;
+
 @property (nonatomic,assign) BOOL passwordLength;
 
 @end
