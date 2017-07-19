@@ -59,7 +59,7 @@ static MBProgressHUD* lastShowingHUD;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     
     // Set the determinate mode to show task progress.
-    hud.mode = MBProgressHUDModeDeterminate;
+    hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = msg;
     [hud hideAnimated:YES afterDelay:10];
     

@@ -13,6 +13,7 @@
 @interface BaseWebViewController ()<UIWebViewDelegate>
 {
     UIWebView* webv;
+    UIImageView* loadingImageView;
 }
 @end
 
@@ -74,6 +75,12 @@
     webv=[[UIWebView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:webv];
     
+    loadingImageView=[[UIImageView alloc]initWithFrame:self.view.bounds];
+    loadingImageView.image=[UIImage imageNamed:@"webview_loading"];
+    [self.view addSubview:loadingImageView];
+    loadingImageView.alpha=0.5;
+    loadingImageView.hidden=YES;
+    
     webv.delegate=self;
 //    webv.scalesPageToFit=YES;
     
@@ -105,6 +112,7 @@
         NSLog(@"webview:  %@",abs);
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];
         [webv loadRequest:req];
+        loadingImageView.hidden=NO;
     }
     
     
@@ -139,6 +147,10 @@
     return YES;
 }
 
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    loadingImageView.hidden=YES;
+}
 //-(void)webViewDidFinishLoad:(UIWebView *)webView
 //{
 //
