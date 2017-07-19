@@ -44,6 +44,12 @@
 */
 - (IBAction)getCode:(id)sender {
     NSString* mobi=self.neewMobileTextField.text;
+    
+    if ([self isSameMobile]) {
+        [MBProgressHUD showErrorMessage:@"新手机号与前一手机号相同"];
+        return;
+    }
+    
     if (mobi.length>0) {
         [self.codeTextField becomeFirstResponder];
         [MBProgressHUD showProgressMessage:@"正在请求验证码"];
@@ -74,9 +80,19 @@
     self.codeButton.enabled=YES;
 }
 
+-(BOOL)isSameMobile
+{
+    return [self.neewMobileTextField.text isEqualToString:[[UserModel getUser]mobile]];
+}
+
 - (IBAction)goToChangeMobile:(id)sender {
     NSString* mobile=self.neewMobileTextField.text;
     NSString* code=self.codeTextField.text;
+    
+    if ([self isSameMobile]) {
+        [MBProgressHUD showErrorMessage:@"新手机号与前一手机号相同"];
+        return;
+    }
     
     if (mobile.length>0&&code.length>0) {
         

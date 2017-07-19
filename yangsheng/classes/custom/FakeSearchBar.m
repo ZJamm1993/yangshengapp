@@ -35,7 +35,7 @@
 
 +(instancetype)defaultSearchBarWithTitle:(NSString*)title
 {
-    CGRect fr=CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, 28);
+    CGRect fr=CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, 30);
     FakeSearchBar* bar=[self fakeSearchBarWithFrame:fr title:title];
     return bar;
 }

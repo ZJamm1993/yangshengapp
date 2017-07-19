@@ -9,10 +9,11 @@
 #import "ProductSearchViewController.h"
 #import "HomeHttpTool.h"
 #import "ProductCell.h"
+#import "ZZSearchBar.h"
 
-@interface ProductSearchViewController ()<UISearchBarDelegate>
+@interface ProductSearchViewController ()<UITextFieldDelegate>
 {
-    UISearchBar* _searchBar;
+    ZZSearchBar* _searchBar;
     NSString* searchingString;
 }
 @end
@@ -22,13 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _searchBar=[[UISearchBar alloc]init];
-    _searchBar.tintColor=pinkColor;
+    _searchBar=[ZZSearchBar defaultBar];
     _searchBar.placeholder=@"搜索产品";
     //#warning test searching
     //    _searchBar.text=@"品";
     _searchBar.delegate=self;
-    _searchBar.backgroundColor=[UIColor clearColor];
     
     self.navigationItem.titleView=_searchBar;
     // Do any additional setup after loading the view.
@@ -50,7 +49,6 @@
     if (self.dataSource.count==0) {
         [_searchBar becomeFirstResponder];
     }
-    _searchBar.backgroundColor=[UIColor clearColor];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -73,6 +71,11 @@
         [self stopRefreshAfterSeconds];
         if ( self.dataSource.count>0) {
             self.currentPage=1;
+            [self hideNothingLabel];
+        }
+        else
+        {
+            [self showNothingLabelText:@"没有搜索到相关产品"];
         }
     } isCache:NO];
 }
@@ -90,16 +93,13 @@
     } isCache:YES];
 }
 
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar resignFirstResponder];
-}
 
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    searchingString=searchBar.text;
+    searchingString=textField.text;
     [self refresh];
-    [searchBar resignFirstResponder];
+    [textField resignFirstResponder];
+    return YES;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

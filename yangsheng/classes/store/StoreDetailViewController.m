@@ -13,6 +13,7 @@
 #import "ServiceObjectCell.h"
 #import "StoreAppointmentView.h"
 #import "StoreAppointmentViewController.h"
+#import "PersonalLoginViewController.h"
 
 #import "StoreHttpTool.h"
 
@@ -286,9 +287,19 @@
     }
     else if(type==AppointmentTypeNormal)
     {
-        StoreAppointmentViewController* app=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreAppointmentViewController"];
-        app.store=self.detailStoreModel;
-        [self.navigationController pushViewController:app animated:YES];
+        UserModel* currentUser=[UserModel getUser];
+        if (currentUser.access_token.length==0) {
+            // did not log in
+            [MBProgressHUD showErrorMessage:@"请登录后再操作"];
+            PersonalLoginViewController* lo=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalLoginViewController"];
+            [self.navigationController pushViewController:lo animated:YES];
+        }
+        else
+        {
+            StoreAppointmentViewController* app=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreAppointmentViewController"];
+            app.store=self.detailStoreModel;
+            [self.navigationController pushViewController:app animated:YES];
+        }
     }
 }
 

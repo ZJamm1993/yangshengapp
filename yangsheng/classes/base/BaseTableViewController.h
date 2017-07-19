@@ -28,6 +28,8 @@
 
 -(void)setAdvertiseHeaderViewWithPicturesUrls:(NSArray*)picturesUrls;
 -(void)setNothingFooterView;
+-(void)showNothingLabelText:(NSString*)text;
+-(void)hideNothingLabel;
 
 -(void)tableViewReloadData;
 

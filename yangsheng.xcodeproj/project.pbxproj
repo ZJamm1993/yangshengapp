@@ -53,6 +53,7 @@
 		8F507D811F1F31AF003DF63D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F507D801F1F31AF003DF63D /* Security.framework */; };
 		8F507D831F1F31B6003DF63D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F507D821F1F31B6003DF63D /* CoreTelephony.framework */; };
 		8F507D851F1F31BD003DF63D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F507D841F1F31BD003DF63D /* CFNetwork.framework */; };
+		8F507D881F1F4069003DF63D /* ZZSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D871F1F4069003DF63D /* ZZSearchBar.m */; };
 		8F54BDAE1F131175009E3C0B /* NewsLargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDAD1F131175009E3C0B /* NewsLargeCell.m */; };
 		8F54BDB21F131191009E3C0B /* NewsSmallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDB11F131191009E3C0B /* NewsSmallCell.m */; };
 		8F54BDB51F132B2B009E3C0B /* NeewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDB41F132B2B009E3C0B /* NeewsListViewController.m */; };
@@ -241,6 +242,8 @@
 		8F507D801F1F31AF003DF63D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8F507D821F1F31B6003DF63D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8F507D841F1F31BD003DF63D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8F507D861F1F4069003DF63D /* ZZSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSearchBar.h; sourceTree = "<group>"; };
+		8F507D871F1F4069003DF63D /* ZZSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSearchBar.m; sourceTree = "<group>"; };
 		8F54BDAC1F131175009E3C0B /* NewsLargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsLargeCell.h; sourceTree = "<group>"; };
 		8F54BDAD1F131175009E3C0B /* NewsLargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsLargeCell.m; sourceTree = "<group>"; };
 		8F54BDB01F131191009E3C0B /* NewsSmallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSmallCell.h; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 				8FC243821F18952C0064A845 /* CollectionViewTableViewCell.h */,
 				8FC243831F18952C0064A845 /* CollectionViewTableViewCell.m */,
 				8FC243841F18952C0064A845 /* CollectionViewTableViewCell.xib */,
+				8F507D861F1F4069003DF63D /* ZZSearchBar.h */,
+				8F507D871F1F4069003DF63D /* ZZSearchBar.m */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -1037,6 +1042,7 @@
 				8FADBE5F1F0F2E6E002F5911 /* HomeHttpTool.m in Sources */,
 				8FC243681F18529B0064A845 /* WebViewTableViewCell.m in Sources */,
 				395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */,
+				8F507D881F1F4069003DF63D /* ZZSearchBar.m in Sources */,
 				8FC243131F1703C50064A845 /* PersonalHttpTool.m in Sources */,
 				396910BB1F0E855E00EF6D52 /* BaseViewController.m in Sources */,
 				8F507D321F1DB263003DF63D /* StoreAllAppoinmentListViewController.m in Sources */,

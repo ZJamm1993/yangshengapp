@@ -15,6 +15,7 @@
     AdvertiseView* advHeader;
     NSInteger lastCount;
     BOOL hasNetwork;
+    UILabel* nothingLabel;
 }
 @end
 
@@ -173,6 +174,32 @@
     if (scrollView==self.tableView) {
         [self.tableView endEditing:YES];
     }
+}
+
+#pragma mark - nothing label
+
+-(void)showNothingLabelText:(NSString *)text
+{
+    if (nothingLabel==nil) {
+        nothingLabel=[[UILabel alloc]initWithFrame:self.view.bounds];
+        nothingLabel.backgroundColor=gray(240);
+        nothingLabel.textColor=[UIColor lightGrayColor];
+        nothingLabel.font=[UIFont systemFontOfSize:13];
+        nothingLabel.textAlignment=NSTextAlignmentCenter;
+        nothingLabel.numberOfLines=0;
+    }
+    nothingLabel.text=@"";
+    [nothingLabel removeFromSuperview];
+    if (text.length>0){
+        nothingLabel.text=[NSString stringWithFormat:@"%@\n\n\n\n",text];
+        [self.view addSubview:nothingLabel];
+    }
+    
+}
+
+-(void)hideNothingLabel
+{
+    [nothingLabel removeFromSuperview];
 }
 
 @end

@@ -218,11 +218,11 @@
             BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
             [sou addObject:m];
         }
-        if (sou.count>0) {
+//        if (sou.count>0) {
             if (success) {
                 success(sou);
             }
-        }
+//        }
     } failure:^(NSError *err) {
         
     }];
