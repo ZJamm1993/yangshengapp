@@ -131,7 +131,7 @@
         negative=@"";
     }
     
-    BOOL ok=name.length>0&&phone.length>0&&idcard.length>0&&area.length>0&&address.length>0&&positive.length>0&&negative.length>0;
+    BOOL ok=name.length>0&&phone.length>0&&idcard.length>0&&area.length>0&&address.length>0&&positive.length>0&&negative.length>0&&[phone isMobileNumber];
     if (ok) {
         [MBProgressHUD showProgressMessage:@"正在申请"];
         [StoreHttpTool applyStoreSubmitName:name tel:phone idcard:idcard area:area address:address positive:positive negative:negative token:[[UserModel getUser]access_token] success:^(BOOL applied, NSString *msg) {
@@ -149,12 +149,8 @@
                         StoreApplyResultViewController* pro=nil;
                         BOOL contains=NO;
                         NSArray* ss=self.navigationController.viewControllers;
-                        NSMutableArray* vcs=[NSMutableArray arrayWithArray:ss];
                         for (UIViewController* vc in ss) {
-                            if ([vc isKindOfClass:[self class]]||[vc isKindOfClass:[StoreApplyProtocolViewController class]]) {
-                                [vcs removeObject:vc];
-                            }
-                            else if([vc isKindOfClass:[StoreApplyResultViewController class]])
+                            if([vc isKindOfClass:[StoreApplyResultViewController class]])
                             {
                                 pro=(StoreApplyResultViewController*)vc;
                                 contains=YES;
@@ -171,7 +167,14 @@
                         else
                         {
                             [self.navigationController pushViewController:pro animated:YES];
-                            [self.navigationController setViewControllers:vcs animated:NO];
+                            ss=[self.navigationController viewControllers];
+                            NSMutableArray* vcs=[NSMutableArray arrayWithArray:ss];
+                            for (UIViewController* vc in ss) {
+                                if ([vc isKindOfClass:[self class]]||[vc isKindOfClass:[StoreApplyProtocolViewController class]]) {
+                                    [vcs removeObject:vc];
+                                }
+                            }
+                            [self.navigationController setViewControllers:vcs];
                         }
                     }
                 }];
@@ -181,6 +184,10 @@
                 [MBProgressHUD showErrorMessage:msg];
             }
         }];
+    }
+    else if(![phone isMobileNumber])
+    {
+        [MBProgressHUD showErrorMessage:@"请填写正确的手机号码"];
     }
     else
     {
@@ -214,8 +221,8 @@
         }
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"打开相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        pick.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+        pick.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             [self presentViewController:pick animated:YES completion:nil];
         }
     }]];
