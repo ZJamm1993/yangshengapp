@@ -16,6 +16,7 @@
 +(void)registerUserWithMobile:(NSString*)mobile password:(NSString*)password code:(NSString*)code invite:(NSString*)invite success:(void(^) (UserModel* user))success;
 
 +(void)loginUserWithMobile:(NSString*)mobile password:(NSString*)password success:(void(^) (UserModel* user))success;
++(void)loginUserWithWechatCode:(NSString*)code success:(void(^)(UserModel* user))success;
 
 +(void)uploadAvatar:(UIImage*)avatar token:(NSString*)token success:(void(^)(NSString* imageUrl))success;
 

@@ -112,7 +112,7 @@
         cell.isLoged=self.isLoged;
         cell.delegate=self;
         cell.username.text=currentUser.user_nicename;
-        cell.userid.text=[NSString stringWithFormat:@"ID:%@",currentUser.mobile];
+        cell.userid.text=[NSString stringWithFormat:@"ID:%@",currentUser.idd];
         [cell.headImage sd_setImageWithURL:[currentUser.avatar urlWithMainUrl] placeholderImage:[UIImage imageNamed:@"user_tx"]];
         return cell;
     }

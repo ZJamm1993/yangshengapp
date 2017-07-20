@@ -61,10 +61,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row==0) {
         UIImagePickerController* pick=[[UIImagePickerController alloc]init];
-        pick.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        pick.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
         pick.delegate=self;
         pick.allowsEditing=YES;
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             [self presentViewController:pick animated:YES completion:nil];
         }
     }

@@ -57,6 +57,19 @@
 {
     NSDictionary* userInfo=noti.userInfo;
     NSLog(@"\n%@",userInfo);
+    [MBProgressHUD showProgressMessage:@"正在登录.."];
+    NSString* code=[userInfo valueForKey:@"code"];
+    [PersonalHttpTool loginUserWithWechatCode:code success:^(UserModel *user) {
+        [MBProgressHUD hide];
+        if(user)
+        {
+            [self logSuccessWithUser:user];
+        }
+        else
+        {
+            [MBProgressHUD showErrorMessage:@"微信授权登录失败"];
+        }
+    }];
 }
 
 - (IBAction)loginWithUserNamePassword:(id)sender {
@@ -68,11 +81,8 @@
             [MBProgressHUD hide];
             if(user)
             {
-                [UserModel saveUser:user];
                 [UserModel savePassword:pa];
-                [self.navigationController popViewControllerAnimated:YES];
-                
-                [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:user];
+                [self logSuccessWithUser:user];
             }
             else
             {
@@ -81,6 +91,15 @@
         }];
     }
 }
+
+-(void)logSuccessWithUser:(UserModel*)user
+{
+    [UserModel saveUser:user];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:user];
+}
+
 - (IBAction)forgetPassword:(id)sender {
     
     PersonalForgetPasswordViewController* re=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalForgetPasswordViewController"];

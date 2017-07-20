@@ -219,6 +219,32 @@
     }];
 }
 
++(void)loginUserWithWechatCode:(NSString *)code success:(void (^)(UserModel *))success
+{
+    if (code.length==0) {
+        if (success) {
+            success(nil);
+        }
+        return;
+    }
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Login/authorization"];
+    
+    NSMutableDictionary* p=[NSMutableDictionary dictionary];
+    [p setValue:code forKey:@"code"];
+    
+    [self post:str params:p success:^(NSDictionary *responseObject) {
+        NSDictionary* data=[responseObject valueForKey:@"data"];
+        UserModel* us=[[UserModel alloc]initWithDictionary:data];
+        if (success) {
+            success(us);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(nil);
+        }
+    }];
+}
+
 +(void)uploadAvatar:(UIImage *)avatar token:(NSString *)token success:(void (^)(NSString *))success
 {
     NSURL* _ur=[NSURL URLWithString:[ZZUrlTool fullUrlWithTail:@"/User/Profile/avatar_upload"]];
