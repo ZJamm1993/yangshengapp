@@ -30,6 +30,7 @@
     [super viewDidLoad];
     self.title=@"个人信息";
     self.tableView.tableFooterView=[[UIView alloc]init];
+    [self.refreshControl removeFromSuperview];
 }
 
 -(void)viewWillAppear:(BOOL)animated
