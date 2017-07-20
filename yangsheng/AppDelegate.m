@@ -16,6 +16,8 @@
 @interface AppDelegate ()<WXApiDelegate>
 {
     Reachability* reach;
+    
+    
 }
 @end
 
@@ -29,7 +31,7 @@
     [reach startNotifier];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
     
-    [self autoLoginAgain];
+//    [self autoLoginAgain];
     
     [WXApi registerApp:@"wxa2d7f862857d33f7"];
     
@@ -132,6 +134,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self autoLoginAgain];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

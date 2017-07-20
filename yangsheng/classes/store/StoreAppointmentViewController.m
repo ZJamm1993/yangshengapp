@@ -56,7 +56,7 @@
     NSString* date=self.appointmentTime.text;
     NSString* u_tel=self.phoneTextField.text;
     NSString* item_name=self.appointmentProject.text;
-    if (date.length>0&&u_tel.length>0) {
+    if (date.length>0&&u_tel.length>0&&[u_tel isMobileNumber]) {
         [MBProgressHUD showProgressMessage:@"正在预约"];
         [StoreHttpTool appointStoreWithStoreId:store_id date:date tel:u_tel itemName:item_name token:[[UserModel getUser]access_token] success:^(BOOL appointed, NSString *msg) {
             if (appointed) {
@@ -68,6 +68,10 @@
                 [MBProgressHUD showErrorMessage:msg];
             }
         }];
+    }
+    else if (![u_tel isMobileNumber])
+    {
+        [MBProgressHUD showErrorMessage:@"请填写正确的手机号码"];
     }
     else
     {
