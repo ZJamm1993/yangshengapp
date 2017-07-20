@@ -19,6 +19,7 @@
 
 -(instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
+@property (nonatomic,strong) NSString* idd;
 @property (nonatomic,strong) NSString* mobile;
 @property (nonatomic,strong) NSString* user_nicename;
 @property (nonatomic,strong) NSString* access_token;

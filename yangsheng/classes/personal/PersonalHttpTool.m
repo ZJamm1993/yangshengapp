@@ -10,6 +10,15 @@
 
 @implementation PersonalHttpTool
 
++(void)logOutUserToken:(NSString *)token
+{
+    NSMutableDictionary* p=[NSMutableDictionary dictionary];
+    [p setValue:token forKey:@"access_token"];
+    
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Login/logout"];
+    [self post:str params:p success:nil failure:nil];
+}
+
 +(void)getCodeWithMobile:(NSString *)mobile success:(void (^)(BOOL))success
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Index/getmobilenum"];

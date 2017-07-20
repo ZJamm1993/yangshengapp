@@ -12,6 +12,7 @@
 #define LoginUserSuccessNotification @"LoginUserSuccessNotification"
 
 #define SelectedNewCityNotification @"SelectedNewCityNotification"
+#define WeChatReturnAuthCodeNotification @"WeChatReturnAuthCodeNotification"
 
 @interface ZZnotificationName : NSObject
 

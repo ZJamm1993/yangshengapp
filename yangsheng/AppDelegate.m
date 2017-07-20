@@ -102,8 +102,17 @@
 {
     if ([resp isKindOfClass:[SendAuthResp class]]) {
         SendAuthResp* auth=(SendAuthResp*)resp;
-        UIAlertView* alert=[[UIAlertView alloc]initWithTitle:@"we auth code:" message:auth.code delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [alert show];
+        
+//        UIAlertView* alert=[[UIAlertView alloc]initWithTitle:@"we auth code:" message:auth.code delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+//        [alert show];
+//        NSLog(@"\ncode:%@\nlang:%@\ncountry:%@\nstate:%@\n",auth.code,auth.lang,auth.country,auth.state);
+        
+        NSMutableDictionary* userInfo=[NSMutableDictionary dictionary];
+        [userInfo setValue:auth.code forKey:@"code"];
+        [userInfo setValue:auth.lang forKey:@"lang"];
+        [userInfo setValue:auth.country forKey:@"country"];
+        [userInfo setValue:auth.state forKey:@"state"];
+        [[NSNotificationCenter defaultCenter]postNotificationName:WeChatReturnAuthCodeNotification object:nil userInfo:userInfo];
     }
 }
 

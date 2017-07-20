@@ -30,6 +30,8 @@
     self.usernameTextField.text=[[UserModel getUser]mobile];
     [UserModel deleteUser];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(weChatAuthReturnNotification:) name:WeChatReturnAuthCodeNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +52,13 @@
         [MBProgressHUD showErrorMessage:@"未安装微信"];
     }
 }
+
+-(void)weChatAuthReturnNotification:(NSNotification*)noti
+{
+    NSDictionary* userInfo=noti.userInfo;
+    NSLog(@"\n%@",userInfo);
+}
+
 - (IBAction)loginWithUserNamePassword:(id)sender {
     NSString* mo=self.usernameTextField.text;
     NSString* pa=self.passwordTextField.text;

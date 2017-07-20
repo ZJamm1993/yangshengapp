@@ -86,6 +86,7 @@
     }
     else if(indexPath.row==5)
     {
+        [PersonalHttpTool logOutUserToken:[UserModel getUser].access_token];
         [UserModel deleteUser];
         [self.navigationController popViewControllerAnimated:YES];
     }

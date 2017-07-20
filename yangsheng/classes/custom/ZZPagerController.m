@@ -158,7 +158,7 @@
     menuView.delegate=self;
 }
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView //using "end animation" rather than "end decelerating" so that we can catch any "end" if dragged or not;
 {
     if (scrollView==contentView) {
         NSInteger index=[self pageIndexForScrollView:scrollView];

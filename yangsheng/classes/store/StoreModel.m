@@ -95,6 +95,10 @@
         self.name=[dictionary valueForKey:@"name"];
         self.code=[dictionary valueForKey:@"code"];
         self.thumb=[dictionary valueForKey:@"thumb"];
+        if(self.idd.length==0)
+        {
+            self.idd=[dictionary valueForKey:@"item_id"];
+        }
     }
     return self;
 }

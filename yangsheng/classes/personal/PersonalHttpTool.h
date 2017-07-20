@@ -26,4 +26,5 @@
 +(void)changeUserNickName:(NSString*)nick token:(NSString*)token success:(void(^)(BOOL changed))success;
 +(void)changeUserMobile:(NSString*)mobile code:(NSString*)code token:(NSString*)token success:(void(^)(BOOL changed))success;
 
++(void)logOutUserToken:(NSString*)token;
 @end
