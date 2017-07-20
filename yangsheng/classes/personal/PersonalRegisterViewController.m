@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-//@property (weak, nonatomic) IBOutlet UITextField *surePasswordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *surePasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
 
@@ -73,7 +73,7 @@
     NSString* mobile=self.usernameTextField.text;
     NSString* password=self.passwordTextField.text;
     NSString* code=self.codeTextField.text;
-    BOOL isSamePassword=YES;//[password isEqualToString:self.surePasswordTextField.text];
+    BOOL isSamePassword=[password isEqualToString:self.surePasswordTextField.text];
     if (mobile.length>0&&password.passwordLength&&code.length>0&&isSamePassword) {
         
         [MBProgressHUD showProgressMessage:@"正在注册"];

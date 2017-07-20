@@ -63,6 +63,7 @@
         [MBProgressHUD hide];
         if(user)
         {
+            user.type=UserTypeWeChat;
             [self logSuccessWithUser:user];
         }
         else

@@ -23,6 +23,7 @@
         _avatar=[dictionary valueForKey:@"avatar"];
         _mobile=[dictionary valueForKey:@"mobile"];
         _idd=[dictionary valueForKey:@"id"];
+        _type=[[dictionary valueForKey:@"type"]integerValue];
     }
     
     if (_access_token.length==0) {
@@ -44,6 +45,7 @@
     [d setValue:user.avatar forKey:@"avatar"];
     [d setValue:user.mobile forKey:@"mobile"];
     [d setValue:user.idd forKey:@"id"];
+    [d setValue:[NSNumber numberWithInteger:user.type] forKey:@"type"];
     
     NSData* data=[NSJSONSerialization dataWithJSONObject:d options:NSJSONWritingPrettyPrinted error:nil];
     

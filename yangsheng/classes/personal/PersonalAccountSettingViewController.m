@@ -56,6 +56,16 @@
     self.mobile.text=mob;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row==2||indexPath.row==3) {
+        if ([[UserModel getUser]type]!=UserTypeNormal) {
+            return 0;
+        }
+    }
+    return UITableViewAutomaticDimension;
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger,UserType)
+{
+    UserTypeNormal,
+    UserTypeWeChat,
+};
+
 @interface UserModel : NSObject
 
 +(void)saveUser:(UserModel*)user;
@@ -24,5 +30,6 @@
 @property (nonatomic,strong) NSString* user_nicename;
 @property (nonatomic,strong) NSString* access_token;
 @property (nonatomic,strong) NSString* avatar;
+@property (nonatomic,assign) UserType type;
 
 @end
