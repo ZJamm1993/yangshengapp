@@ -158,6 +158,8 @@
 		8FC6DCA41F2043BF00566F96 /* NothingWarningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCA31F2043BF00566F96 /* NothingWarningView.m */; };
 		8FC6DCA61F2043D300566F96 /* NothingWarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC6DCA51F2043D300566F96 /* NothingWarningView.xib */; };
 		8FC6DCA91F204B2500566F96 /* PickerShadowContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCA81F204B2500566F96 /* PickerShadowContainer.m */; };
+		8FC6DCB01F2059A000566F96 /* ClassroomVideoShareHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCAE1F2059A000566F96 /* ClassroomVideoShareHeaderView.m */; };
+		8FC6DCB11F2059A000566F96 /* ClassroomVideoShareHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC6DCAF1F2059A000566F96 /* ClassroomVideoShareHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -441,6 +443,9 @@
 		8FC6DCA51F2043D300566F96 /* NothingWarningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingWarningView.xib; sourceTree = "<group>"; };
 		8FC6DCA71F204B2500566F96 /* PickerShadowContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerShadowContainer.h; sourceTree = "<group>"; };
 		8FC6DCA81F204B2500566F96 /* PickerShadowContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerShadowContainer.m; sourceTree = "<group>"; };
+		8FC6DCAD1F2059A000566F96 /* ClassroomVideoShareHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomVideoShareHeaderView.h; sourceTree = "<group>"; };
+		8FC6DCAE1F2059A000566F96 /* ClassroomVideoShareHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomVideoShareHeaderView.m; sourceTree = "<group>"; };
+		8FC6DCAF1F2059A000566F96 /* ClassroomVideoShareHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassroomVideoShareHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -931,6 +936,9 @@
 				8FC243571F17518A0064A845 /* ClassroomVideoShareCollectionCell.xib */,
 				8F507D431F1DD0EE003DF63D /* ClassroomCollectionCell.h */,
 				8F507D441F1DD0EE003DF63D /* ClassroomCollectionCell.m */,
+				8FC6DCAD1F2059A000566F96 /* ClassroomVideoShareHeaderView.h */,
+				8FC6DCAE1F2059A000566F96 /* ClassroomVideoShareHeaderView.m */,
+				8FC6DCAF1F2059A000566F96 /* ClassroomVideoShareHeaderView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -999,6 +1007,7 @@
 				8FC2434B1F1721770064A845 /* Store.storyboard in Resources */,
 				8F507D791F1F30DC003DF63D /* README.txt in Resources */,
 				8FC243591F17518A0064A845 /* ClassroomVideoShareCollectionCell.xib in Resources */,
+				8FC6DCB11F2059A000566F96 /* ClassroomVideoShareHeaderView.xib in Resources */,
 				8FC2434E1F174B2B0064A845 /* Classroom.storyboard in Resources */,
 				8FC243691F18529B0064A845 /* WebViewTableViewCell.xib in Resources */,
 				3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */,
@@ -1140,6 +1149,7 @@
 				8FADBE9D1F0F39BF002F5911 /* SDWebImagePrefetcher.m in Sources */,
 				8F54BDB21F131191009E3C0B /* NewsSmallCell.m in Sources */,
 				395AD59C1F1B209D0009F44D /* StoreMapViewController.m in Sources */,
+				8FC6DCB01F2059A000566F96 /* ClassroomVideoShareHeaderView.m in Sources */,
 				8F507D451F1DD0EE003DF63D /* ClassroomCollectionCell.m in Sources */,
 				8FADBE9F1F0F39BF002F5911 /* UIImage+GIF.m in Sources */,
 				8FADBEB11F0F4206002F5911 /* HomeQACell.m in Sources */,

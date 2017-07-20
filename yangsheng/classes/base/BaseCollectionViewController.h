@@ -11,7 +11,7 @@
 #import "ZZHttpTool.h"
 #import "NothingFooterCell.h"
 
-@interface BaseCollectionViewController : UICollectionViewController<AdvertiseViewDelegate>
+@interface BaseCollectionViewController : UICollectionViewController<AdvertiseViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) NSMutableArray* dataSource;
 @property (nonatomic,strong) NSString* urlString;
@@ -28,5 +28,7 @@
 
 -(void)setAdvertiseHeaderViewWithPicturesUrls:(NSArray*)picturesUrls;
 -(void)setNothingFooterView;
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section;
 
 @end

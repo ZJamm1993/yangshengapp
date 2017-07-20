@@ -8,6 +8,7 @@
 
 #import "ClassroomVideoShareListViewController.h"
 #import "ClassroomVideoShareCollectionCell.h"
+#import "ClassroomVideoShareHeaderView.h"
 #import "ClassroomHttpTool.h"
 #import "HomeHttpTool.h"
 
@@ -28,7 +29,9 @@
     // Register cell classes
     self.collectionView.collectionViewLayout=self.collectionViewLayout;
     [self.collectionView registerNib:[UINib nibWithNibName:@"ClassroomVideoShareCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"ClassroomVideoShareCollectionCell"];
-    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ClassroomVideoShareHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ClassroomVideoShareHeaderView"];
+    self.collectionView.backgroundColor=gray(240);
+
     [self loadMore];
     // Do any additional setup after loading the view.
     
@@ -97,9 +100,9 @@
     UICollectionViewFlowLayout* flow=[[UICollectionViewFlowLayout alloc]init];
     
     CGFloat sw=[[UIScreen mainScreen]bounds].size.width;
-    CGFloat m=5;
+    CGFloat m=1;
     CGFloat w=sw/2-3*m;
-    CGFloat h=w*1.5;
+    CGFloat h=w/1.8+60;
     
     flow.itemSize=CGSizeMake(w, h);
     flow.minimumLineSpacing=2*m;
@@ -135,6 +138,7 @@
     BaseModel* m=[self.dataSource objectAtIndex:indexPath.row];
     // Configure the cell
     cell.title.text=m.post_title;
+    cell.subtitle.text=m.post_label;
     [cell.imageView sd_setImageWithURL:[m.thumb urlWithMainUrl]];
     
     return cell;
@@ -182,5 +186,29 @@
 	
 }
 */
+
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    CGSize size=[super collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section];
+    if (section==0) {
+        size.height=size.height+44;
+    }
+    return size;
+}
+
+-(UICollectionReusableView*)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        ClassroomVideoShareHeaderView* hea=[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ClassroomVideoShareHeaderView" forIndexPath:indexPath];
+        NSString* title=@"";
+        if (indexPath.section==0) {
+            title=@"精选视频";
+        }
+        hea.title.text=title;
+        return hea;
+    }
+    return nil;
+}
 
 @end

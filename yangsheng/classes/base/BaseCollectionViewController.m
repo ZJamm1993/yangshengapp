@@ -10,7 +10,7 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "Reachability.h"
 
-@interface BaseCollectionViewController ()<UICollectionViewDelegateFlowLayout>
+@interface BaseCollectionViewController ()
 {
     UIRefreshControl* refreshControl;
     BOOL hasNetwork;
