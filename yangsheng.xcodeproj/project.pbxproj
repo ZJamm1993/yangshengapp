@@ -155,6 +155,9 @@
 		8FC243941F19E7E70064A845 /* PopOverNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243931F19E7E70064A845 /* PopOverNavigationController.m */; };
 		8FC243971F19EBEE0064A845 /* StoreCitySelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243961F19EBEE0064A845 /* StoreCitySelectionViewController.m */; };
 		8FC2439A1F19ED880064A845 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243991F19ED880064A845 /* CityModel.m */; };
+		8FC6DCA41F2043BF00566F96 /* NothingWarningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCA31F2043BF00566F96 /* NothingWarningView.m */; };
+		8FC6DCA61F2043D300566F96 /* NothingWarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC6DCA51F2043D300566F96 /* NothingWarningView.xib */; };
+		8FC6DCA91F204B2500566F96 /* PickerShadowContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCA81F204B2500566F96 /* PickerShadowContainer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -433,6 +436,11 @@
 		8FC243961F19EBEE0064A845 /* StoreCitySelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCitySelectionViewController.m; sourceTree = "<group>"; };
 		8FC243981F19ED880064A845 /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
 		8FC243991F19ED880064A845 /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		8FC6DCA21F2043BF00566F96 /* NothingWarningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NothingWarningView.h; sourceTree = "<group>"; };
+		8FC6DCA31F2043BF00566F96 /* NothingWarningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NothingWarningView.m; sourceTree = "<group>"; };
+		8FC6DCA51F2043D300566F96 /* NothingWarningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingWarningView.xib; sourceTree = "<group>"; };
+		8FC6DCA71F204B2500566F96 /* PickerShadowContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerShadowContainer.h; sourceTree = "<group>"; };
+		8FC6DCA81F204B2500566F96 /* PickerShadowContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerShadowContainer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,6 +567,11 @@
 				8FC243841F18952C0064A845 /* CollectionViewTableViewCell.xib */,
 				8F507D861F1F4069003DF63D /* ZZSearchBar.h */,
 				8F507D871F1F4069003DF63D /* ZZSearchBar.m */,
+				8FC6DCA21F2043BF00566F96 /* NothingWarningView.h */,
+				8FC6DCA31F2043BF00566F96 /* NothingWarningView.m */,
+				8FC6DCA51F2043D300566F96 /* NothingWarningView.xib */,
+				8FC6DCA71F204B2500566F96 /* PickerShadowContainer.h */,
+				8FC6DCA81F204B2500566F96 /* PickerShadowContainer.m */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -995,6 +1008,7 @@
 				395663691F17B2460084E2E2 /* ServiceObjectCell.xib in Resources */,
 				8FC242D61F16171E0064A845 /* Checkmark@2x.png in Resources */,
 				8FA935EA1F11C9D0001E29CF /* NothingFooterCell.xib in Resources */,
+				8FC6DCA61F2043D300566F96 /* NothingWarningView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,6 +1065,7 @@
 				8FC242E21F162ADB0064A845 /* Foundation+Log.m in Sources */,
 				8FA936061F120E7A001E29CF /* ProductCell.m in Sources */,
 				8FC243461F1713690064A845 /* StoreModel.m in Sources */,
+				8FC6DCA41F2043BF00566F96 /* NothingWarningView.m in Sources */,
 				8FC243941F19E7E70064A845 /* PopOverNavigationController.m in Sources */,
 				8FADBEA31F0F39BF002F5911 /* UIImageView+WebCache.m in Sources */,
 				8FADBEA11F0F39BF002F5911 /* UIImage+WebP.m in Sources */,
@@ -1069,6 +1084,7 @@
 				8FADBEBB1F0F5C40002F5911 /* HomeFounderCell.m in Sources */,
 				396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */,
 				8FADBEA21F0F39BF002F5911 /* UIImageView+HighlightedWebCache.m in Sources */,
+				8FC6DCA91F204B2500566F96 /* PickerShadowContainer.m in Sources */,
 				8FA936091F121F35001E29CF /* QAListViewController.m in Sources */,
 				395247C21F11354E000A6E20 /* HomeMonthStarCell.m in Sources */,
 				8FC243231F17070A0064A845 /* FakeSearchBar.m in Sources */,

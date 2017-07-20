@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.title=@"收藏课程";
     // Do any additional setup after loading the view.
-    [self loadMore];
+    [self refresh];
     // Do any additional setup after loading the view.
     
     //    [self setAdvertiseHeaderViewWithPicturesUrls:@[@"a",@"b"]];
@@ -43,6 +43,11 @@
         [self.tableView reloadData];
         if (datasource.count>0) {
             self.currentPage=1;
+            [self hideNothingLabel];
+        }
+        else
+        {
+            [self showNothingLabelText:@"没有收藏"];
         }
         //        [self setAdvertiseHeaderViewWithPicturesUrls:@[@"",@""]];
     } isCache:NO];

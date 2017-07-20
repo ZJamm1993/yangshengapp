@@ -46,11 +46,11 @@
             BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
-        if (datasource.count>0) {
+//        if (datasource.count>0) {
             if (success) {
                 success(datasource);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];

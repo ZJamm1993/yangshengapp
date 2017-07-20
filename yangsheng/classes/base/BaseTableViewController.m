@@ -10,12 +10,14 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "Reachability.h"
 
+#import "NothingWarningView.h"
+
 @interface BaseTableViewController ()
 {
     AdvertiseView* advHeader;
     NSInteger lastCount;
     BOOL hasNetwork;
-    UILabel* nothingLabel;
+    NothingWarningView* nothingView;
 }
 @end
 
@@ -52,6 +54,12 @@
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.view endEditing:YES];
 }
 
 -(NSInteger)pageSize
@@ -180,26 +188,18 @@
 
 -(void)showNothingLabelText:(NSString *)text
 {
-    if (nothingLabel==nil) {
-        nothingLabel=[[UILabel alloc]initWithFrame:self.view.bounds];
-        nothingLabel.backgroundColor=gray(240);
-        nothingLabel.textColor=[UIColor lightGrayColor];
-        nothingLabel.font=[UIFont systemFontOfSize:13];
-        nothingLabel.textAlignment=NSTextAlignmentCenter;
-        nothingLabel.numberOfLines=0;
+    if (nothingView==nil) {
+        nothingView=[NothingWarningView nothingViewWithWarning:text];
     }
-    nothingLabel.text=@"";
-    [nothingLabel removeFromSuperview];
-    if (text.length>0){
-        nothingLabel.text=[NSString stringWithFormat:@"%@\n\n\n\n",text];
-        [self.view addSubview:nothingLabel];
-    }
+    nothingView.label.text=text;
+    [nothingView removeFromSuperview];
+    [self.view addSubview:nothingView];
     
 }
 
 -(void)hideNothingLabel
 {
-    [nothingLabel removeFromSuperview];
+    [nothingView removeFromSuperview];
 }
 
 @end

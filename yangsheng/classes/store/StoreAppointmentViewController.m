@@ -7,6 +7,7 @@
 //
 
 #import "StoreAppointmentViewController.h"
+#import "PickerShadowContainer.h"
 
 @interface StoreAppointmentViewController ()<UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *storeNameLabe;
@@ -107,7 +108,8 @@
         [self pickerView:projectPickerView didSelectRow:0 inComponent:0];
     }
     [self hideAllPickers];
-    [self.view addSubview:projectPickerView];
+//    [self.view addSubview:projectPickerView];
+    [PickerShadowContainer showPickerContainerWithView:projectPickerView];
 }
 
 -(void)selectAppointTime
@@ -123,7 +125,8 @@
         [self datePickerValueChanged:datePickerView];
     }
     [self hideAllPickers];
-    [self.view addSubview:datePickerView];
+//    [self.view addSubview:datePickerView];
+    [PickerShadowContainer showPickerContainerWithView:datePickerView];
 }
 
 

@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"我的预约";
-    [self loadMore];
+    [self refresh];
     // Do any additional setup after loading the view.
 }
 
@@ -42,6 +42,11 @@
         [self stopRefreshAfterSeconds];
         if (self.dataSource.count>0) {
             self.currentPage=1;
+            [self hideNothingLabel];
+        }
+        else
+        {
+            [self showNothingLabelText:@"没有预约"];
         }
     } isCache:NO];
 }
