@@ -19,9 +19,10 @@ typedef NS_ENUM(NSInteger,UserType)
 +(void)saveUser:(UserModel*)user;
 +(instancetype)getUser;
 +(void)deleteUser;
-+(NSString*)getPassword;
-+(void)savePassword:(NSString*)password;
-+(void)deletePassword;
+
+//+(NSString*)getPassword;
+//+(void)savePassword:(NSString*)password;
+//+(void)deletePassword;
 
 -(instancetype)initWithDictionary:(NSDictionary*)dictionary;
 

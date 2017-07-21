@@ -160,6 +160,12 @@
 		8FC6DCA91F204B2500566F96 /* PickerShadowContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCA81F204B2500566F96 /* PickerShadowContainer.m */; };
 		8FC6DCB01F2059A000566F96 /* ClassroomVideoShareHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCAE1F2059A000566F96 /* ClassroomVideoShareHeaderView.m */; };
 		8FC6DCB11F2059A000566F96 /* ClassroomVideoShareHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC6DCAF1F2059A000566F96 /* ClassroomVideoShareHeaderView.xib */; };
+		8FC6DCB81F2196E800566F96 /* FounderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCB61F2196E800566F96 /* FounderCollectionViewCell.m */; };
+		8FC6DCB91F2196E800566F96 /* FounderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC6DCB71F2196E800566F96 /* FounderCollectionViewCell.xib */; };
+		8FC6DCC01F219E0D00566F96 /* TeamCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCBE1F219E0D00566F96 /* TeamCollectionViewCell.m */; };
+		8FC6DCC11F219E0D00566F96 /* TeamCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC6DCBF1F219E0D00566F96 /* TeamCollectionViewCell.xib */; };
+		8FC6DCC71F21B58E00566F96 /* UniversalHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCC61F21B58E00566F96 /* UniversalHttpTool.m */; };
+		8FC6DCCA1F21B5B800566F96 /* UniversalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC6DCC91F21B5B800566F96 /* UniversalModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -446,6 +452,16 @@
 		8FC6DCAD1F2059A000566F96 /* ClassroomVideoShareHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomVideoShareHeaderView.h; sourceTree = "<group>"; };
 		8FC6DCAE1F2059A000566F96 /* ClassroomVideoShareHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomVideoShareHeaderView.m; sourceTree = "<group>"; };
 		8FC6DCAF1F2059A000566F96 /* ClassroomVideoShareHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassroomVideoShareHeaderView.xib; sourceTree = "<group>"; };
+		8FC6DCB51F2196E800566F96 /* FounderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FounderCollectionViewCell.h; sourceTree = "<group>"; };
+		8FC6DCB61F2196E800566F96 /* FounderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FounderCollectionViewCell.m; sourceTree = "<group>"; };
+		8FC6DCB71F2196E800566F96 /* FounderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FounderCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FC6DCBD1F219E0D00566F96 /* TeamCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCollectionViewCell.h; sourceTree = "<group>"; };
+		8FC6DCBE1F219E0D00566F96 /* TeamCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCollectionViewCell.m; sourceTree = "<group>"; };
+		8FC6DCBF1F219E0D00566F96 /* TeamCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FC6DCC51F21B58E00566F96 /* UniversalHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalHttpTool.h; sourceTree = "<group>"; };
+		8FC6DCC61F21B58E00566F96 /* UniversalHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalHttpTool.m; sourceTree = "<group>"; };
+		8FC6DCC81F21B5B800566F96 /* UniversalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalModel.h; sourceTree = "<group>"; };
+		8FC6DCC91F21B5B800566F96 /* UniversalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,6 +520,9 @@
 				8FC2436B1F1854E60064A845 /* HomeTeamHeaderCell.m */,
 				8FC2437C1F1868CE0064A845 /* TeamCompanyCollectionViewCell.h */,
 				8FC2437D1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m */,
+				8FC6DCBD1F219E0D00566F96 /* TeamCollectionViewCell.h */,
+				8FC6DCBE1F219E0D00566F96 /* TeamCollectionViewCell.m */,
+				8FC6DCBF1F219E0D00566F96 /* TeamCollectionViewCell.xib */,
 			);
 			name = HomeTeam;
 			sourceTree = "<group>";
@@ -546,6 +565,10 @@
 				8FC2435B1F17582A0064A845 /* CodeScanerViewController.m */,
 				8FC243791F1863590064A845 /* BaseCollectionViewController.h */,
 				8FC2437A1F1863590064A845 /* BaseCollectionViewController.m */,
+				8FC6DCC51F21B58E00566F96 /* UniversalHttpTool.h */,
+				8FC6DCC61F21B58E00566F96 /* UniversalHttpTool.m */,
+				8FC6DCC81F21B5B800566F96 /* UniversalModel.h */,
+				8FC6DCC91F21B5B800566F96 /* UniversalModel.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -719,6 +742,9 @@
 				8F54BDAD1F131175009E3C0B /* NewsLargeCell.m */,
 				8F54BDB01F131191009E3C0B /* NewsSmallCell.h */,
 				8F54BDB11F131191009E3C0B /* NewsSmallCell.m */,
+				8FC6DCB51F2196E800566F96 /* FounderCollectionViewCell.h */,
+				8FC6DCB61F2196E800566F96 /* FounderCollectionViewCell.m */,
+				8FC6DCB71F2196E800566F96 /* FounderCollectionViewCell.xib */,
 			);
 			name = HomeNews;
 			sourceTree = "<group>";
@@ -1007,10 +1033,12 @@
 				8FC2434B1F1721770064A845 /* Store.storyboard in Resources */,
 				8F507D791F1F30DC003DF63D /* README.txt in Resources */,
 				8FC243591F17518A0064A845 /* ClassroomVideoShareCollectionCell.xib in Resources */,
+				8FC6DCC11F219E0D00566F96 /* TeamCollectionViewCell.xib in Resources */,
 				8FC6DCB11F2059A000566F96 /* ClassroomVideoShareHeaderView.xib in Resources */,
 				8FC2434E1F174B2B0064A845 /* Classroom.storyboard in Resources */,
 				8FC243691F18529B0064A845 /* WebViewTableViewCell.xib in Resources */,
 				3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */,
+				8FC6DCB91F2196E800566F96 /* FounderCollectionViewCell.xib in Resources */,
 				3971BC121F0E7047004016C2 /* Main.storyboard in Resources */,
 				8FC242D71F16171E0064A845 /* Checkmark@3x.png in Resources */,
 				8FC243101F1703C50064A845 /* Personal.storyboard in Resources */,
@@ -1047,6 +1075,7 @@
 				8FC242E81F1630380064A845 /* SystemMessageListViewController.m in Sources */,
 				396910C61F0E864200EF6D52 /* HomeRootViewController.m in Sources */,
 				3971BC0C1F0E7047004016C2 /* AppDelegate.m in Sources */,
+				8FC6DCCA1F21B5B800566F96 /* UniversalModel.m in Sources */,
 				8FC2438C1F19A78F0064A845 /* StoreDetailBaseMessageCell.m in Sources */,
 				8FC2435C1F17582A0064A845 /* CodeScanerViewController.m in Sources */,
 				8FC243141F1703C50064A845 /* PersonalLoginViewController.m in Sources */,
@@ -1062,8 +1091,10 @@
 				8FC243971F19EBEE0064A845 /* StoreCitySelectionViewController.m in Sources */,
 				8FADBEAB1F0F3B62002F5911 /* UIView+WebCacheOperation.m in Sources */,
 				8F507D291F1CAE14003DF63D /* StoreMapAnnotation.m in Sources */,
+				8FC6DCB81F2196E800566F96 /* FounderCollectionViewCell.m in Sources */,
 				8FADBE5F1F0F2E6E002F5911 /* HomeHttpTool.m in Sources */,
 				8FC243681F18529B0064A845 /* WebViewTableViewCell.m in Sources */,
+				8FC6DCC71F21B58E00566F96 /* UniversalHttpTool.m in Sources */,
 				395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */,
 				8F507D881F1F4069003DF63D /* ZZSearchBar.m in Sources */,
 				8FC243131F1703C50064A845 /* PersonalHttpTool.m in Sources */,
@@ -1095,6 +1126,7 @@
 				8FADBEA21F0F39BF002F5911 /* UIImageView+HighlightedWebCache.m in Sources */,
 				8FC6DCA91F204B2500566F96 /* PickerShadowContainer.m in Sources */,
 				8FA936091F121F35001E29CF /* QAListViewController.m in Sources */,
+				8FC6DCC01F219E0D00566F96 /* TeamCollectionViewCell.m in Sources */,
 				395247C21F11354E000A6E20 /* HomeMonthStarCell.m in Sources */,
 				8FC243231F17070A0064A845 /* FakeSearchBar.m in Sources */,
 				8FADBE661F0F361B002F5911 /* HomeProductClassCell.m in Sources */,

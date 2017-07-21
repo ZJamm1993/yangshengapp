@@ -54,6 +54,12 @@ static NSString * const reuseIdentifier = @"Cell";
     // Do any additional setup after loading the view.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
+}
+
 -(NSMutableArray*)dataSource
 {
     if (_dataSource==nil) {

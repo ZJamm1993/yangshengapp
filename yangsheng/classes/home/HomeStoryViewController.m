@@ -18,6 +18,8 @@
 #import "HomeEnterprisePublicityCell.h"
 
 #import "ButtonsCell.h"
+#import "CollectionViewTableViewCell.h"
+#import "FounderCollectionViewCell.h"
 
 #import "HomeHttpTool.h"
 
@@ -38,7 +40,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     HomeStorySectionNumbers
 };
 
-@interface HomeStoryViewController ()<ButtonsCellDelegate>
+@interface HomeStoryViewController ()<ButtonsCellDelegate,CollectionViewTableViewCellDelegate>
 {
     NSMutableArray* advsArray;
     NSMutableArray* productClassArray;
@@ -46,7 +48,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     NSMutableArray* founderArray;
     NSMutableArray* enterArray;
     
-    UITapGestureRecognizer* tapGesture;
+    UICollectionViewFlowLayout* flow;
 }
 @end
 
@@ -55,13 +57,21 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    flow=[[UICollectionViewFlowLayout alloc]init];
+    CGFloat sw=[[UIScreen mainScreen]bounds].size.width;
+    CGFloat m=10;
+    CGFloat w=(sw-5*m)/2;
+    CGFloat h=w+40;
+    
+    flow.itemSize=CGSizeMake(w, h);
+    flow.minimumLineSpacing=0;
+    flow.minimumInteritemSpacing=m;
+    flow.sectionInset=UIEdgeInsetsMake(0,2*m,0,2*m);
+    
 //    [self.tableView registerNib:[UINib nibWithNibName:@"HomeHeaderCell" bundle:nil] forCellReuseIdentifier:@"HomeHeaderCell"];
     [self.tableView registerClass:[ButtonsCell class] forCellReuseIdentifier:@"TopButtonsCell"];
-    
-    tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureDidTap:)];
-    [self.tableView addGestureRecognizer:tapGesture];
-    
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"CollectionViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"founderCollectionCell"];
+
     [self firstLoad];
     // Do any additional setup after loading the view.
 }
@@ -156,11 +166,12 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     }
     else if(section==HomeStorySectionFounder)
     {
-        NSInteger rs=founderArray.count/2;
-        if (founderArray.count%2>0) {
-            rs=rs+1;
-        }
-        return rs+1;
+//        NSInteger rs=founderArray.count/2;
+//        if (founderArray.count%2>0) {
+//            rs=rs+1;
+//        }
+//        return rs+1;
+        return 2;
     }
     else if(section==HomeStorySectionEnterprise)
     {
@@ -177,51 +188,17 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     if (sec==HomeStorySectionHeader) {
         return 100;
     }
-    else
+    else if(sec==HomeStorySectionFounder)
     {
-        return UITableViewAutomaticDimension;
+        if (indexPath.row==1) {
+            NSInteger rows=founderArray.count/2;
+            if (founderArray.count%2>0) {
+                rows++;
+            }
+            return rows*flow.itemSize.height;
+        }
     }
-//    else if(sec==HomeStorySectionProduct)
-//    {
-//        if (row==0) {
-//            return 60;
-//        }
-//        else
-//        {
-//            return 200;
-//        }
-//    }
-//    else if(sec==HomeStorySectionQuestion)
-//    {
-//        if (row==0) {
-//            return 100;
-//        }
-//        else
-//        {
-//            return UITableViewAutomaticDimension;
-//        }
-//    }
-//    else if(sec==HomeStorySectionFounder)
-//    {
-//        if (row==0) {
-//            return 90;
-//        }
-//        else
-//        {
-//            return UITableViewAutomaticDimension;//[[UIScreen mainScreen]bounds].size.width/2-25+35;
-//        }
-//    }
-//    else if(sec==HomeStorySectionEnterprise)
-//    {
-//        if (row==0) {
-//            return 90;
-//        }
-//        else
-//        {
-//            return UITableViewAutomaticDimension;
-//        }
-//    }
-    return 0.0001;
+    return UITableViewAutomaticDimension;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -283,23 +260,30 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
         }
         else
         {
-            HomeFounderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeFounderCell" forIndexPath:indexPath];
+//            HomeFounderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeFounderCell" forIndexPath:indexPath];
+//            
+//            NSInteger tr=row-1;
+//            NSInteger leftIndex=tr*2;
+//            NSInteger rightIndex=leftIndex+1;
+//            
+//            NSMutableArray* fous=[NSMutableArray array];
+//            if (leftIndex<founderArray.count) {
+//                [fous addObject:[founderArray objectAtIndex:leftIndex]];
+//            }
+//            if (rightIndex<founderArray.count) {
+//                [fous addObject:[founderArray objectAtIndex:rightIndex]];
+//            }
+//            
+//            c.founders=fous;
+//            
+//            return c;
             
-            NSInteger tr=row-1;
-            NSInteger leftIndex=tr*2;
-            NSInteger rightIndex=leftIndex+1;
-            
-            NSMutableArray* fous=[NSMutableArray array];
-            if (leftIndex<founderArray.count) {
-                [fous addObject:[founderArray objectAtIndex:leftIndex]];
-            }
-            if (rightIndex<founderArray.count) {
-                [fous addObject:[founderArray objectAtIndex:rightIndex]];
-            }
-            
-            c.founders=fous;
-            
-            return c;
+            CollectionViewTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"founderCollectionCell" forIndexPath:indexPath];
+            [cell registerNib:[UINib nibWithNibName:@"FounderCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"foun"];
+            cell.delegate=self;
+            cell.flowLayout=flow;
+            cell.collectionView.backgroundColor=[UIColor whiteColor];
+            return cell;
         }
     }
     else if(sec==HomeStorySectionEnterprise)
@@ -326,42 +310,14 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     }
 }
 
--(void)tapGestureDidTap:(UITapGestureRecognizer*)ta
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGPoint point = [ta locationInView:self.tableView];
-    NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint:point];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath) {
         NSInteger sec=indexPath.section;
         NSInteger row=indexPath.row;
         
         if (sec==HomeStorySectionFounder) {
-            if (row>0) {
-                NSInteger tr=row-1;
-                NSInteger leftIndex=tr*2;
-                NSInteger rightIndex=leftIndex+1;
-                BOOL left=point.x<[[UIScreen mainScreen]bounds].size.width/2;
-                
-                BaseModel* unknownFounder=nil;
-                
-                if (left) {
-                    if (leftIndex<founderArray.count) {
-                        unknownFounder=[founderArray objectAtIndex:leftIndex];
-                    }
-                }
-                else
-                {
-                    if (rightIndex<founderArray.count) {
-                        unknownFounder=[founderArray objectAtIndex:rightIndex];
-                    }
-                }
-                NSLog(@"founder %@",unknownFounder.description);
-                if (unknownFounder) {
-                    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_founder_detail urlWithMainUrl]];
-                    we.idd=unknownFounder.idd.integerValue;
-                    we.title=@"创始人";
-                    [self.navigationController pushViewController:we animated:YES];
-                }
-            }
         }
         else if(sec==HomeStorySectionProduct)
         {
@@ -416,6 +372,35 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     }
 }
 
+#pragma mark --collectiontablecell delegate
+
+-(NSInteger)numberOfItemsForCollectionViewTableViewCell:(CollectionViewTableViewCell *)cell
+{
+    return founderArray.count;
+}
+
+-(void)collectionViewTableViewCell:(CollectionViewTableViewCell *)tableViewcell willShowCollectionViewCell:(UICollectionViewCell *)collectionViewCell atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([collectionViewCell isKindOfClass:[FounderCollectionViewCell class]]) {
+        BaseModel* m=[founderArray objectAtIndex:indexPath.row];
+        FounderCollectionViewCell* c=(FounderCollectionViewCell*)collectionViewCell;
+        c.title.text=m.post_title;
+        [c.image sd_setImageWithURL:[m.thumb urlWithMainUrl]];
+    }
+}
+
+-(void)collectionViewTableViewCell:(CollectionViewTableViewCell *)cell didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_founder_detail urlWithMainUrl]];
+    BaseModel* m=[founderArray objectAtIndex:indexPath.row];
+    we.idd=m.idd.integerValue;
+    we.title=@"创始人";
+    [self.navigationController pushViewController:we animated:YES];
+
+}
+
+#pragma mark --buttonsCellDelegate
+
 -(void)buttonsCell:(ButtonsCell *)cell didClickedIndex:(NSInteger)index
 {
     if (index==0) {
@@ -432,7 +417,15 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
         UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否打开QQ联系客服" message:nil preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
         [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [[UIApplication sharedApplication]openURL:QQURL];
+            
+            NSURL* url=QQURL;
+            if ([[UIApplication sharedApplication]canOpenURL:url]) {
+                [[UIApplication sharedApplication]openURL:url];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:@"联系客服发生错误"];
+            }
         }]];
         [self presentViewController:alert animated:YES completion:nil];
     }

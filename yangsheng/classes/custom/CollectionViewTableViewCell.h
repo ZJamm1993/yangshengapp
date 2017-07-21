@@ -22,6 +22,7 @@
 
 @property (nonatomic,weak) id<CollectionViewTableViewCellDelegate>delegate;
 
+//require to implement
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

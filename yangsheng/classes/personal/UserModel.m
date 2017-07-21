@@ -73,32 +73,32 @@
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:UserKey];
 }
 
-+(NSString*)getPassword
-{
-    NSData* data=[[NSUserDefaults standardUserDefaults]valueForKey:UserPasswordKey];
-    if (![data isKindOfClass:[NSData class]]) {
-        [self deletePassword];
-        return nil;
-    }
-    if (data.length==0) {
-        return nil;
-    }
-    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    return str;
-}
-
-+(void)savePassword:(NSString *)password
-{
-    if (password.length==0) {
-        return;
-    }
-    NSData* data=[password dataUsingEncoding:NSUTF8StringEncoding];
-    [[NSUserDefaults standardUserDefaults]setValue:data forKey:UserPasswordKey];
-}
-
-+(void)deletePassword
-{
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:UserPasswordKey];
-}
+//+(NSString*)getPassword
+//{
+//    NSData* data=[[NSUserDefaults standardUserDefaults]valueForKey:UserPasswordKey];
+//    if (![data isKindOfClass:[NSData class]]) {
+//        [self deletePassword];
+//        return nil;
+//    }
+//    if (data.length==0) {
+//        return nil;
+//    }
+//    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//    return str;
+//}
+//
+//+(void)savePassword:(NSString *)password
+//{
+//    if (password.length==0) {
+//        return;
+//    }
+//    NSData* data=[password dataUsingEncoding:NSUTF8StringEncoding];
+//    [[NSUserDefaults standardUserDefaults]setValue:data forKey:UserPasswordKey];
+//}
+//
+//+(void)deletePassword
+//{
+//    [[NSUserDefaults standardUserDefaults]removeObjectForKey:UserPasswordKey];
+//}
 
 @end

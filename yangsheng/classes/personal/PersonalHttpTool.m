@@ -19,6 +19,27 @@
     [self post:str params:p success:nil failure:nil];
 }
 
++(void)getUserInfoWithToken:(NSString *)token success:(void (^)(UserModel *))success
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Profile/userinfo"];
+    NSMutableDictionary* p=[NSMutableDictionary dictionary];
+    [p setValue:token forKey:@"access_token"];
+    [self get:str params:p usingCache:NO success:^(NSDictionary *res) {
+        NSDictionary* data=[res valueForKey:@"data"];
+        UserModel* us=[[UserModel alloc]initWithDictionary:data];
+        if (us.access_token.length>0) {
+            if (success) {
+                success(us);
+            }
+            return;
+        }
+        if (success) {
+            success(nil);
+        }
+    } failure:^(NSError *err) {
+    }];
+}
+
 +(void)getCodeWithMobile:(NSString *)mobile success:(void (^)(BOOL))success
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Index/getmobilenum"];

@@ -12,8 +12,10 @@
 #import "HomeFounderCell.h"
 #import "HomeTeamExtCell.h"
 #import "HomeTeamHeaderCell.h"
+#import "TeamCollectionViewCell.h"
 
 #import "NothingFooterCell.h"
+#import "CollectionViewTableViewCell.h"
 
 #import "TeamCompanyListViewController.h"
 #import "TeamExpandListViewController.h"
@@ -30,13 +32,14 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     HomeTeamSectionNumbers
 };
 
-@interface HomeTeamViewController ()<AdvertiseViewDelegate>
+@interface HomeTeamViewController ()<AdvertiseViewDelegate,CollectionViewTableViewCellDelegate>
 {
     NSMutableArray* advsArray;
     NSMutableArray* starsArray;
     NSMutableArray* teamsArray;
     NSMutableArray* extsArray;
-    UITapGestureRecognizer* tapGesture;
+    
+    UICollectionViewFlowLayout* flow;
 }
 
 @end
@@ -48,8 +51,18 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     
     [self setNothingFooterView];
     
-    tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureDidTap:)];
-    [self.tableView addGestureRecognizer:tapGesture];
+    flow=[[UICollectionViewFlowLayout alloc]init];
+    CGFloat sw=[[UIScreen mainScreen]bounds].size.width;
+    CGFloat m=10;
+    CGFloat w=(sw-5*m)/2;
+    CGFloat h=w+40;
+    
+    flow.itemSize=CGSizeMake(w, h);
+    flow.minimumLineSpacing=0;
+    flow.minimumInteritemSpacing=m;
+    flow.sectionInset=UIEdgeInsetsMake(0,2*m,0,2*m);
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"CollectionViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"teamcollectiontablecell"];
     
     [self firstLoad];
     // Do any additional setup after loading the view.
@@ -116,17 +129,32 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     }
     else if(section==HomeTeamSectionCom)
     {
-        NSInteger rs=teamsArray.count/2;
-        if (teamsArray.count%2>0) {
-            rs=rs+1;
-        }
-        return rs+1;
+//        NSInteger rs=teamsArray.count/2;
+//        if (teamsArray.count%2>0) {
+//            rs=rs+1;
+//        }
+//        return rs+1;
+        return 2;
     }
     else if(section==HomeTeamSectionExt)
     {
         return extsArray.count+1;
     }
     return 0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==HomeTeamSectionCom&&indexPath.row==1) {
+//        if (indexPath.row==1) {
+            NSInteger rows=teamsArray.count/2;
+            if (teamsArray.count%2>0) {
+                rows++;
+            }
+            return rows*flow.itemSize.height;
+//        }
+    }
+    return UITableViewAutomaticDimension;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -177,24 +205,30 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
 //        }
 //        else
 //        {
-            HomeFounderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeFounderCell" forIndexPath:indexPath];
-            
-            NSInteger tr=indexPath.row-1;
-            NSInteger leftIndex=tr*2;
-            NSInteger rightIndex=leftIndex+1;
-            
-            NSMutableArray* fous=[NSMutableArray array];
-            if (leftIndex<teamsArray.count) {
-                [fous addObject:[teamsArray objectAtIndex:leftIndex]];
-            }
-            if (rightIndex<teamsArray.count) {
-                [fous addObject:[teamsArray objectAtIndex:rightIndex]];
-            }
-            
-            c.founders=fous;
-            
-            return c;
+//            HomeFounderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeFounderCell" forIndexPath:indexPath];
+//            
+//            NSInteger tr=indexPath.row-1;
+//            NSInteger leftIndex=tr*2;
+//            NSInteger rightIndex=leftIndex+1;
+//            
+//            NSMutableArray* fous=[NSMutableArray array];
+//            if (leftIndex<teamsArray.count) {
+//                [fous addObject:[teamsArray objectAtIndex:leftIndex]];
+//            }
+//            if (rightIndex<teamsArray.count) {
+//                [fous addObject:[teamsArray objectAtIndex:rightIndex]];
+//            }
+//            
+//            c.founders=fous;
+//            
+//            return c;
 //        }
+        CollectionViewTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"teamcollectiontablecell" forIndexPath:indexPath];
+        [cell registerNib:[UINib nibWithNibName:@"TeamCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"team"];
+        cell.delegate=self;
+        cell.flowLayout=flow;
+        cell.collectionView.backgroundColor=[UIColor whiteColor];
+        return cell;
     }
     else if(indexPath.section==HomeTeamSectionExt)
     {
@@ -222,41 +256,40 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     }
 }
 
--(void)tapGestureDidTap:(UITapGestureRecognizer*)ta
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGPoint point = [ta locationInView:self.tableView];
-    NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint:point];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath) {
         NSInteger sec=indexPath.section;
         NSInteger row=indexPath.row;
         
         if (sec==HomeTeamSectionCom) {
             if (row>0) {
-                NSInteger tr=row-1;
-                NSInteger leftIndex=tr*2;
-                NSInteger rightIndex=leftIndex+1;
-                BOOL left=point.x<[[UIScreen mainScreen]bounds].size.width/2;
-                
-                BaseModel* unknownFounder=nil;
-                
-                if (left) {
-                    if (leftIndex<teamsArray.count) {
-                        unknownFounder=[teamsArray objectAtIndex:leftIndex];
-                    }
-                }
-                else
-                {
-                    if (rightIndex<teamsArray.count) {
-                        unknownFounder=[teamsArray objectAtIndex:rightIndex];
-                    }
-                }
-                NSLog(@"founder %@",unknownFounder.description);
-                if (unknownFounder) {
-                    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_team_detail urlWithMainUrl]];
-                    we.idd=unknownFounder.idd.integerValue;
-                    we.title=@"公司团队";
-                    [self.navigationController pushViewController:we animated:YES];
-                }
+//                NSInteger tr=row-1;
+//                NSInteger leftIndex=tr*2;
+//                NSInteger rightIndex=leftIndex+1;
+//                BOOL left=point.x<[[UIScreen mainScreen]bounds].size.width/2;
+//                
+//                BaseModel* unknownFounder=nil;
+//                
+//                if (left) {
+//                    if (leftIndex<teamsArray.count) {
+//                        unknownFounder=[teamsArray objectAtIndex:leftIndex];
+//                    }
+//                }
+//                else
+//                {
+//                    if (rightIndex<teamsArray.count) {
+//                        unknownFounder=[teamsArray objectAtIndex:rightIndex];
+//                    }
+//                }
+//                NSLog(@"founder %@",unknownFounder.description);
+//                if (unknownFounder) {
+//                    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_team_detail urlWithMainUrl]];
+//                    we.idd=unknownFounder.idd.integerValue;
+//                    we.title=@"公司团队";
+//                    [self.navigationController pushViewController:we animated:YES];
+//                }
             }
             else
             {
@@ -300,6 +333,33 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     }
 }
 
+
+#pragma mark --collectiontablecell delegate
+
+-(NSInteger)numberOfItemsForCollectionViewTableViewCell:(CollectionViewTableViewCell *)cell
+{
+    return teamsArray.count;
+}
+
+-(void)collectionViewTableViewCell:(CollectionViewTableViewCell *)tableViewcell willShowCollectionViewCell:(UICollectionViewCell *)collectionViewCell atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([collectionViewCell isKindOfClass:[TeamCollectionViewCell class]]) {
+        BaseModel* m=[teamsArray objectAtIndex:indexPath.row];
+        TeamCollectionViewCell* c=(TeamCollectionViewCell*)collectionViewCell;
+        c.title.text=m.post_title;
+        [c.image sd_setImageWithURL:[m.thumb urlWithMainUrl]];
+    }
+}
+
+-(void)collectionViewTableViewCell:(CollectionViewTableViewCell *)cell didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_team_detail urlWithMainUrl]];
+    BaseModel* m=[teamsArray objectAtIndex:indexPath.row];
+    we.idd=m.idd.integerValue;
+    we.title=@"公司团队";
+    [self.navigationController pushViewController:we animated:YES];
+    
+}
 
 
 @end

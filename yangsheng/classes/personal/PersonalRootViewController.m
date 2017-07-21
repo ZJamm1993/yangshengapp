@@ -43,7 +43,7 @@
     
 //    [self didLogin:nil];
     
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didLogin:) name:LoginUserSuccessNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshUser) name:LoginUserSuccessNotification object:nil];
 }
 
 //-(void)didLogin:(NSNotification*)noti
@@ -200,7 +200,14 @@
             UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否打开QQ联系客服" message:nil preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [[UIApplication sharedApplication]openURL:QQURL];
+                NSURL* url=QQURL;
+                if ([[UIApplication sharedApplication]canOpenURL:url]) {
+                    [[UIApplication sharedApplication]openURL:url];
+                }
+                else
+                {
+                    [MBProgressHUD showErrorMessage:@"联系客服发生错误"];
+                }
             }]];
             [self presentViewController:alert animated:YES completion:nil];
         }

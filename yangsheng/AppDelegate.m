@@ -10,7 +10,7 @@
 #import "Reachability.h"
 #import "UserModel.h"
 #import "PersonalHttpTool.h"
-
+#import "UniversalHttpTool.h"
 #import "WXApi.h"
 
 @interface AppDelegate ()<WXApiDelegate>
@@ -29,6 +29,7 @@
     
     reach=[Reachability reachabilityForInternetConnection];
     [reach startNotifier];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
     
 //    [self autoLoginAgain];
@@ -57,18 +58,18 @@
 -(void)autoLoginAgain
 {
     UserModel* lastUser=[UserModel getUser];
-    NSString* password=[UserModel getPassword];
-    if (lastUser.mobile.length>0&&password.length>0) {
-        [PersonalHttpTool loginUserWithMobile:lastUser.mobile password:password success:^(UserModel *user) {
+    if (lastUser.access_token.length>0) {
+        [PersonalHttpTool getUserInfoWithToken:lastUser.access_token success:^(UserModel *user) {
             if (user.access_token.length>0) {
                 [UserModel saveUser:user];
+                [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:nil];
             }
             else
             {
                 UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"登录信息已过期" message:@"是否重新登录" preferredStyle:UIAlertControllerStyleAlert];
                 [alert addAction:[UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     [UserModel deleteUser];
-                    [UserModel deletePassword];
+//                    [UserModel deletePassword];
                 }]];
                 [alert addAction:[UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     UIViewController* root=self.window.rootViewController;
@@ -86,6 +87,13 @@
             }
         }];
     }
+}
+
+-(void)getUniversalProfile
+{
+    [UniversalHttpTool getUniversalProfileSuccess:^(UniversalModel *univaer) {
+        
+    } isCache:NO];
 }
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
@@ -135,6 +143,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [self autoLoginAgain];
+    [self getUniversalProfile];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

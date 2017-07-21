@@ -53,6 +53,8 @@
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
+    self.tableView.tableFooterView=[[UIView alloc]init];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
 }
 
@@ -60,6 +62,12 @@
 {
     [super viewWillDisappear:animated];
     [self.view endEditing:YES];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 -(NSInteger)pageSize

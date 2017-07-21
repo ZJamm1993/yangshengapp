@@ -82,7 +82,7 @@
             [MBProgressHUD hide];
             if(user)
             {
-                [UserModel savePassword:pa];
+//                [UserModel savePassword:pa];
                 [self logSuccessWithUser:user];
             }
             else
@@ -98,7 +98,7 @@
     [UserModel saveUser:user];
     [self.navigationController popViewControllerAnimated:YES];
     
-    [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:user];
+    [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:nil];
 }
 
 - (IBAction)forgetPassword:(id)sender {

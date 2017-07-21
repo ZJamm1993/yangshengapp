@@ -28,4 +28,6 @@
 +(void)changeUserMobile:(NSString*)mobile code:(NSString*)code token:(NSString*)token success:(void(^)(BOOL changed))success;
 
 +(void)logOutUserToken:(NSString*)token;
+
++(void)getUserInfoWithToken:(NSString*)token success:(void(^)(UserModel* user))success;
 @end

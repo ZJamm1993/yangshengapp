@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
     // Do any additional setup after loading the view.
 }
 
@@ -28,6 +27,13 @@
 {
     [super viewWillDisappear:animated];
     [self.view endEditing:YES];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 - (void)didReceiveMemoryWarning {
