@@ -10,11 +10,13 @@
 #import "StoreHttpTool.h"
 #import "StoreMapAnnotation.h"
 #import "StoreAnnotationView.h"
+#import <MAMapKit/MAMapkit.h>
 
-@interface StoreMapViewController ()<MKMapViewDelegate>
+@interface StoreMapViewController ()<MAMapViewDelegate>
 {
-    MKCoordinateRegion region;
-    MKMapView* map;
+    MACoordinateRegion region;
+    MAMapView* map;
+    MAUserLocationRepresentation* userLocationRepresentation;
     
     NSArray* storeList;
     NSArray* annotations;
@@ -31,23 +33,26 @@
     
     self.title=@"门店地图";
     
-    map=[[MKMapView alloc]initWithFrame:self.view.bounds];
+    map=[[MAMapView alloc]initWithFrame:self.view.bounds];
 
-    double zoomFloat=30;
-    region=MKCoordinateRegionMake(self.center, MKCoordinateSpanMake(zoomFloat,zoomFloat));
-    [map setRegion:region animated:YES];
+//    double zoomFloat=30;
+//    region=MACoordinateRegionMake(self.center, MACoordinateSpanMake(zoomFloat,zoomFloat));
+//    [map setRegion:region animated:YES];
     
     map.delegate=self;
     map.showsUserLocation=YES;
+    map.showsCompass=YES;
+    map.rotateCameraEnabled=NO;
+    map.compassOrigin=CGPointMake(map.compassOrigin.x, map.compassOrigin.y+64);
     
-//    map.showsScale=YES;
-//    map.showsCompass=YES; //ios9
+    userLocationRepresentation=[[MAUserLocationRepresentation alloc]init];
+    [map updateUserLocationRepresentation:userLocationRepresentation];
     
     [self.view addSubview:map];
     
     
     // Do any additional setup after loading the view.
-    
+//    return;
     [StoreHttpTool getAllStoreMapListSuccess:^(NSArray *data) {
         storeList=data;
         NSMutableArray* an=[NSMutableArray array];
@@ -74,14 +79,16 @@
     map.frame=self.view.bounds;
 }
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
+//-(void)viewWillDisappear:(BOOL)animated
+//{
+//    [super viewWillDisappear:animated];
+//    [self refreshMap];
+//    map.delegate=nil;
+//    [map removeFromSuperview];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    [self refreshMap];
     // Dispose of any resources that can be recreated.
 }
 
@@ -91,43 +98,45 @@
     [map removeFromSuperview];
 }
 
--(void)refreshMap
-{
-    map.mapType=MKMapTypeHybrid;
-    map.mapType=MKMapTypeStandard;
-}
+//-(void)refreshMap
+//{
+////    map.mapType=MKMapTypeHybrid;
+////    map.mapType=MKMapTypeStandard;
+//}
 
--(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+-(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
 {
     if (moved==NO) {
         
         CLLocationCoordinate2D center = userLocation.location.coordinate;
         
         // 设置区域跨度
-        MKCoordinateSpan span = MKCoordinateSpanMake(20, 20);
+        double s=5;
+        MACoordinateSpan span = MACoordinateSpanMake(s,s);
         
         // 创建一个区域
-        MKCoordinateRegion regn = MKCoordinateRegionMake(center, span);
+        MACoordinateRegion regn = MACoordinateRegionMake(center, span);
         // 设置地图显示区域
         [mapView setRegion:regn animated:YES];
     }
     moved=YES;
 }
 
--(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+-(MAAnnotationView*)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
-    if([annotation isKindOfClass:[MKUserLocation class]])
-    {
-        NSString* idd=@"userlocation";
-        MKPinAnnotationView* view=(MKPinAnnotationView*)[map dequeueReusableAnnotationViewWithIdentifier:idd];
-        if (view==nil) {
-            view=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:idd];
-//            view.pinTintColor=[UIColor blueColor];
-            view.canShowCallout=YES;
-        }
-        return view;
-    }
-    else if([annotation isKindOfClass:[StoreMapAnnotation class]])
+//    if([annotation isKindOfClass:[MAUserLocation class]])
+//    {
+//        NSString* idd=@"userlocation";
+//        MKPinAnnotationView* view=(MKPinAnnotationView*)[map dequeueReusableAnnotationViewWithIdentifier:idd];
+//        if (view==nil) {
+//            view=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:idd];
+////            view.pinTintColor=[UIColor blueColor];
+//            view.canShowCallout=YES;
+//        }
+//        return view;
+//    }
+//    else
+        if([annotation isKindOfClass:[StoreMapAnnotation class]])
     {
         
         NSString* idd=@"mmmm";

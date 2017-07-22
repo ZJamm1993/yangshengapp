@@ -17,6 +17,7 @@
     {
         self.canShowCallout = YES;
         self.image=[UIImage imageNamed:@"map_mark"];
+        self.zIndex=-1;
     }
     return self;
 }

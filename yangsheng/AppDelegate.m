@@ -12,12 +12,11 @@
 #import "PersonalHttpTool.h"
 #import "UniversalHttpTool.h"
 #import "WXApi.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 @interface AppDelegate ()<WXApiDelegate>
 {
     Reachability* reach;
-    
-    
 }
 @end
 
@@ -35,6 +34,8 @@
 //    [self autoLoginAgain];
     
     [WXApi registerApp:@"wxa2d7f862857d33f7"];
+    [[AMapServices sharedServices]setApiKey:@"5a0dbb8ca2f251b16d210c8d91f7cad6"];
+    [[AMapServices sharedServices]setEnableHTTPS:YES];
     
     return YES;
 }

@@ -65,20 +65,20 @@
 //    UIBarButtonItem* sea=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(goToSearch)];
 //    self.navigationItem.rightBarButtonItem=sea;
 //
-#if TARGET_IPHONE_SIMULATOR
-    currentLat=@"23.12672";
-    currentLng=@"113.395";
-#else
+//#if TARGET_IPHONE_SIMULATOR
+//    currentLat=@"23.12672";
+//    currentLng=@"113.395";
+//#else
     locationManager=[[CLLocationManager alloc]init];
     locationManager.delegate=self;
     locationManager.desiredAccuracy=kCLLocationAccuracyHundredMeters;
     
-    if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         NSLog(@"requestAlwaysAuthorization");
         [locationManager requestWhenInUseAuthorization];
     }
     [locationManager startUpdatingLocation];
-#endif
+//#endif
     
 //    [self refreshWithCache:YES];
     [self reloadCity];
@@ -129,15 +129,15 @@
         [self setAdvertiseHeaderViewWithPicturesUrls:pics];
     } isCache:cache];
     
-#if TARGET_IPHONE_SIMULATOR
-//    currentLat=@"";
-//    currentLng=@"";
-#else
+//#if TARGET_IPHONE_SIMULATOR
+////    currentLat=@"";
+////    currentLng=@"";
+//#else
     NSDictionary* loca=[[NSUserDefaults standardUserDefaults]valueForKey:UserLastLocationKey];
     
     currentLng=[loca valueForKey:UserLastLocationLongitudeKey];
     currentLat=[loca valueForKey:UserLastLocationLatitudeKey];
-#endif
+//#endif
     [StoreHttpTool getNeighbourStoreListPage:1 lng:currentLng lat:currentLat mult:5 cityCode:selectedCity.citycode success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];

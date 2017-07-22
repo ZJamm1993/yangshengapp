@@ -20,4 +20,11 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)goToNavi:(id)sender {
+    if (self.delegate) {
+        if ([self.delegate respondsToSelector:@selector(storeMessageCell:didClickNavigation:)]) {
+            [self.delegate storeMessageCell:self didClickNavigation:sender];
+        }
+    }
+}
 @end

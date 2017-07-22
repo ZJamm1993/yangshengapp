@@ -7,7 +7,8 @@
 //
 
 #import <MapKit/MapKit.h>
+#import <MAMapKit/MAMapkit.h>
 
-@interface StoreAnnotationView : MKAnnotationView
+@interface StoreAnnotationView : MAAnnotationView
 
 @end

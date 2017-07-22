@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class StoreDetailBaseMessageCell;
+
+@protocol StoreDetailBaseMessageCellDelegate <NSObject>
+
+-(void)storeMessageCell:(StoreDetailBaseMessageCell*)cell didClickNavigation:(UIButton*)button;
+
+@end
+
 @interface StoreDetailBaseMessageCell : UITableViewCell
+
+@property (weak,nonatomic) id<StoreDetailBaseMessageCellDelegate>delegate;
+
 @property (weak, nonatomic) IBOutlet UILabel *storeName;
 @property (weak, nonatomic) IBOutlet UILabel *storeContact;
 @property (weak, nonatomic) IBOutlet UILabel *storeAddress;

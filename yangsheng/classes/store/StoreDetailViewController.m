@@ -17,7 +17,9 @@
 
 #import "StoreHttpTool.h"
 
-@interface StoreDetailViewController ()<CollectionViewTableViewCellDelegate,UIWebViewDelegate,StoreAppointmentViewDelegate>
+#import <CoreLocation/CoreLocation.h>
+
+@interface StoreDetailViewController ()<CollectionViewTableViewCellDelegate,UIWebViewDelegate,StoreAppointmentViewDelegate,StoreDetailBaseMessageCellDelegate>
 {
     UICollectionViewFlowLayout* flow;
     UIWebView* testWebView;
@@ -190,6 +192,7 @@
     NSInteger row=indexPath.row;
     if (sec==0) {
         StoreDetailBaseMessageCell* cell=[tableView dequeueReusableCellWithIdentifier:@"StoreDetailBaseMessageCell" forIndexPath:indexPath];
+        cell.delegate=self;
         cell.storeName.text=self.detailStoreModel.store_title;
         cell.storeContact.text=[NSString stringWithFormat:@"%@/%@",self.detailStoreModel.store_author,self.detailStoreModel.store_tel];
         cell.storeAddress.text=self.detailStoreModel.store_address;
@@ -253,6 +256,14 @@
         [obj.img sd_setImageWithURL:[item.thumb urlWithMainUrl]];
         [obj.title setText:item.name];
     }
+}
+
+#pragma mark --navi
+
+-(void)storeMessageCell:(StoreDetailBaseMessageCell *)cell didClickNavigation:(UIButton *)button
+{
+    CLLocationCoordinate2D target=CLLocationCoordinate2DMake(self.detailStoreModel.lat.doubleValue, self.detailStoreModel.lng.doubleValue);
+    
 }
 
 #pragma mark --appointment
