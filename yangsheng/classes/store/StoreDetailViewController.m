@@ -264,6 +264,9 @@
 {
     CLLocationCoordinate2D target=CLLocationCoordinate2DMake(self.detailStoreModel.lat.doubleValue, self.detailStoreModel.lng.doubleValue);
     
+    //gaode
+    NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2",@"yangsheng",@"yangsheng",target.latitude, target.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 }
 
 #pragma mark --appointment

@@ -1583,7 +1583,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreDetailBaseMessageCell" rowHeight="129" id="DTj-6O-Anm" customClass="StoreDetailBaseMessageCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StoreDetailBaseMessageCell" rowHeight="129" id="DTj-6O-Anm" customClass="StoreDetailBaseMessageCell">
                                 <rect key="frame" x="0.0" y="50" width="320" height="129"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DTj-6O-Anm" id="y9G-lT-pjd">
@@ -1605,11 +1605,11 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWw-Pj-L7I">
-                                            <rect key="frame" x="255" y="54" width="50" height="20"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWw-Pj-L7I">
+                                            <rect key="frame" x="255" y="39" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="2LJ-LF-hBJ"/>
-                                                <constraint firstAttribute="height" constant="20" id="6Lq-L7-Kco"/>
+                                                <constraint firstAttribute="height" constant="50" id="6Lq-L7-Kco"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="导航">

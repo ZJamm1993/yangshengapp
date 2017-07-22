@@ -14,6 +14,8 @@
 		395663681F17B2460084E2E2 /* ServiceObjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 395663661F17B2460084E2E2 /* ServiceObjectCell.m */; };
 		395663691F17B2460084E2E2 /* ServiceObjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395663671F17B2460084E2E2 /* ServiceObjectCell.xib */; };
 		3956636C1F17B26F0084E2E2 /* StoreObjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3956636B1F17B26F0084E2E2 /* StoreObjectsViewController.m */; };
+		3956B8651F23A36900F755CD /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3956B8641F23A36900F755CD /* AMapFoundationKit.framework */; };
+		3956B8691F23A42C00F755CD /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3956B8681F23A42C00F755CD /* AMapSearchKit.framework */; };
 		395AD59C1F1B209D0009F44D /* StoreMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD59B1F1B209D0009F44D /* StoreMapViewController.m */; };
 		395AD5A21F1B2B540009F44D /* ClassroomAnalystListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD5A11F1B2B540009F44D /* ClassroomAnalystListViewController.m */; };
 		395AD5A51F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD5A41F1B2B6F0009F44D /* ClassroomKnowledgeListViewController.m */; };
@@ -34,8 +36,6 @@
 		3971BC0C1F0E7047004016C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3971BC0B1F0E7047004016C2 /* AppDelegate.m */; };
 		3971BC121F0E7047004016C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3971BC101F0E7047004016C2 /* Main.storyboard */; };
 		3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3971BC131F0E7047004016C2 /* Assets.xcassets */; };
-		399604AB1F22FE4F0026297B /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399604A81F22FE4F0026297B /* AMapFoundationKit.framework */; };
-		399604AC1F22FE4F0026297B /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399604A91F22FE4F0026297B /* AMapSearchKit.framework */; };
 		399604AD1F22FE4F0026297B /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399604AA1F22FE4F0026297B /* MAMapKit.framework */; };
 		399604AF1F22FE840026297B /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399604AE1F22FE840026297B /* JavaScriptCore.framework */; };
 		399604B11F22FE900026297B /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399604B01F22FE900026297B /* GLKit.framework */; };
@@ -188,6 +188,8 @@
 		395663671F17B2460084E2E2 /* ServiceObjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceObjectCell.xib; sourceTree = "<group>"; };
 		3956636A1F17B26F0084E2E2 /* StoreObjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreObjectsViewController.h; sourceTree = "<group>"; };
 		3956636B1F17B26F0084E2E2 /* StoreObjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreObjectsViewController.m; sourceTree = "<group>"; };
+		3956B8641F23A36900F755CD /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
+		3956B8681F23A42C00F755CD /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
 		395AD59A1F1B209D0009F44D /* StoreMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreMapViewController.h; sourceTree = "<group>"; };
 		395AD59B1F1B209D0009F44D /* StoreMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreMapViewController.m; sourceTree = "<group>"; };
 		395AD5A01F1B2B540009F44D /* ClassroomAnalystListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomAnalystListViewController.h; sourceTree = "<group>"; };
@@ -228,8 +230,6 @@
 		3971BC131F0E7047004016C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3971BC181F0E7047004016C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3971BC2F1F0E7A07004016C2 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		399604A81F22FE4F0026297B /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
-		399604A91F22FE4F0026297B /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
 		399604AA1F22FE4F0026297B /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		399604AE1F22FE840026297B /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		399604B01F22FE900026297B /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -488,15 +488,15 @@
 				399604B11F22FE900026297B /* GLKit.framework in Frameworks */,
 				399604AF1F22FE840026297B /* JavaScriptCore.framework in Frameworks */,
 				8F507D851F1F31BD003DF63D /* CFNetwork.framework in Frameworks */,
-				399604AB1F22FE4F0026297B /* AMapFoundationKit.framework in Frameworks */,
+				3956B8651F23A36900F755CD /* AMapFoundationKit.framework in Frameworks */,
 				399604AD1F22FE4F0026297B /* MAMapKit.framework in Frameworks */,
 				8F507D831F1F31B6003DF63D /* CoreTelephony.framework in Frameworks */,
 				8F507D811F1F31AF003DF63D /* Security.framework in Frameworks */,
 				8F507D7F1F1F31A9003DF63D /* libc++.tbd in Frameworks */,
 				8F507D7D1F1F31A2003DF63D /* libsqlite3.0.tbd in Frameworks */,
 				8F507D7B1F1F319A003DF63D /* libz.tbd in Frameworks */,
-				399604AC1F22FE4F0026297B /* AMapSearchKit.framework in Frameworks */,
 				3956635C1F17A5980084E2E2 /* CoreLocation.framework in Frameworks */,
+				3956B8691F23A42C00F755CD /* AMapSearchKit.framework in Frameworks */,
 				8FC2435E1F17584C0064A845 /* AVFoundation.framework in Frameworks */,
 				8FC242C71F15F7290064A845 /* SystemConfiguration.framework in Frameworks */,
 				8F507D781F1F30DC003DF63D /* libWeChatSDK.a in Frameworks */,
@@ -751,8 +751,8 @@
 		399604A71F22FE4F0026297B /* AMap */ = {
 			isa = PBXGroup;
 			children = (
-				399604A81F22FE4F0026297B /* AMapFoundationKit.framework */,
-				399604A91F22FE4F0026297B /* AMapSearchKit.framework */,
+				3956B8681F23A42C00F755CD /* AMapSearchKit.framework */,
+				3956B8641F23A36900F755CD /* AMapFoundationKit.framework */,
 				399604AA1F22FE4F0026297B /* MAMapKit.framework */,
 			);
 			path = AMap;
