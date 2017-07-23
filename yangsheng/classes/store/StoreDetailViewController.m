@@ -14,6 +14,7 @@
 #import "StoreAppointmentView.h"
 #import "StoreAppointmentViewController.h"
 #import "PersonalLoginViewController.h"
+#import "StoreMapViewController.h"
 
 #import "StoreHttpTool.h"
 
@@ -196,6 +197,7 @@
         cell.storeName.text=self.detailStoreModel.store_title;
         cell.storeContact.text=[NSString stringWithFormat:@"%@/%@",self.detailStoreModel.store_author,self.detailStoreModel.store_tel];
         cell.storeAddress.text=self.detailStoreModel.store_address;
+        cell.storeNaviButton.hidden=self.detailStoreModel.lat.length==0;
         return cell;
     }
     else if(sec==1)
@@ -262,11 +264,9 @@
 
 -(void)storeMessageCell:(StoreDetailBaseMessageCell *)cell didClickNavigation:(UIButton *)button
 {
-    CLLocationCoordinate2D target=CLLocationCoordinate2DMake(self.detailStoreModel.lat.doubleValue, self.detailStoreModel.lng.doubleValue);
-    
-    //gaode
-    NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2",@"yangsheng",@"yangsheng",target.latitude, target.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+    StoreMapViewController* map=[[StoreMapViewController alloc]init];
+    map.presetShops=[NSArray arrayWithObject:self.detailStoreModel];
+    [self.navigationController pushViewController:map animated:YES];
 }
 
 #pragma mark --appointment

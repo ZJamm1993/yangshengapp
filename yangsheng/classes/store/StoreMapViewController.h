@@ -7,10 +7,10 @@
 //
 
 #import "BaseViewController.h"
-#import <MapKit/MapKit.h>
+#import "StoreHttpTool.h"
 
 @interface StoreMapViewController : BaseViewController
 
-@property (nonatomic,assign) CLLocationCoordinate2D center;
+@property (nonatomic,strong) NSArray* presetShops;
 
 @end

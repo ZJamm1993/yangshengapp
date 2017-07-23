@@ -1648,6 +1648,7 @@
                                     <outlet property="storeAddress" destination="dEE-W7-RDE" id="NbV-yq-3Xu"/>
                                     <outlet property="storeContact" destination="qod-gH-jpS" id="miQ-no-Etu"/>
                                     <outlet property="storeName" destination="dkt-WO-aEn" id="jhd-cR-UcG"/>
+                                    <outlet property="storeNaviButton" destination="xWw-Pj-L7I" id="Dg2-q6-GbD"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreItemHeader" id="lRS-uG-Gki">

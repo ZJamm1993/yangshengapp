@@ -37,7 +37,7 @@
 {
     NSArray* advsArray;
     StoreSearchViewController* searchVc;
-    StoreMapViewController* mapVc;
+//    StoreMapViewController* mapVc;
     CLLocationManager* locationManager;
     NSString* currentLng;
     NSString* currentLat;
@@ -298,11 +298,10 @@
     }
     else if(index==3)
     {
-        if (mapVc==nil) {
-//             StoreMapViewController*
-            mapVc=[[StoreMapViewController alloc]init];
-            mapVc.center=CLLocationCoordinate2DMake(currentLat.doubleValue, currentLng.doubleValue);
-        }
+//        if (mapVc==nil) {
+        StoreMapViewController* mapVc=[[StoreMapViewController alloc]init];
+//            mapVc.center=CLLocationCoordinate2DMake(currentLat.doubleValue, currentLng.doubleValue);
+//        }
         [self.navigationController pushViewController:mapVc animated:YES];
     }
 }

@@ -23,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *storeName;
 @property (weak, nonatomic) IBOutlet UILabel *storeContact;
 @property (weak, nonatomic) IBOutlet UILabel *storeAddress;
+@property (weak, nonatomic) IBOutlet UIButton *storeNaviButton;
 
 @end

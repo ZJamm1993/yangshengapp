@@ -7,21 +7,19 @@
 //
 
 #import "StoreMapViewController.h"
-#import "StoreHttpTool.h"
 #import "StoreMapAnnotation.h"
 #import "StoreAnnotationView.h"
 #import <MAMapKit/MAMapkit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 
-@interface StoreMapViewController ()<MAMapViewDelegate>
+#import "ZZNaviMapSelectionViewController.h"
+
+@interface StoreMapViewController ()<MAMapViewDelegate,AMapSearchDelegate,StoreAnnotationViewDelegate>
 {
     MACoordinateRegion region;
     MAMapView* map;
     MAUserLocationRepresentation* userLocationRepresentation;
-    
-    NSArray* storeList;
-    NSArray* annotations;
-    
-//    NSTimer* timeer;
+    AMapSearchAPI* search;
     BOOL moved;
 }
 @end
@@ -53,23 +51,36 @@
     
     // Do any additional setup after loading the view.
 //    return;
-    [StoreHttpTool getAllStoreMapListSuccess:^(NSArray *data) {
-        storeList=data;
-        NSMutableArray* an=[NSMutableArray array];
-        for (StoreModel* m in storeList) {
-            StoreMapAnnotation* ma=[[StoreMapAnnotation alloc]init];
-            double lat=m.lat.doubleValue;
-            double lng=m.lng.doubleValue;
-            ma.title=m.store_title;
-            ma.subtitle=m.store_address;
-            ma.coordinate=CLLocationCoordinate2DMake(lat, lng);
-            [an addObject:ma];
-        }
-        annotations=an;
-        [map removeAnnotations:map.annotations];
-        [map addAnnotations:annotations];
-    } isCache:NO];
     
+    if (self.presetShops.count>0) {
+        [map removeAnnotations:map.annotations];
+        [map addAnnotations:[self annotionsFromStores:self.presetShops]];
+    }
+    else
+    {
+        [StoreHttpTool getAllStoreMapListSuccess:^(NSArray *data) {
+            self.presetShops=data;
+            NSArray* annotations=[self annotionsFromStores:self.presetShops];
+            [map removeAnnotations:map.annotations];
+            [map addAnnotations:annotations];
+        } isCache:NO];
+    }
+    
+}
+
+-(NSArray*)annotionsFromStores:(NSArray*)stores
+{
+    NSMutableArray* an=[NSMutableArray array];
+    for (StoreModel* m in stores) {
+        StoreMapAnnotation* ma=[[StoreMapAnnotation alloc]init];
+        double lat=m.lat.doubleValue;
+        double lng=m.lng.doubleValue;
+        ma.title=m.store_title;
+        ma.subtitle=m.store_address;
+        ma.coordinate=CLLocationCoordinate2DMake(lat, lng);
+        [an addObject:ma];
+    }
+    return an;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -107,36 +118,69 @@
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
 {
     if (moved==NO) {
-        
         CLLocationCoordinate2D center = userLocation.location.coordinate;
         
         // 设置区域跨度
-        double s=5;
+        double s=0;
         MACoordinateSpan span = MACoordinateSpanMake(s,s);
+        if (self.presetShops.count>0) {
+            double lat=s;
+            double lng=s;
+            
+            NSArray* ans=map.annotations;
+            for (StoreMapAnnotation* an in ans) {
+                double dlat=fabs((an.coordinate.latitude-center.latitude));
+                double dlng=fabs((an.coordinate.longitude-center.longitude));
+                if (dlat>lat) {
+                    lat=dlat;
+                }
+                if(dlng>lng)
+                {
+                    lng=dlng;
+                }
+            }
+            
+            span=MACoordinateSpanMake(lat*2*1.5, lng*2*1.5);
+            
+            moved=YES;
+            
+            if (self.presetShops.count==1) {
+                //open search api
+                if (search==nil) {
+                    search = [[AMapSearchAPI alloc] init];
+                    search.delegate = self;
+                }
+                
+                NSArray* anis=[self annotionsFromStores:self.presetShops];
+                id<MAAnnotation> ano=[anis firstObject];
+                
+                AMapDrivingRouteSearchRequest *navi = [[AMapDrivingRouteSearchRequest alloc] init];
+                
+                navi.requireExtension = YES;
+                navi.strategy = 5;
+                
+                
+                /* 出发点. */
+                navi.origin = [AMapGeoPoint locationWithLatitude:center.latitude longitude:center.longitude];
+                /* 目的地. */
+                navi.destination = [AMapGeoPoint locationWithLatitude:ano.coordinate.latitude longitude:ano.coordinate.longitude];
+                [search AMapDrivingRouteSearch:navi];
+            }
+        }
         
         // 创建一个区域
         MACoordinateRegion regn = MACoordinateRegionMake(center, span);
         // 设置地图显示区域
         [mapView setRegion:regn animated:YES];
     }
-    moved=YES;
 }
 
 -(MAAnnotationView*)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
-//    if([annotation isKindOfClass:[MAUserLocation class]])
-//    {
-//        NSString* idd=@"userlocation";
-//        MKPinAnnotationView* view=(MKPinAnnotationView*)[map dequeueReusableAnnotationViewWithIdentifier:idd];
-//        if (view==nil) {
-//            view=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:idd];
-////            view.pinTintColor=[UIColor blueColor];
-//            view.canShowCallout=YES;
-//        }
-//        return view;
-//    }
-//    else
-        if([annotation isKindOfClass:[StoreMapAnnotation class]])
+    if ([annotation isKindOfClass:[MAUserLocation class]]) {
+        return nil;
+    }
+    else if([annotation isKindOfClass:[StoreMapAnnotation class]])
     {
         
         NSString* idd=@"mmmm";
@@ -144,19 +188,80 @@
         if (view==nil) {
             view=[[StoreAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:idd];
         }
+        view.delegate=self;
         return view;
     }
     
     return nil;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (MAOverlayRenderer *)mapView:(MAMapView *)mapView rendererForOverlay:(id <MAOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MAPolyline class]])
+    {
+        MAPolylineRenderer *polylineRenderer = [[MAPolylineRenderer alloc] initWithPolyline:overlay];
+        
+        polylineRenderer.lineWidth    = 8.f;
+        polylineRenderer.strokeColor  = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.6];
+        polylineRenderer.lineJoinType = kMALineJoinRound;
+        polylineRenderer.lineCapType  = kMALineCapRound;
+        
+        return polylineRenderer;
+    }
+    return nil;
 }
-*/
+
+-(void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response
+{
+    if(response.count>0)
+    {
+        AMapPath* path=[response.route.paths firstObject];
+        NSInteger count=path.steps.count;
+        CLLocationCoordinate2D* cs=[self coordinatesWithPath:path count:count];
+        
+//        for (int i=0; i<count; i++) {
+//            CLLocationCoordinate2D co=cs[i];
+//            NSLog(@"%f,%f",co.latitude,co.longitude);
+//        }
+        
+        MAPolyline* poly=[MAPolyline polylineWithCoordinates:cs count:count];
+        [map addOverlay:poly];
+        free(cs);
+        cs=NULL;
+    }
+}
+
+-(CLLocationCoordinate2D*)coordinatesWithPath:(AMapPath*)path count:(NSInteger)count
+{
+    CLLocationCoordinate2D* coos=malloc(count*sizeof(CLLocationCoordinate2D));
+    
+    for (int i=0; i<count; i++) {
+        AMapStep* step=[path.steps objectAtIndex:i];
+        NSString* li=step.polyline;
+        NSArray* coStrs=[li componentsSeparatedByString:@";"];
+        NSString* coStr=[coStrs firstObject];
+        NSArray* latLng=[coStr componentsSeparatedByString:@","];
+        double lat=[latLng.lastObject doubleValue];
+        double lng=[latLng.firstObject doubleValue];
+        CLLocationCoordinate2D coooo=CLLocationCoordinate2DMake(lat, lng);
+        coos[i]=coooo;
+    }
+    
+    return coos;
+}
+
+-(void)storeAnnotationView:(StoreAnnotationView *)annotationView didClickNaviButton:(UIButton *)naviButton
+{
+    [self askToNaviMapWithAnnotation:annotationView.annotation];
+}
+
+-(void)askToNaviMapWithAnnotation:(id<MAAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[StoreMapAnnotation class]]) {
+        StoreMapAnnotation* ano=(StoreMapAnnotation*)annotation;
+        ZZNaviMapSelectionViewController* selection=[ZZNaviMapSelectionViewController naviAlertControllerWithTargetName:ano.title targetCoordinate:ano.coordinate];
+        [self presentViewController:selection animated:YES completion:nil];
+    }
+}
 
 @end

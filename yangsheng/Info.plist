@@ -34,11 +34,23 @@
 				<string>wxa2d7f862857d33f7</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>yangshengapp</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.012</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>qqmap</string>
+		<string>comgooglemaps</string>
+		<string>iosamap</string>
+		<string>baidumap</string>
 		<string>wechat</string>
 		<string>weixin</string>
 	</array>

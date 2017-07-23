@@ -23,6 +23,8 @@
 		395AD5AB1F1B42F50009F44D /* StoreApplyResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395AD5AA1F1B42F50009F44D /* StoreApplyResultViewController.m */; };
 		395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */; };
 		395C5C041F0FF8BF008B74D5 /* ClassroomRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C031F0FF8BF008B74D5 /* ClassroomRootViewController.m */; };
+		395F56A81F245809008A5FA8 /* ZZNaviMapSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395F56A71F245809008A5FA8 /* ZZNaviMapSelectionViewController.m */; };
+		395F56AA1F24583E008A5FA8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395F56A91F24583E008A5FA8 /* MapKit.framework */; };
 		396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */; };
 		396910BB1F0E855E00EF6D52 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910AF1F0E855E00EF6D52 /* BaseViewController.m */; };
 		396910BC1F0E855E00EF6D52 /* NaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396910B11F0E855E00EF6D52 /* NaviController.m */; };
@@ -204,6 +206,9 @@
 		395C5C001F0FF6C4008B74D5 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		395C5C021F0FF8BF008B74D5 /* ClassroomRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomRootViewController.h; sourceTree = "<group>"; };
 		395C5C031F0FF8BF008B74D5 /* ClassroomRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomRootViewController.m; sourceTree = "<group>"; };
+		395F56A61F245809008A5FA8 /* ZZNaviMapSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZNaviMapSelectionViewController.h; sourceTree = "<group>"; };
+		395F56A71F245809008A5FA8 /* ZZNaviMapSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZNaviMapSelectionViewController.m; sourceTree = "<group>"; };
+		395F56A91F24583E008A5FA8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		396910AC1F0E855E00EF6D52 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		396910AD1F0E855E00EF6D52 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		396910AE1F0E855E00EF6D52 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -483,6 +488,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				395F56AA1F24583E008A5FA8 /* MapKit.framework in Frameworks */,
 				399604B51F22FEAB0026297B /* QuartzCore.framework in Frameworks */,
 				399604B31F22FE9F0026297B /* libstdc++.6.0.9.tbd in Frameworks */,
 				399604B11F22FE900026297B /* GLKit.framework in Frameworks */,
@@ -639,6 +645,8 @@
 				8FADBE461F0F1B5A002F5911 /* ZZUrlTool.m */,
 				8FC242BC1F15C4F80064A845 /* ZZnotificationName.h */,
 				8FC242BD1F15C4F80064A845 /* ZZnotificationName.m */,
+				395F56A61F245809008A5FA8 /* ZZNaviMapSelectionViewController.h */,
+				395F56A71F245809008A5FA8 /* ZZNaviMapSelectionViewController.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -706,6 +714,7 @@
 		3971BBFB1F0E7047004016C2 = {
 			isa = PBXGroup;
 			children = (
+				395F56A91F24583E008A5FA8 /* MapKit.framework */,
 				399604B71F2304A00026297B /* AMap.bundle */,
 				399604B41F22FEAA0026297B /* QuartzCore.framework */,
 				399604B21F22FE9F0026297B /* libstdc++.6.0.9.tbd */,
@@ -1098,6 +1107,7 @@
 				8FC243581F17518A0064A845 /* ClassroomVideoShareCollectionCell.m in Sources */,
 				395AD5A21F1B2B540009F44D /* ClassroomAnalystListViewController.m in Sources */,
 				8FC243721F18628F0064A845 /* TeamMonthStarViewController.m in Sources */,
+				395F56A81F245809008A5FA8 /* ZZNaviMapSelectionViewController.m in Sources */,
 				395C5C011F0FF6C4008B74D5 /* BaseWebViewController.m in Sources */,
 				8FC2436C1F1854E60064A845 /* HomeTeamHeaderCell.m in Sources */,
 				8FC243351F170D2D0064A845 /* PersonalChangeNickNameViewController.m in Sources */,
