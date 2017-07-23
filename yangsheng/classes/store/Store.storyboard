@@ -1606,10 +1606,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWw-Pj-L7I">
-                                            <rect key="frame" x="255" y="39" width="50" height="50"/>
+                                            <rect key="frame" x="255" y="54" width="50" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="2LJ-LF-hBJ"/>
-                                                <constraint firstAttribute="height" constant="50" id="6Lq-L7-Kco"/>
+                                                <constraint firstAttribute="height" constant="20" id="6Lq-L7-Kco"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="导航">

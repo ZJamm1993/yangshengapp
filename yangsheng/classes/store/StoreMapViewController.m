@@ -39,9 +39,15 @@
     
     map.delegate=self;
     map.showsUserLocation=YES;
-    map.showsCompass=YES;
+//    map.showsCompass=YES;
     map.rotateCameraEnabled=NO;
-    map.compassOrigin=CGPointMake(map.compassOrigin.x, map.compassOrigin.y+64);
+//    map.compassOrigin=CGPointMake(map.compassOrigin.x, map.compassOrigin.y+64);
+    
+    //先显示中国区域
+    MACoordinateSpan span = MACoordinateSpanMake(50, 62);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(28, 104);
+    MACoordinateRegion regoin = MACoordinateRegionMake(coordinate, span);
+    map.region = regoin;
     
     userLocationRepresentation=[[MAUserLocationRepresentation alloc]init];
     [map updateUserLocationRepresentation:userLocationRepresentation];

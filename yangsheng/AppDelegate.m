@@ -17,6 +17,7 @@
 @interface AppDelegate ()<WXApiDelegate>
 {
     Reachability* reach;
+    NSInteger triedGetUserInfoTime;
 }
 @end
 
@@ -24,6 +25,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    triedGetUserInfoTime=0;
     // Override point for customization after application launch.
     
     reach=[Reachability reachabilityForInternetConnection];
@@ -61,13 +63,19 @@
 {
     UserModel* lastUser=[UserModel getUser];
     if (lastUser.access_token.length>0) {
+        triedGetUserInfoTime=triedGetUserInfoTime+1;
         [PersonalHttpTool getUserInfoWithToken:lastUser.access_token success:^(UserModel *user) {
             if (user.access_token.length>0) {
                 [UserModel saveUser:user];
                 [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:nil];
+                triedGetUserInfoTime=0;
             }
             else
             {
+                if (triedGetUserInfoTime<4) {
+                    [self autoLoginAgain];
+                    return;
+                }
                 UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"登录信息已过期" message:@"是否重新登录" preferredStyle:UIAlertControllerStyleAlert];
                 [alert addAction:[UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     [UserModel deleteUser];

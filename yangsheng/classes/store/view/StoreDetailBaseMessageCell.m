@@ -12,6 +12,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.storeNaviButton.layer.cornerRadius=2;
+    self.storeNaviButton.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    self.storeNaviButton.layer.borderWidth=0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
