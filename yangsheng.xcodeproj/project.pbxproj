@@ -63,6 +63,9 @@
 		8F507D831F1F31B6003DF63D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F507D821F1F31B6003DF63D /* CoreTelephony.framework */; };
 		8F507D851F1F31BD003DF63D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F507D841F1F31BD003DF63D /* CFNetwork.framework */; };
 		8F507D881F1F4069003DF63D /* ZZSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D871F1F4069003DF63D /* ZZSearchBar.m */; };
+		8F52195B1F259B0300FE7733 /* CustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52195A1F259B0300FE7733 /* CustomerServiceViewController.m */; };
+		8F52195E1F25CB6000FE7733 /* ProductCodeTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52195D1F25CB6000FE7733 /* ProductCodeTextViewController.m */; };
+		8F5219611F25D1FE00FE7733 /* ProductCodeScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5219601F25D1FE00FE7733 /* ProductCodeScanViewController.m */; };
 		8F54BDAE1F131175009E3C0B /* NewsLargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDAD1F131175009E3C0B /* NewsLargeCell.m */; };
 		8F54BDB21F131191009E3C0B /* NewsSmallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDB11F131191009E3C0B /* NewsSmallCell.m */; };
 		8F54BDB51F132B2B009E3C0B /* NeewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDB41F132B2B009E3C0B /* NeewsListViewController.m */; };
@@ -274,6 +277,12 @@
 		8F507D841F1F31BD003DF63D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8F507D861F1F4069003DF63D /* ZZSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSearchBar.h; sourceTree = "<group>"; };
 		8F507D871F1F4069003DF63D /* ZZSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSearchBar.m; sourceTree = "<group>"; };
+		8F5219591F259B0300FE7733 /* CustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerServiceViewController.h; sourceTree = "<group>"; };
+		8F52195A1F259B0300FE7733 /* CustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerServiceViewController.m; sourceTree = "<group>"; };
+		8F52195C1F25CB6000FE7733 /* ProductCodeTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCodeTextViewController.h; sourceTree = "<group>"; };
+		8F52195D1F25CB6000FE7733 /* ProductCodeTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCodeTextViewController.m; sourceTree = "<group>"; };
+		8F52195F1F25D1FE00FE7733 /* ProductCodeScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCodeScanViewController.h; sourceTree = "<group>"; };
+		8F5219601F25D1FE00FE7733 /* ProductCodeScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCodeScanViewController.m; sourceTree = "<group>"; };
 		8F54BDAC1F131175009E3C0B /* NewsLargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsLargeCell.h; sourceTree = "<group>"; };
 		8F54BDAD1F131175009E3C0B /* NewsLargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsLargeCell.m; sourceTree = "<group>"; };
 		8F54BDB01F131191009E3C0B /* NewsSmallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSmallCell.h; sourceTree = "<group>"; };
@@ -676,6 +685,10 @@
 				8FADBE5E1F0F2E6E002F5911 /* HomeHttpTool.m */,
 				8FC242E61F1630380064A845 /* SystemMessageListViewController.h */,
 				8FC242E71F1630380064A845 /* SystemMessageListViewController.m */,
+				8F52195F1F25D1FE00FE7733 /* ProductCodeScanViewController.h */,
+				8F5219601F25D1FE00FE7733 /* ProductCodeScanViewController.m */,
+				8F52195C1F25CB6000FE7733 /* ProductCodeTextViewController.h */,
+				8F52195D1F25CB6000FE7733 /* ProductCodeTextViewController.m */,
 				8FC2435F1F176F460064A845 /* ProductCheckViewController.h */,
 				8FC243601F176F460064A845 /* ProductCheckViewController.m */,
 				8FC243701F18628F0064A845 /* TeamMonthStarViewController.h */,
@@ -948,6 +961,8 @@
 				8FC2430D1F1703C50064A845 /* PersonalRegisterViewController.m */,
 				8FC2430E1F1703C50064A845 /* UserModel.h */,
 				8FC2430F1F1703C50064A845 /* UserModel.m */,
+				8F5219591F259B0300FE7733 /* CustomerServiceViewController.h */,
+				8F52195A1F259B0300FE7733 /* CustomerServiceViewController.m */,
 			);
 			path = personal;
 			sourceTree = "<group>";
@@ -1131,6 +1146,7 @@
 				8FADBE981F0F39BF002F5911 /* SDWebImageCompat.m in Sources */,
 				396910BF1F0E855E00EF6D52 /* ZZHttpTool.m in Sources */,
 				8FC243811F1873E40064A845 /* ClassroomHttpTool.m in Sources */,
+				8F52195E1F25CB6000FE7733 /* ProductCodeTextViewController.m in Sources */,
 				8FADBE501F0F28DC002F5911 /* HomeProductHeaderCell.m in Sources */,
 				8FC243401F1710190064A845 /* StoreSmallCell.m in Sources */,
 				8FC243641F1783FD0064A845 /* StoreAllViewController.m in Sources */,
@@ -1164,6 +1180,7 @@
 				8FA935F01F11DBE1001E29CF /* HomeTeamExtCell.m in Sources */,
 				8FC243751F1862B60064A845 /* TeamCompanyListViewController.m in Sources */,
 				8FC242BE1F15C4F80064A845 /* ZZnotificationName.m in Sources */,
+				8F5219611F25D1FE00FE7733 /* ProductCodeScanViewController.m in Sources */,
 				8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */,
 				8FADBEA01F0F39BF002F5911 /* UIImage+MultiFormat.m in Sources */,
 				8FADBE9B1F0F39BF002F5911 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1187,6 +1204,7 @@
 				8FC243281F170C3C0064A845 /* PersonalRootViewController.m in Sources */,
 				8FC2432F1F170CDD0064A845 /* PersonalChangePasswordViewController.m in Sources */,
 				396910BC1F0E855E00EF6D52 /* NaviController.m in Sources */,
+				8F52195B1F259B0300FE7733 /* CustomerServiceViewController.m in Sources */,
 				8F54BDBB1F132D90009E3C0B /* NeewsCell.m in Sources */,
 				8F507D2F1F1D9942003DF63D /* StoreAppointmentViewController.m in Sources */,
 				8FADBE411F0F1A80002F5911 /* HomeFeedbackViewController.m in Sources */,

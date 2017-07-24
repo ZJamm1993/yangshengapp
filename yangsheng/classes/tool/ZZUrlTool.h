@@ -8,14 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#define QQURL [ZZUrlTool qqUrl]
-
 @interface ZZUrlTool : NSObject
 
 +(NSString*)main;
 
 +(NSString*)fullUrlWithTail:(NSString*)tail;
-
-+(NSURL*)qqUrl;
 
 @end

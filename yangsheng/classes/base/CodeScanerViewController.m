@@ -136,13 +136,23 @@
 //        [_session stopRunning];
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         stringValue = metadataObject.stringValue;
+        NSLog(@"%@",stringValue);
         
+        [self onResult:stringValue];
 //        UIAlertView* al=[[UIAlertView alloc]initWithTitle:@"result" message:stringValue delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
 //        [al show];
-        ProductCheckViewController* pro=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductCheckViewController"];
-        pro.productCode=stringValue;
-        [self.navigationController pushViewController:pro animated:YES];
+//
+//        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:stringValue]];
+        
+//        ProductCheckViewController* pro=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductCheckViewController"];
+//        pro.productCode=stringValue;
+//        [self.navigationController pushViewController:pro animated:YES];
     }
+}
+
+-(void)onResult:(NSString *)result
+{
+    
 }
 
 @end

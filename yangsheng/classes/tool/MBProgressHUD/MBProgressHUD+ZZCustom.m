@@ -61,7 +61,7 @@ static MBProgressHUD* lastShowingHUD;
     // Set the determinate mode to show task progress.
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = msg;
-    [hud hideAnimated:YES afterDelay:10];
+//    [hud hideAnimated:YES afterDelay:20];
     
     lastShowingHUD=hud;
     

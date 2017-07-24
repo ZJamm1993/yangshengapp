@@ -53,4 +53,9 @@
 
 +(void)getSysMsgListPage:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
++(void)getProductCodeWithQRCode:(NSString*)qrcode success:(void(^) (NSDictionary* data))success isCache:(BOOL)isCache;
+
++(void)getProductCheckWithNum:(NSString*)num success:(void(^) (NSDictionary* data))success isCache:(BOOL)isCache;
+
+
 @end

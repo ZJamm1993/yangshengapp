@@ -10,4 +10,6 @@
 
 @interface CodeScanerViewController : BaseViewController
 
+-(void)onResult:(NSString*)result;
+
 @end

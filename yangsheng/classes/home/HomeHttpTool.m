@@ -396,4 +396,40 @@
     }];
 }
 
++(void)getProductCodeWithQRCode:(NSString *)qrcode success:(void (^)(NSDictionary *))success isCache:(BOOL)isCache
+{
+    NSMutableDictionary* d=[NSMutableDictionary dictionary];
+    [d setValue:qrcode forKey:@"url"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Api/Fwcode/gethtmlwhow"];
+    [self post:str params:d success:^(NSDictionary *resp) {
+        NSDictionary* data=[resp valueForKey:@"data"];
+       
+        if (success) {
+            success(data);
+        }
+    } failure:^(NSError *err) {
+        if (success) {
+            success(nil);
+        }
+    }];
+}
+
++(void)getProductCheckWithNum:(NSString *)num success:(void (^)(NSDictionary *))success isCache:(BOOL)isCache
+{
+    NSMutableDictionary* d=[NSMutableDictionary dictionary];
+    [d setValue:num forKey:@"num"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Api/Fwcode/buygiveawayquery"];
+    [self post:str params:d success:^(NSDictionary *resp) {
+        NSDictionary* data=[resp valueForKey:@"data"];
+        
+        if (success) {
+            success(data);
+        }
+    } failure:^(NSError *err) {
+        if (success) {
+            success(nil);
+        }
+    }];
+}
+
 @end

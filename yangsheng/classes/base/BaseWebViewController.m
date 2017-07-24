@@ -90,19 +90,31 @@
     }
     else if (self.url) {
         NSString* abs=[self.url absoluteString];
-        if (![abs containsString:@"?"]) {
-            abs=[NSString stringWithFormat:@"%@?id=%d",abs,(int)self.idd];
-        }
+        
+        NSMutableDictionary* params=[NSMutableDictionary dictionary];
+        [params setValue:[NSNumber numberWithInteger:self.idd] forKey:@"id"];
         if (self.type.length>0) {
-            if([abs containsString:@"?"])
-            {
-                NSArray* arr=[abs componentsSeparatedByString:@"?"];
-                abs=[NSString stringWithFormat:@"%@?type=%@&%@",arr.firstObject,self.type,arr.lastObject];
-            }
-            NSString* access_token=[[UserModel getUser]access_token];
-            if (access_token.length>0 ) {
-                abs=[NSString stringWithFormat:@"%@&access_token=%@&time=0",abs,access_token];
-            }
+            [params setValue:self.type forKey:@"type"];
+        }
+        [params setValue:@"ios" forKey:@"sys"];
+        NSString* access_token=[[UserModel getUser]access_token];
+        if (access_token.length>0) {
+            [params setValue:access_token forKey:@"access_token"];
+        }
+        
+        NSArray* keys=[params allKeys];
+        NSMutableArray* keysAndValues=[NSMutableArray array];
+        for (NSString* key in keys) {
+            NSString* value=[params valueForKey:key];
+            
+            NSString* kv=[NSString stringWithFormat:@"%@=%@",key,value];
+            [keysAndValues addObject:kv];
+        }
+        
+        NSString* body=[keysAndValues componentsJoinedByString:@"&"];
+        
+        if (body.length>0) {
+            abs=[NSString stringWithFormat:@"%@%@%@",abs,[abs containsString:@"?"]?@"":@"?",body];
         }
         
         if (![abs containsString:[ZZUrlTool main]]) {

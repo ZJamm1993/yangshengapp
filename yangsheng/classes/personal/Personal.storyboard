@@ -299,7 +299,7 @@
                                     <constraint firstAttribute="width" constant="72" id="FU2-sg-ZxN"/>
                                 </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLw-dH-nFP" userLabel="qQ">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLw-dH-nFP" userLabel="qQ">
                                 <rect key="frame" x="77" y="475" width="44" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="Land_qq">
@@ -309,7 +309,7 @@
                                     <action selector="loginWithQQ:" destination="8IN-bp-Fow" eventType="touchUpInside" id="Wwj-KK-wsU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3JY-K7-gHJ" userLabel="wX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3JY-K7-gHJ" userLabel="wX">
                                 <rect key="frame" x="138" y="475" width="44" height="36"/>
                                 <state key="normal" image="Land_wx">
                                     <color key="titleColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -318,13 +318,13 @@
                                     <action selector="loginWithWeChat:" destination="8IN-bp-Fow" eventType="touchUpInside" id="brM-Np-zBV"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="QQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-35-lqU">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-35-lqU">
                                 <rect key="frame" x="88" y="519" width="23" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="微信" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydw-DX-pdg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydw-DX-pdg">
                                 <rect key="frame" x="145" y="519" width="30" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -582,6 +582,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epe-cd-MWL">
                                                     <rect key="frame" x="15" y="13" width="57" height="18"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="OOR-0i-oaD"/>
                                                         <constraint firstAttribute="width" constant="57" id="yEg-kr-VHF"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -600,6 +601,8 @@
                                                 <constraint firstItem="epe-cd-MWL" firstAttribute="leading" secondItem="ESF-RJ-82s" secondAttribute="leading" constant="15" id="81H-tg-zdM"/>
                                                 <constraint firstItem="z21-pC-3TJ" firstAttribute="top" secondItem="ESF-RJ-82s" secondAttribute="top" constant="13" id="898-Ka-9QZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="z21-pC-3TJ" secondAttribute="trailing" id="FOU-jP-qqe"/>
+                                                <constraint firstItem="epe-cd-MWL" firstAttribute="top" secondItem="ESF-RJ-82s" secondAttribute="top" constant="13" id="KqO-Vf-FEb"/>
+                                                <constraint firstAttribute="bottom" secondItem="epe-cd-MWL" secondAttribute="bottom" constant="12" id="RzU-s0-vp6"/>
                                                 <constraint firstItem="z21-pC-3TJ" firstAttribute="centerY" secondItem="ESF-RJ-82s" secondAttribute="centerY" id="dew-U3-Kf1"/>
                                                 <constraint firstAttribute="bottom" secondItem="z21-pC-3TJ" secondAttribute="bottom" constant="13" id="kKT-SX-HS0"/>
                                                 <constraint firstItem="epe-cd-MWL" firstAttribute="centerY" secondItem="ESF-RJ-82s" secondAttribute="centerY" id="yzb-LV-WWu"/>
@@ -616,6 +619,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-6u-esV">
                                                     <rect key="frame" x="15" y="13" width="57" height="18"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="Eck-Ef-SVF"/>
                                                         <constraint firstAttribute="width" constant="57" id="K1D-Xm-QXW"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -636,6 +640,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="6DV-Ja-QcS" secondAttribute="trailing" id="VRv-sH-DxA"/>
                                                 <constraint firstItem="7iR-6u-esV" firstAttribute="centerY" secondItem="E7z-xl-XOr" secondAttribute="centerY" id="W5s-lo-9pm"/>
                                                 <constraint firstItem="6DV-Ja-QcS" firstAttribute="centerY" secondItem="E7z-xl-XOr" secondAttribute="centerY" id="pmf-nN-6JJ"/>
+                                                <constraint firstItem="7iR-6u-esV" firstAttribute="top" secondItem="E7z-xl-XOr" secondAttribute="top" constant="13" id="tIY-hC-8jQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="7iR-6u-esV" secondAttribute="bottom" constant="12" id="xG7-jR-0Bs"/>
                                                 <constraint firstItem="6DV-Ja-QcS" firstAttribute="top" secondItem="E7z-xl-XOr" secondAttribute="top" constant="13" id="xPA-83-iYz"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -650,6 +656,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxg-A7-X0I">
                                                     <rect key="frame" x="15" y="13" width="60" height="18"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="Gvg-jw-7ip"/>
                                                         <constraint firstAttribute="width" constant="57" id="kaE-TV-dNx"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -664,6 +671,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qxg-A7-X0I" firstAttribute="centerY" secondItem="WXb-x4-ZSo" secondAttribute="centerY" id="31T-Eh-dmj"/>
+                                                <constraint firstItem="qxg-A7-X0I" firstAttribute="top" secondItem="WXb-x4-ZSo" secondAttribute="top" constant="13" id="Wm2-Ui-jf4"/>
+                                                <constraint firstAttribute="bottom" secondItem="qxg-A7-X0I" secondAttribute="bottom" constant="12" id="asT-OU-2nU"/>
                                                 <constraint firstItem="qxg-A7-X0I" firstAttribute="leading" secondItem="WXb-x4-ZSo" secondAttribute="leading" constant="15" id="jh1-RI-eNR"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -752,6 +761,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daJ-Lz-LNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-577" y="1045"/>
+        </scene>
+        <!--Customer Service View Controller-->
+        <scene sceneID="ysr-Vt-NAm">
+            <objects>
+                <viewController storyboardIdentifier="CustomerServiceViewController" id="sgg-AK-RuM" customClass="CustomerServiceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DGv-Vv-SeD"/>
+                        <viewControllerLayoutGuide type="bottom" id="74O-0X-2pu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EWb-pb-yYm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-bQ-767">
+                                <rect key="frame" x="36" y="86" width="248" height="202"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ln8-bQ-767" secondAttribute="height" multiplier="242:197" id="LYs-WT-xRq"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kQ-dS-cJ1">
+                                <rect key="frame" x="56" y="324" width="210" height="30"/>
+                                <state key="normal" title="打开微信扫一扫识别图中二维码">
+                                    <color key="titleColor" red="0.7725490196" green="0.062745098040000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openWechat:" destination="sgg-AK-RuM" eventType="touchUpInside" id="H3g-mF-T0i"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7kQ-dS-cJ1" firstAttribute="top" secondItem="Ln8-bQ-767" secondAttribute="bottom" constant="36" id="I7E-7W-Klf"/>
+                            <constraint firstItem="Ln8-bQ-767" firstAttribute="centerX" secondItem="EWb-pb-yYm" secondAttribute="centerX" id="Ikn-jc-Vgc"/>
+                            <constraint firstItem="Ln8-bQ-767" firstAttribute="top" secondItem="DGv-Vv-SeD" secondAttribute="bottom" constant="66" id="KVZ-6C-T5w"/>
+                            <constraint firstItem="7kQ-dS-cJ1" firstAttribute="centerX" secondItem="EWb-pb-yYm" secondAttribute="centerX" id="Woi-FO-1AI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ln8-bQ-767" secondAttribute="trailing" constant="18" id="ZRd-qO-SUM"/>
+                            <constraint firstItem="Ln8-bQ-767" firstAttribute="leading" secondItem="EWb-pb-yYm" secondAttribute="leadingMargin" constant="20" id="eFC-hn-PS7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZRd-qO-SUM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="openWechatButton" destination="7kQ-dS-cJ1" id="x2H-LX-XJW"/>
+                        <outlet property="qrCodeImage" destination="Ln8-bQ-767" id="7aD-fh-iMu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKf-fz-cXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-238" y="1045"/>
         </scene>
         <!--Personal Forget Password View Controller-->
         <scene sceneID="fsB-Nd-HaW">

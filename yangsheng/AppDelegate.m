@@ -66,6 +66,7 @@
         triedGetUserInfoTime=triedGetUserInfoTime+1;
         [PersonalHttpTool getUserInfoWithToken:lastUser.access_token success:^(UserModel *user) {
             if (user.access_token.length>0) {
+                user.type=lastUser.type;
                 [UserModel saveUser:user];
                 [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:nil];
                 triedGetUserInfoTime=0;

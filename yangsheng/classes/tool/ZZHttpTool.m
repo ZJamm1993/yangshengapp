@@ -52,12 +52,18 @@
         NSMutableArray* keysAndValues=[NSMutableArray array];
         for (NSString* key in keys) {
             NSString* value=[params valueForKey:key];
-            
+            if([value isKindOfClass:[NSString class]])
+            {
+                value=[self encodeURL:value];
+            }
             NSString* kv=[NSString stringWithFormat:@"%@=%@",key,value];
             [keysAndValues addObject:kv];
         }
         
         NSString* body=[keysAndValues componentsJoinedByString:@"&"];
+//        body=[body stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        NSLog(@"HTTPBODY:%@",body);
         
         if (isGet&&body.length>0) {
             url=[NSString stringWithFormat:@"%@?%@",url,body];
@@ -70,6 +76,7 @@
         request.HTTPMethod=method;
         
         if (isPost) {
+//            body=[body stringByReplacingOccurrencesOfString:@"&" withString:]
             request.HTTPBody=[body dataUsingEncoding:NSUTF8StringEncoding];
         }
         
@@ -107,6 +114,7 @@
                         success(result);
                         
                     }
+//                    [dataTast cancel];
                     return;
                 }
                 else if(error)
@@ -115,9 +123,14 @@
                         failure(error);
                         
                     }
+                    
+//                    [dataTast cancel];
                     return;
                 }
-                failure(error);
+                if (failure) {
+                    failure(error);
+                }
+//                [dataTast cancel];
                 return;
             });
             
@@ -132,7 +145,10 @@
         return nil;
     }
     NSString *receiveStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    
+    if (receiveStr.length==0) {
+        NSLog(@"get null data");
+        return nil;
+    }
 //    receiveStr=[receiveStr stringByReplacingOccurrencesOfString:@"null" withString:@"nil"];//／／{\"zzz\":\"nillllll!\"}"];
     NSData * data2 = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -140,10 +156,20 @@
     result=AFJSONObjectByRemovingKeysWithNullValues(result, NSJSONReadingMutableLeaves);
     if(result==nil)
     {
-        NSLog(@"%@",result);//why nil??
+        NSLog(@"get null dictionary");//why nil??
     }
     NSLog(@"%@",result);
     return result;
+}
+
+//encode
++(NSString*)encodeURL:(NSString *)string
+{
+    NSString *newString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,(CFStringRef)string, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8));
+    if (newString) {
+        return newString;
+    }
+    return @"";
 }
 
 //writen by afnetworking , i dont know

@@ -14,7 +14,7 @@
 #import "StoreApplyResultViewController.h"
 #import "StoreAllAppoinmentListViewController.h"
 #import "ClassroomCollectionViewController.h"
-#import "CodeScanerViewController.h"
+#import "ProductCodeScanViewController.h"
 
 #import "StoreHttpTool.h"
 #import "UserModel.h"
@@ -197,19 +197,22 @@
         }
         else if(indexPath.row==1)
         {
-            UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否打开QQ联系客服" message:nil preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                NSURL* url=QQURL;
-                if ([[UIApplication sharedApplication]canOpenURL:url]) {
-                    [[UIApplication sharedApplication]openURL:url];
-                }
-                else
-                {
-                    [MBProgressHUD showErrorMessage:@"联系客服发生错误"];
-                }
-            }]];
-            [self presentViewController:alert animated:YES completion:nil];
+//            UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否打开QQ联系客服" message:nil preferredStyle:UIAlertControllerStyleAlert];
+//            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+//            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+////                NSURL* url=QQURL;
+////                if ([[UIApplication sharedApplication]canOpenURL:url]) {
+////                    [[UIApplication sharedApplication]openURL:url];
+////                }
+////                else
+////                {
+////                    [MBProgressHUD showErrorMessage:@"联系客服发生错误"];
+////                }
+//            }]];
+//            [self presentViewController:alert animated:YES completion:nil];
+            
+            UIViewController* vc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomerServiceViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
 }
@@ -224,7 +227,7 @@
 -(void)personalHeaderCell:(PersonalHeaderCell *)cell didSelectedScanButton:(UIButton *)btn
 {
     
-    CodeScanerViewController* scaner=[[CodeScanerViewController alloc]init];
+    ProductCodeScanViewController* scaner=[[ProductCodeScanViewController alloc]init];
     [self.navigationController pushViewController:scaner animated:YES];
 }
 

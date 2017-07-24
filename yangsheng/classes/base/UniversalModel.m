@@ -18,6 +18,7 @@
     
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
         _qq_number=[dictionary valueForKey:@"qq_number"];
+        _wx_path=[dictionary valueForKey:@"wx_path"];
     }
     return self;
 }
@@ -27,6 +28,7 @@
     NSMutableDictionary* d=[NSMutableDictionary dictionary];
     
     [d setValue:universal.qq_number forKey:@"qq_number"];
+    [d setValue:universal.wx_path forKey:@"wx_path"];
     
     NSData* data=[NSJSONSerialization dataWithJSONObject:d options:NSJSONWritingPrettyPrinted error:nil];
     

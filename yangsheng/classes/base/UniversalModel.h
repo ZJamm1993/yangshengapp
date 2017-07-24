@@ -15,5 +15,6 @@
 -(instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
 @property (nonatomic,strong) NSString* qq_number;
+@property (nonatomic,strong) NSString* wx_path;
 
 @end
