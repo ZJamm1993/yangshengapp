@@ -10,10 +10,13 @@
 #import "ZZUrlTool.h"
 #import "UserModel.h"
 
+#import "WBWebProgressBar.h"
+
 @interface BaseWebViewController ()<UIWebViewDelegate>
 {
     UIWebView* webv;
     UIImageView* loadingImageView;
+    WBWebProgressBar* progressBar;
 }
 @end
 
@@ -81,7 +84,12 @@
 //    loadingImageView.alpha=0.5;
     loadingImageView.hidden=YES;
     
+    progressBar=[[WBWebProgressBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
+    progressBar.progressTintColor=pinkColor;
+    [self.view addSubview:progressBar];
+    
     webv.delegate=self;
+    webv.dataDetectorTypes=UIDataDetectorTypeNone;
 //    webv.scalesPageToFit=YES;
     
     if(self.html.length>0)
@@ -125,6 +133,9 @@
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];
         [webv loadRequest:req];
         loadingImageView.hidden=NO;
+        [loadingImageView performSelector:@selector(setHidden:) withObject:[NSNumber numberWithBool:YES] afterDelay:1];
+        
+        [progressBar WBWebProgressPreparing];
     }
     
     
@@ -151,22 +162,28 @@
 {
     if(navigationType==UIWebViewNavigationTypeLinkClicked)
     {
-        BaseWebViewController* w=[[BaseWebViewController alloc]initWithUrl:[request URL]];
-        [self.navigationController pushViewController:w animated:YES];
+//        BaseWebViewController* w=[[BaseWebViewController alloc]initWithUrl:[request URL]];
+//        [self.navigationController pushViewController:w animated:YES];
         return NO;
         
     }
     return YES;
 }
 
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [progressBar WBWebProgressStartLoading];
+}
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    loadingImageView.hidden=YES;
+    [progressBar WBWebProgressCompleted];
 }
-//-(void)webViewDidFinishLoad:(UIWebView *)webView
-//{
-//
-//    self.title=[webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-//}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [MBProgressHUD showErrorMessage:@"网络不佳"];
+}
+
 
 @end

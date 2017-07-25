@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3942B6051F276945003434CF /* WBWebProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3942B6041F276945003434CF /* WBWebProgressBar.m */; };
 		395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395247B91F111D5E000A6E20 /* PlayerController.m */; };
 		395247BD1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 395247BC1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m */; };
 		395247C21F11354E000A6E20 /* HomeMonthStarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 395247C11F11354E000A6E20 /* HomeMonthStarCell.m */; };
@@ -181,6 +182,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3942B6031F276945003434CF /* WBWebProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBWebProgressBar.h; sourceTree = "<group>"; };
+		3942B6041F276945003434CF /* WBWebProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBWebProgressBar.m; sourceTree = "<group>"; };
 		395247B81F111D5E000A6E20 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
 		395247B91F111D5E000A6E20 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		395247BB1F112E7C000A6E20 /* HomeEnterprisePublicityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeEnterprisePublicityCell.h; sourceTree = "<group>"; };
@@ -613,6 +616,8 @@
 			children = (
 				396910B51F0E855E00EF6D52 /* ZZPagerController.h */,
 				396910B61F0E855E00EF6D52 /* ZZPagerController.m */,
+				3942B6031F276945003434CF /* WBWebProgressBar.h */,
+				3942B6041F276945003434CF /* WBWebProgressBar.m */,
 				8FA935DE1F11BE9D001E29CF /* AdvertiseView.h */,
 				8FA935DF1F11BE9D001E29CF /* AdvertiseView.m */,
 				8FA935E11F11C965001E29CF /* ButtonsCell.h */,
@@ -1240,6 +1245,7 @@
 				8FC243891F18D5820064A845 /* StoreDetailViewController.m in Sources */,
 				8FC243201F1704060064A845 /* UIView+ext.m in Sources */,
 				8FC242EB1F1630B60064A845 /* SystemMsgCell.m in Sources */,
+				3942B6051F276945003434CF /* WBWebProgressBar.m in Sources */,
 				8FADBE961F0F39BF002F5911 /* SDImageCache.m in Sources */,
 				8FC243391F170E610064A845 /* PersonalHeaderCell.m in Sources */,
 				8FADBE9D1F0F39BF002F5911 /* SDWebImagePrefetcher.m in Sources */,
