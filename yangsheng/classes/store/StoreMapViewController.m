@@ -124,29 +124,62 @@
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
 {
     if (moved==NO) {
-        CLLocationCoordinate2D center = userLocation.location.coordinate;
+        CLLocationCoordinate2D userCenter = userLocation.location.coordinate;
         
         // 设置区域跨度
         double s=0;
         MACoordinateSpan span = MACoordinateSpanMake(s,s);
+        CLLocationCoordinate2D center=userCenter;
         if (self.presetShops.count>0) {
-            double lat=s;
-            double lng=s;
             
             NSArray* ans=map.annotations;
+            StoreMapAnnotation* firsan=[ans firstObject];
+            
+            double min_lat=firsan.coordinate.latitude;
+            double min_lng=firsan.coordinate.longitude;
+            
+            double max_lat=min_lat;
+            double max_lng=min_lng;
+            
             for (StoreMapAnnotation* an in ans) {
-                double dlat=fabs((an.coordinate.latitude-center.latitude));
-                double dlng=fabs((an.coordinate.longitude-center.longitude));
-                if (dlat>lat) {
-                    lat=dlat;
+                double lat=an.coordinate.latitude;
+                double lng=an.coordinate.longitude;
+                
+                if (lat<min_lat) {
+                    min_lat=lat;
                 }
-                if(dlng>lng)
-                {
-                    lng=dlng;
+                if (lat>max_lat) {
+                    max_lat=lat;
+                }
+                if (lng<min_lng) {
+                    min_lng=lng;
+                }
+                if (lng>max_lng) {
+                    max_lng=lng;
                 }
             }
             
-            span=MACoordinateSpanMake(lat*2*1.5, lng*2*1.5);
+            double lat=center.latitude;
+            double lng=center.longitude;
+            
+            if (lat<min_lat) {
+                min_lat=lat;
+            }
+            if (lat>max_lat) {
+                max_lat=lat;
+            }
+            if (lng<min_lng) {
+                min_lng=lng;
+            }
+            if (lng>max_lng) {
+                max_lng=lng;
+            }
+            
+            center.latitude=(min_lat+max_lat)/2;
+            center.longitude=(min_lng+max_lng)/2;
+            
+            span.latitudeDelta=fabs(min_lat-max_lat)*2;
+            span.longitudeDelta=fabs(min_lng-max_lng)*2;
             
             moved=YES;
             
@@ -167,7 +200,7 @@
                 
                 
                 /* 出发点. */
-                navi.origin = [AMapGeoPoint locationWithLatitude:center.latitude longitude:center.longitude];
+                navi.origin = [AMapGeoPoint locationWithLatitude:userCenter.latitude longitude:userCenter.longitude];
                 /* 目的地. */
                 navi.destination = [AMapGeoPoint locationWithLatitude:ano.coordinate.latitude longitude:ano.coordinate.longitude];
                 [search AMapDrivingRouteSearch:navi];

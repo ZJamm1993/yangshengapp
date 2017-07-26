@@ -28,20 +28,20 @@
     triedGetUserInfoTime=0;
     // Override point for customization after application launch.
     
-    NSString* mainBundle=[[NSBundle mainBundle]bundlePath];
-    NSLog(@"path:%@",mainBundle);
-    
-    reach=[Reachability reachabilityForInternetConnection];
-    [reach startNotifier];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
-    
-//    [self autoLoginAgain];
-    
-    [WXApi registerApp:@"wxa2d7f862857d33f7"];
-    
-    [[AMapServices sharedServices]setApiKey:@"5a0dbb8ca2f251b16d210c8d91f7cad6"];
-    [[AMapServices sharedServices]setEnableHTTPS:YES];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSString* mainBundle=[[NSBundle mainBundle]bundlePath];
+        NSLog(@"path:%@",mainBundle);
+        
+        reach=[Reachability reachabilityForInternetConnection];
+        [reach startNotifier];
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
+        
+        [WXApi registerApp:@"wxa2d7f862857d33f7"];
+        
+        [[AMapServices sharedServices]setApiKey:@"5a0dbb8ca2f251b16d210c8d91f7cad6"];
+        [[AMapServices sharedServices]setEnableHTTPS:YES];
+    });
     
     return YES;
 }
