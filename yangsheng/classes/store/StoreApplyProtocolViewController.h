@@ -7,8 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "BaseWebViewController.h"
 
-@interface StoreApplyProtocolViewController : BaseViewController
-@property (weak, nonatomic) IBOutlet UIWebView *web;
+@interface StoreApplyProtocolViewController : BaseWebViewController
 
 @end

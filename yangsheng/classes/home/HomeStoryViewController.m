@@ -44,7 +44,6 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
 
 @interface HomeStoryViewController ()<ButtonsCellDelegate,CollectionViewTableViewCellDelegate>
 {
-    NSMutableArray* advsArray;
     NSMutableArray* productClassArray;
     NSMutableArray* qaArray;
     NSMutableArray* founderArray;
@@ -95,9 +94,9 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
 {
     //
     [HomeHttpTool getAdversType:1 success:^(NSArray *datasource) {
-        advsArray=[NSMutableArray arrayWithArray:datasource];
+        self.advsArray=[NSMutableArray arrayWithArray:datasource];
         NSMutableArray* pics=[NSMutableArray array];
-        for (BaseModel* ad in advsArray) {
+        for (BaseModel* ad in self.advsArray) {
             NSString* th=ad.thumb;
             NSString* fu=[ZZUrlTool fullUrlWithTail:th];
             [pics addObject:fu];

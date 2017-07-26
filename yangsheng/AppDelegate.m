@@ -28,6 +28,9 @@
     triedGetUserInfoTime=0;
     // Override point for customization after application launch.
     
+    NSString* mainBundle=[[NSBundle mainBundle]bundlePath];
+    NSLog(@"path:%@",mainBundle);
+    
     reach=[Reachability reachabilityForInternetConnection];
     [reach startNotifier];
     

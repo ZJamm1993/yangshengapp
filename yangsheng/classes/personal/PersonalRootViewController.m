@@ -23,7 +23,7 @@
 {
     NSArray* imgsArray;
     NSArray* titsArray;
-    
+    __weak UIImageView* headerBgImage;
     UserModel* currentUser;
 }
 @end
@@ -114,6 +114,7 @@
         cell.username.text=currentUser.user_nicename;
         cell.userid.text=[NSString stringWithFormat:@"ID:%@",currentUser.idd];
         [cell.headImage sd_setImageWithURL:[currentUser.avatar urlWithMainUrl] placeholderImage:[UIImage imageNamed:@"user_tx"]];
+        headerBgImage=cell.my_bgImage;
         return cell;
     }
     else
@@ -231,13 +232,19 @@
     [self.navigationController pushViewController:scaner animated:YES];
 }
 
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-//#warning testing login
-//    if (scrollView.contentOffset.y<-100) {
-//        [UserModel deleteUser];
-//        [self refreshUser];
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    if (scrollView==self.tableView) {
+//        CGFloat off=scrollView.contentOffset.y-scrollView.contentInset.top;
+//        CGFloat sca=1;
+//        if (off<0) {
+//            CGFloat h_2=headerBgImage.bounds.size.height/2;
+//            CGFloat n_h_2=h_2-off;
+//            sca=n_h_2/h_2;
+//        }
+//        
+//        headerBgImage.transform=CGAffineTransformMakeScale(sca, sca);
 //    }
-}
+//}
 
 @end

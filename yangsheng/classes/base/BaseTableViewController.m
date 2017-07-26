@@ -32,6 +32,14 @@
     return _dataSource;
 }
 
+-(NSMutableArray*)advsArray
+{
+    if (_advsArray==nil) {
+        _advsArray=[NSMutableArray array];
+    }
+    return _advsArray;
+}
+
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;

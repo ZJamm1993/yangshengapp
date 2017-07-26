@@ -13,7 +13,7 @@
 
 @interface ClassroomKnowledgeListViewController ()
 {
-    NSArray* advsArray;
+     
 }
 @end
 
@@ -38,9 +38,9 @@
     [self stopRefreshAfterSeconds];
     //
     [HomeHttpTool getAdversType:3 success:^(NSArray *datasource) {
-        advsArray=[NSMutableArray arrayWithArray:datasource];
+        self.advsArray=[NSMutableArray arrayWithArray:datasource];
         NSMutableArray* pics=[NSMutableArray array];
-        for (BaseModel* ad in advsArray) {
+        for (BaseModel* ad in self.advsArray) {
             NSString* th=ad.thumb;
             NSString* fu=[ZZUrlTool fullUrlWithTail:th];
             [pics addObject:fu];
@@ -63,9 +63,9 @@
 {
     //
     [HomeHttpTool getAdversType:3 success:^(NSArray *datasource) {
-        advsArray=[NSMutableArray arrayWithArray:datasource];
+        self.advsArray=[NSMutableArray arrayWithArray:datasource];
         NSMutableArray* pics=[NSMutableArray array];
-        for (BaseModel* ad in advsArray) {
+        for (BaseModel* ad in self.advsArray) {
             NSString* th=ad.thumb;
             NSString* fu=[ZZUrlTool fullUrlWithTail:th];
             [pics addObject:fu];

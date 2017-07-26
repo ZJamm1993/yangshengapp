@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="I0e-p1-fhi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F2109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="I0e-p1-fhi">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -287,18 +287,18 @@
                         <color key="separatorColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.84557018979999998" green="0.84557018979999998" blue="0.84557018979999998" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonalHeaderCell" rowHeight="230" id="Ouk-qD-PaY" customClass="PersonalHeaderCell">
-                                <rect key="frame" x="0.0" y="114" width="320" height="230"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonalHeaderCell" rowHeight="200" id="Ouk-qD-PaY" customClass="PersonalHeaderCell">
+                                <rect key="frame" x="0.0" y="114" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Ouk-qD-PaY" id="4D7-gg-JGL">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="229"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qwi-zt-ozj">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="my_bg" translatesAutoresizingMaskIntoConstraints="NO" id="7UD-4x-WI8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Hh-s1-3cc" userLabel="unlogView">
                                                     <rect key="frame" x="30" y="41" width="260" height="64"/>
@@ -395,7 +395,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Hut-fl-llu" secondAttribute="trailing" constant="24" id="fbh-Oa-9Xd"/>
                                                 <constraint firstItem="Hut-fl-llu" firstAttribute="centerY" secondItem="Qwi-zt-ozj" secondAttribute="centerY" id="mkO-QJ-0Kj"/>
                                                 <constraint firstAttribute="trailing" secondItem="6Hh-s1-3cc" secondAttribute="trailing" constant="30" id="t0k-xd-QGP"/>
-                                                <constraint firstAttribute="height" constant="150" id="yRw-te-Z96"/>
+                                                <constraint firstAttribute="height" constant="160" id="yRw-te-Z96"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -409,13 +409,14 @@
                                 <connections>
                                     <outlet property="headImage" destination="Afg-cl-Atz" id="T3q-rd-gKt"/>
                                     <outlet property="logedView" destination="Hut-fl-llu" id="XZb-EZ-WSy"/>
+                                    <outlet property="my_bgImage" destination="7UD-4x-WI8" id="bQ8-U1-jSI"/>
                                     <outlet property="unlogedView" destination="6Hh-s1-3cc" id="nZS-g3-LPj"/>
                                     <outlet property="userid" destination="ctq-rW-EJN" id="VK9-AB-dzu"/>
                                     <outlet property="username" destination="3Uj-H5-NbJ" id="85R-rM-2xF"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="OXs-nT-nfo" rowHeight="61" style="IBUITableViewCellStyleDefault" id="w2d-c4-DcO">
-                                <rect key="frame" x="0.0" y="344" width="320" height="61"/>
+                                <rect key="frame" x="0.0" y="314" width="320" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w2d-c4-DcO" id="3Oh-NQ-7wv">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>

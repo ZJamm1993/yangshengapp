@@ -34,7 +34,6 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
 
 @interface HomeTeamViewController ()<AdvertiseViewDelegate,CollectionViewTableViewCellDelegate>
 {
-    NSMutableArray* advsArray;
     NSMutableArray* starsArray;
     NSMutableArray* teamsArray;
     NSMutableArray* extsArray;
@@ -88,9 +87,9 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
     self.pageSize=5;
     //
     [HomeHttpTool getAdversType:6 success:^(NSArray *datasource) {
-        advsArray=[NSMutableArray arrayWithArray:datasource];
+        self.advsArray=[NSMutableArray arrayWithArray:datasource];
         NSMutableArray* pics=[NSMutableArray array];
-        for (BaseModel* ad in advsArray) {
+        for (BaseModel* ad in self.advsArray) {
             NSString* th=ad.thumb;
             NSString* fu=[ZZUrlTool fullUrlWithTail:th];
             [pics addObject:fu];

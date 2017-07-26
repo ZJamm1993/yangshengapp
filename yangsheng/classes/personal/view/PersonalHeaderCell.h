@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *userid;
+@property (weak, nonatomic) IBOutlet UIImageView *my_bgImage;
 
 @property (weak,nonatomic) id<PersonalHeaderCellDelegate> delegate;
 

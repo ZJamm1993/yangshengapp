@@ -160,12 +160,22 @@
 
 -(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView //using "end animation" rather than "end decelerating" so that we can catch any "end" if dragged or not;
 {
+    [self hideThoseViewsWhenScrolledScrollView:scrollView];
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self hideThoseViewsWhenScrolledScrollView:scrollView];
+}
+
+-(void)hideThoseViewsWhenScrolledScrollView:(UIScrollView*)scrollView
+{
     if (scrollView==contentView) {
         NSInteger index=[self pageIndexForScrollView:scrollView];
         for (int i=0;i<controllers.count;i++) {
             UIViewController* vc=[controllers objectAtIndex:i];
             BOOL isThat=(index==i);
-//            vc.view.userInteractionEnabled=isThat;
+            //            vc.view.userInteractionEnabled=isThat;
             vc.view.hidden=!isThat;
         }
     }
