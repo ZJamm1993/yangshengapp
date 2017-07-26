@@ -17,6 +17,7 @@
 @interface PersonalLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIView *thirdLoginBg;
 
 @end
 
@@ -32,6 +33,9 @@
     // Do any additional setup after loading the view.
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(weChatAuthReturnNotification:) name:WeChatReturnAuthCodeNotification object:nil];
+    
+    self.thirdLoginBg.hidden=![WXApi isWXAppInstalled];
+
 }
 
 - (void)didReceiveMemoryWarning {
