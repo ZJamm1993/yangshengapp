@@ -78,13 +78,13 @@
     webv=[[UIWebView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:webv];
     
-    loadingImageView=[[UIImageView alloc]initWithFrame:self.view.bounds];
-    loadingImageView.image=[UIImage imageNamed:@"webview_loading"];
-    [self.view addSubview:loadingImageView];
-//    loadingImageView.alpha=0.5;
-    loadingImageView.hidden=YES;
+//    loadingImageView=[[UIImageView alloc]initWithFrame:self.view.bounds];
+//    loadingImageView.image=[UIImage imageNamed:@"webview_loading"];
+//    [self.view addSubview:loadingImageView];
+////    loadingImageView.alpha=0.5;
+//    loadingImageView.hidden=YES;
     
-    progressBar=[[WBWebProgressBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
+    progressBar=[[WBWebProgressBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0.5)];
     progressBar.progressTintColor=pinkColor;
     [self.view addSubview:progressBar];
     
@@ -132,8 +132,8 @@
         NSLog(@"webview:  %@",abs);
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];
         [webv loadRequest:req];
-        loadingImageView.hidden=NO;
-        [loadingImageView performSelector:@selector(setHidden:) withObject:[NSNumber numberWithBool:YES] afterDelay:1];
+//        loadingImageView.hidden=NO;
+//        [loadingImageView performSelector:@selector(setHidden:) withObject:[NSNumber numberWithBool:YES] afterDelay:1];
         
         [progressBar WBWebProgressPreparing];
     }
