@@ -18,7 +18,7 @@
         
         NSString* store_id=[dictionary valueForKey:@"store_id"];
         if (store_id.length>0) {
-            //the key "id" is app's id;
+            //the key "id" is appoint's id;
             _app_id=[dictionary valueForKey:@"id"];
             _idd=store_id;
         }
@@ -46,10 +46,14 @@
                 if (![html containsString:@"<body>"]) {
                     html=[NSString stringWithFormat:@"<body>%@</body>",html];
                 }
+                if (![html containsString:@"<head>"])
+                {
+                    html=[NSString stringWithFormat:@"<head><style>img{max-width:%f !important;}</style></head>%@",[[UIScreen mainScreen]bounds].size.width-30,html];
+                }
                 html=[NSString stringWithFormat:@"<html>%@</html>",html];
             }
-            NSString* js=@"<script>window.onload = function() {window.location.href = \"ready://\" + document.body.scrollHeight;}</script>";
-            html=[NSString stringWithFormat:@"%@%@",html,js];
+//            NSString* js=@"<script>window.onload = function() {window.location.href = \"ready://\" + document.body.scrollHeight;}</script>";
+//            html=[NSString stringWithFormat:@"%@%@",html,js];
         }
         
         _store_content=html;

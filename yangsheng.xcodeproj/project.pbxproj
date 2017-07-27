@@ -45,6 +45,7 @@
 		399604B31F22FE9F0026297B /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 399604B21F22FE9F0026297B /* libstdc++.6.0.9.tbd */; };
 		399604B51F22FEAB0026297B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399604B41F22FEAA0026297B /* QuartzCore.framework */; };
 		399604B81F2304A00026297B /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 399604B71F2304A00026297B /* AMap.bundle */; };
+		399834A41F29849000C60F0A /* StoreDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399834A31F29849000C60F0A /* StoreDetailContentCell.m */; };
 		8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */; };
 		8F507D291F1CAE14003DF63D /* StoreMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D281F1CAE14003DF63D /* StoreMapAnnotation.m */; };
 		8F507D2C1F1CBBFF003DF63D /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D2B1F1CBBFF003DF63D /* ProductSearchViewController.m */; };
@@ -247,6 +248,8 @@
 		399604B21F22FE9F0026297B /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		399604B41F22FEAA0026297B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		399604B71F2304A00026297B /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = yangsheng/classes/tool/AMap/MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
+		399834A21F29849000C60F0A /* StoreDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailContentCell.h; sourceTree = "<group>"; };
+		399834A31F29849000C60F0A /* StoreDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailContentCell.m; sourceTree = "<group>"; };
 		8F507D241F1C481A003DF63D /* StoreApplyProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreApplyProtocolViewController.h; sourceTree = "<group>"; };
 		8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreApplyProtocolViewController.m; sourceTree = "<group>"; };
 		8F507D271F1CAE14003DF63D /* StoreMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreMapAnnotation.h; sourceTree = "<group>"; };
@@ -1014,6 +1017,8 @@
 				8F507D3E1F1DB93C003DF63D /* StoreAppointmentFooterCell.m */,
 				8F507D491F1DE4D8003DF63D /* StoreAnnotationView.h */,
 				8F507D4A1F1DE4D8003DF63D /* StoreAnnotationView.m */,
+				399834A21F29849000C60F0A /* StoreDetailContentCell.h */,
+				399834A31F29849000C60F0A /* StoreDetailContentCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1170,6 +1175,7 @@
 				8FC243111F1703C50064A845 /* PersonalForgetPasswordViewController.m in Sources */,
 				8FC243541F174C520064A845 /* ClassroomVideoShareListViewController.m in Sources */,
 				8FC242E21F162ADB0064A845 /* Foundation+Log.m in Sources */,
+				399834A41F29849000C60F0A /* StoreDetailContentCell.m in Sources */,
 				8FA936061F120E7A001E29CF /* ProductCell.m in Sources */,
 				8FC243461F1713690064A845 /* StoreModel.m in Sources */,
 				8FC6DCA41F2043BF00566F96 /* NothingWarningView.m in Sources */,

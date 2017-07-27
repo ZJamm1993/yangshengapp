@@ -186,34 +186,34 @@
     self.webView.delegate=nil;
 }
 
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    if(navigationType==UIWebViewNavigationTypeLinkClicked)
-    {
-//        BaseWebViewController* w=[[BaseWebViewController alloc]initWithUrl:[request URL]];
-//        [self.navigationController pushViewController:w animated:YES];
-        return NO;
-        
-    }
-    return YES;
-}
-
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-    [progressBar WBWebProgressStartLoading];
-}
-
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    [progressBar WBWebProgressCompleted];
-    [loadingIndicator stopAnimating];
-}
-
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    [MBProgressHUD showErrorMessage:@"网络不佳"];
-    [progressBar WBWebProgressCompleted];
-}
+//-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+//{
+//    if(navigationType==UIWebViewNavigationTypeLinkClicked)
+//    {
+////        BaseWebViewController* w=[[BaseWebViewController alloc]initWithUrl:[request URL]];
+////        [self.navigationController pushViewController:w animated:YES];
+//        return NO;
+//        
+//    }
+//    return YES;
+//}
+//
+//-(void)webViewDidStartLoad:(UIWebView *)webView
+//{
+//    [progressBar WBWebProgressStartLoading];
+//}
+//
+//-(void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//    [progressBar WBWebProgressCompleted];
+//    [loadingIndicator stopAnimating];
+//}
+//
+//-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+//{
+//    [MBProgressHUD showErrorMessage:@"网络不佳"];
+//    [progressBar WBWebProgressCompleted];
+//}
 
 
 @end

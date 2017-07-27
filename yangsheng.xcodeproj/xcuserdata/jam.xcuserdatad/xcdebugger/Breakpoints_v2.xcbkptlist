@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "yangsheng/classes/base/BaseWebViewController.m"
+            timestampString = "522817669.217104"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[BaseWebViewController viewDidLoad]_block_invoke_2"
+                  moduleName = "yangsheng"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jam/Documents/myProject/yangsheng/yangsheng/classes/base/BaseWebViewController.m"
+                  timestampString = "522817669.237046"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[BaseWebViewController viewDidLoad]_block_invoke_3"
+                  moduleName = "yangsheng"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jam/Documents/myProject/yangsheng/yangsheng/classes/base/BaseWebViewController.m"
+                  timestampString = "522817669.237329"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

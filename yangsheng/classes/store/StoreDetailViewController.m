@@ -11,6 +11,7 @@
 #import "WebViewTableViewCell.h"
 #import "StoreDetailBaseMessageCell.h"
 #import "ServiceObjectCell.h"
+#import "StoreDetailContentCell.h"
 #import "StoreAppointmentView.h"
 #import "StoreAppointmentViewController.h"
 #import "PersonalLoginViewController.h"
@@ -20,11 +21,11 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@interface StoreDetailViewController ()<CollectionViewTableViewCellDelegate,UIWebViewDelegate,StoreAppointmentViewDelegate,StoreDetailBaseMessageCellDelegate>
+@interface StoreDetailViewController ()<CollectionViewTableViewCellDelegate,StoreAppointmentViewDelegate,StoreDetailBaseMessageCellDelegate>
 {
     UICollectionViewFlowLayout* flow;
-    UIWebView* testWebView;
-    CGFloat webViewHeight;
+//    UIWebView* testWebView;
+//    CGFloat webViewHeight;
     StoreAppointmentView* appointmentView;
 }
 @end
@@ -57,10 +58,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"WebViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"StoreIntroCell"];
     // Do any additional setup after loading the view.
     
-    webViewHeight=1;
-    
-    testWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1)];
-    testWebView.delegate=self;
+//    webViewHeight=1;
+//    
+//    testWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1)];
+//    testWebView.delegate=self;
     
     [self loadDetail];
     [self refresh];
@@ -68,7 +69,7 @@
 
 -(void)dealloc
 {
-    testWebView.delegate=nil;
+//    testWebView.delegate=nil;
 }
 
 -(void)refresh
@@ -94,26 +95,26 @@
     }
     [self setAdvertiseHeaderViewWithPicturesUrls:arr];
     
-    [testWebView loadHTMLString:self.detailStoreModel.store_content baseURL:nil];
+//    [testWebView loadHTMLString:self.detailStoreModel.store_content baseURL:nil];
     
     [self.tableView reloadData];
     
     [self scrollViewDidScroll:self.tableView];
 }
 
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    NSURL *url = [request URL];
-    if (navigationType == UIWebViewNavigationTypeOther) {
-        if ([[url scheme] isEqualToString:@"ready"]) {
-            float contentHeight = [[url host] floatValue];
-            webViewHeight=contentHeight;
-            [self.tableView reloadData];
-            return NO;
-        } 
-    }
-    return YES; 
-}
+//-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+//{
+//    NSURL *url = [request URL];
+//    if (navigationType == UIWebViewNavigationTypeOther) {
+//        if ([[url scheme] isEqualToString:@"ready"]) {
+//            float contentHeight = [[url host] floatValue];
+////            webViewHeight=contentHeight;
+//            [self.tableView reloadData];
+//            return NO;
+//        } 
+//    }
+//    return YES; 
+//}
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -165,7 +166,7 @@
         else if(indexPath.section==2)
         {
             //web
-            return webViewHeight;
+//            return webViewHeight;
         }
     }
     return UITableViewAutomaticDimension;
@@ -223,8 +224,12 @@
         }
         else
         {
-            WebViewTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"StoreIntroCell" forIndexPath:indexPath];
-            [cell.webView loadHTMLString:self.detailStoreModel.store_content baseURL:[NSURL URLWithString:[ZZUrlTool main]]];
+//            WebViewTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"StoreIntroCell" forIndexPath:indexPath];
+//            [cell.webView loadHTMLString:self.detailStoreModel.store_content baseURL:[NSURL URLWithString:[ZZUrlTool main]]];
+//            return cell;
+            StoreDetailContentCell* cell=[tableView dequeueReusableCellWithIdentifier:@"StoreDetailContentCell" forIndexPath:indexPath];
+            NSAttributedString* attr=[[NSAttributedString alloc]initWithData:[self.detailStoreModel.store_content dataUsingEncoding:NSUnicodeStringEncoding] options:[NSDictionary dictionaryWithObject:NSHTMLTextDocumentType forKey:NSDocumentTypeDocumentAttribute] documentAttributes:nil error:nil];
+            cell.htmlLabe.attributedText=attr;
             return cell;
         }
     }
