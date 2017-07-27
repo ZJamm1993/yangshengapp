@@ -48,7 +48,7 @@
                 }
                 if (![html containsString:@"<head>"])
                 {
-                    html=[NSString stringWithFormat:@"<head><style>img{max-width:%f !important;}</style></head>%@",[[UIScreen mainScreen]bounds].size.width-30,html];
+                    html=[NSString stringWithFormat:@"<head><style>img{max-width:%f !important;}p{font-size:15px;}</style></head>%@",[[UIScreen mainScreen]bounds].size.width-30,html];
                 }
                 html=[NSString stringWithFormat:@"<html>%@</html>",html];
             }
