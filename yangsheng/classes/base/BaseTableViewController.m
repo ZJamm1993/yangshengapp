@@ -9,7 +9,7 @@
 #import "BaseTableViewController.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "Reachability.h"
-
+#import "BaseModel.h"
 #import "NothingWarningView.h"
 
 @interface BaseTableViewController ()
@@ -184,7 +184,14 @@
 
 -(void)advertiseView:(AdvertiseView *)adver didSelectedIndex:(NSInteger)index
 {
-    NSLog(@"advertise:%@ did selected index:%d",advHeader,(int)index);
+//    NSLog(@"advertise:%@ did selected index:%d",advHeader,(int)index);
+    if (index<self.advsArray.count) {
+        NSObject* ob=[self.advsArray objectAtIndex:index];
+        if ([ob isKindOfClass:[BaseModel class]]) {
+            BaseModel* mo=(BaseModel*)ob;
+            NSLog(@"adv type:%@, id:%@",mo.name,mo.idd);
+        }
+    }
 }
 
 -(void)setNothingFooterView

@@ -40,7 +40,7 @@
     }];
 }
 
-+(void)getCodeWithMobile:(NSString *)mobile success:(void (^)(BOOL))success
++(void)getCodeWithMobile:(NSString *)mobile success:(void (^)(BOOL,NSString*))success
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Index/getmobilenum"];
     [self post:str params:[NSDictionary dictionaryWithObject:mobile forKey:@"mobile"] success:^(NSDictionary *responseObject) {
@@ -49,17 +49,17 @@
         
         if (success) {
             if (responseObject.code==0) {
-                success(YES);
+                success(YES,msg);
 //#warning 不要告诉我验证码
 //                [MBProgressHUD showSuccessMessage:msg];
             }
             else
             {
-                success(NO);
+                success(NO,msg);
             }
         }
     } failure:^(NSError *error) {
-        success(NO);
+        success(NO,@"");
     }];
 }
 
@@ -95,11 +95,11 @@
     }];
 }
 
-+(void)changePasswordWithMobile:(NSString *)mobile password:(NSString *)password code:(NSString *)code success:(void (^)(BOOL))success
++(void)changePasswordWithMobile:(NSString *)mobile password:(NSString *)password code:(NSString *)code success:(void (^)(BOOL,NSString*))success
 {
     if (mobile.length==0||password.length==0||code.length==00) {
         if (success) {
-            success(NO);
+            success(NO,@"");
             
         }
         return;
@@ -114,21 +114,25 @@
     
     [self post:str params:p success:^(NSDictionary *responseObject) {
         BOOL changed=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
         if (success) {
-            success(changed);
+            success(changed,msg);
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(NO);
+            success(NO,@"");
         }
     }];
 }
 
-+(void)changePasswordWithOldPassword:(NSString *)old newPassword:(NSString *)neew token:(NSString *)token success:(void (^)(BOOL))success
++(void)changePasswordWithOldPassword:(NSString *)old newPassword:(NSString *)neew token:(NSString *)token success:(void (^)(BOOL,NSString*))success
 {
-    if (old.length==0||neew.length==0||token.length==00) {
+    if (old.length==0) {
+        old=@"";
+    }
+    if (neew.length==0||token.length==00) {
         if (success) {
-            success(NO);
+            success(NO,@"");
             
         }
         return;
@@ -144,12 +148,13 @@
     
     [self post:str params:p success:^(NSDictionary *responseObject) {
         BOOL changed=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
         if (success) {
-            success(changed);
+            success(changed,msg);
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(NO);
+            success(NO,@"");
         }
     }];
 }
@@ -182,11 +187,11 @@
     }];
 }
 
-+(void)changeUserMobile:(NSString *)mobile code:(NSString *)code token:(NSString *)token success:(void (^)(BOOL))success
++(void)changeUserMobile:(NSString *)mobile code:(NSString *)code token:(NSString *)token success:(void (^)(BOOL,NSString*))success
 {
     if (mobile.length==0||token.length==0||code.length==0) {
         if (success) {
-            success(NO);
+            success(NO,@"");
             
         }
         return;
@@ -201,12 +206,13 @@
     
     [self post:str params:p success:^(NSDictionary *responseObject) {
         BOOL changed=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
         if (success) {
-            success(changed);
+            success(changed,msg);
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(NO);
+            success(NO,@"");
         }
     }];
 }

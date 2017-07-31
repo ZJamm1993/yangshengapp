@@ -11,7 +11,7 @@
 
 @interface PersonalHttpTool : ZZHttpTool
 
-+(void)getCodeWithMobile:(NSString*)mobile success:(void(^)(BOOL sent))success;
++(void)getCodeWithMobile:(NSString*)mobile success:(void(^)(BOOL sent,NSString* msg))success;
 
 +(void)registerUserWithMobile:(NSString*)mobile password:(NSString*)password code:(NSString*)code invite:(NSString*)invite success:(void(^) (UserModel* user))success;
 
@@ -20,12 +20,13 @@
 
 +(void)uploadAvatar:(UIImage*)avatar token:(NSString*)token success:(void(^)(NSString* imageUrl))success;
 
-+(void)changePasswordWithMobile:(NSString*)mobile password:(NSString*)password code:(NSString*)code success:(void(^) (BOOL changed))success;
++(void)changePasswordWithMobile:(NSString*)mobile password:(NSString*)password code:(NSString*)code success:(void(^) (BOOL changed,NSString* msg))success;
 
-+(void)changePasswordWithOldPassword:(NSString*)old newPassword:(NSString*)neew token:(NSString*)token success:(void(^)(BOOL changed))success;
++(void)changePasswordWithOldPassword:(NSString*)old newPassword:(NSString*)neew token:(NSString*)token success:(void(^)(BOOL changed,NSString* msg))success;
 
 +(void)changeUserNickName:(NSString*)nick token:(NSString*)token success:(void(^)(BOOL changed))success;
-+(void)changeUserMobile:(NSString*)mobile code:(NSString*)code token:(NSString*)token success:(void(^)(BOOL changed))success;
+
++(void)changeUserMobile:(NSString*)mobile code:(NSString*)code token:(NSString*)token success:(void(^)(BOOL changed,NSString* msg))success;
 
 +(void)logOutUserToken:(NSString*)token;
 

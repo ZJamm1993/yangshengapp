@@ -35,15 +35,15 @@
     if (mobi.length>0) {
         [self.codeTextField becomeFirstResponder];
         [MBProgressHUD showProgressMessage:@"正在请求验证码"];
-        [PersonalHttpTool getCodeWithMobile:mobi success:^(BOOL sent) {
+        [PersonalHttpTool getCodeWithMobile:mobi success:^(BOOL sent,NSString* msg) {
             if (sent) {
                 [self startCountDownSeconds:60];
                 
-                [MBProgressHUD showSuccessMessage:@"已发送验证码短信"];
+                [MBProgressHUD showSuccessMessage:msg];
             }
             else
             {
-                [MBProgressHUD showErrorMessage:@"请求不成功"];
+                [MBProgressHUD showErrorMessage:msg];
             }
         }];
     }
@@ -69,18 +69,18 @@
     if (mobile.length>0&&password.passwordLength&&code.length>0) {
         
         [MBProgressHUD showProgressMessage:@"正在修改密码"];
-        [PersonalHttpTool changePasswordWithMobile:mobile password:password code:code success:^(BOOL changed) {
+        [PersonalHttpTool changePasswordWithMobile:mobile password:password code:code success:^(BOOL changed,NSString* msg) {
             if (changed) {
                 
                 [MBProgressHUD hide];
                 NSLog(@"changed YES");
                 [self.navigationController popViewControllerAnimated:YES];
                 
-                [MBProgressHUD showSuccessMessage:@"修改成功"];
+                [MBProgressHUD showSuccessMessage:msg];
             }
             else
             {
-                [MBProgressHUD showErrorMessage:@"修改出现问题"];
+                [MBProgressHUD showErrorMessage:msg];
             }
         }];
     }

@@ -9,6 +9,7 @@
 #import "BaseCollectionViewController.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "Reachability.h"
+#import "BaseModel.h"
 
 @interface BaseCollectionViewController ()
 {
@@ -224,7 +225,14 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)advertiseView:(AdvertiseView *)adver didSelectedIndex:(NSInteger)index
 {
-    NSLog(@"advertise:%@ did selected index:%d",adver,(int)index);
+    //    NSLog(@"advertise:%@ did selected index:%d",adver,(int)index);
+    if (index<self.advsArray.count) {
+    NSObject* ob=[self.advsArray objectAtIndex:index];
+    if ([ob isKindOfClass:[BaseModel class]]) {
+        BaseModel* mo=(BaseModel*)ob;
+        NSLog(@"adv type:%@, id:%@",mo.name,mo.idd);
+    }
+}
 }
 
 //-(void)scrollViewDidScroll:(UIScrollView *)scrollView

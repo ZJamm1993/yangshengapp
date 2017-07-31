@@ -43,15 +43,15 @@
         
         [self.codeTextField becomeFirstResponder];
         [MBProgressHUD showProgressMessage:@"正在请求验证码"];
-        [PersonalHttpTool getCodeWithMobile:mobi success:^(BOOL sent) {
+        [PersonalHttpTool getCodeWithMobile:mobi success:^(BOOL sent,NSString* msg) {
             [MBProgressHUD hide];
             if (sent) {
                 [self startCountDownSeconds:60];
-                [MBProgressHUD showSuccessMessage:@"已发送验证码短信"];
+                [MBProgressHUD showSuccessMessage:msg];
             }
             else
             {
-                [MBProgressHUD showErrorMessage:@"请求不成功"];
+                [MBProgressHUD showErrorMessage:msg];
             }
         }];
     }

@@ -32,22 +32,22 @@
     NSString* nee=self.neewPasswordTextField.text;
     NSString* sure=self.surePasswordTextField.text;
     
-    if (old.passwordLength&&nee.passwordLength&&sure.passwordLength) {
+    if (nee.passwordLength&&sure.passwordLength) {
         if ([nee isEqualToString:sure]) {
             
             [MBProgressHUD showProgressMessage:@"正在修改密码"];
-            [PersonalHttpTool changePasswordWithOldPassword:old newPassword:nee token:[UserModel getUser].access_token success:^(BOOL changed) {
+            [PersonalHttpTool changePasswordWithOldPassword:old newPassword:nee token:[UserModel getUser].access_token success:^(BOOL changed,NSString* msg) {
                 
                 [MBProgressHUD hide];
                 if (changed) {
                     NSLog(@"changed YES");
                     [self.navigationController popViewControllerAnimated:YES];
 //                    [UserModel savePassword:nee];
-                    [MBProgressHUD showSuccessMessage:@"修改成功"];
+                    [MBProgressHUD showSuccessMessage:msg];
                 }
                 else
                 {
-                    [MBProgressHUD showErrorMessage:@"修改出现问题"];
+                    [MBProgressHUD showErrorMessage:msg];
                 }
             }];
         }

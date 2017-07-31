@@ -44,7 +44,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.017</string>
+	<string>1.018</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>qqmap</string>
