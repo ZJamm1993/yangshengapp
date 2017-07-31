@@ -11,6 +11,8 @@
 #import "WXApi.h"
 
 @interface CustomerServiceViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *savebtn;
+@property (weak, nonatomic) IBOutlet UIButton *openbtn;
 
 @end
 
@@ -24,6 +26,15 @@
     NSString* imgUrl=[[UniversalModel getUniversal]wx_path];
     
     [self.qrCodeImage sd_setImageWithURL:[imgUrl urlWithMainUrl]];
+    
+    self.savebtn.layer.cornerRadius=self.savebtn.bounds.size.height/2;
+    self.savebtn.layer.borderColor=[UIColor colorWithWhite:0.7 alpha:1].CGColor;
+    self.savebtn.layer.borderWidth=0.5;
+    
+    self.openbtn.layer.cornerRadius=self.openbtn.bounds.size.height/2;
+    self.openbtn.layer.borderColor=[UIColor colorWithWhite:0.7 alpha:1].CGColor;
+    self.openbtn.layer.borderWidth=0.5;
+    
     // Do any additional setup after loading the view.
 }
 
@@ -41,9 +52,30 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)saveImage:(id)sender {
+    NSData* imgdata=[NSData dataWithContentsOfURL:[[[UniversalModel getUniversal]wx_path]urlWithMainUrl]];
+    UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:imgdata], self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+}
+
+- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
+{
+    NSString *msg = nil ;
+    if(error != NULL){
+        msg = @"保存图片失败" ;
+        [MBProgressHUD showErrorMessage:msg];
+    }else{
+        msg = @"保存图片成功" ;
+        [MBProgressHUD showSuccessMessage:msg];
+    }
+
+}
+
 - (IBAction)openWechat:(id)sender {
 
-//    [WXApi openWXApp];
+    [WXApi openWXApp];
+    
+    return;
 //    return;
 //    CIDetector*detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{ CIDetectorAccuracy : CIDetectorAccuracyHigh }];
 //    //2. 扫描获取的特征组
@@ -51,6 +83,9 @@
 //    //3. 获取扫描结果
 //    CIQRCodeFeature *feature = [features objectAtIndex:0];
 //    NSString *scannedResult = feature.messageString;
+    
+    /*
+    
     
 //    1.创建多媒体消息结构体
     WXMediaMessage *mediaMsg = [WXMediaMessage message];
@@ -82,6 +117,9 @@
 //    [WXApi sendReq:req];
     
 //    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"weixin://dl/scan"]];
+     
+     
+     */
 }
 
 @end

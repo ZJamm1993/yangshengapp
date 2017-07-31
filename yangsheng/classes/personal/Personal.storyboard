@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F2511" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -744,29 +744,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-bQ-767">
-                                <rect key="frame" x="36" y="86" width="248" height="202"/>
+                                <rect key="frame" x="36" y="80" width="248" height="170"/>
+                                <color key="backgroundColor" red="0.66274509803921566" green="0.74901960784313726" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="1zm-gE-7hi"/>
                                     <constraint firstAttribute="width" secondItem="Ln8-bQ-767" secondAttribute="height" multiplier="242:197" id="LYs-WT-xRq"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LYs-WT-xRq"/>
+                                    </mask>
+                                </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kQ-dS-cJ1">
-                                <rect key="frame" x="56" y="324" width="210" height="30"/>
-                                <state key="normal" title="打开微信扫一扫识别图中二维码">
-                                    <color key="titleColor" red="0.7725490196" green="0.062745098040000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnb-ED-8fx">
+                                <rect key="frame" x="75" y="295" width="170" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="NSz-YQ-gOA"/>
+                                    <constraint firstAttribute="height" constant="40" id="sJL-6E-fU1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="保存图片到手机相册">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="openWechat:" destination="sgg-AK-RuM" eventType="touchUpInside" id="H3g-mF-T0i"/>
+                                    <action selector="saveImage:" destination="sgg-AK-RuM" eventType="touchUpInside" id="HKK-LX-t8p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIo-LG-LeN">
+                                <rect key="frame" x="75" y="355" width="170" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="cmR-j1-6gX"/>
+                                    <constraint firstAttribute="height" constant="40" id="tcK-X3-vME"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="使用微信扫一扫添加好友">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openWechat:" destination="sgg-AK-RuM" eventType="touchUpInside" id="fyb-DL-5XB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7kQ-dS-cJ1" firstAttribute="top" secondItem="Ln8-bQ-767" secondAttribute="bottom" constant="36" id="I7E-7W-Klf"/>
                             <constraint firstItem="Ln8-bQ-767" firstAttribute="centerX" secondItem="EWb-pb-yYm" secondAttribute="centerX" id="Ikn-jc-Vgc"/>
-                            <constraint firstItem="Ln8-bQ-767" firstAttribute="top" secondItem="DGv-Vv-SeD" secondAttribute="bottom" constant="66" id="KVZ-6C-T5w"/>
-                            <constraint firstItem="7kQ-dS-cJ1" firstAttribute="centerX" secondItem="EWb-pb-yYm" secondAttribute="centerX" id="Woi-FO-1AI"/>
+                            <constraint firstItem="Ln8-bQ-767" firstAttribute="top" secondItem="DGv-Vv-SeD" secondAttribute="bottom" constant="60" id="KVZ-6C-T5w"/>
+                            <constraint firstItem="bIo-LG-LeN" firstAttribute="top" secondItem="wnb-ED-8fx" secondAttribute="bottom" constant="20" id="OwQ-FL-DeO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ln8-bQ-767" secondAttribute="trailing" constant="18" id="ZRd-qO-SUM"/>
                             <constraint firstItem="Ln8-bQ-767" firstAttribute="leading" secondItem="EWb-pb-yYm" secondAttribute="leadingMargin" constant="20" id="eFC-hn-PS7"/>
+                            <constraint firstItem="bIo-LG-LeN" firstAttribute="centerX" secondItem="EWb-pb-yYm" secondAttribute="centerX" id="jM5-mj-qGF"/>
+                            <constraint firstItem="wnb-ED-8fx" firstAttribute="top" secondItem="Ln8-bQ-767" secondAttribute="bottom" constant="45" id="lVx-YO-fg6"/>
+                            <constraint firstItem="wnb-ED-8fx" firstAttribute="centerX" secondItem="EWb-pb-yYm" secondAttribute="centerX" id="py5-G7-jYE"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -776,8 +804,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="openWechatButton" destination="7kQ-dS-cJ1" id="x2H-LX-XJW"/>
+                        <outlet property="openbtn" destination="bIo-LG-LeN" id="2au-39-Oya"/>
                         <outlet property="qrCodeImage" destination="Ln8-bQ-767" id="7aD-fh-iMu"/>
+                        <outlet property="savebtn" destination="wnb-ED-8fx" id="wGT-eL-ygU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKf-fz-cXy" userLabel="First Responder" sceneMemberID="firstResponder"/>

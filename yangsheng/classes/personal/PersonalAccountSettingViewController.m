@@ -59,11 +59,11 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (indexPath.row==2||indexPath.row==3) {
-//        if ([[UserModel getUser]type]!=UserTypeNormal) {
-//            return 0;
-//        }
-//    }
+    if (indexPath.row==2||indexPath.row==3) {
+        if ([[UserModel getUser]type]!=UserTypeNormal) {
+            return 0;
+        }
+    }
     return UITableViewAutomaticDimension;
 }
 

@@ -735,21 +735,6 @@
 		3971BBFB1F0E7047004016C2 = {
 			isa = PBXGroup;
 			children = (
-				395F56A91F24583E008A5FA8 /* MapKit.framework */,
-				399604B71F2304A00026297B /* AMap.bundle */,
-				399604B41F22FEAA0026297B /* QuartzCore.framework */,
-				399604B21F22FE9F0026297B /* libstdc++.6.0.9.tbd */,
-				399604B01F22FE900026297B /* GLKit.framework */,
-				399604AE1F22FE840026297B /* JavaScriptCore.framework */,
-				8F507D841F1F31BD003DF63D /* CFNetwork.framework */,
-				8F507D821F1F31B6003DF63D /* CoreTelephony.framework */,
-				8F507D801F1F31AF003DF63D /* Security.framework */,
-				8F507D7E1F1F31A9003DF63D /* libc++.tbd */,
-				8F507D7C1F1F31A2003DF63D /* libsqlite3.0.tbd */,
-				8F507D7A1F1F319A003DF63D /* libz.tbd */,
-				3956635B1F17A5980084E2E2 /* CoreLocation.framework */,
-				8FC2435D1F17584C0064A845 /* AVFoundation.framework */,
-				8FC242C61F15F7290064A845 /* SystemConfiguration.framework */,
 				3971BC061F0E7047004016C2 /* yangsheng */,
 				3971BC051F0E7047004016C2 /* Products */,
 			);
@@ -766,6 +751,7 @@
 		3971BC061F0E7047004016C2 /* yangsheng */ = {
 			isa = PBXGroup;
 			children = (
+				8FA3EBEF1F2F227600A5B0E8 /* framework */,
 				396910AA1F0E855E00EF6D52 /* classes */,
 				3971BC2F1F0E7A07004016C2 /* PrefixHeader.pch */,
 				3971BC081F0E7047004016C2 /* main.m */,
@@ -812,6 +798,29 @@
 				8FC6DCB71F2196E800566F96 /* FounderCollectionViewCell.xib */,
 			);
 			name = HomeNews;
+			sourceTree = "<group>";
+		};
+		8FA3EBEF1F2F227600A5B0E8 /* framework */ = {
+			isa = PBXGroup;
+			children = (
+				395F56A91F24583E008A5FA8 /* MapKit.framework */,
+				399604B71F2304A00026297B /* AMap.bundle */,
+				399604B41F22FEAA0026297B /* QuartzCore.framework */,
+				399604B21F22FE9F0026297B /* libstdc++.6.0.9.tbd */,
+				399604B01F22FE900026297B /* GLKit.framework */,
+				399604AE1F22FE840026297B /* JavaScriptCore.framework */,
+				8F507D841F1F31BD003DF63D /* CFNetwork.framework */,
+				8F507D821F1F31B6003DF63D /* CoreTelephony.framework */,
+				8F507D801F1F31AF003DF63D /* Security.framework */,
+				8F507D7E1F1F31A9003DF63D /* libc++.tbd */,
+				8F507D7C1F1F31A2003DF63D /* libsqlite3.0.tbd */,
+				8F507D7A1F1F319A003DF63D /* libz.tbd */,
+				3956635B1F17A5980084E2E2 /* CoreLocation.framework */,
+				8FC2435D1F17584C0064A845 /* AVFoundation.framework */,
+				8FC242C61F15F7290064A845 /* SystemConfiguration.framework */,
+			);
+			name = framework;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		8FA9360A1F1229DC001E29CF /* HomeFeedback */ = {
