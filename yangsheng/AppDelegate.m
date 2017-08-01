@@ -29,8 +29,8 @@
     // Override point for customization after application launch.
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSString* mainBundle=[[NSBundle mainBundle]bundlePath];
-        NSLog(@"path:%@",mainBundle);
+//        NSString* mainBundle=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];//[[NSBundle mainBundle]bundlePath];
+//        NSLog(@"path:%@",mainBundle);
         
         reach=[Reachability reachabilityForInternetConnection];
         [reach startNotifier];

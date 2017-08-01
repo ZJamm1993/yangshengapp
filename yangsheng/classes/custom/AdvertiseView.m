@@ -86,7 +86,7 @@
     }
     
     shadow=[[UIView alloc]init];
-    shadow.backgroundColor=[UIColor lightGrayColor];
+    shadow.backgroundColor=[UIColor groupTableViewBackgroundColor];
     shadow.frame=CGRectMake(0, self.frame.size.height-0.5, self.frame.size.width, 0.5);
     [self addSubview:shadow];
 }

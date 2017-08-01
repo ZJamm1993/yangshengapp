@@ -100,7 +100,7 @@
     UICollectionViewFlowLayout* flow=[[UICollectionViewFlowLayout alloc]init];
     
     CGFloat sw=[[UIScreen mainScreen]bounds].size.width;
-    CGFloat m=1;
+    CGFloat m=2;
     CGFloat w=sw/2-3*m;
     CGFloat h=w/1.8+60;
     

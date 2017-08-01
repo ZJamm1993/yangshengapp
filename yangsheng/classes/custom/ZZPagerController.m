@@ -270,7 +270,7 @@
     
     if (!shadow) {
         shadow=[[UIView alloc]init];
-        shadow.backgroundColor=[UIColor lightGrayColor];
+        shadow.backgroundColor=[UIColor groupTableViewBackgroundColor];
         [self addSubview:shadow];
     }
     

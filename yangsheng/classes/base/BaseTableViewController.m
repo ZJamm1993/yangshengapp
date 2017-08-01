@@ -63,6 +63,8 @@
     
     self.tableView.tableFooterView=[[UIView alloc]init];
     
+    self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
 }
 

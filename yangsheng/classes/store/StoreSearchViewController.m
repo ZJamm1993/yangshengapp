@@ -36,13 +36,14 @@
     UIBarButtonItem* back=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
     self.navigationItem.rightBarButtonItem=back;
     
-    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+//    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
 }
 
 -(void)cancel
 {
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES  completion:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated

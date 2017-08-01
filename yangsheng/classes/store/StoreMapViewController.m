@@ -60,7 +60,8 @@
     
     if (self.presetShops.count>0) {
         [map removeAnnotations:map.annotations];
-        [map addAnnotations:[self annotionsFromStores:self.presetShops]];
+        NSArray* anns=[self annotionsFromStores:self.presetShops];
+        [map addAnnotations:anns];
     }
     else
     {
@@ -198,7 +199,6 @@
                 navi.requireExtension = YES;
                 navi.strategy = 5;
                 
-                
                 /* 出发点. */
                 navi.origin = [AMapGeoPoint locationWithLatitude:userCenter.latitude longitude:userCenter.longitude];
                 /* 目的地. */
@@ -210,7 +210,15 @@
         // 创建一个区域
         MACoordinateRegion regn = MACoordinateRegionMake(center, span);
         // 设置地图显示区域
-        [mapView setRegion:regn animated:YES];
+        [mapView setRegion:regn animated:NO];
+    }
+}
+
+-(void)selectTheOnlyAnnotation
+{
+    if (self.presetShops.count==1) {
+        NSArray* anns=[self annotionsFromStores:self.presetShops];
+        [map selectAnnotation:anns.firstObject animated:NO];
     }
 }
 
@@ -267,6 +275,8 @@
         [map addOverlay:poly];
         free(cs);
         cs=NULL;
+        
+        [self performSelector:@selector(selectTheOnlyAnnotation) withObject:nil afterDelay:1];
     }
 }
 

@@ -31,6 +31,10 @@
         item.image=[img_n imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         item.selectedImage=[img_s imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
+    
+    self.tabBar.shadowImage=[UIImage imageWithColor:[UIColor groupTableViewBackgroundColor] size:CGSizeMake(self.tabBar.bounds.size.width, 0.5)];
+    
+    [self.tabBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:self.tabBar.bounds.size]];
 }
 
 - (void)didReceiveMemoryWarning {

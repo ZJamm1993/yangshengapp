@@ -72,6 +72,7 @@
 		8F54BDB21F131191009E3C0B /* NewsSmallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDB11F131191009E3C0B /* NewsSmallCell.m */; };
 		8F54BDB51F132B2B009E3C0B /* NeewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDB41F132B2B009E3C0B /* NeewsListViewController.m */; };
 		8F54BDBB1F132D90009E3C0B /* NeewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54BDBA1F132D90009E3C0B /* NeewsCell.m */; };
+		8F665D6A1F30298700B408B2 /* UIImage+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F665D691F30298700B408B2 /* UIImage+ext.m */; };
 		8FA935E01F11BE9D001E29CF /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA935DF1F11BE9D001E29CF /* AdvertiseView.m */; };
 		8FA935E41F11C965001E29CF /* ButtonsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA935E21F11C965001E29CF /* ButtonsCell.m */; };
 		8FA935E91F11C9D0001E29CF /* NothingFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA935E71F11C9D0001E29CF /* NothingFooterCell.m */; };
@@ -297,6 +298,8 @@
 		8F54BDB41F132B2B009E3C0B /* NeewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeewsListViewController.m; sourceTree = "<group>"; };
 		8F54BDB91F132D90009E3C0B /* NeewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeewsCell.h; sourceTree = "<group>"; };
 		8F54BDBA1F132D90009E3C0B /* NeewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeewsCell.m; sourceTree = "<group>"; };
+		8F665D681F30298700B408B2 /* UIImage+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ext.h"; sourceTree = "<group>"; };
+		8F665D691F30298700B408B2 /* UIImage+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ext.m"; sourceTree = "<group>"; };
 		8FA935DE1F11BE9D001E29CF /* AdvertiseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseView.h; sourceTree = "<group>"; };
 		8FA935DF1F11BE9D001E29CF /* AdvertiseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseView.m; sourceTree = "<group>"; };
 		8FA935E11F11C965001E29CF /* ButtonsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonsCell.h; sourceTree = "<group>"; };
@@ -993,6 +996,8 @@
 				8FC2431B1F1704060064A845 /* NSString+ext.m */,
 				8FC2431C1F1704060064A845 /* UIView+ext.h */,
 				8FC2431D1F1704060064A845 /* UIView+ext.m */,
+				8F665D681F30298700B408B2 /* UIImage+ext.h */,
+				8F665D691F30298700B408B2 /* UIImage+ext.m */,
 			);
 			path = ext;
 			sourceTree = "<group>";
@@ -1148,6 +1153,7 @@
 				8FADBE9E1F0F39BF002F5911 /* UIButton+WebCache.m in Sources */,
 				8FC243611F176F460064A845 /* ProductCheckViewController.m in Sources */,
 				8FC2433D1F170EDE0064A845 /* StoreRootViewController.m in Sources */,
+				8F665D6A1F30298700B408B2 /* UIImage+ext.m in Sources */,
 				8FC2438F1F19C7A10064A845 /* StoreAppointmentView.m in Sources */,
 				8FC243161F1703C50064A845 /* UserModel.m in Sources */,
 				8FADBE9C1F0F39BF002F5911 /* SDWebImageManager.m in Sources */,

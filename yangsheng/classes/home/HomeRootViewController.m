@@ -15,7 +15,7 @@
 
 @interface HomeRootViewController ()<ZZPagerControllerDataSource>
 {
-    ProductSearchViewController* searchVc;
+//    ProductSearchViewController* searchVc;
 }
 @end
 
@@ -41,10 +41,10 @@
 -(void)goToSearch
 {
     NSLog(@"search");
-    if (searchVc==nil) {
-        searchVc=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchViewController"];
-    }
-    [self.navigationController pushViewController:searchVc animated:YES];
+//    if (searchVc==nil) {
+        ProductSearchViewController* searchVc=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchViewController"];
+//    }
+    [self presentViewController:[[NaviController alloc]initWithRootViewController:searchVc ] animated:YES completion:nil];
 }
 
 -(void)goToReadSystemMessage

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F2109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -114,28 +114,28 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zxa-s3-VHa" userLabel="line">
                                             <rect key="frame" x="20" y="0.0" width="280" height="1"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="1EA-Jd-pBD"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="# pifi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAz-dC-fIw">
-                                            <rect key="frame" x="15" y="21" width="290" height="33"/>
+                                            <rect key="frame" x="15" y="21" width="290" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="33" id="xz0-9c-BOt"/>
+                                                <constraint firstAttribute="height" constant="20" id="xz0-9c-BOt"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="0read" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1a-eb-YIj">
-                                            <rect key="frame" x="15" y="146" width="45" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="0read" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1a-eb-YIj">
+                                            <rect key="frame" x="15" y="151" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdkflsdoijfoij ois dfos oijfisdj  iosjfoidjsaf sdf s " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuR-6H-oPK">
-                                            <rect key="frame" x="15" y="69" width="290" height="61"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="asdkflsdoijfoij ois dfos oijfisdj  iosjfoidjsaf sdf s " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuR-6H-oPK">
+                                            <rect key="frame" x="15" y="56" width="290" height="79"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.45844240837696337" green="0.45844240837696337" blue="0.45844240837696337" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -153,7 +153,7 @@
                                         <constraint firstAttribute="trailing" secondItem="JAz-dC-fIw" secondAttribute="trailing" constant="15" id="bPc-ri-tW3"/>
                                         <constraint firstItem="JAz-dC-fIw" firstAttribute="leading" secondItem="1LY-MR-qDo" secondAttribute="leading" constant="15" id="ndf-st-zUX"/>
                                         <constraint firstItem="JAz-dC-fIw" firstAttribute="top" secondItem="Zxa-s3-VHa" secondAttribute="bottom" constant="20" id="obT-wK-IfX"/>
-                                        <constraint firstAttribute="bottom" secondItem="b1a-eb-YIj" secondAttribute="bottom" constant="20" id="z6v-30-FoX"/>
+                                        <constraint firstAttribute="bottom" secondItem="b1a-eb-YIj" secondAttribute="bottom" constant="15" id="z6v-30-FoX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

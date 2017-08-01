@@ -36,7 +36,7 @@
 @interface StoreRootViewController ()<ButtonsCellDelegate,CLLocationManagerDelegate>
 {
      
-    StoreSearchViewController* searchVc;
+//    StoreSearchViewController* searchVc;
 //    StoreMapViewController* mapVc;
     CLLocationManager* locationManager;
     NSString* currentLng;
@@ -105,10 +105,12 @@
 
 -(void)goToSearch
 {
-    if (searchVc==nil) {
-        searchVc=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreSearchViewController"];
-    }
-    [self.navigationController pushViewController:searchVc animated:YES];
+//    if (searchVc==nil) {
+        StoreSearchViewController* searchVc=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreSearchViewController"];
+//    }
+//    [self.navigationController pushViewController:searchVc animated:YES];
+    
+    [self presentViewController:[[NaviController alloc]initWithRootViewController:searchVc] animated:YES completion:nil];
 }
 
 -(void)refresh
