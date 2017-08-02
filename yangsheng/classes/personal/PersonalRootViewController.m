@@ -39,7 +39,7 @@
     [self.refreshControl removeFromSuperview];
     [self.tableView setTableFooterView:[[UIView alloc]init]];
     
-    self.tableView.contentInset=UIEdgeInsetsMake(-20,0, 0, 0);
+    self.tableView.contentInset=UIEdgeInsetsMake(-21,0, 0, 0);
     
 //    [self didLogin:nil];
     

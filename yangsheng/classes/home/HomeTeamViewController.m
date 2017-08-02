@@ -9,7 +9,6 @@
 #import "HomeTeamViewController.h"
 
 #import "HomeMonthStarCell.h"
-#import "HomeFounderCell.h"
 #import "HomeTeamExtCell.h"
 #import "HomeTeamHeaderCell.h"
 #import "TeamCollectionViewCell.h"

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -20,22 +20,33 @@
                             <constraint firstAttribute="width" secondItem="PVL-pf-xmZ" secondAttribute="height" multiplier="1:1" id="iDx-Oo-rBQ"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7k-ra-dj2">
-                        <rect key="frame" x="0.0" y="184" width="148" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.4584424084" green="0.4584424084" blue="0.4584424084" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mj2-v2-piU">
+                        <rect key="frame" x="0.0" y="148" width="148" height="62"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7k-ra-dj2">
+                                <rect key="frame" x="0.0" y="23" width="148" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.4584424084" green="0.4584424084" blue="0.4584424084" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="y7k-ra-dj2" secondAttribute="trailing" id="CAt-WO-kfE"/>
+                            <constraint firstItem="y7k-ra-dj2" firstAttribute="centerY" secondItem="mj2-v2-piU" secondAttribute="centerY" id="QUL-fp-znu"/>
+                            <constraint firstItem="y7k-ra-dj2" firstAttribute="leading" secondItem="mj2-v2-piU" secondAttribute="leading" id="sUK-Wo-N0n"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstItem="mj2-v2-piU" firstAttribute="top" secondItem="PVL-pf-xmZ" secondAttribute="bottom" id="2Ds-cx-tZJ"/>
                 <constraint firstAttribute="trailing" secondItem="PVL-pf-xmZ" secondAttribute="trailing" id="D66-y4-s8I"/>
-                <constraint firstAttribute="trailing" secondItem="y7k-ra-dj2" secondAttribute="trailing" id="XXx-BW-jDA"/>
+                <constraint firstItem="mj2-v2-piU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VgS-yA-GFB"/>
+                <constraint firstAttribute="trailing" secondItem="mj2-v2-piU" secondAttribute="trailing" id="dgs-Ur-fOb"/>
                 <constraint firstItem="PVL-pf-xmZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jU3-gd-bGZ"/>
-                <constraint firstItem="y7k-ra-dj2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ka4-jX-2aj"/>
                 <constraint firstItem="PVL-pf-xmZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="l4O-l3-h89"/>
-                <constraint firstAttribute="bottom" secondItem="y7k-ra-dj2" secondAttribute="bottom" constant="10" id="x8B-bI-HV6"/>
+                <constraint firstAttribute="bottom" secondItem="mj2-v2-piU" secondAttribute="bottom" id="xgU-l5-FEO"/>
             </constraints>
             <size key="customSize" width="148" height="210"/>
             <connections>

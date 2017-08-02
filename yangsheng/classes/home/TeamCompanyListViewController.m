@@ -8,7 +8,7 @@
 
 #import "TeamCompanyListViewController.h"
 #import "HomeHttpTool.h"
-#import "TeamCompanyCollectionViewCell.h"
+#import "TeamCollectionViewCell.h"
 
 @interface TeamCompanyListViewController ()
 
@@ -24,6 +24,8 @@
     // Do any additional setup after loading the view.
     
 //    [self setAdvertiseHeaderViewWithPicturesUrls:@[@"a",@"b"]];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"TeamCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TeamCollectionViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,10 +72,10 @@
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    TeamCompanyCollectionViewCell* cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"TeamCompanyCollectionViewCell" forIndexPath:indexPath];
+    TeamCollectionViewCell* cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"TeamCollectionViewCell" forIndexPath:indexPath];
     BaseModel* m=[self.dataSource objectAtIndex:indexPath.row];
-    [cell.imageView sd_setImageWithURL:[m.thumb urlWithMainUrl]];
-    cell.titleLabel.text=m.post_title;
+    [cell.image sd_setImageWithURL:[m.thumb urlWithMainUrl]];
+    cell.title.text=m.post_title;
     return cell;
 }
 

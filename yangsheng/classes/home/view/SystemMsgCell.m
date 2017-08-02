@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.bgView.layer.borderColor=[UIColor colorWithWhite:0.8 alpha:1].CGColor;
+    self.bgView.layer.borderColor=[UIColor colorWithWhite:0.86 alpha:1].CGColor;
     self.bgView.layer.borderWidth=0.5;
 }
 

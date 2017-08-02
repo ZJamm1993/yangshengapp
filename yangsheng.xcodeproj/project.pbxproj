@@ -111,7 +111,6 @@
 		8FADBEAA1F0F3B62002F5911 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEA71F0F3B62002F5911 /* UIView+WebCache.m */; };
 		8FADBEAB1F0F3B62002F5911 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEA91F0F3B62002F5911 /* UIView+WebCacheOperation.m */; };
 		8FADBEB11F0F4206002F5911 /* HomeQACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEB01F0F4206002F5911 /* HomeQACell.m */; };
-		8FADBEBB1F0F5C40002F5911 /* HomeFounderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEBA1F0F5C40002F5911 /* HomeFounderCell.m */; };
 		8FC242BE1F15C4F80064A845 /* ZZnotificationName.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242BD1F15C4F80064A845 /* ZZnotificationName.m */; };
 		8FC242C51F15E5C60064A845 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242C41F15E5C60064A845 /* MBProgressHUD.m */; };
 		8FC242C71F15F7290064A845 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC242C61F15F7290064A845 /* SystemConfiguration.framework */; };
@@ -160,7 +159,6 @@
 		8FC243751F1862B60064A845 /* TeamCompanyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243741F1862B60064A845 /* TeamCompanyListViewController.m */; };
 		8FC243781F1862DE0064A845 /* TeamExpandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243771F1862DE0064A845 /* TeamExpandListViewController.m */; };
 		8FC2437B1F1863590064A845 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2437A1F1863590064A845 /* BaseCollectionViewController.m */; };
-		8FC2437E1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2437D1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m */; };
 		8FC243811F1873E40064A845 /* ClassroomHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243801F1873E40064A845 /* ClassroomHttpTool.m */; };
 		8FC243851F18952C0064A845 /* CollectionViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243831F18952C0064A845 /* CollectionViewTableViewCell.m */; };
 		8FC243861F18952C0064A845 /* CollectionViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC243841F18952C0064A845 /* CollectionViewTableViewCell.xib */; };
@@ -375,8 +373,6 @@
 		8FADBEA91F0F3B62002F5911 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		8FADBEAF1F0F4206002F5911 /* HomeQACell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeQACell.h; sourceTree = "<group>"; };
 		8FADBEB01F0F4206002F5911 /* HomeQACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeQACell.m; sourceTree = "<group>"; };
-		8FADBEB91F0F5C40002F5911 /* HomeFounderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFounderCell.h; sourceTree = "<group>"; };
-		8FADBEBA1F0F5C40002F5911 /* HomeFounderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFounderCell.m; sourceTree = "<group>"; };
 		8FC242BC1F15C4F80064A845 /* ZZnotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZnotificationName.h; sourceTree = "<group>"; };
 		8FC242BD1F15C4F80064A845 /* ZZnotificationName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZnotificationName.m; sourceTree = "<group>"; };
 		8FC242C31F15E5C60064A845 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -462,8 +458,6 @@
 		8FC243771F1862DE0064A845 /* TeamExpandListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamExpandListViewController.m; sourceTree = "<group>"; };
 		8FC243791F1863590064A845 /* BaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewController.h; sourceTree = "<group>"; };
 		8FC2437A1F1863590064A845 /* BaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewController.m; sourceTree = "<group>"; };
-		8FC2437C1F1868CE0064A845 /* TeamCompanyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCompanyCollectionViewCell.h; sourceTree = "<group>"; };
-		8FC2437D1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCompanyCollectionViewCell.m; sourceTree = "<group>"; };
 		8FC2437F1F1873E40064A845 /* ClassroomHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassroomHttpTool.h; sourceTree = "<group>"; };
 		8FC243801F1873E40064A845 /* ClassroomHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassroomHttpTool.m; sourceTree = "<group>"; };
 		8FC243821F18952C0064A845 /* CollectionViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewTableViewCell.h; sourceTree = "<group>"; };
@@ -533,14 +527,15 @@
 		395247BE1F11351F000A6E20 /* HomeStory */ = {
 			isa = PBXGroup;
 			children = (
+				8FC6DCB51F2196E800566F96 /* FounderCollectionViewCell.h */,
+				8FC6DCB61F2196E800566F96 /* FounderCollectionViewCell.m */,
+				8FC6DCB71F2196E800566F96 /* FounderCollectionViewCell.xib */,
 				8FADBE4E1F0F28DC002F5911 /* HomeProductHeaderCell.h */,
 				8FADBE4F1F0F28DC002F5911 /* HomeProductHeaderCell.m */,
 				8FADBE641F0F361B002F5911 /* HomeProductClassCell.h */,
 				8FADBE651F0F361B002F5911 /* HomeProductClassCell.m */,
 				8FADBEAF1F0F4206002F5911 /* HomeQACell.h */,
 				8FADBEB01F0F4206002F5911 /* HomeQACell.m */,
-				8FADBEB91F0F5C40002F5911 /* HomeFounderCell.h */,
-				8FADBEBA1F0F5C40002F5911 /* HomeFounderCell.m */,
 				395247BB1F112E7C000A6E20 /* HomeEnterprisePublicityCell.h */,
 				395247BC1F112E7C000A6E20 /* HomeEnterprisePublicityCell.m */,
 				8FA936041F120E7A001E29CF /* ProductCell.h */,
@@ -562,8 +557,6 @@
 				8FA935EF1F11DBE1001E29CF /* HomeTeamExtCell.m */,
 				8FC2436A1F1854E60064A845 /* HomeTeamHeaderCell.h */,
 				8FC2436B1F1854E60064A845 /* HomeTeamHeaderCell.m */,
-				8FC2437C1F1868CE0064A845 /* TeamCompanyCollectionViewCell.h */,
-				8FC2437D1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m */,
 				8FC6DCBD1F219E0D00566F96 /* TeamCollectionViewCell.h */,
 				8FC6DCBE1F219E0D00566F96 /* TeamCollectionViewCell.m */,
 				8FC6DCBF1F219E0D00566F96 /* TeamCollectionViewCell.xib */,
@@ -796,9 +789,6 @@
 				8F54BDAD1F131175009E3C0B /* NewsLargeCell.m */,
 				8F54BDB01F131191009E3C0B /* NewsSmallCell.h */,
 				8F54BDB11F131191009E3C0B /* NewsSmallCell.m */,
-				8FC6DCB51F2196E800566F96 /* FounderCollectionViewCell.h */,
-				8FC6DCB61F2196E800566F96 /* FounderCollectionViewCell.m */,
-				8FC6DCB71F2196E800566F96 /* FounderCollectionViewCell.xib */,
 			);
 			name = HomeNews;
 			sourceTree = "<group>";
@@ -1210,7 +1200,6 @@
 				8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */,
 				8FADBEA01F0F39BF002F5911 /* UIImage+MultiFormat.m in Sources */,
 				8FADBE9B1F0F39BF002F5911 /* SDWebImageDownloaderOperation.m in Sources */,
-				8FADBEBB1F0F5C40002F5911 /* HomeFounderCell.m in Sources */,
 				396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */,
 				8FADBEA21F0F39BF002F5911 /* UIImageView+HighlightedWebCache.m in Sources */,
 				8FC6DCA91F204B2500566F96 /* PickerShadowContainer.m in Sources */,
@@ -1243,7 +1232,6 @@
 				8FADBEAA1F0F3B62002F5911 /* UIView+WebCache.m in Sources */,
 				8FC243431F1712A80064A845 /* StoreHttpTool.m in Sources */,
 				8FC2431E1F1704060064A845 /* NSDictionary+ext.m in Sources */,
-				8FC2437E1F1868CE0064A845 /* TeamCompanyCollectionViewCell.m in Sources */,
 				8FC243321F170D0D0064A845 /* PersonalChangeMobileViewController.m in Sources */,
 				8F54BDAE1F131175009E3C0B /* NewsLargeCell.m in Sources */,
 				8FA9360D1F1229FF001E29CF /* HomeFeedBackHeaderCell.m in Sources */,

@@ -153,6 +153,9 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIView* bg=[[UIView alloc]initWithFrame:cell.bounds];
+    bg.backgroundColor=[UIColor groupTableViewBackgroundColor];
+    cell.selectedBackgroundView=bg;
 //    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section]-1)) {
         self.shouldLoadMore=_dataSource.count!=lastCount;
