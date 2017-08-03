@@ -10,6 +10,10 @@
 
 @interface PickerShadowContainer : UIView
 
+@property (nonatomic,copy) void(^completionBlock)();
+
 +(void)showPickerContainerWithView:(UIView*)view;
+
++(void)showPickerContainerWithView:(UIView *)view completion:(void(^)())completion;
 
 @end

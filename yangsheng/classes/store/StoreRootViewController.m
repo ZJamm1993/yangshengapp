@@ -26,6 +26,8 @@
 
 #import "ButtonsCell.h"
 #import "StoreSmallCell.h"
+#import "CitySelectionPicker.h"
+#import "PickerShadowContainer.h"
 
 #import <CoreLocation/CoreLocation.h>
 
@@ -43,6 +45,7 @@
     NSString* currentLat;
     
     UIBarButtonItem* cityItem;
+    CitySelectionPicker* cityPicker;
     
     CityModel* selectedCity;
 }
@@ -98,9 +101,18 @@
 
 -(void)selectCity
 {
-    UIViewController* ob=[[StoreCitySelectionViewController alloc]initWithStyle:UITableViewStylePlain];;
-    PopOverNavigationController* pop=[[PopOverNavigationController alloc]initWithRootViewController:ob sourceView:self.navigationController.navigationBar];
-    [self presentViewController:pop animated:YES completion:nil];
+//    UIViewController* ob=[[StoreCitySelectionViewController alloc]initWithStyle:UITableViewStylePlain];;
+//    PopOverNavigationController* pop=[[PopOverNavigationController alloc]initWithRootViewController:ob sourceView:self.navigationController.navigationBar];
+//    [self presentViewController:pop animated:YES completion:nil];
+    if (cityPicker==nil) {
+        cityPicker=[CitySelectionPicker defaultCityPickerWithSections:3];
+    }
+    [PickerShadowContainer showPickerContainerWithView:cityPicker completion:^{
+        NSArray* citys=cityPicker.selectedCitys;
+        selectedCity=citys.lastObject;
+        [CityModel saveCity:selectedCity];
+        [self reloadCity];
+    }];
 }
 
 -(void)goToSearch
@@ -271,6 +283,11 @@
     }
     else if(index==2)
     {
+//        StoreApplyProtocolViewController* pro=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreApplyProtocolViewController"];
+//        
+//        [self.navigationController pushViewController:pro animated:YES];
+        //
+        
         UserModel* currentUser=[UserModel getUser];
         if (currentUser.access_token.length==0) {
             // did not log in

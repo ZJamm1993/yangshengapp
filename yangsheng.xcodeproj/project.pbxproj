@@ -111,6 +111,8 @@
 		8FADBEAA1F0F3B62002F5911 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEA71F0F3B62002F5911 /* UIView+WebCache.m */; };
 		8FADBEAB1F0F3B62002F5911 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEA91F0F3B62002F5911 /* UIView+WebCacheOperation.m */; };
 		8FADBEB11F0F4206002F5911 /* HomeQACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FADBEB01F0F4206002F5911 /* HomeQACell.m */; };
+		8FB7D65E1F32BE8C00AA295C /* DealersManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB7D65D1F32BE8C00AA295C /* DealersManagerViewController.m */; };
+		8FB7D6611F33055200AA295C /* CitySelectionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB7D6601F33055200AA295C /* CitySelectionPicker.m */; };
 		8FC242BE1F15C4F80064A845 /* ZZnotificationName.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242BD1F15C4F80064A845 /* ZZnotificationName.m */; };
 		8FC242C51F15E5C60064A845 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC242C41F15E5C60064A845 /* MBProgressHUD.m */; };
 		8FC242C71F15F7290064A845 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC242C61F15F7290064A845 /* SystemConfiguration.framework */; };
@@ -373,6 +375,10 @@
 		8FADBEA91F0F3B62002F5911 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		8FADBEAF1F0F4206002F5911 /* HomeQACell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeQACell.h; sourceTree = "<group>"; };
 		8FADBEB01F0F4206002F5911 /* HomeQACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeQACell.m; sourceTree = "<group>"; };
+		8FB7D65C1F32BE8C00AA295C /* DealersManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealersManagerViewController.h; sourceTree = "<group>"; };
+		8FB7D65D1F32BE8C00AA295C /* DealersManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealersManagerViewController.m; sourceTree = "<group>"; };
+		8FB7D65F1F33055200AA295C /* CitySelectionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySelectionPicker.h; sourceTree = "<group>"; };
+		8FB7D6601F33055200AA295C /* CitySelectionPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySelectionPicker.m; sourceTree = "<group>"; };
 		8FC242BC1F15C4F80064A845 /* ZZnotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZnotificationName.h; sourceTree = "<group>"; };
 		8FC242BD1F15C4F80064A845 /* ZZnotificationName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZnotificationName.m; sourceTree = "<group>"; };
 		8FC242C31F15E5C60064A845 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -973,6 +979,8 @@
 				8FC2430F1F1703C50064A845 /* UserModel.m */,
 				8F5219591F259B0300FE7733 /* CustomerServiceViewController.h */,
 				8F52195A1F259B0300FE7733 /* CustomerServiceViewController.m */,
+				8FB7D65C1F32BE8C00AA295C /* DealersManagerViewController.h */,
+				8FB7D65D1F32BE8C00AA295C /* DealersManagerViewController.m */,
 			);
 			path = personal;
 			sourceTree = "<group>";
@@ -1023,6 +1031,8 @@
 				8F507D4A1F1DE4D8003DF63D /* StoreAnnotationView.m */,
 				399834A21F29849000C60F0A /* StoreDetailContentCell.h */,
 				399834A31F29849000C60F0A /* StoreDetailContentCell.m */,
+				8FB7D65F1F33055200AA295C /* CitySelectionPicker.h */,
+				8FB7D6601F33055200AA295C /* CitySelectionPicker.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1159,6 +1169,7 @@
 				8FADBE9A1F0F39BF002F5911 /* SDWebImageDownloader.m in Sources */,
 				8FADBE471F0F1B5A002F5911 /* ZZUrlTool.m in Sources */,
 				8FADBE981F0F39BF002F5911 /* SDWebImageCompat.m in Sources */,
+				8FB7D6611F33055200AA295C /* CitySelectionPicker.m in Sources */,
 				396910BF1F0E855E00EF6D52 /* ZZHttpTool.m in Sources */,
 				8FC243811F1873E40064A845 /* ClassroomHttpTool.m in Sources */,
 				8F52195E1F25CB6000FE7733 /* ProductCodeTextViewController.m in Sources */,
@@ -1246,6 +1257,7 @@
 				396910C91F0E86EE00EF6D52 /* HomeStoryViewController.m in Sources */,
 				8F507D3F1F1DB93C003DF63D /* StoreAppointmentFooterCell.m in Sources */,
 				8F54BDB51F132B2B009E3C0B /* NeewsListViewController.m in Sources */,
+				8FB7D65E1F32BE8C00AA295C /* DealersManagerViewController.m in Sources */,
 				8FC2437B1F1863590064A845 /* BaseCollectionViewController.m in Sources */,
 				8FC243851F18952C0064A845 /* CollectionViewTableViewCell.m in Sources */,
 				8F507D2C1F1CBBFF003DF63D /* ProductSearchViewController.m in Sources */,

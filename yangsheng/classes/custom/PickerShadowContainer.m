@@ -12,6 +12,11 @@
 
 +(void)showPickerContainerWithView:(UIView *)view
 {
+    [self showPickerContainerWithView:view completion:nil];
+}
+
++(void)showPickerContainerWithView:(UIView *)view completion:(void (^)())completion
+{
     PickerShadowContainer* p=[[PickerShadowContainer alloc]initWithFrame:[UIScreen mainScreen].bounds];
     p.backgroundColor=[UIColor colorWithWhite:0 alpha:0.3];
     
@@ -33,13 +38,13 @@
     UIButton* ok=[[UIButton alloc]initWithFrame:CGRectMake(ww-64, 0, 64, barH)];
     [ok setTitle:@"确定" forState:UIControlStateNormal];
     [ok setTitleColor:pinkColor forState:UIControlStateNormal];
-    [ok addTarget:p action:@selector(removeFromSuperview) forControlEvents:UIControlEventTouchUpInside];
+    [ok addTarget:p action:@selector(ok) forControlEvents:UIControlEventTouchUpInside];
     [bar addSubview:ok];
     [bg addSubview:bar];
     
     [view removeFromSuperview];
     view.frame=CGRectMake(0, barH, ww, bgH-barH);
-//    view.backgroundColor=[UIColor whiteColor];
+    //    view.backgroundColor=[UIColor whiteColor];
     [bg addSubview:view];
     
     UIView* line=[[UIView alloc]initWithFrame:CGRectMake(0, barH, ww, 0.5)];
@@ -51,6 +56,7 @@
         fr.origin.y=wh-fr.size.height;
         bg.frame=fr;
     }];
+    p.completionBlock=completion;
 }
 
 -(void)hide:(UIView*)view
@@ -61,13 +67,27 @@
         view.frame=fr;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
+        
     }];
+}
+
+-(void)ok
+{
+    [self removeFromSuperview];
+    if (self.completionBlock) {
+        self.completionBlock();
+    }
 }
 
 -(void)removeFromSuperview
 {
     [self removeAllSubviews];
     [super removeFromSuperview];
+}
+
+-(void)dealloc
+{
+    NSLog(@"picker shadow deal");
 }
 
 @end

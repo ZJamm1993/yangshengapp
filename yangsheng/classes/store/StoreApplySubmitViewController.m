@@ -15,6 +15,9 @@
 #import "StoreApplyResultViewController.h"
 #import "StoreApplyProtocolViewController.h"
 
+#import "CitySelectionPicker.h"
+#import "PickerShadowContainer.h"
+
 @interface StoreApplySubmitViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -36,6 +39,8 @@
     
     NSString* positiveImageUrl;
     NSString* negativeImageUrl;
+    
+    CitySelectionPicker* cityPicker;
 }
 
 - (void)viewDidLoad {
@@ -56,7 +61,7 @@
         [self.negativeImage sd_setImageWithURL:[self.applyResult.negative urlWithMainUrl]];
     }
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didSelectedArea:) name:SelectedNewCityNotification object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didSelectedArea:) name:SelectedNewCityNotification object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -65,22 +70,22 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)didSelectedArea:(NSNotification*)noti
-{
-    NSArray* cities=[noti.userInfo valueForKey:CityLevelCity];
-    if (cities.count>0) {
-        NSString* cityName=@"";
-        NSMutableArray* names=[NSMutableArray array];
-        for (CityModel* ci in cities) {
-            NSString* cn=ci.name;
-            if (cn.length>0) {
-                [names addObject:cn];
-            }
-        }
-        cityName=[names componentsJoinedByString:@""];
-        self.areaTextField.text=cityName;
-    }
-}
+//-(void)didSelectedArea:(NSNotification*)noti
+//{
+//    NSArray* cities=[noti.userInfo valueForKey:CityLevelCity];
+//    if (cities.count>0) {
+//        NSString* cityName=@"";
+//        NSMutableArray* names=[NSMutableArray array];
+//        for (CityModel* ci in cities) {
+//            NSString* cn=ci.name;
+//            if (cn.length>0) {
+//                [names addObject:cn];
+//            }
+//        }
+//        cityName=[names componentsJoinedByString:@""];
+//        self.areaTextField.text=cityName;
+//    }
+//}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -102,11 +107,26 @@
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
 }
 - (IBAction)openMap:(id)sender {
-    StoreCitySelectionViewController* ob=[[StoreCitySelectionViewController alloc]initWithStyle:UITableViewStylePlain];
-    ob.isStoreLocation=YES;
-    PopOverNavigationController* pop=[[PopOverNavigationController alloc]initWithRootViewController:ob sourceView:self.mapButton];
-    [self presentViewController:pop animated:YES completion:nil];
-    
+//    StoreCitySelectionViewController* ob=[[StoreCitySelectionViewController alloc]initWithStyle:UITableViewStylePlain];
+//    ob.isStoreLocation=YES;
+//    PopOverNavigationController* pop=[[PopOverNavigationController alloc]initWithRootViewController:ob sourceView:self.mapButton];
+//    [self presentViewController:pop animated:YES completion:nil];
+    if (cityPicker==nil) {
+        cityPicker=[CitySelectionPicker defaultCityPickerWithSections:2];
+    }
+    [PickerShadowContainer showPickerContainerWithView:cityPicker completion:^{
+        NSString* cityName=@"";
+        NSMutableArray* names=[NSMutableArray array];
+        NSArray* cityssss=cityPicker.selectedCitys;
+        for (CityModel* ci in cityssss) {
+            NSString* cn=ci.name;
+            if (cn.length>0) {
+                [names addObject:cn];
+            }
+        }
+        cityName=[names componentsJoinedByString:@""];
+        self.areaTextField.text=cityName;
+    }];
 }
 - (IBAction)uploadPositiveImage:(id)sender {
     [self selectImageToPositive:YES];

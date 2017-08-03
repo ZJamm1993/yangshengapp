@@ -34,7 +34,7 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(weChatAuthReturnNotification:) name:WeChatReturnAuthCodeNotification object:nil];
     
-    self.thirdLoginBg.hidden=![WXApi isWXAppInstalled];
+    self.thirdLoginBg.hidden=YES;//![WXApi isWXAppInstalled];
 
 }
 
@@ -51,10 +51,10 @@
         req.state=@"123";
         [WXApi sendReq:req];
     }
-    else
-    {
-        [MBProgressHUD showErrorMessage:@"未安装微信"];
-    }
+//    else
+//    {
+//        [MBProgressHUD showErrorMessage:@"未安装微信"];
+//    }
 }
 
 -(void)weChatAuthReturnNotification:(NSNotification*)noti

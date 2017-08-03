@@ -15,6 +15,7 @@
 #import "StoreAllAppoinmentListViewController.h"
 #import "ClassroomCollectionViewController.h"
 #import "ProductCodeScanViewController.h"
+#import "DealersManagerViewController.h"
 
 #import "StoreHttpTool.h"
 #import "UserModel.h"
@@ -33,8 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    imgsArray=@[@[@"header"],@[@"my_Shop"],@[@"my_distributor"],@[@"my_curriculum"],@[@"my_account",@"my_Service"]];
-    titsArray=@[@[@"header"],@[@"申请开店"],@[@"我的预约"],@[@"收藏课程"],@[@"账户设置",@"联系客服"]];
+    imgsArray=@[@[@"header"],@[@"my_Shop"],@[@"my_distributor"],@[@"my_curriculum"],@[@"my_account",@"my_Service"],@[@"dealers entrance"]];
+    titsArray=@[@[@"header"],@[@"申请开店"],@[@"我的预约"],@[@"收藏课程"],@[@"账户设置",@"联系客服"],@[@"dealers entrance"]];
     
     [self.refreshControl removeFromSuperview];
     [self.tableView setTableFooterView:[[UIView alloc]init]];
@@ -214,6 +215,12 @@
             
             UIViewController* vc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomerServiceViewController"];
             [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
+    else if(indexPath.section==5)
+    {
+        if (indexPath.row==0) {
+            [self.navigationController pushViewController:[[DealersManagerViewController alloc]init] animated:YES];
         }
     }
 }
