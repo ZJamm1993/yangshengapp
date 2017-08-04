@@ -24,7 +24,7 @@
     [[[UIApplication sharedApplication]keyWindow] addSubview:p];
     
     [view removeFromSuperview];
-    CGFloat hv=200;
+    CGFloat hv=view.bounds.size.height;
     CGFloat barH=44;
     CGFloat bgH=hv+barH;
     CGFloat ww=windowBounds.size.width;
