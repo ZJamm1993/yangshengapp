@@ -14,6 +14,8 @@
 #import "WXApi.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
 
+#define LastBuildVersionKey @"aoisfj23989uUUKJHIUhiuhhi"
+
 @interface AppDelegate ()<WXApiDelegate>
 {
     Reachability* reach;
@@ -43,6 +45,13 @@
         [[AMapServices sharedServices]setEnableHTTPS:YES];
     });
     
+    NSString* buildVersion=[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleVersion"];
+    NSString* lastBuild=[[NSUserDefaults standardUserDefaults]valueForKey:LastBuildVersionKey];
+    if (![lastBuild isEqualToString:buildVersion]) {
+        [[NSURLCache sharedURLCache]removeAllCachedResponses];
+        [[NSUserDefaults standardUserDefaults]setValue:buildVersion forKey:LastBuildVersionKey];
+    }
+    
     return YES;
 }
 
@@ -69,7 +78,6 @@
         triedGetUserInfoTime=triedGetUserInfoTime+1;
         [PersonalHttpTool getUserInfoWithToken:lastUser.access_token success:^(UserModel *user) {
             if (user.access_token.length>0) {
-                user.type=lastUser.type;
                 [UserModel saveUser:user];
                 [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:nil];
                 triedGetUserInfoTime=0;

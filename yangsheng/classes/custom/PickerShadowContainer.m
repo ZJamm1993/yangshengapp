@@ -73,10 +73,11 @@
 
 -(void)ok
 {
-    [self removeFromSuperview];
+    
     if (self.completionBlock) {
         self.completionBlock();
     }
+    [self removeFromSuperview];
 }
 
 -(void)removeFromSuperview

@@ -10,8 +10,8 @@
 #import "ZZHttpTool.h"
 #import "UserModel.h"
 
-#define DealersManagerLoginUrl @"http://yangsen.hyxmt.cn/ServiceAPI/usercenter/Manager.aspx"
-#define DealersManagerDefaultUrl @"http://yangsen.hyxmt.cn/a/Manager/Default.aspx"
+//#define DealersManagerLoginUrl @"h/ttp://yangsen.hyxmt.cn/ServiceAPI/usercenter/Manager.aspx"
+//#define DealersManagerDefaultUrl @"h/ttp://yangsen.hyxmt.cn/a/Manager/Default.aspx"
 
 @interface DealersManagerViewController()<UIWebViewDelegate>
 
@@ -56,23 +56,40 @@
     
     [indicator startAnimating];
     
-    NSMutableDictionary* params=[NSMutableDictionary dictionary];
-    [params setValue:@"login" forKey:@"action"];
-    [params setValue:@"888888" forKey:@"password"];
-    [params setValue:@"q123456" forKey:@"UserName"];
-    [params setValue:@"/a/Manager/Default.aspx" forKey:@"refurl"];
+//    NSString* user_login=[[UserModel getUser]user_login];
+//    NSString* user_password=[UserModel getPassword];
     
-    [ZZHttpTool get:DealersManagerLoginUrl params:params usingCache:NO success:^(NSDictionary *loginResp) {
-        NSLog(@"%@",loginResp);
-        if ([[loginResp valueForKey:@"id"]integerValue]==1) {
-            [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:DealersManagerDefaultUrl]]];
-        }
-        else
-        {
-            [MBProgressHUD showErrorMessage:[loginResp valueForKey:@"messages"]];
-        }
-    } failure:^(NSError *loginErr) {
-        NSLog(@"%@",loginErr);
+    NSString* tok=[[UserModel getUser]access_token];
+    NSMutableDictionary* params=[NSMutableDictionary dictionary];
+    [params setValue:tok forKey:@"access_token"];
+    
+//    [params setValue:@"login" forKey:@"action"];
+//    [params setValue:user_password forKey:@"password"];
+//    [params setValue:user_login forKey:@"UserName"];
+//    [params setValue:@"/a/Manager/Default.aspx" forKey:@"refurl"];
+    
+    [ZZHttpTool get:[ZZUrlTool fullUrlWithTail:@"/User/Login/getDealerUrl"] params:params usingCache:NO success:^(NSDictionary *dealerResp) {
+        NSLog(@"%@",dealerResp);
+        
+        NSDictionary* data=[dealerResp valueForKey:@"data"];
+        NSString* loginUrl=[data valueForKey:@"login"];
+        NSString* homeUrl=[data valueForKey:@"home"];
+        
+        [ZZHttpTool get:loginUrl params:nil usingCache:NO success:^(NSDictionary *loginResp) {
+            if ([[loginResp valueForKey:@"id"]integerValue]==1) {
+                [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:homeUrl]]];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:[loginResp valueForKey:@"messages"]];
+            }
+        } failure:^(NSError *loginErr) {
+            
+            [MBProgressHUD showErrorMessage:@"网络不佳"];
+        }];
+        
+    } failure:^(NSError *dealerErr) {
+        NSLog(@"%@",dealerErr);
         [MBProgressHUD showErrorMessage:@"网络不佳"];
     }];
 }

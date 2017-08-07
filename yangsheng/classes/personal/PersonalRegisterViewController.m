@@ -80,8 +80,11 @@
         [PersonalHttpTool registerUserWithMobile:mobile password:password code:code invite:@"20" success:^(UserModel *user) {
             [MBProgressHUD hide];
             if (user!=nil) {
-                //            [UserModel saveUser:user];
-                [[NSNotificationCenter defaultCenter]postNotificationName:RegisterUserSuccessNotification object:user];
+                [UserModel saveUser:user];
+                
+//                NSDictionary* ud=[NSDictionary dictionaryWithObject:user forKey:@"user"];
+//                [[NSNotificationCenter defaultCenter]postNotificationName:RegisterUserSuccessNotification object:nil userInfo:ud];
+                
                 [self goToLogin:nil];
                 [MBProgressHUD showSuccessMessage:@"注册成功"];
             }

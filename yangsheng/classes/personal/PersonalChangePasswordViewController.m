@@ -42,7 +42,7 @@
                 if (changed) {
                     NSLog(@"changed YES");
                     [self.navigationController popViewControllerAnimated:YES];
-//                    [UserModel savePassword:nee];
+                    [UserModel savePassword:nee];
                     [MBProgressHUD showSuccessMessage:msg];
                 }
                 else

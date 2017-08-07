@@ -10,8 +10,8 @@
 
 typedef NS_ENUM(NSInteger,UserType)
 {
-    UserTypeNormal,
-    UserTypeWeChat,
+    UserTypeNormal=3,
+    UserTypeDealer=2,
 };
 
 @interface UserModel : NSObject
@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger,UserType)
 @property (nonatomic,strong) NSString* idd;
 @property (nonatomic,strong) NSString* mobile;
 @property (nonatomic,strong) NSString* user_nicename;
+@property (nonatomic,strong) NSString* user_login;
 @property (nonatomic,strong) NSString* access_token;
 @property (nonatomic,strong) NSString* avatar;
 @property (nonatomic,assign) UserType type;

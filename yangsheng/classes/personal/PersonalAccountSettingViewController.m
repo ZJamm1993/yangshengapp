@@ -31,6 +31,13 @@
     self.title=@"个人信息";
     self.tableView.tableFooterView=[[UIView alloc]init];
     [self.refreshControl removeFromSuperview];
+    
+    if ([UserModel getUser].type==UserTypeDealer) {
+        UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"您当前身份为经销商" message:@"若要修改资料，请前往经销商入口" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -59,8 +66,14 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row==2||indexPath.row==3) {
-        if ([[UserModel getUser]type]!=UserTypeNormal) {
+//    if (indexPath.row==2||indexPath.row==3) {
+//        if ([[UserModel getUser]type]!=UserTypeNormal) {
+//            return 0;
+//        }
+//    }
+    
+    if (indexPath.section!=1) {
+        if ([[UserModel getUser]type]==UserTypeDealer) {
             return 0;
         }
     }
@@ -70,32 +83,35 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row==0) {
-        UIImagePickerController* pick=[[UIImagePickerController alloc]init];
-        pick.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
-        pick.delegate=self;
-        pick.allowsEditing=YES;
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-            [self presentViewController:pick animated:YES completion:nil];
+    if (indexPath.section==0) {
+        if (indexPath.row==0) {
+            UIImagePickerController* pick=[[UIImagePickerController alloc]init];
+            pick.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+            pick.delegate=self;
+            pick.allowsEditing=YES;
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+                [self presentViewController:pick animated:YES completion:nil];
+            }
         }
+        else if(indexPath.row==1)
+        {
+            PersonalChangeNickNameViewController* c=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalChangeNickNameViewController"];
+            [self.navigationController pushViewController:c animated:YES];
+        }
+        else if(indexPath.row==2)
+        {
+            PersonalChangeMobileViewController* c=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalChangeMobileViewController"];
+            c.currentPhoneText=self.mobile.text;
+            [self.navigationController pushViewController:c animated:YES];
+        }
+        else if(indexPath.row==3)
+        {
+            PersonalChangePasswordViewController* c=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalChangePasswordViewController"];
+            [self.navigationController pushViewController:c animated:YES];
+        }
+
     }
-    else if(indexPath.row==1)
-    {
-        PersonalChangeNickNameViewController* c=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalChangeNickNameViewController"];
-        [self.navigationController pushViewController:c animated:YES];
-    }
-    else if(indexPath.row==2)
-    {
-        PersonalChangeMobileViewController* c=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalChangeMobileViewController"];
-        c.currentPhoneText=self.mobile.text;
-        [self.navigationController pushViewController:c animated:YES];
-    }
-    else if(indexPath.row==3)
-    {
-        PersonalChangePasswordViewController* c=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalChangePasswordViewController"];
-        [self.navigationController pushViewController:c animated:YES];
-    }
-    else if(indexPath.row==5)
+    else if(indexPath.section==1&&indexPath.row==0)
     {
         [PersonalHttpTool logOutUserToken:[UserModel getUser].access_token];
         [UserModel deleteUser];

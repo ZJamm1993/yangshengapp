@@ -228,7 +228,10 @@
 //            [cell.webView loadHTMLString:self.detailStoreModel.store_content baseURL:[NSURL URLWithString:[ZZUrlTool main]]];
 //            return cell;
             StoreDetailContentCell* cell=[tableView dequeueReusableCellWithIdentifier:@"StoreDetailContentCell" forIndexPath:indexPath];
-            NSAttributedString* attr=[[NSAttributedString alloc]initWithData:[self.detailStoreModel.store_content dataUsingEncoding:NSUnicodeStringEncoding] options:[NSDictionary dictionaryWithObject:NSHTMLTextDocumentType forKey:NSDocumentTypeDocumentAttribute] documentAttributes:nil error:nil];
+            NSString* html=self.detailStoreModel.store_content;
+//            cell.htmlLabe.font=[UIFont systemFontOfSize:20];
+//            html=@"<a href=\"ht/tps://www.baidu.com\">百度</a>";
+            NSAttributedString* attr=[[NSAttributedString alloc]initWithData:[html dataUsingEncoding:NSUnicodeStringEncoding] options:[NSDictionary dictionaryWithObject:NSHTMLTextDocumentType forKey:NSDocumentTypeDocumentAttribute] documentAttributes:nil error:nil];
             cell.htmlLabe.attributedText=attr;
             return cell;
         }

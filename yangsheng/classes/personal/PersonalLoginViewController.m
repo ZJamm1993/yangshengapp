@@ -38,6 +38,14 @@
 
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if ([[UserModel getUser]access_token].length>0) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -67,7 +75,6 @@
         [MBProgressHUD hide];
         if(user)
         {
-            user.type=UserTypeWeChat;
             [self logSuccessWithUser:user];
         }
         else
@@ -86,7 +93,7 @@
             [MBProgressHUD hide];
             if(user)
             {
-//                [UserModel savePassword:pa];
+                [UserModel savePassword:pa];
                 [self logSuccessWithUser:user];
             }
             else
