@@ -12,7 +12,7 @@
 #import "ZZHttpTool.h"
 #import "WBWebProgressBar.h"
 
-@interface BaseWebViewController ()<UIWebViewDelegate>
+@interface BaseWebViewController ()//<UIWebViewDelegate>
 {
 //    UIWebView* webv;
     UIImageView* loadingImageView;
@@ -59,12 +59,15 @@
     }];
 }
 
--(UIWebView*)webView
+-(WKWebView*)webView
 {
     if (_webView==nil) {
-        _webView=[[UIWebView alloc]initWithFrame:self.view.bounds];
-        _webView.delegate=self;
-        _webView.dataDetectorTypes=UIDataDetectorTypeNone;
+        
+        _webView=[[WKWebView alloc]initWithFrame:self.view.bounds];
+        _webView.configuration.allowsInlineMediaPlayback=YES;
+        
+//        _webView.delegate=self;
+//        _webView.dataDetectorTypes=UIDataDetectorTypeNone;
         [self.view addSubview:_webView];
     }
     return _webView;
@@ -181,10 +184,10 @@
     self.webView.frame=self.view.bounds;
 }
 
--(void)dealloc
-{
-    self.webView.delegate=nil;
-}
+//-(void)dealloc
+//{
+//    self.webView.delegate=nil;
+//}
 
 //-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 //{

@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import <WebKit/WebKit.h>
 
 #define html_brandStory @"/Content/Page/show_brand"
 #define html_founder_detail @"/Content/Founder/show"
@@ -38,7 +39,7 @@
 @property (nonatomic,strong) NSString* type;
 @property (nonatomic,strong) NSURL* url;
 @property (nonatomic,strong) NSString* html;
-@property (nonatomic,strong) UIWebView* webView;
+@property (nonatomic,strong) WKWebView* webView;
 
 -(void)loadWithCustomUrl:(NSURL*)url complete:(void(^) ())completeblock;
 
