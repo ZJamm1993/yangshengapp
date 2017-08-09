@@ -78,7 +78,7 @@
 -(NSString*)pagerController:(ZZPagerController *)pager titleAtIndex:(NSInteger)index
 {
     if (index==0) {
-        return @"品牌故事";
+        return @"企业文化";
     }
     else if (index==1) {
         return @"服务团队";
