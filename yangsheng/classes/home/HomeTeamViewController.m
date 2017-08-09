@@ -172,7 +172,7 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
 {
     if (indexPath.row==0) {
         HomeTeamHeaderCell* c=[tableView dequeueReusableCellWithIdentifier:@"HomeTeamHeaderCell" forIndexPath:indexPath];
-        NSArray* titles=@[@"每日之星",@"公司团队",@"团队拓展"];
+        NSArray* titles=@[@"每月之星",@"公司团队",@"团队拓展"];
         NSArray* details=@[@"努力不一定有回报，不努力那就一定没有",@"没有团队，哪来的成功",@"人生处处是课堂 累并快乐着"];
         if (indexPath.section<titles.count) {
             c.title.text=[titles objectAtIndex:indexPath.section];

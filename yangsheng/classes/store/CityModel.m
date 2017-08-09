@@ -20,6 +20,12 @@
         _name=[dictionary valueForKey:@"name"];
         _adcode=[dictionary valueForKey:@"adcode"];
         _level=[dictionary valueForKey:@"level"];
+//        if (_citycode.length==0) {
+//            return nil;
+//        }
+        if (_name.length==0) {
+            _name=[dictionary valueForKey:@"city"];
+        }
     }
     return self;
 }

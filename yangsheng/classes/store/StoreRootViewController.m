@@ -94,9 +94,16 @@
 -(void)reloadCity
 {
     CityModel* c=[CityModel getCity];
-    cityItem.title=c.name.length>0?c.name:@"选择城市";
+    [self refreshCityButton:c];
     selectedCity=c;
     [self refreshWithCache:YES];
+}
+
+-(void)refreshCityButton:(CityModel*)c
+{
+//    if (c.name.length>0) {
+        cityItem.title=c.name.length>0?c.name:@"选择城市";
+//    }
 }
 
 -(void)selectCity
@@ -152,7 +159,7 @@
     currentLng=[loca valueForKey:UserLastLocationLongitudeKey];
     currentLat=[loca valueForKey:UserLastLocationLatitudeKey];
 //#endif
-    [StoreHttpTool getNeighbourStoreListPage:1 lng:currentLng lat:currentLat mult:5 cityCode:selectedCity.citycode success:^(NSArray *datasource) {
+    [StoreHttpTool getNeighbourStoreListPage:1 lng:currentLng lat:currentLat mult:5 cityCode:selectedCity.citycode success:^(NSArray *datasource,CityModel* city) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         [self tableViewReloadData];
@@ -160,6 +167,8 @@
         //        if (self.dataSource.count>0) {
         //            self.currentPage=1;
         //        }
+        
+        [self refreshCityButton:city];
     } isCache:cache];
 }
 

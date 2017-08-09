@@ -211,14 +211,22 @@
         MACoordinateRegion regn = MACoordinateRegionMake(center, span);
         // 设置地图显示区域
         [mapView setRegion:regn animated:NO];
+        
+        [self performSelector:@selector(selectTheOnlyAnnotation) withObject:nil afterDelay:0.1];
     }
 }
 
 -(void)selectTheOnlyAnnotation
 {
     if (self.presetShops.count==1) {
-        NSArray* anns=[self annotionsFromStores:self.presetShops];
-        [map selectAnnotation:anns.firstObject animated:NO];
+//        NSArray* anns=[self annotionsFromStores:self.presetShops];
+        NSArray* anos=map.annotations;
+        for (id<MAAnnotation>an in anos) {
+            if ([an isKindOfClass:[StoreMapAnnotation class]]) {
+                [map selectAnnotation:an animated:NO];
+                break;
+            }
+        }
     }
 }
 
@@ -276,7 +284,6 @@
         free(cs);
         cs=NULL;
         
-        [self performSelector:@selector(selectTheOnlyAnnotation) withObject:nil afterDelay:1];
     }
 }
 
