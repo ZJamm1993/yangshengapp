@@ -121,6 +121,11 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    self.tableView.scrollEnabled=testWebView.scrollView.contentOffset.y==0;
+//    testWebView.scrollView.scrollEnabled=!self.tableView.scrollEnabled;
+    self.tableView.scrollsToTop=self.tableView.scrollEnabled;
+    testWebView.scrollView.scrollsToTop=!self.tableView.scrollsToTop;
+    
     if (scrollView==self.tableView) {
         CGFloat offy=scrollView.contentOffset.y;
         CGFloat h=scrollView.frame.size.height;
@@ -132,10 +137,10 @@
         [appointmentView removeFromSuperview];
         [self.tableView addSubview:appointmentView];
         
-        if (tableViewLastY>scrollView.contentOffset.y) {
-            [testWebView.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-        }
-        tableViewLastY=scrollView.contentOffset.y;
+//        if (tableViewLastY>scrollView.contentOffset.y) {
+//            [testWebView.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+//        }
+//        tableViewLastY=scrollView.contentOffset.y;
         
 //        [testWebView.scrollView resignFirstResponder];
 //        testWebView.scrollView.scrollEnabled=scrollView.contentOffset.y==0;
@@ -144,12 +149,15 @@
     {
 //        self.tableView.scrollEnabled=scrollView.contentOffset.y>0;
         if (scrollView.contentOffset.y<0) {
+            CGFloat y=scrollView.contentOffset.y;
             [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
-            [self.tableView scrollRectToVisible:CGRectMake(0, 0, 100, 100) animated:YES];
+            [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y+y) animated:NO];
         }
         else if(scrollView.contentOffset.y>0)
         {
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//            if (!tableViewScrolling) {
+                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//            }
         }
     }
 }
@@ -253,14 +261,17 @@
 //            return cell;
             StoreDetailContentCell* cell=[tableView dequeueReusableCellWithIdentifier:@"StoreDetailContentCell" forIndexPath:indexPath];
             NSString* html=self.detailStoreModel.store_content;
+            
 //            cell.htmlLabe.font=[UIFont systemFontOfSize:20];
 //            html=@"<a href=\"ht/tps://www.baidu.com\">百度</a>";
 //            NSAttributedString* attr=[[NSAttributedString alloc]initWithData:[html dataUsingEncoding:NSUnicodeStringEncoding] options:[NSDictionary dictionaryWithObject:NSHTMLTextDocumentType forKey:NSDocumentTypeDocumentAttribute] documentAttributes:nil error:nil];
 //            cell.htmlLabe.attributedText=attr;
+            
             [cell.webView loadHTMLString:html baseURL:[NSURL URLWithString:[ZZUrlTool fullUrlWithTail:@"/Entity/Store/show"]]];
             testWebView=cell.webView;
             testWebView.scrollView.delegate=self;
-            testWebView.scrollView.scrollsToTop=NO;
+            
+//            testWebView.scrollView.scrollsToTop=NO;
 //            testWebView.scrollView.scrollEnabled=NO;
             return cell;
         }

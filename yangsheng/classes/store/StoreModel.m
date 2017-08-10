@@ -39,22 +39,22 @@
         
         _store_content=[dictionary valueForKey:@"store_content"];
         NSString* html=_store_content;
-        if(html.length>0)
-        {
-            html=[html stringByReplacingOccurrencesOfString:@"img" withString:@"img width=\"100%\""];
-            if (![html containsString:@"<html>"]) {
-                if (![html containsString:@"<body>"]) {
-                    html=[NSString stringWithFormat:@"<body>%@</body>",html];
-                }
-                if (![html containsString:@"<head>"])
-                {
-//                    html=[NSString stringWithFormat:@"<head><style>img{max-width:%f !important;}p{font-size:15px;}</style></head>%@",[[UIScreen mainScreen]bounds].size.width-30,html];
-                }
-                html=[NSString stringWithFormat:@"<html>%@</html>",html];
-            }
-//            NSString* js=@"<script>window.onload = function() {window.location.href = \"ready://\" + document.body.scrollHeight;}</script>";
-//            html=[NSString stringWithFormat:@"%@%@",html,js];
-        }
+//        if(html.length>0)
+//        {
+//            html=[html stringByReplacingOccurrencesOfString:@"img" withString:@"img width=\"100%\""];
+//            if (![html containsString:@"<html>"]) {
+//                if (![html containsString:@"<body>"]) {
+//                    html=[NSString stringWithFormat:@"<body>%@</body>",html];
+//                }
+//                if (![html containsString:@"<head>"])
+//                {
+////                    html=[NSString stringWithFormat:@"<head><style>img{max-width:%f !important;}p{font-size:15px;}</style></head>%@",[[UIScreen mainScreen]bounds].size.width-30,html];
+//                }
+//                html=[NSString stringWithFormat:@"<html>%@</html>",html];
+//            }
+////            NSString* js=@"<script>window.onload = function() {window.location.href = \"ready://\" + document.body.scrollHeight;}</script>";
+////            html=[NSString stringWithFormat:@"%@%@",html,js];
+//        }
         
         _store_content=html;
     
