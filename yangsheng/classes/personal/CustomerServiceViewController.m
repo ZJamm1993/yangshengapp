@@ -7,12 +7,15 @@
 //
 
 #import "CustomerServiceViewController.h"
-#import "UniversalModel.h"
-#import "WXApi.h"
+#import "WaiterCollectionCell.h"
+//#import "UniversalModel.h"
+//#import "WXApi.h"
+
+#import "UniversalHttpTool.h"
 
 @interface CustomerServiceViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *savebtn;
-@property (weak, nonatomic) IBOutlet UIButton *openbtn;
+//@property (weak, nonatomic) IBOutlet UIButton *savebtn;
+//@property (weak, nonatomic) IBOutlet UIButton *openbtn;
 
 @end
 
@@ -22,37 +25,106 @@
     [super viewDidLoad];
     
     self.title=@"联系客服";
+//
+//    NSString* imgUrl=[[UniversalModel getUniversal]wx_path];
+//    
+//    [self.qrCodeImage sd_setImageWithURL:[imgUrl urlWithMainUrl]];
+//    
+//    self.savebtn.layer.cornerRadius=self.savebtn.bounds.size.height/2;
+//    self.savebtn.layer.borderColor=[UIColor colorWithWhite:0.7 alpha:1].CGColor;
+//    self.savebtn.layer.borderWidth=0.5;
+//    
+//    self.openbtn.layer.cornerRadius=self.openbtn.bounds.size.height/2;
+//    self.openbtn.layer.borderColor=[UIColor colorWithWhite:0.7 alpha:1].CGColor;
+//    self.openbtn.layer.borderWidth=0.5;
+//    
+//    // Do any additional setup after loading the view.
     
-    NSString* imgUrl=[[UniversalModel getUniversal]wx_path];
-    
-    [self.qrCodeImage sd_setImageWithURL:[imgUrl urlWithMainUrl]];
-    
-    self.savebtn.layer.cornerRadius=self.savebtn.bounds.size.height/2;
-    self.savebtn.layer.borderColor=[UIColor colorWithWhite:0.7 alpha:1].CGColor;
-    self.savebtn.layer.borderWidth=0.5;
-    
-    self.openbtn.layer.cornerRadius=self.openbtn.bounds.size.height/2;
-    self.openbtn.layer.borderColor=[UIColor colorWithWhite:0.7 alpha:1].CGColor;
-    self.openbtn.layer.borderWidth=0.5;
-    
-    // Do any additional setup after loading the view.
+    self.collectionView.collectionViewLayout=self.collectionViewLayout;
+    [self firstLoad];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)firstLoad
+{
+    UniversalModel* currentModel=[UniversalModel getUniversal];
+    if (currentModel.photos.count>0) {
+        self.dataSource=[NSMutableArray arrayWithArray:currentModel.photos];
+        [self.collectionView reloadData];
+    }
+    else
+    {
+        [self refresh];
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)refresh
+{
+    [self stopRefreshAfterSeconds];
+    [UniversalHttpTool getUniversalProfileSuccess:^(UniversalModel *univaer) {
+        if (univaer) {
+            [UniversalModel saveUniversal:univaer];
+            if (univaer.photos.count>0) {
+                self.dataSource=[NSMutableArray arrayWithArray:univaer.photos];
+                [self.collectionView reloadData];
+            }
+        }
+    } isCache:NO];
 }
-*/
 
+-(UICollectionViewLayout*)collectionViewLayout
+{
+    UICollectionViewFlowLayout* flow=[[UICollectionViewFlowLayout alloc]init];
+    
+    CGFloat sw=[[UIScreen mainScreen]bounds].size.width;
+    CGFloat m=10;
+    CGFloat w=sw/2-3*m;
+    CGFloat h=w+90;
+    
+    flow.itemSize=CGSizeMake(w, h);
+    flow.minimumLineSpacing=2*m;
+    flow.minimumInteritemSpacing=0;
+    flow.sectionInset=UIEdgeInsetsMake(2*m,2*m,m,2*m);
+    
+    return flow;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.dataSource.count;
+}
+
+-(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    WaiterCollectionCell* wai=[collectionView dequeueReusableCellWithReuseIdentifier:@"WaiterCollectionCell" forIndexPath:indexPath];
+    WaiterModel* m=[self.dataSource objectAtIndex:indexPath.row];
+    [wai.imageView sd_setImageWithURL:[m.url urlWithMainUrl]];
+    [wai.textLabe setText:m.alt];
+    return wai;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    WaiterModel* m=[self.dataSource objectAtIndex:indexPath.row];
+    NSData* imgdata=[NSData dataWithContentsOfURL:[[m url]urlWithMainUrl]];
+    UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:imgdata], self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+}
+
+//- (void)didReceiveMemoryWarning {
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
+//
+///*
+//#pragma mark - Navigation
+//
+//// In a storyboard-based application, you will often want to do a little preparation before navigation
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//}
+//*/
+//
 - (IBAction)saveImage:(id)sender {
     NSData* imgdata=[NSData dataWithContentsOfURL:[[[UniversalModel getUniversal]wx_path]urlWithMainUrl]];
     UIImageWriteToSavedPhotosAlbum([UIImage imageWithData:imgdata], self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
@@ -70,12 +142,12 @@
     }
 
 }
-
-- (IBAction)openWechat:(id)sender {
-
-    [WXApi openWXApp];
-    
-    return;
+//
+//- (IBAction)openWechat:(id)sender {
+//
+//    [WXApi openWXApp];
+//    
+//    return;
 //    return;
 //    CIDetector*detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{ CIDetectorAccuracy : CIDetectorAccuracyHigh }];
 //    //2. 扫描获取的特征组
@@ -120,6 +192,6 @@
      
      
      */
-}
+//}
 
 @end

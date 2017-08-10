@@ -38,7 +38,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scheduleRefresh) name:ScheduleRefreshNetWorkNotification object:nil];
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -59,6 +59,12 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
+}
+
+-(void)scheduleRefresh
+{
+    //    NSLog(@"%@ scheduleRefreshing",NSStringFromClass([self class]));
+    [self refresh];
 }
 
 -(NSMutableArray*)dataSource
@@ -157,6 +163,10 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    
+    UIView* selectedBg=[[UIView alloc]init];
+    selectedBg.backgroundColor=[UIColor groupTableViewBackgroundColor];
+    cell.selectedBackgroundView=selectedBg;
     
     if ((indexPath.section==[collectionView numberOfSections]-1)&&(indexPath.row==[collectionView numberOfItemsInSection:indexPath.section]-1)) {
         self.shouldLoadMore=_dataSource.count!=lastCount;
@@ -352,9 +362,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 // Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+//	return YES;
+//}
 
 /*
 // Uncomment this method to specify if the specified item should be selected

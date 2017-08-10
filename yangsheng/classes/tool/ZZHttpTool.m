@@ -63,7 +63,7 @@
         NSString* body=[keysAndValues componentsJoinedByString:@"&"];
 //        body=[body stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
-        NSLog(@"HTTPBODY:%@",body);
+//        NSLog(@"HTTPBODY:%@",body);
         
         if (isGet&&body.length>0) {
             url=[NSString stringWithFormat:@"%@?%@",url,body];

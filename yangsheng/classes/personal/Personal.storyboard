@@ -500,7 +500,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="aao-p0-0bv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="8sz-zE-xjb">
@@ -690,83 +690,68 @@
             <point key="canvasLocation" x="-577" y="1045"/>
         </scene>
         <!--Customer Service View Controller-->
-        <scene sceneID="ysr-Vt-NAm">
+        <scene sceneID="iJi-hz-VQY">
             <objects>
-                <viewController storyboardIdentifier="CustomerServiceViewController" id="sgg-AK-RuM" customClass="CustomerServiceViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DGv-Vv-SeD"/>
-                        <viewControllerLayoutGuide type="bottom" id="74O-0X-2pu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EWb-pb-yYm">
+                <collectionViewController storyboardIdentifier="CustomerServiceViewController" id="W9T-kV-Nxk" customClass="CustomerServiceViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="qqg-ul-gtr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-bQ-767">
-                                <rect key="frame" x="36" y="80" width="248" height="170"/>
+                        <collectionViewLayout key="collectionViewLayout" id="dVb-HR-adN"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WaiterCollectionCell" id="bYH-XS-fkj" customClass="WaiterCollectionCell">
+                                <rect key="frame" x="79" y="0.0" width="162" height="252"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="162" height="252"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MKa-LX-X9E">
+                                            <rect key="frame" x="0.0" y="0.0" width="162" height="162"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="MKa-LX-X9E" secondAttribute="height" multiplier="1:1" id="JBV-5V-zBn"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客服" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZR-CC-DaK">
+                                            <rect key="frame" x="8" y="183" width="146" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击保存图片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B31-OO-H2q">
+                                            <rect key="frame" x="42" y="216" width="78" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.37698620557785034" green="0.67703527212142944" blue="0.98507922887802124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="170" id="1zm-gE-7hi"/>
-                                    <constraint firstAttribute="width" secondItem="Ln8-bQ-767" secondAttribute="height" multiplier="242:197" id="LYs-WT-xRq"/>
+                                    <constraint firstItem="SZR-CC-DaK" firstAttribute="top" secondItem="MKa-LX-X9E" secondAttribute="bottom" constant="21" id="1nw-Dl-X5r"/>
+                                    <constraint firstItem="B31-OO-H2q" firstAttribute="centerX" secondItem="bYH-XS-fkj" secondAttribute="centerX" id="2Xe-En-fJg"/>
+                                    <constraint firstItem="SZR-CC-DaK" firstAttribute="leading" secondItem="bYH-XS-fkj" secondAttribute="leading" constant="8" id="CdH-fe-BbA"/>
+                                    <constraint firstAttribute="trailing" secondItem="MKa-LX-X9E" secondAttribute="trailing" id="Ch0-bw-3bH"/>
+                                    <constraint firstItem="SZR-CC-DaK" firstAttribute="centerX" secondItem="bYH-XS-fkj" secondAttribute="centerX" id="LHJ-va-Sdy"/>
+                                    <constraint firstItem="MKa-LX-X9E" firstAttribute="top" secondItem="bYH-XS-fkj" secondAttribute="top" id="ej1-6k-ZI6"/>
+                                    <constraint firstItem="B31-OO-H2q" firstAttribute="top" secondItem="SZR-CC-DaK" secondAttribute="bottom" constant="12" id="h5e-oU-75j"/>
+                                    <constraint firstAttribute="trailing" secondItem="SZR-CC-DaK" secondAttribute="trailing" constant="8" id="n4k-rR-sCJ"/>
+                                    <constraint firstItem="MKa-LX-X9E" firstAttribute="leading" secondItem="bYH-XS-fkj" secondAttribute="leading" id="vWZ-Gy-ryT"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="LYs-WT-xRq"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnb-ED-8fx">
-                                <rect key="frame" x="75" y="295" width="170" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="NSz-YQ-gOA"/>
-                                    <constraint firstAttribute="height" constant="40" id="sJL-6E-fU1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="保存图片到手机相册">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <size key="customSize" width="162" height="252"/>
                                 <connections>
-                                    <action selector="saveImage:" destination="sgg-AK-RuM" eventType="touchUpInside" id="HKK-LX-t8p"/>
+                                    <outlet property="imageView" destination="MKa-LX-X9E" id="den-jn-gIb"/>
+                                    <outlet property="textLabe" destination="SZR-CC-DaK" id="BhT-0V-1hc"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIo-LG-LeN">
-                                <rect key="frame" x="75" y="355" width="170" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="cmR-j1-6gX"/>
-                                    <constraint firstAttribute="height" constant="40" id="tcK-X3-vME"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="使用微信扫一扫添加好友">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openWechat:" destination="sgg-AK-RuM" eventType="touchUpInside" id="fyb-DL-5XB"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Ln8-bQ-767" firstAttribute="centerX" secondItem="EWb-pb-yYm" secondAttribute="centerX" id="Ikn-jc-Vgc"/>
-                            <constraint firstItem="Ln8-bQ-767" firstAttribute="top" secondItem="DGv-Vv-SeD" secondAttribute="bottom" constant="60" id="KVZ-6C-T5w"/>
-                            <constraint firstItem="bIo-LG-LeN" firstAttribute="top" secondItem="wnb-ED-8fx" secondAttribute="bottom" constant="20" id="OwQ-FL-DeO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ln8-bQ-767" secondAttribute="trailing" constant="18" id="ZRd-qO-SUM"/>
-                            <constraint firstItem="Ln8-bQ-767" firstAttribute="leading" secondItem="EWb-pb-yYm" secondAttribute="leadingMargin" constant="20" id="eFC-hn-PS7"/>
-                            <constraint firstItem="bIo-LG-LeN" firstAttribute="centerX" secondItem="EWb-pb-yYm" secondAttribute="centerX" id="jM5-mj-qGF"/>
-                            <constraint firstItem="wnb-ED-8fx" firstAttribute="top" secondItem="Ln8-bQ-767" secondAttribute="bottom" constant="45" id="lVx-YO-fg6"/>
-                            <constraint firstItem="wnb-ED-8fx" firstAttribute="centerX" secondItem="EWb-pb-yYm" secondAttribute="centerX" id="py5-G7-jYE"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ZRd-qO-SUM"/>
-                            </mask>
-                        </variation>
-                    </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="W9T-kV-Nxk" id="08o-CG-v8B"/>
+                            <outlet property="delegate" destination="W9T-kV-Nxk" id="Tsl-T5-gSh"/>
+                        </connections>
+                    </collectionView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="openbtn" destination="bIo-LG-LeN" id="2au-39-Oya"/>
-                        <outlet property="qrCodeImage" destination="Ln8-bQ-767" id="7aD-fh-iMu"/>
-                        <outlet property="savebtn" destination="wnb-ED-8fx" id="wGT-eL-ygU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rKf-fz-cXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6S-Oh-7mL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-238" y="1045"/>
         </scene>

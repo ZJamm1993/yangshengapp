@@ -14,7 +14,19 @@
 +(instancetype)getUniversal;
 -(instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
+@property (nonatomic,strong) NSDictionary* dictionary;
+
 @property (nonatomic,strong) NSString* qq_number;
 @property (nonatomic,strong) NSString* wx_path;
+
+@property (nonatomic,strong) NSArray* photos;
+
+@end
+
+@interface WaiterModel : NSObject
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@property (nonatomic,strong) NSString* url;
+@property (nonatomic,strong) NSString* alt;
 
 @end

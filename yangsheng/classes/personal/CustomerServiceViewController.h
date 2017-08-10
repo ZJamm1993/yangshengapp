@@ -6,10 +6,8 @@
 //  Copyright © 2017年 jam. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseCollectionViewController.h"
 
-@interface CustomerServiceViewController : BaseViewController
-@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImage;
-@property (weak, nonatomic) IBOutlet UIButton *openWechatButton;
+@interface CustomerServiceViewController : BaseCollectionViewController
 
 @end

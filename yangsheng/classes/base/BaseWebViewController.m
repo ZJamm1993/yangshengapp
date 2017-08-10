@@ -134,13 +134,13 @@
         if (![abs containsString:[ZZUrlTool main]]) {
             abs=[ZZUrlTool fullUrlWithTail:abs];
         }
-        
+//        abs=@"http://192.168.1.131:82/index.html";
 //        abs=@"https://www.baidu.com";
         self.url=[NSURL URLWithString:abs];
         NSLog(@"webview:  %@",abs);
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];
-//        [webv loadRequest:req];
-        
+//        [self.webView loadRequest:req];
+//        return;
         
         loadingImageView.hidden=NO;
         [progressBar WBWebProgressPreparing];

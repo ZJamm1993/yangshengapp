@@ -66,6 +66,7 @@
     self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scheduleRefresh) name:ScheduleRefreshNetWorkNotification object:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -105,6 +106,13 @@
     {
         hasNetwork=NO;
     }
+}
+
+-(void)scheduleRefresh
+{
+//    NSLog(@"%@ scheduleRefreshing",NSStringFromClass([self class]));
+//    [self.refreshControl beginRefreshing];
+    [self refresh];
 }
 
 -(void)dealloc

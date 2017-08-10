@@ -20,6 +20,8 @@
 {
     Reachability* reach;
     NSInteger triedGetUserInfoTime;
+    
+    NSTimer* scheduleRefreshTimer;
 }
 @end
 
@@ -43,16 +45,30 @@
         
         [[AMapServices sharedServices]setApiKey:@"5a0dbb8ca2f251b16d210c8d91f7cad6"];
         [[AMapServices sharedServices]setEnableHTTPS:YES];
+        
+        NSString* buildVersion=[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleVersion"];
+        NSString* lastBuild=[[NSUserDefaults standardUserDefaults]valueForKey:LastBuildVersionKey];
+        if (![lastBuild isEqualToString:buildVersion]) {
+            [[NSURLCache sharedURLCache]removeAllCachedResponses];
+            [[NSUserDefaults standardUserDefaults]setValue:buildVersion forKey:LastBuildVersionKey];
+        }
+        
     });
     
-    NSString* buildVersion=[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleVersion"];
-    NSString* lastBuild=[[NSUserDefaults standardUserDefaults]valueForKey:LastBuildVersionKey];
-    if (![lastBuild isEqualToString:buildVersion]) {
-        [[NSURLCache sharedURLCache]removeAllCachedResponses];
-        [[NSUserDefaults standardUserDefaults]setValue:buildVersion forKey:LastBuildVersionKey];
-    }
+    
+    scheduleRefreshTimer=[NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(scheduleTimer) userInfo:nil repeats:YES];
+    [scheduleRefreshTimer setFireDate:[NSDate dateWithTimeIntervalSinceNow:2]];
     
     return YES;
+}
+
+-(void)scheduleTimer
+{
+    if ([[UIApplication sharedApplication]applicationState]!=UIApplicationStateActive) {
+        return;
+    }
+    [self getUniversalProfile];
+    [self sendScheduleRefreshNotification];
 }
 
 -(void)networkStateChange:(NSNotification*)noti
@@ -118,6 +134,11 @@
     } isCache:NO];
 }
 
+-(void)sendScheduleRefreshNotification
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:ScheduleRefreshNetWorkNotification object:nil];
+}
+
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     [WXApi handleOpenURL:url delegate:self];
@@ -166,6 +187,7 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [self autoLoginAgain];
     [self getUniversalProfile];
+    [self sendScheduleRefreshNotification];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

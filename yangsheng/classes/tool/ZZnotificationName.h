@@ -14,6 +14,8 @@
 #define SelectedNewCityNotification @"SelectedNewCityNotification"
 #define WeChatReturnAuthCodeNotification @"WeChatReturnAuthCodeNotification"
 
+#define ScheduleRefreshNetWorkNotification @"ScheduleRefreshNetWorkNotification"
+
 @interface ZZnotificationName : NSObject
 
 @end
