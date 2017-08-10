@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 @interface StoreDetailContentCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextView *htmlLabe;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end

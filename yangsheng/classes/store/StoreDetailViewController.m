@@ -27,6 +27,9 @@
 //    UIWebView* testWebView;
 //    CGFloat webViewHeight;
     StoreAppointmentView* appointmentView;
+    __weak UIWebView* testWebView;
+    
+    CGFloat tableViewLastY;
 }
 @end
 
@@ -126,23 +129,43 @@
         appf.origin.y=offy+h-b;
         appointmentView.frame=appf;
         
-        
         [appointmentView removeFromSuperview];
         [self.tableView addSubview:appointmentView];
+        
+        if (tableViewLastY>scrollView.contentOffset.y) {
+            [testWebView.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }
+        tableViewLastY=scrollView.contentOffset.y;
+        
+//        [testWebView.scrollView resignFirstResponder];
+//        testWebView.scrollView.scrollEnabled=scrollView.contentOffset.y==0;
+    }
+    else if(scrollView==testWebView.scrollView)
+    {
+//        self.tableView.scrollEnabled=scrollView.contentOffset.y>0;
+        if (scrollView.contentOffset.y<0) {
+            [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
+            [self.tableView scrollRectToVisible:CGRectMake(0, 0, 100, 100) animated:YES];
+        }
+        else if(scrollView.contentOffset.y>0)
+        {
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        }
     }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section==0) {
-        return 0.00001;
-    }
-    return 8;
+//    if (section==0) {
+//        return 0.00001;
+//    }
+//    return 8;
+    return 0.00001;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 4;
+    return 8;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -167,6 +190,7 @@
         {
             //web
 //            return webViewHeight;
+            return [[UIScreen mainScreen]bounds].size.height-64-49-44;
         }
     }
     return UITableViewAutomaticDimension;
@@ -231,8 +255,13 @@
             NSString* html=self.detailStoreModel.store_content;
 //            cell.htmlLabe.font=[UIFont systemFontOfSize:20];
 //            html=@"<a href=\"ht/tps://www.baidu.com\">百度</a>";
-            NSAttributedString* attr=[[NSAttributedString alloc]initWithData:[html dataUsingEncoding:NSUnicodeStringEncoding] options:[NSDictionary dictionaryWithObject:NSHTMLTextDocumentType forKey:NSDocumentTypeDocumentAttribute] documentAttributes:nil error:nil];
-            cell.htmlLabe.attributedText=attr;
+//            NSAttributedString* attr=[[NSAttributedString alloc]initWithData:[html dataUsingEncoding:NSUnicodeStringEncoding] options:[NSDictionary dictionaryWithObject:NSHTMLTextDocumentType forKey:NSDocumentTypeDocumentAttribute] documentAttributes:nil error:nil];
+//            cell.htmlLabe.attributedText=attr;
+            [cell.webView loadHTMLString:html baseURL:[NSURL URLWithString:[ZZUrlTool fullUrlWithTail:@"/Entity/Store/show"]]];
+            testWebView=cell.webView;
+            testWebView.scrollView.delegate=self;
+            testWebView.scrollView.scrollsToTop=NO;
+//            testWebView.scrollView.scrollEnabled=NO;
             return cell;
         }
     }

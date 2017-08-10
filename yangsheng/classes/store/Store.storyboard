@@ -224,7 +224,7 @@
                                                         <outlet property="delegate" destination="jrk-aq-ATg" id="eWL-F3-NCy"/>
                                                     </connections>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVh-GA-wmE">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVh-GA-wmE">
                                                     <rect key="frame" x="280" y="11" width="30" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="VvJ-R7-yKk"/>
@@ -1567,22 +1567,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="aaa" translatesAutoresizingMaskIntoConstraints="NO" id="B5T-dj-cHC">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5T-dj-cHC">
                                             <rect key="frame" x="10" y="0.0" width="300" height="79"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8t-ft-yGb">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="79"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </webView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="B5T-dj-cHC" firstAttribute="top" secondItem="ooe-mG-lV6" secondAttribute="top" id="5Zd-aA-coZ"/>
+                                        <constraint firstItem="R8t-ft-yGb" firstAttribute="top" secondItem="ooe-mG-lV6" secondAttribute="top" id="Asm-G0-Rw7"/>
                                         <constraint firstAttribute="trailing" secondItem="B5T-dj-cHC" secondAttribute="trailing" constant="10" id="DIL-vR-JlB"/>
                                         <constraint firstAttribute="bottom" secondItem="B5T-dj-cHC" secondAttribute="bottom" id="FTG-tU-RFm"/>
                                         <constraint firstItem="B5T-dj-cHC" firstAttribute="leading" secondItem="ooe-mG-lV6" secondAttribute="leading" constant="10" id="TtI-kk-RbS"/>
+                                        <constraint firstItem="R8t-ft-yGb" firstAttribute="leading" secondItem="ooe-mG-lV6" secondAttribute="leading" constant="10" id="ZCY-E3-pwI"/>
+                                        <constraint firstAttribute="trailing" secondItem="R8t-ft-yGb" secondAttribute="trailing" constant="10" id="mf2-dw-yMQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="R8t-ft-yGb" secondAttribute="bottom" id="w5x-gC-xDz"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="htmlLabe" destination="B5T-dj-cHC" id="G2d-IN-Jju"/>
+                                    <outlet property="webView" destination="R8t-ft-yGb" id="jm2-Bv-oZB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
