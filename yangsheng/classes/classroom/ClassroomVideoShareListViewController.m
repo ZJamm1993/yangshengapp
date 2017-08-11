@@ -61,7 +61,8 @@
     [ClassroomHttpTool getClassroomListType:4 page:1 size:self.pageSize success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
-        [self.collectionView reloadData];
+//        [self.collectionView reloadData];
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
         if (datasource.count>0) {
             self.currentPage=1;
         }
@@ -85,7 +86,8 @@
     
     [ClassroomHttpTool getClassroomListType:4 page:1+self.currentPage size:self.pageSize success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
-        [self.collectionView reloadData];
+        //        [self.collectionView reloadData];
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
         if (datasource.count>0) {
             self.currentPage++;
         }

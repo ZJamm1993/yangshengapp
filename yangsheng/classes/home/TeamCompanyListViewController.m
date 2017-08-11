@@ -39,7 +39,7 @@
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         //        [self.collectionView reloadData];
-        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
         [self stopRefreshAfterSeconds];
         if (datasource.count>0) {
             self.currentPage=1;
@@ -52,7 +52,8 @@
     
     [HomeHttpTool getTeamsPage:1+self.currentPage size:self.pageSize  success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
-        [self.collectionView reloadData];
+        //        [self.collectionView reloadData];
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
         if (datasource.count>0) {
             self.currentPage++;
         }

@@ -49,7 +49,8 @@
     UniversalModel* currentModel=[UniversalModel getUniversal];
     if (currentModel.photos.count>0) {
         self.dataSource=[NSMutableArray arrayWithArray:currentModel.photos];
-        [self.collectionView reloadData];
+        //        [self.collectionView reloadData];
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
     }
     else
     {
@@ -65,7 +66,8 @@
             [UniversalModel saveUniversal:univaer];
             if (univaer.photos.count>0) {
                 self.dataSource=[NSMutableArray arrayWithArray:univaer.photos];
-                [self.collectionView reloadData];
+                //                [self.collectionView reloadData];
+                [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
             }
         }
     } isCache:NO];

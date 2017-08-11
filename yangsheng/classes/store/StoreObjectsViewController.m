@@ -34,7 +34,8 @@
         if (datasource.count>0) {
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:datasource];
-            [self.collectionView reloadData];
+            //            [self.collectionView reloadData];
+            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
         }
     } isCache:NO];
 }
@@ -45,7 +46,8 @@
         if (datasource.count>0) {
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:datasource];
-            [self.collectionView reloadData];
+            //            [self.collectionView reloadData];
+            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
         }
     } isCache:YES];
 }

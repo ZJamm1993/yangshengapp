@@ -33,7 +33,8 @@
 {
     _flowLayout=flowLayout;
     self.collectionView.collectionViewLayout=_flowLayout;
-    [self.collectionView reloadData];
+    //    [self.collectionView reloadData];
+    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
 }
 
 -(void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier
@@ -51,7 +52,8 @@
 -(void)setDelegate:(id<CollectionViewTableViewCellDelegate>)delegate
 {
     _delegate=delegate;
-    [self.collectionView reloadData];
+    //    [self.collectionView reloadData];
+    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
