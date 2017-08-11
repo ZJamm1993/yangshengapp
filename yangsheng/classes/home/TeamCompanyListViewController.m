@@ -20,12 +20,13 @@
     [super viewDidLoad];
     self.title=@"公司团队";
     
+    [self.collectionView registerNib:[UINib nibWithNibName:@"TeamCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TeamCollectionViewCell"];
+    
     [self loadMore];
     // Do any additional setup after loading the view.
     
 //    [self setAdvertiseHeaderViewWithPicturesUrls:@[@"a",@"b"]];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"TeamCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TeamCollectionViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +39,7 @@
     [HomeHttpTool getTeamsPage:1 size:self.pageSize success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
-        //        [self.collectionView reloadData];
+//                [self.collectionView reloadData];
         [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
         [self stopRefreshAfterSeconds];
         if (datasource.count>0) {
@@ -52,7 +53,7 @@
     
     [HomeHttpTool getTeamsPage:1+self.currentPage size:self.pageSize  success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
-        //        [self.collectionView reloadData];
+//                [self.collectionView reloadData];
         [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
         if (datasource.count>0) {
             self.currentPage++;
