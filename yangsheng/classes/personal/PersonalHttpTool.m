@@ -63,12 +63,12 @@
     }];
 }
 
-+(void)registerUserWithMobile:(NSString *)mobile password:(NSString *)password code:(NSString *)code invite:(NSString *)invite success:(void (^)(UserModel *))success
++(void)registerUserWithMobile:(NSString *)mobile password:(NSString *)password code:(NSString *)code invite:(NSString *)invite success:(void (^)(UserModel *,NSString*))success
 {
     invite=@"20";
     if (mobile.length==0||password.length==0||code.length==0||invite.length==0) {
         if (success) {
-            success(nil);
+            success(nil,@"");
             
         }
         return;
@@ -85,12 +85,13 @@
     [self post:str params:p success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         UserModel* us=[[UserModel alloc]initWithDictionary:data];
+        NSString* msg=[responseObject valueForKey:@"message"];
         if (success) {
-            success(us);
+            success(us,msg);
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(nil);
+            success(nil,@"网络不通");
         }
     }];
 }

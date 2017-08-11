@@ -23,4 +23,6 @@
 @property (nonatomic,strong) NSArray* buttonsTitles;
 @property (nonatomic,strong) NSArray* buttonsImageNames;
 
+@property (nonatomic,assign) BOOL isHorizontalImageTitle;
+
 @end

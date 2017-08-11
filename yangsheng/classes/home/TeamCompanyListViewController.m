@@ -38,7 +38,8 @@
     [HomeHttpTool getTeamsPage:1 size:self.pageSize success:^(NSArray *datasource) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
-        [self.collectionView reloadData];
+        //        [self.collectionView reloadData];
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
         [self stopRefreshAfterSeconds];
         if (datasource.count>0) {
             self.currentPage=1;

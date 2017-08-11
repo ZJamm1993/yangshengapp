@@ -9,7 +9,7 @@
 #import "PersonalChangePasswordViewController.h"
 #import "PersonalHttpTool.h"
 
-@interface PersonalChangePasswordViewController()
+@interface PersonalChangePasswordViewController()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *oldPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *neewPasswordTextField;
@@ -24,6 +24,25 @@
 {
     [super viewDidLoad];
     self.title=@"修改密码";
+    
+    self.oldPasswordTextField.delegate=self;
+    self.neewPasswordTextField.delegate=self;
+    self.surePasswordTextField.delegate=self;
+    
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    
+    [textField resignFirstResponder];
+    if (textField==self.oldPasswordTextField) {
+        [self.neewPasswordTextField becomeFirstResponder];
+    }
+    else if(textField==self.neewPasswordTextField)
+    {
+        [self.surePasswordTextField becomeFirstResponder];
+    }
+    return YES;
 }
 
 - (IBAction)changePassword:(id)sender {

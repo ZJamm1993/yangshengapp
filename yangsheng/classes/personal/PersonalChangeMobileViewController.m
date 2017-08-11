@@ -9,7 +9,7 @@
 #import "PersonalChangeMobileViewController.h"
 #import "PersonalHttpTool.h"
 
-@interface PersonalChangeMobileViewController ()
+@interface PersonalChangeMobileViewController ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *currentMobile;
 @property (weak, nonatomic) IBOutlet UITextField *neewMobileTextField;
@@ -25,6 +25,8 @@
     
     self.title=@"修改手机号";
     self.currentMobile.text=self.currentPhoneText;
+    self.neewMobileTextField.delegate=self;
+    self.codeTextField.delegate=self;
     if([[UserModel getUser]mobile].length==0)
     {
         self.currentMobile.text=@"未绑定手机号";
@@ -37,6 +39,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    if (textField==self.neewMobileTextField) {
+        [self.codeTextField becomeFirstResponder];
+    }
+    return YES;
+}
 /*
 #pragma mark - Navigation
 

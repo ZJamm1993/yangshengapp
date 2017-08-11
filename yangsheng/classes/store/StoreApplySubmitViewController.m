@@ -49,6 +49,12 @@
     
     [self.refreshControl removeFromSuperview];
     
+    self.nameTextField.delegate=self;
+    self.phoneTextField.delegate=self;
+    self.idcardTextField.delegate=self;
+    self.areaTextField.delegate=self;
+    self.addressTextField.delegate=self;
+    
     if (self.applyResult) {
         self.nameTextField.text=self.applyResult.name;
         self.phoneTextField.text=self.applyResult.tel;
@@ -277,7 +283,25 @@
 {
     if (textField==self.areaTextField) {
         [self openMap:nil];
+        [self.view endEditing:YES];
         return NO;
+    }
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    if (textField==self.nameTextField) {
+        [self.phoneTextField becomeFirstResponder];
+    }
+    else if(textField==self.phoneTextField)
+    {
+        [self.idcardTextField becomeFirstResponder];
+    }
+    else if(textField==self.idcardTextField)
+    {
+        [self.addressTextField becomeFirstResponder];
     }
     return YES;
 }

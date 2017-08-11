@@ -9,7 +9,7 @@
 #import "PersonalForgetPasswordViewController.h"
 #import "PersonalHttpTool.h"
 
-@interface PersonalForgetPasswordViewController ()
+@interface PersonalForgetPasswordViewController ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -21,6 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.usernameTextField.delegate=self;
+    self.passwordTextField.delegate=self;
+    self.codeTextField.delegate=self;
     self.title=@"忘记密码";
     // Do any additional setup after loading the view.
 }
@@ -28,6 +31,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    if (textField==self.usernameTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    }
+    else if(textField==self.passwordTextField)
+    {
+        [self.codeTextField becomeFirstResponder];
+    }
+    return YES;
 }
 
 - (IBAction)getCode:(id)sender {

@@ -10,7 +10,7 @@
 #import "PersonalLoginViewController.h"
 #import "PersonalHttpTool.h"
 
-@interface PersonalRegisterViewController ()
+@interface PersonalRegisterViewController ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -25,7 +25,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"注册";
+    
+    self.usernameTextField.delegate=self;
+    self.passwordTextField.delegate=self;
+    self.surePasswordTextField.delegate=self;
+    self.codeTextField.delegate=self;
     // Do any additional setup after loading the view.
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    if (textField==self.usernameTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    }
+    else if(textField==self.passwordTextField)
+    {
+        [self.surePasswordTextField becomeFirstResponder];
+    }
+    else if(textField==self.surePasswordTextField)
+    {
+        [self.codeTextField becomeFirstResponder];
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,7 +99,7 @@
     if (mobile.length>0&&password.passwordLength&&code.length>0&&isSamePassword) {
         
         [MBProgressHUD showProgressMessage:@"正在注册"];
-        [PersonalHttpTool registerUserWithMobile:mobile password:password code:code invite:@"20" success:^(UserModel *user) {
+        [PersonalHttpTool registerUserWithMobile:mobile password:password code:code invite:@"20" success:^(UserModel *user,NSString* msg) {
             [MBProgressHUD hide];
             if (user!=nil) {
                 [UserModel saveUser:user];
@@ -90,7 +112,7 @@
             }
             else
             {
-                [MBProgressHUD showErrorMessage:@"注册出现问题"];
+                [MBProgressHUD showErrorMessage:msg];
             }
         }];
     }

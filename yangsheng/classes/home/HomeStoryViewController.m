@@ -109,10 +109,10 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     } isCache:isCache];
     
     //
-    [HomeHttpTool getQuesAnsRandomSuccess:^(NSArray *datasource) {
-        qaArray=[NSMutableArray arrayWithArray:datasource];
-        [self tableViewReloadData];
-    } isCache:isCache];
+//    [HomeHttpTool getQuesAnsRandomSuccess:^(NSArray *datasource) {
+//        qaArray=[NSMutableArray arrayWithArray:datasource];
+//        [self tableViewReloadData];
+//    } isCache:isCache];
     
     //
     [HomeHttpTool getFoundersSuccess:^(NSArray *datasource) {
@@ -161,7 +161,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     }
     else if(section==HomeStorySectionQuestion)
     {
-        return qaArray.count+1;
+        return 0;//qaArray.count+1;
     }
     else if(section==HomeStorySectionFounder)
     {
@@ -207,8 +207,13 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     if (sec==HomeStorySectionHeader) {
         ButtonsCell* c=[tableView dequeueReusableCellWithIdentifier:@"TopButtonsCell" forIndexPath:indexPath];
         c.delegate=self;
-        c.buttonsTitles=[NSArray arrayWithObjects:@"品牌故事",@"新闻中心",@"在线咨询",@"防伪查询", nil];
-        c.buttonsImageNames=[NSArray arrayWithObjects:@"home_page",@"home_news",@"home_Consultation",@"home_Security", nil];
+        c.isHorizontalImageTitle=YES;
+        c.buttonsTitles=[NSArray arrayWithObjects:@"品牌故事\nBrand Story",@"新闻中心\nNews Center"
+//                         ,@"在线咨询",@"防伪查询"
+                         ,nil];
+        c.buttonsImageNames=[NSArray arrayWithObjects:@"home_page",@"home_news"
+//                             ,@"home_Consultation",@"home_Security"
+                             , nil];
         return c;
     }
     else if(sec==HomeStorySectionProduct)

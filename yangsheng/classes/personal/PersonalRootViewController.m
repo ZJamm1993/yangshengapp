@@ -143,8 +143,16 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.section==0&&indexPath.row==0&&self.isLoged==NO) {
-        [self goLoginPage];
+    if (indexPath.section==0&&indexPath.row==0) {
+        if(self.isLoged==NO)
+        {
+            [self goLoginPage];
+        }
+        else
+        {
+            PersonalAccountSettingViewController* acc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalAccountSettingViewController"];
+            [self.navigationController pushViewController:acc animated:YES];
+        }
     }
     if (indexPath.section==1) {
         if (!self.isLoged) {

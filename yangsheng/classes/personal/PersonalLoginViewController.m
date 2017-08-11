@@ -14,7 +14,7 @@
 
 #import "WXApi.h"
 
-@interface PersonalLoginViewController ()
+@interface PersonalLoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIView *thirdLoginBg;
@@ -35,7 +35,17 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(weChatAuthReturnNotification:) name:WeChatReturnAuthCodeNotification object:nil];
     
     self.thirdLoginBg.hidden=YES;//![WXApi isWXAppInstalled];
+    self.usernameTextField.delegate=self;
+    self.passwordTextField.delegate=self;
+}
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    if (textField==self.usernameTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    }
+    return YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated

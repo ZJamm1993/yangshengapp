@@ -24,7 +24,7 @@
 
 -(NSInteger)numbersOfChildControllersInPagerController:(ZZPagerController *)pager
 {
-    return 3;
+    return 4;
 }
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
@@ -41,6 +41,10 @@
 //        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_3.html" urlWithMainUrl]];
         return [[UIStoryboard storyboardWithName:@"Classroom" bundle:nil]instantiateViewControllerWithIdentifier:@"ClassroomVideoShareListViewController"];
     }
+    else if(index==3)
+    {
+        return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"QAListViewController"];
+    }
     return nil;
 }
 
@@ -54,6 +58,10 @@
     }
     else if (index==2) {
         return @"视频分享";
+    }
+    else if (index==3)
+    {
+        return @"常见问题";
     }
     return nil;
 }

@@ -13,7 +13,7 @@
 
 +(void)getCodeWithMobile:(NSString*)mobile success:(void(^)(BOOL sent,NSString* msg))success;
 
-+(void)registerUserWithMobile:(NSString*)mobile password:(NSString*)password code:(NSString*)code invite:(NSString*)invite success:(void(^) (UserModel* user))success;
++(void)registerUserWithMobile:(NSString*)mobile password:(NSString*)password code:(NSString*)code invite:(NSString*)invite success:(void(^) (UserModel* user,NSString* msg))success;
 
 +(void)loginUserWithMobile:(NSString*)mobile password:(NSString*)password success:(void(^) (UserModel* user))success;
 +(void)loginUserWithWechatCode:(NSString*)code success:(void(^)(UserModel* user))success;

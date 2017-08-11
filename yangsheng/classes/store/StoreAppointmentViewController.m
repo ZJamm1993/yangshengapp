@@ -84,11 +84,13 @@
 {
     if (textField==self.appointmentProject) {
         [self selectAppointProject];
+        [self.view endEditing:YES];
         return NO;
     }
     else if(textField==self.appointmentTime)
     {
         [self selectAppointTime];
+        [self.view endEditing:YES];
         return NO;
     }
     [self hideAllPickers];
@@ -98,6 +100,9 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+//    if (textField) {
+//        statements
+//    }
     return YES;
 }
 
