@@ -13,15 +13,18 @@
 #import "WBWebProgressBar.h"
 
 @interface BaseWebViewController ()//<UIWebViewDelegate>
+@property (nonatomic,strong) UIWebView* ios8WebView;
+@property (nonatomic,strong) WKWebView* ios9WebView;
+@end
+
+@implementation BaseWebViewController
+
 {
-//    UIWebView* webv;
+    //    UIWebView* webv;
     UIImageView* loadingImageView;
     WBWebProgressBar* progressBar;
     UIActivityIndicatorView* loadingIndicator;
 }
-@end
-
-@implementation BaseWebViewController
 
 -(instancetype)initWithUrl:(NSURL *)url
 {
@@ -37,40 +40,38 @@
     return self;
 }
 
--(void)loadWithCustomUrl:(NSURL *)url complete:(void (^)())completeblock
+-(WKWebView*)ios9WebView
 {
-    [ZZHttpTool get:url.absoluteString params:nil usingCache:YES success:^(NSDictionary * res) {
-        NSDictionary* data=[res valueForKey:@"data"];
+    if (_ios9WebView==nil) {
         
-        NSString* title=[data valueForKey:@"post_title"];
-        NSString* content=[data valueForKey:@"post_content"];
-        
-        self.url=url;
-        self.html=content;
-        
-        [self.webView loadHTMLString:content baseURL:url];
-        
-        self.title=title;
-        if (completeblock) {
-            completeblock();
-        }
-    } failure:^(NSError * err) {
-        
-    }];
-}
-
--(WKWebView*)webView
-{
-    if (_webView==nil) {
-        
-        _webView=[[WKWebView alloc]initWithFrame:self.view.bounds];
-        _webView.configuration.allowsInlineMediaPlayback=YES;
+        _ios9WebView=[[WKWebView alloc]initWithFrame:self.view.bounds];
+        _ios9WebView.configuration.allowsInlineMediaPlayback=YES;
         
 //        _webView.delegate=self;
 //        _webView.dataDetectorTypes=UIDataDetectorTypeNone;
-        [self.view addSubview:_webView];
+        [self.view addSubview:_ios9WebView];
     }
-    return _webView;
+    NSLog(@"wkwebview");
+    return _ios9WebView;
+}
+
+-(UIWebView*)ios8WebView
+{
+    if (_ios8WebView==nil) {
+        _ios8WebView=[[UIWebView alloc]initWithFrame:self.view.bounds];
+        _ios8WebView.dataDetectorTypes=UIDataDetectorTypeNone;
+        [self.view addSubview:_ios8WebView];
+    }
+    NSLog(@"uiwebview");
+    return _ios8WebView;
+}
+
+-(UIView*)webUIView
+{
+    if ([[[UIDevice currentDevice]systemVersion]floatValue]<9.0) {
+        return self.ios8WebView;
+    }
+    return self.ios9WebView;
 }
 
 -(void)setHtml:(NSString *)html
@@ -100,7 +101,7 @@
     
     if(self.html.length>0)
     {
-        [self.webView loadHTMLString:self.html baseURL:self.url];
+        [self loadHtml:self.html];
     }
     else if (self.url) {
         NSString* abs=[self.url absoluteString];
@@ -155,7 +156,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSString* htmlStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 //                NSLog(@"%@",htmlStr);
-                [self.webView loadHTMLString:htmlStr baseURL:self.url];
+                [self loadHtml:htmlStr];
                 [loadingIndicator stopAnimating];
                 loadingImageView.hidden=YES;
                 
@@ -173,6 +174,17 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)loadHtml:(NSString*)htmlString
+{
+    if ([[[UIDevice currentDevice]systemVersion]floatValue]<9.0) {
+        [self.ios8WebView loadHTMLString:htmlString baseURL:self.url];
+    }
+    else
+    {
+        [self.ios9WebView loadHTMLString:htmlString baseURL:self.url];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -181,7 +193,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.webView.frame=self.view.bounds;
+    self.webUIView.frame=self.view.bounds;
 }
 
 //-(void)dealloc

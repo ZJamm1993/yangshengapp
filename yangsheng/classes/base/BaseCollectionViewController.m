@@ -63,6 +63,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)scheduleRefresh
 {
+    lastCount=0;
     //    NSLog(@"%@ scheduleRefreshing",NSStringFromClass([self class]));
     [self refresh];
 }

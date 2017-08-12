@@ -112,6 +112,7 @@
 {
 //    NSLog(@"%@ scheduleRefreshing",NSStringFromClass([self class]));
 //    [self.refreshControl beginRefreshing];
+    lastCount=0;
     [self refresh];
 }
 

@@ -30,7 +30,7 @@
     [super viewDidAppear:animated];
     CGRect fr=self.view.bounds;
     fr.size.height=fr.size.height-92;
-    self.webView.frame=fr;
+    self.webUIView.frame=fr;
     
 }
 

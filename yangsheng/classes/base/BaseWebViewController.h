@@ -39,8 +39,6 @@
 @property (nonatomic,strong) NSString* type;
 @property (nonatomic,strong) NSURL* url;
 @property (nonatomic,strong) NSString* html;
-@property (nonatomic,strong) WKWebView* webView;
-
--(void)loadWithCustomUrl:(NSURL*)url complete:(void(^) ())completeblock;
+@property (nonatomic,strong) UIView* webUIView;
 
 @end
