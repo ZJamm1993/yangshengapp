@@ -10,19 +10,15 @@
 #import "ZZUrlTool.h"
 #import "UserModel.h"
 #import "ZZHttpTool.h"
-#import "WBWebProgressBar.h"
+//#import "WBWebProgressBar.h"
 
-@interface BaseWebViewController ()//<UIWebViewDelegate>
+@interface BaseWebViewController ()<UIWebViewDelegate>
 @property (nonatomic,strong) UIWebView* ios8WebView;
-@property (nonatomic,strong) WKWebView* ios9WebView;
 @end
 
 @implementation BaseWebViewController
-
 {
-    //    UIWebView* webv;
     UIImageView* loadingImageView;
-    WBWebProgressBar* progressBar;
     UIActivityIndicatorView* loadingIndicator;
 }
 
@@ -40,19 +36,9 @@
     return self;
 }
 
--(WKWebView*)ios9WebView
+-(void)dealloc
 {
-    if (_ios9WebView==nil) {
-        
-        _ios9WebView=[[WKWebView alloc]initWithFrame:self.view.bounds];
-        _ios9WebView.configuration.allowsInlineMediaPlayback=YES;
-        
-//        _webView.delegate=self;
-//        _webView.dataDetectorTypes=UIDataDetectorTypeNone;
-        [self.view addSubview:_ios9WebView];
-    }
-    NSLog(@"wkwebview");
-    return _ios9WebView;
+    self.ios8WebView.delegate=nil;
 }
 
 -(UIWebView*)ios8WebView
@@ -60,6 +46,7 @@
     if (_ios8WebView==nil) {
         _ios8WebView=[[UIWebView alloc]initWithFrame:self.view.bounds];
         _ios8WebView.dataDetectorTypes=UIDataDetectorTypeNone;
+        _ios8WebView.delegate=self;
         [self.view addSubview:_ios8WebView];
     }
     NSLog(@"uiwebview");
@@ -68,36 +55,20 @@
 
 -(UIView*)webUIView
 {
-    if ([[[UIDevice currentDevice]systemVersion]floatValue]<9.0) {
-        return self.ios8WebView;
-    }
-    return self.ios9WebView;
-}
-
--(void)setHtml:(NSString *)html
-{
-    _html=html;
+    return self.ios8WebView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
     
-    loadingImageView=[[UIImageView alloc]initWithFrame:self.view.bounds];
-    loadingImageView.image=[UIImage imageNamed:@"webview_loading"];
-    [self.view addSubview:loadingImageView];
-//    loadingImageView.alpha=0.5;
-    loadingImageView.hidden=YES;
-    
     loadingIndicator=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     loadingIndicator.center=CGPointMake(self.view.center.x, 64);
     loadingIndicator.hidesWhenStopped=YES;
+//    loadingIndicator.backgroundColor=[UIColor redColor];
     [loadingIndicator stopAnimating];
     [self.view addSubview:loadingIndicator];
     
-//    progressBar=[[WBWebProgressBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0.5)];
-//    progressBar.progressTintColor=pinkColor;
-//    [self.view addSubview:progressBar];
     
     if(self.html.length>0)
     {
@@ -138,51 +109,56 @@
 //        abs=@"http://192.168.1.131:82/index.html";
 //        abs=@"https://www.baidu.com";
         self.url=[NSURL URLWithString:abs];
+        
+        /*
+         <html>
+         <head>
+         <meta charset=UTF-8>
+         <style type=text/css>
+         body {background-color: white}
+         div {background-color:#f0f0f0;color:#f0f0f0;}
+         br {height:5;}
+         .img_large{width:100%;height:160;}
+         .img_small{width:50%;height:100;}
+         .text_long{width:100%;height:20;}
+         .text_short{width:60%;height:20;}
+         </style>
+         </head>
+         <body>
+         <div class=img_large>a</div><br>
+         <div class=text_long>a</div><br>
+         <div class=text_long>a</div><br>
+         <div class=text_short>a</div><br>
+         <div class=img_small>a</div><br>
+         <div class=text_long>a</div><br>
+         <div class=text_long>a</div><br>
+         <div class=text_short>a</div><br>
+         </body>
+         </html>
+         */
+        
+        NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"hhh.html"];
+        
+        NSError* err=nil;
+        NSString* mTxt=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
+        [self.ios8WebView loadHTMLString:mTxt baseURL:nil];
+        
         NSLog(@"webview:  %@",abs);
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];
-//        [self.webView loadRequest:req];
-//        return;
         
-        loadingImageView.hidden=NO;
-        [progressBar WBWebProgressPreparing];
+        [self.ios8WebView performSelector:@selector(loadRequest:) withObject:req afterDelay:0.5];
+        
+        [loadingIndicator removeFromSuperview];
+        [self.view addSubview:loadingIndicator];
         [loadingIndicator startAnimating];
         
-        NSURLSession* session=[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        NSURLSessionDataTask* dataTast=[session dataTaskWithRequest:req completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
-//                        NSLog(@"data:\n%@",data);
-//                        NSLog(@"resp:\n%@",response);
-//                        NSLog(@"erro:\n%@",error);
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSString* htmlStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//                NSLog(@"%@",htmlStr);
-                [self loadHtml:htmlStr];
-                [loadingIndicator stopAnimating];
-                loadingImageView.hidden=YES;
-                
-                if (htmlStr.length==0||error) {
-                    [MBProgressHUD showErrorMessage:@"网络不佳"];
-                }
-            });
-            
-        }];
-        [dataTast resume];
-        
     }
-    
-    
-    // Do any additional setup after loading the view.
 }
 
 -(void)loadHtml:(NSString*)htmlString
 {
-    if ([[[UIDevice currentDevice]systemVersion]floatValue]<9.0) {
-        [self.ios8WebView loadHTMLString:htmlString baseURL:self.url];
-    }
-    else
-    {
-        [self.ios9WebView loadHTMLString:htmlString baseURL:self.url];
-    }
+    [self.ios8WebView loadHTMLString:htmlString baseURL:self.url];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,39 +172,15 @@
     self.webUIView.frame=self.view.bounds;
 }
 
-//-(void)dealloc
-//{
-//    self.webView.delegate=nil;
-//}
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [loadingIndicator startAnimating];
+}
 
-//-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-//{
-//    if(navigationType==UIWebViewNavigationTypeLinkClicked)
-//    {
-////        BaseWebViewController* w=[[BaseWebViewController alloc]initWithUrl:[request URL]];
-////        [self.navigationController pushViewController:w animated:YES];
-//        return NO;
-//        
-//    }
-//    return YES;
-//}
-//
-//-(void)webViewDidStartLoad:(UIWebView *)webView
-//{
-//    [progressBar WBWebProgressStartLoading];
-//}
-//
-//-(void)webViewDidFinishLoad:(UIWebView *)webView
-//{
-//    [progressBar WBWebProgressCompleted];
-//    [loadingIndicator stopAnimating];
-//}
-//
-//-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-//{
-//    [MBProgressHUD showErrorMessage:@"网络不佳"];
-//    [progressBar WBWebProgressCompleted];
-//}
-
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+//    self.ios8WebView.hidden=NO;
+    [loadingIndicator stopAnimating];
+}
 
 @end

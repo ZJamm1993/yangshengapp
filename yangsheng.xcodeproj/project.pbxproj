@@ -46,6 +46,7 @@
 		399604B51F22FEAB0026297B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399604B41F22FEAA0026297B /* QuartzCore.framework */; };
 		399604B81F2304A00026297B /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 399604B71F2304A00026297B /* AMap.bundle */; };
 		399834A41F29849000C60F0A /* StoreDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399834A31F29849000C60F0A /* StoreDetailContentCell.m */; };
+		39F5DD1D1F3FE7D700CFB520 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 39F5DD1C1F3FE7D700CFB520 /* hhh.html */; };
 		8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */; };
 		8F507D291F1CAE14003DF63D /* StoreMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D281F1CAE14003DF63D /* StoreMapAnnotation.m */; };
 		8F507D2C1F1CBBFF003DF63D /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D2B1F1CBBFF003DF63D /* ProductSearchViewController.m */; };
@@ -254,6 +255,7 @@
 		399604B71F2304A00026297B /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = yangsheng/classes/tool/AMap/MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
 		399834A21F29849000C60F0A /* StoreDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailContentCell.h; sourceTree = "<group>"; };
 		399834A31F29849000C60F0A /* StoreDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailContentCell.m; sourceTree = "<group>"; };
+		39F5DD1C1F3FE7D700CFB520 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
 		8F507D241F1C481A003DF63D /* StoreApplyProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreApplyProtocolViewController.h; sourceTree = "<group>"; };
 		8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreApplyProtocolViewController.m; sourceTree = "<group>"; };
 		8F507D271F1CAE14003DF63D /* StoreMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreMapAnnotation.h; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 		396910B41F0E855E00EF6D52 /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				39F5DD1C1F3FE7D700CFB520 /* hhh.html */,
 				396910B51F0E855E00EF6D52 /* ZZPagerController.h */,
 				396910B61F0E855E00EF6D52 /* ZZPagerController.m */,
 				3942B6031F276945003434CF /* WBWebProgressBar.h */,
@@ -1129,6 +1132,7 @@
 				8FC2434B1F1721770064A845 /* Store.storyboard in Resources */,
 				8F507D791F1F30DC003DF63D /* README.txt in Resources */,
 				8FC243591F17518A0064A845 /* ClassroomVideoShareCollectionCell.xib in Resources */,
+				39F5DD1D1F3FE7D700CFB520 /* hhh.html in Resources */,
 				8FC6DCC11F219E0D00566F96 /* TeamCollectionViewCell.xib in Resources */,
 				8FC6DCB11F2059A000566F96 /* ClassroomVideoShareHeaderView.xib in Resources */,
 				8FC2434E1F174B2B0064A845 /* Classroom.storyboard in Resources */,
@@ -1397,6 +1401,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yangsheng/classes/tool/AMap",
+					"$(PROJECT_DIR)/yangsheng/classes/tool/Sonic",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";
@@ -1427,6 +1432,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yangsheng/classes/tool/AMap",
+					"$(PROJECT_DIR)/yangsheng/classes/tool/Sonic",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";

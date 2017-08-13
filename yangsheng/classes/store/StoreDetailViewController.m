@@ -63,8 +63,8 @@
     
 //    webViewHeight=1;
 //    
-    testWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1)];
-    testWebView.delegate=self;
+//    testWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1)];
+//    testWebView.delegate=self;
     
     [self loadDetail];
     [self refresh];
@@ -98,7 +98,7 @@
     }
     [self setAdvertiseHeaderViewWithPicturesUrls:arr];
     
-    [testWebView loadHTMLString:self.detailStoreModel.store_content baseURL:nil];
+//    [testWebView loadHTMLString:self.detailStoreModel.store_content baseURL:nil];
     
     [self.tableView reloadData];
     
@@ -122,11 +122,11 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 //    return;
-//    self.tableView.scrollEnabled=testWebView.scrollView.contentOffset.y==0;
-////    testWebView.scrollView.scrollEnabled=!self.tableView.scrollEnabled;
-//    self.tableView.scrollsToTop=self.tableView.scrollEnabled;
-//    testWebView.scrollView.scrollsToTop=!self.tableView.scrollsToTop;
-//    
+    self.tableView.scrollEnabled=testWebView.scrollView.contentOffset.y==0;
+//    testWebView.scrollView.scrollEnabled=!self.tableView.scrollEnabled;
+    self.tableView.scrollsToTop=self.tableView.scrollEnabled;
+    testWebView.scrollView.scrollsToTop=!self.tableView.scrollsToTop;
+//
     if (scrollView==self.tableView) {
         CGFloat offy=scrollView.contentOffset.y;
         CGFloat h=scrollView.frame.size.height;
@@ -138,29 +138,29 @@
         [appointmentView removeFromSuperview];
         [self.tableView addSubview:appointmentView];
 //
-////        if (tableViewLastY>scrollView.contentOffset.y) {
-////            [testWebView.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-////        }
-////        tableViewLastY=scrollView.contentOffset.y;
-//        
-////        [testWebView.scrollView resignFirstResponder];
-////        testWebView.scrollView.scrollEnabled=scrollView.contentOffset.y==0;
+//        if (tableViewLastY>scrollView.contentOffset.y) {
+//            [testWebView.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+//        }
+//        tableViewLastY=scrollView.contentOffset.y;
+        
+//        [testWebView.scrollView resignFirstResponder];
+//        testWebView.scrollView.scrollEnabled=scrollView.contentOffset.y==0;
     }
-//    else if(scrollView==testWebView.scrollView)
-//    {
-////        self.tableView.scrollEnabled=scrollView.contentOffset.y>0;
-//        if (scrollView.contentOffset.y<0) {
-//            CGFloat y=scrollView.contentOffset.y;
-//            [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
-//            [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y+y) animated:NO];
-//        }
-//        else if(scrollView.contentOffset.y>0)
-//        {
-////            if (!tableViewScrolling) {
-//                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-////            }
-//        }
-//    }
+    else if(scrollView==testWebView.scrollView)
+    {
+//        self.tableView.scrollEnabled=scrollView.contentOffset.y>0;
+        if (scrollView.contentOffset.y<0) {
+            CGFloat y=scrollView.contentOffset.y;
+            [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
+            [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y+y) animated:NO];
+        }
+        else if(scrollView.contentOffset.y>0)
+        {
+//            if (!tableViewScrolling) {
+                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//            }
+        }
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -198,8 +198,8 @@
         else if(indexPath.section==2)
         {
             //web
-            return webViewHeight;
-//            return [[UIScreen mainScreen]bounds].size.height-64-49-44;
+//            return webViewHeight;
+            return [[UIScreen mainScreen]bounds].size.height-64-49-44;
         }
     }
     return UITableViewAutomaticDimension;
@@ -269,9 +269,9 @@
 //            cell.htmlLabe.attributedText=attr;
             
             [cell.webView loadHTMLString:html baseURL:nil];
-            [cell.webView.scrollView setScrollEnabled:NO];
-//            testWebView=cell.webView;
-//            testWebView.scrollView.delegate=self;
+//            [cell.webView.scrollView setScrollEnabled:NO];
+            testWebView=cell.webView;
+            testWebView.scrollView.delegate=self;
             
 //            testWebView.scrollView.scrollsToTop=NO;
 //            testWebView.scrollView.scrollEnabled=NO;
