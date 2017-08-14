@@ -30,8 +30,9 @@
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
     if (index==0) {
-//        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_1.html" urlWithMainUrl]];
-        return [[UIStoryboard storyboardWithName:@"Classroom" bundle:nil]instantiateViewControllerWithIdentifier:@"ClassroomKnowledgeListViewController"];
+        
+        return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"QAListViewController"];
+
     }
     else if (index==1) {
 //        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_2.html" urlWithMainUrl]];
@@ -43,7 +44,8 @@
     }
     else if(index==3)
     {
-        return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"QAListViewController"];
+        //        return [[BaseWebViewController alloc]initWithUrl:[@"themes/ys_ios/course/course_1.html" urlWithMainUrl]];
+        return [[UIStoryboard storyboardWithName:@"Classroom" bundle:nil]instantiateViewControllerWithIdentifier:@"ClassroomKnowledgeListViewController"];
     }
     return nil;
 }
@@ -51,7 +53,7 @@
 -(NSString*)pagerController:(ZZPagerController *)pager titleAtIndex:(NSInteger)index
 {
     if (index==0) {
-        return @"养森知识";
+        return @"疑难解答";
     }
     else if (index==1) {
         return @"专家分析";
@@ -61,7 +63,7 @@
     }
     else if (index==3)
     {
-        return @"常见问题";
+        return @"养生知识";
     }
     return nil;
 }

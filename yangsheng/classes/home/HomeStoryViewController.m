@@ -185,7 +185,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     NSInteger sec=indexPath.section;
 //    NSInteger row=indexPath.row;
     if (sec==HomeStorySectionHeader) {
-        return 100;
+        return 80;
     }
     else if(sec==HomeStorySectionFounder)
     {
@@ -211,7 +211,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
         c.buttonsTitles=[NSArray arrayWithObjects:@"品牌故事\nBrand Story",@"新闻中心\nNews Center"
 //                         ,@"在线咨询",@"防伪查询"
                          ,nil];
-        c.buttonsImageNames=[NSArray arrayWithObjects:@"home_page",@"home_news"
+        c.buttonsImageNames=[NSArray arrayWithObjects:@"ppgs",@"xwzx"
 //                             ,@"home_Consultation",@"home_Security"
                              , nil];
         return c;

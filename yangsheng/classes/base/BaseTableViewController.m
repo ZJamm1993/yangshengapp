@@ -169,9 +169,15 @@
     if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section]-1)) {
         self.shouldLoadMore=_dataSource.count!=lastCount;
         lastCount=_dataSource.count;
+//        NSString* loadmoreText=@"正在加载...";
         if (self.shouldLoadMore) {
             [self loadMore];
         }
+//        else
+//        {
+//            loadmoreText=@"";
+//        }
+//        [self setNothingFooterViewWithText:loadmoreText];
     }
 }
 
@@ -208,10 +214,12 @@
     }
 }
 
--(void)setNothingFooterView
+-(void)setNothingFooterViewWithText:(NSString*)text
 {
-    //NothingFooterCell* ff=[NothingFooterCell defaultFooterCell];
-    //self.tableView.tableFooterView=ff;
+    NothingFooterCell* ff=[NothingFooterCell defaultFooterCell];
+    ff.nothingLabel.text=text;
+    self.tableView.tableFooterView=ff;
+    
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

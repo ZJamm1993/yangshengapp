@@ -188,7 +188,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        return 100;
+        return 90;
     }
     return UITableViewAutomaticDimension;
 }
@@ -216,7 +216,7 @@
         ButtonsCell* c=[tableView dequeueReusableCellWithIdentifier:@"TopButtonsCell" forIndexPath:indexPath];
         c.delegate=self;
         c.buttonsTitles=[NSArray arrayWithObjects:@"服务项目",@"搜索门店",@"申请开店",@"门店地图", nil];
-        c.buttonsImageNames=[NSArray arrayWithObjects:@"store_project",@"store_search",@"store_Shop",@"store_map", nil];
+        c.buttonsImageNames=[NSArray arrayWithObjects:@"fwxm",@"ssmd",@"sqkd",@"mddt", nil];
         return c;
     }
     else if(indexPath.section==1)

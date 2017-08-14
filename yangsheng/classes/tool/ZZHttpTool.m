@@ -15,7 +15,7 @@
 {
     NSMutableDictionary* d=[NSMutableDictionary dictionary];
     [d setValue:@"1" forKey:@"page"];
-    [d setValue:@"10" forKey:@"pagesize"];
+    [d setValue:@"1000" forKey:@"pagesize"];
     return d;
 }
 
@@ -107,9 +107,10 @@
 //            NSLog(@"resp:\n%@",response);
 //            NSLog(@"erro:\n%@",error);
             
+            NSDictionary* result=[ZZHttpTool dictionaryWithResponseData:data];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (data) {
-                    NSDictionary* result=[ZZHttpTool dictionaryWithResponseData:data];
                     if (success) {
                         success(result);
                         

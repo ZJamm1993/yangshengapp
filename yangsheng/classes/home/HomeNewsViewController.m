@@ -36,7 +36,7 @@
         [self loadMore];
     }
     // Do any additional setup after loading the view.
-    [self setNothingFooterView];
+//    [self setNothingFooterView];
 }
 
 -(void)firstLoad
@@ -125,7 +125,7 @@
     } isCache:isCache];
     
     //
-    [HomeHttpTool getLatestEventPage:1 size:100 success:^(NSArray *datasource) {
+    [HomeHttpTool getLatestEventPage:1 size:10 success:^(NSArray *datasource) {
         latestEvents=[NSMutableArray arrayWithArray:datasource];
         [self tableViewReloadData];
     } isCache:isCache];

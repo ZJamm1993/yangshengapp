@@ -29,6 +29,18 @@
 
 -(void)refresh
 {
+    //
+    [HomeHttpTool getAdversType:9 success:^(NSArray *datasource) {
+        self.advsArray=[NSMutableArray arrayWithArray:datasource];
+        NSMutableArray* pics=[NSMutableArray array];
+        for (BaseModel* ad in self.advsArray) {
+            NSString* th=ad.thumb;
+            NSString* fu=[ZZUrlTool fullUrlWithTail:th];
+            [pics addObject:fu];
+        }
+        [self setAdvertiseHeaderViewWithPicturesUrls:pics];
+    } isCache:NO];
+    
     [HomeHttpTool getQAListPage:1 success:^(NSArray *datasource) {
         
         self.dataSource=[NSMutableArray arrayWithArray:datasource];
@@ -42,6 +54,17 @@
 
 -(void)loadMore
 {
+    //
+    [HomeHttpTool getAdversType:9 success:^(NSArray *datasource) {
+        self.advsArray=[NSMutableArray arrayWithArray:datasource];
+        NSMutableArray* pics=[NSMutableArray array];
+        for (BaseModel* ad in self.advsArray) {
+            NSString* th=ad.thumb;
+            NSString* fu=[ZZUrlTool fullUrlWithTail:th];
+            [pics addObject:fu];
+        }
+        [self setAdvertiseHeaderViewWithPicturesUrls:pics];
+    } isCache:YES];
     
     [HomeHttpTool getQAListPage:1+self.currentPage success:^(NSArray *datasource) {
         [self.dataSource addObjectsFromArray:datasource];
@@ -91,7 +114,7 @@
     BaseModel* m=[ self.dataSource objectAtIndex:indexPath.row];
     BaseWebViewController* we=[[BaseWebViewController alloc]initWithUrl:[html_QA_detail urlWithMainUrl]];
     we.idd=m.idd.integerValue;
-    we.title=@"问答详情";
+    we.title=@"详情";
     [self.navigationController pushViewController:we animated:YES];
     
 }

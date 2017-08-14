@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger,HomeTeamSection)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setNothingFooterView];
+//    [self setNothingFooterView];
     
     flow=[[UICollectionViewFlowLayout alloc]init];
     CGFloat sw=[[UIScreen mainScreen]bounds].size.width;

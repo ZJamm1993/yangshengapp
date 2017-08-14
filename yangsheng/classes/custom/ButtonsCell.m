@@ -73,7 +73,7 @@
         [btns addObject:btn];
         
         UIImageView* image=[[UIImageView alloc]initWithImage:[UIImage imageNamed:[_buttonsImageNames objectAtIndex:i]]];
-        image.frame=CGRectMake(0, 0, 50, 50);
+//        image.frame=CGRectMake(0, 0, 40, 40);
         [self.contentView addSubview:image];
         [imgs addObject:image];
         
@@ -84,7 +84,8 @@
 //        la.backgroundColor=[UIColor redColor];
         la.frame=CGRectMake(0, 0, 200, 60);
         la.font=[UIFont systemFontOfSize:13];
-        la.textColor=[UIColor lightGrayColor];
+//        la.textColor=[UIColor lightGrayColor];
+        la.textColor=pinkColor;
         la.textAlignment=NSTextAlignmentCenter;
         la.text=[_buttonsTitles objectAtIndex:i];
 //        la.adjustsFontSizeToFitWidth=YES;
@@ -113,8 +114,8 @@
     CGFloat avw=w/count;
     CGFloat a2w=avw/2;
     
-    CGFloat bcy=h*0.40;
-    CGFloat lcy=h*0.8;
+//    CGFloat bcy=h*0.40;
+//    CGFloat lcy=h*0.8;
     for (int i=0; i<count; i++) {
         UIView* b=[btns objectAtIndex:i];
         UIView* l=[labs objectAtIndex:i];
@@ -133,16 +134,27 @@
 //            [b sizeToFit];
             CGFloat totalw=im.bounds.size.width+l.bounds.size.width+10;
             
-            im.center=CGPointMake(avw*i+a2w-totalw/2+im.bounds.size.width/2, h/2);
-            l.center=CGPointMake(avw*i+a2w+totalw/2-l.bounds.size.width/2, h/2);
+            NSInteger imcw=avw*i+a2w-totalw/2+im.bounds.size.width/2;
+            NSInteger lecw=avw*i+a2w+totalw/2-l.bounds.size.width/2;
+            NSInteger cy=h/2;
+            
+            im.center=CGPointMake(imcw, cy);
+            l.center=CGPointMake(lecw, cy);
             
         }
         else
         {
             [l sizeToFit];
 //            [b sizeToFit];
-            im.center=CGPointMake(avw*i+a2w, bcy);
-            l.center=CGPointMake(avw*i+a2w, lcy);
+            CGFloat totalh=im.bounds.size.height+l.bounds.size.height+10;
+            
+            NSInteger imcy= h/2-totalh/2+im.bounds.size.height/2;
+            NSInteger lecy= h/2+totalh/2-l.bounds.size.height/2;
+            
+            NSInteger cx=avw*i+a2w;
+
+            im.center=CGPointMake(cx,imcy);
+            l.center=CGPointMake(cx,lecy);
         }
     }
 }

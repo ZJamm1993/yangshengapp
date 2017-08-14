@@ -25,7 +25,7 @@
     self.title=@"新闻中心";
     
     [self loadMore];
-    [self setNothingFooterView];
+//    [self setNothingFooterView];
     // Do any additional setup after loading the view.
 }
 

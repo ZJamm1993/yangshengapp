@@ -10,6 +10,8 @@
 
 @interface NothingFooterCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *nothingLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 +(instancetype)defaultFooterCell;
 
 @end
