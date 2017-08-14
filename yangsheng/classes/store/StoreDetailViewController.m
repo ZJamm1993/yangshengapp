@@ -122,9 +122,9 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 //    return;
-    self.tableView.scrollEnabled=testWebView.scrollView.contentOffset.y==0;
-//    testWebView.scrollView.scrollEnabled=!self.tableView.scrollEnabled;
-    self.tableView.scrollsToTop=self.tableView.scrollEnabled;
+//    self.tableView.scrollEnabled=testWebView.scrollView.contentOffset.y==0;
+////    testWebView.scrollView.scrollEnabled=!self.tableView.scrollEnabled;
+    self.tableView.scrollsToTop=testWebView.scrollView.contentOffset.y==0;//self.tableView.scrollEnabled;
     testWebView.scrollView.scrollsToTop=!self.tableView.scrollsToTop;
 //
     if (scrollView==self.tableView) {
@@ -145,6 +145,15 @@
         
 //        [testWebView.scrollView resignFirstResponder];
 //        testWebView.scrollView.scrollEnabled=scrollView.contentOffset.y==0;
+        
+        CGFloat contentH=scrollView.contentSize.height;
+        CGFloat moreThanBottom=offy+h-contentH-b;
+        NSLog(@"%f",moreThanBottom);
+        if (moreThanBottom>0) {
+            [scrollView setContentOffset:CGPointMake(0, -h+contentH+b) animated:NO];
+            [testWebView.scrollView setContentOffset:CGPointMake(0, testWebView.scrollView.contentOffset.y+moreThanBottom) animated:NO];
+            
+        }
     }
     else if(scrollView==testWebView.scrollView)
     {

@@ -114,7 +114,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zxa-s3-VHa" userLabel="line">
                                             <rect key="frame" x="20" y="0.0" width="280" height="1"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="1EA-Jd-pBD"/>
                                             </constraints>
@@ -675,7 +675,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cg3-Of-xV2" userLabel="line">
                                             <rect key="frame" x="20" y="0.0" width="280" height="1"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="JQ9-lt-gD3"/>
                                             </constraints>
@@ -1242,23 +1242,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="218"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ia2-EF-bVl">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="1"/>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="0.5" id="RAr-hY-p55"/>
+                                            </constraints>
+                                        </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MU8-hu-eh4">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="127"/>
+                                            <rect key="frame" x="15" y="15" width="290" height="127"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="MU8-hu-eh4" secondAttribute="height" multiplier="16:7" id="kf2-dB-9C3"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2301-123-123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRf-7j-SUc">
-                                            <rect key="frame" x="219" y="182" width="86" height="21"/>
+                                            <rect key="frame" x="219" y="187" width="86" height="16"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="JED-Xs-SsC"/>
+                                                <constraint firstAttribute="height" constant="16" id="JED-Xs-SsC"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.4584424084" green="0.4584424084" blue="0.4584424084" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大事件的标题大事件的标题大事件的标题大事件的标题大事件的标题大事件的标题大事件的标题大事件的标题" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zls-kq-lmd">
-                                            <rect key="frame" x="15" y="135" width="290" height="46"/>
+                                            <rect key="frame" x="15" y="150" width="290" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1267,13 +1274,16 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="MU8-hu-eh4" secondAttribute="trailing" constant="15" id="86S-Sk-gMB"/>
                                         <constraint firstItem="MU8-hu-eh4" firstAttribute="leading" secondItem="Ys7-AT-EeU" secondAttribute="leading" constant="15" id="CAv-9G-E9P"/>
-                                        <constraint firstItem="MU8-hu-eh4" firstAttribute="top" secondItem="Ys7-AT-EeU" secondAttribute="top" id="Jyf-Rk-bJQ"/>
+                                        <constraint firstItem="MU8-hu-eh4" firstAttribute="top" secondItem="Ys7-AT-EeU" secondAttribute="top" constant="15" id="Jyf-Rk-bJQ"/>
                                         <constraint firstAttribute="trailing" secondItem="dRf-7j-SUc" secondAttribute="trailing" constant="15" id="LBV-GZ-T1b"/>
+                                        <constraint firstItem="ia2-EF-bVl" firstAttribute="top" secondItem="Ys7-AT-EeU" secondAttribute="top" id="MZf-e2-Lhy"/>
                                         <constraint firstAttribute="trailing" secondItem="zls-kq-lmd" secondAttribute="trailing" constant="15" id="Mwj-UE-THo"/>
                                         <constraint firstItem="zls-kq-lmd" firstAttribute="top" secondItem="MU8-hu-eh4" secondAttribute="bottom" constant="8" id="PR7-eU-pXf"/>
+                                        <constraint firstAttribute="trailing" secondItem="ia2-EF-bVl" secondAttribute="trailing" constant="15" id="PjC-Sd-n1k"/>
                                         <constraint firstAttribute="bottom" secondItem="dRf-7j-SUc" secondAttribute="bottom" constant="15" id="Qca-7t-9cX"/>
                                         <constraint firstItem="zls-kq-lmd" firstAttribute="leading" secondItem="Ys7-AT-EeU" secondAttribute="leading" constant="15" id="b0m-zM-L5b"/>
                                         <constraint firstItem="dRf-7j-SUc" firstAttribute="top" secondItem="zls-kq-lmd" secondAttribute="bottom" constant="1" id="dbh-gP-brM"/>
+                                        <constraint firstItem="ia2-EF-bVl" firstAttribute="leading" secondItem="Ys7-AT-EeU" secondAttribute="leading" constant="15" id="e67-0N-MXs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1312,7 +1322,7 @@
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvH-TF-e1G">
                                             <rect key="frame" x="15" y="0.0" width="290" height="1"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="DFf-hO-Cfq"/>
                                             </constraints>
