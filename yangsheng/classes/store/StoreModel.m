@@ -52,8 +52,8 @@
                 }
                 html=[NSString stringWithFormat:@"<html>%@</html>",html];
             }
-            NSString* js=@"<script>window.onload = function() {window.location.href = \"ready://\" + document.body.scrollHeight;}</script>";
-            html=[NSString stringWithFormat:@"%@%@",html,js];
+//            NSString* js=@"<script>window.onload = function() {window.location.href = \"ready://\" + document.body.scrollHeight;}</script>";
+//            html=[NSString stringWithFormat:@"%@%@",html,js];
         }
         
         _store_content=html;

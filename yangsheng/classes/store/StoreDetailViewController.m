@@ -8,7 +8,6 @@
 
 #import "StoreDetailViewController.h"
 #import "CollectionViewTableViewCell.h"
-#import "WebViewTableViewCell.h"
 #import "StoreDetailBaseMessageCell.h"
 #import "ServiceObjectCell.h"
 #import "StoreDetailContentCell.h"
@@ -58,7 +57,6 @@
     appointmentView.delegate=self;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CollectionViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"StoreItemCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"WebViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"StoreIntroCell"];
     // Do any additional setup after loading the view.
     
 //    webViewHeight=1;

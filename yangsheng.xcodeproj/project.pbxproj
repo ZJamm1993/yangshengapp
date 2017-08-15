@@ -158,8 +158,6 @@
 		8FC2435E1F17584C0064A845 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC2435D1F17584C0064A845 /* AVFoundation.framework */; };
 		8FC243611F176F460064A845 /* ProductCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243601F176F460064A845 /* ProductCheckViewController.m */; };
 		8FC243641F1783FD0064A845 /* StoreAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243631F1783FD0064A845 /* StoreAllViewController.m */; };
-		8FC243681F18529B0064A845 /* WebViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243661F18529B0064A845 /* WebViewTableViewCell.m */; };
-		8FC243691F18529B0064A845 /* WebViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC243671F18529B0064A845 /* WebViewTableViewCell.xib */; };
 		8FC2436C1F1854E60064A845 /* HomeTeamHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC2436B1F1854E60064A845 /* HomeTeamHeaderCell.m */; };
 		8FC243721F18628F0064A845 /* TeamMonthStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243711F18628F0064A845 /* TeamMonthStarViewController.m */; };
 		8FC243751F1862B60064A845 /* TeamCompanyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC243741F1862B60064A845 /* TeamCompanyListViewController.m */; };
@@ -460,9 +458,6 @@
 		8FC243601F176F460064A845 /* ProductCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCheckViewController.m; sourceTree = "<group>"; };
 		8FC243621F1783FD0064A845 /* StoreAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreAllViewController.h; sourceTree = "<group>"; };
 		8FC243631F1783FD0064A845 /* StoreAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreAllViewController.m; sourceTree = "<group>"; };
-		8FC243651F18529B0064A845 /* WebViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewTableViewCell.h; sourceTree = "<group>"; };
-		8FC243661F18529B0064A845 /* WebViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewTableViewCell.m; sourceTree = "<group>"; };
-		8FC243671F18529B0064A845 /* WebViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewTableViewCell.xib; sourceTree = "<group>"; };
 		8FC2436A1F1854E60064A845 /* HomeTeamHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTeamHeaderCell.h; sourceTree = "<group>"; };
 		8FC2436B1F1854E60064A845 /* HomeTeamHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTeamHeaderCell.m; sourceTree = "<group>"; };
 		8FC243701F18628F0064A845 /* TeamMonthStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamMonthStarViewController.h; sourceTree = "<group>"; };
@@ -643,9 +638,6 @@
 				8FA935E81F11C9D0001E29CF /* NothingFooterCell.xib */,
 				8FC243211F17070A0064A845 /* FakeSearchBar.h */,
 				8FC243221F17070A0064A845 /* FakeSearchBar.m */,
-				8FC243651F18529B0064A845 /* WebViewTableViewCell.h */,
-				8FC243661F18529B0064A845 /* WebViewTableViewCell.m */,
-				8FC243671F18529B0064A845 /* WebViewTableViewCell.xib */,
 				8FC243821F18952C0064A845 /* CollectionViewTableViewCell.h */,
 				8FC243831F18952C0064A845 /* CollectionViewTableViewCell.m */,
 				8FC243841F18952C0064A845 /* CollectionViewTableViewCell.xib */,
@@ -1136,7 +1128,6 @@
 				8FC6DCC11F219E0D00566F96 /* TeamCollectionViewCell.xib in Resources */,
 				8FC6DCB11F2059A000566F96 /* ClassroomVideoShareHeaderView.xib in Resources */,
 				8FC2434E1F174B2B0064A845 /* Classroom.storyboard in Resources */,
-				8FC243691F18529B0064A845 /* WebViewTableViewCell.xib in Resources */,
 				3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */,
 				8FC6DCB91F2196E800566F96 /* FounderCollectionViewCell.xib in Resources */,
 				3971BC121F0E7047004016C2 /* Main.storyboard in Resources */,
@@ -1198,7 +1189,6 @@
 				8F507D291F1CAE14003DF63D /* StoreMapAnnotation.m in Sources */,
 				8FC6DCB81F2196E800566F96 /* FounderCollectionViewCell.m in Sources */,
 				8FADBE5F1F0F2E6E002F5911 /* HomeHttpTool.m in Sources */,
-				8FC243681F18529B0064A845 /* WebViewTableViewCell.m in Sources */,
 				8FC6DCC71F21B58E00566F96 /* UniversalHttpTool.m in Sources */,
 				395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */,
 				8F507D881F1F4069003DF63D /* ZZSearchBar.m in Sources */,
