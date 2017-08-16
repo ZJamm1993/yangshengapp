@@ -101,9 +101,14 @@
 
 -(void)refreshCityButton:(CityModel*)c
 {
-//    if (c.name.length>0) {
-        cityItem.title=c.name.length>0?c.name:@"选择城市";
-//    }
+    NSString* title=@"选择城市";
+    if (selectedCity.name.length>0) {
+        title=selectedCity.name;
+    }
+    if (c.name.length>0) {
+        title=c.name;
+    }
+    cityItem.title=title;
 }
 
 -(void)selectCity

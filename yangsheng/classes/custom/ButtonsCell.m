@@ -144,6 +144,10 @@
         }
         else
         {
+            if ([l isKindOfClass:[UILabel class]]) {
+                UILabel *lab=(UILabel*)l;
+                lab.textColor=[UIColor grayColor];
+            }
             [l sizeToFit];
 //            [b sizeToFit];
             CGFloat totalh=im.bounds.size.height+l.bounds.size.height+10;
