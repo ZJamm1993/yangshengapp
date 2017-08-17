@@ -8,6 +8,8 @@
 
 #import "AdvertiseView.h"
 
+const CGFloat advertiseViewAutoScrollTime=3.0;
+
 @interface AdvertiseView()<UIScrollViewDelegate>
 {
     NSTimer* timer;
@@ -29,8 +31,8 @@
 -(void)setPicturesUrls:(NSArray *)picturesUrls
 {
     if (!timer) {
-        timer=[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scrollToNextPage) userInfo:nil repeats:YES];
-        [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+        timer=[NSTimer scheduledTimerWithTimeInterval:advertiseViewAutoScrollTime target:self selector:@selector(scrollToNextPage) userInfo:nil repeats:YES];
+        [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:advertiseViewAutoScrollTime]];
     }
     _picturesUrls=[NSArray arrayWithArray:picturesUrls];
     
@@ -109,7 +111,7 @@
     CGFloat offx=scroll.frame.size.width*page;
     [scroll setContentOffset:CGPointMake(offx, 0) animated:YES];
     
-    pageControl.currentPage=page;
+//    pageControl.currentPage=page;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -124,7 +126,7 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:advertiseViewAutoScrollTime]];
 }
 
 -(NSInteger)currentPage
@@ -147,6 +149,7 @@
 {
     scroll.delegate=nil;
     [timer invalidate];
+    NSLog(@"adver deal");
 }
 
 @end

@@ -70,7 +70,7 @@
 
 -(void)dealloc
 {
-//    testWebView.delegate=nil;
+    testWebView=nil;
 }
 
 -(void)refresh
@@ -146,7 +146,7 @@
         
         CGFloat contentH=scrollView.contentSize.height;
         CGFloat moreThanBottom=offy+h-contentH-b;
-        NSLog(@"%f",moreThanBottom);
+//        NSLog(@"%f",moreThanBottom);
         if (moreThanBottom>0) {
             [scrollView setContentOffset:CGPointMake(0, -h+contentH+b) animated:NO];
             [testWebView.scrollView setContentOffset:CGPointMake(0, testWebView.scrollView.contentOffset.y+moreThanBottom) animated:NO];

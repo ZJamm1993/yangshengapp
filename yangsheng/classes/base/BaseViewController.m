@@ -87,6 +87,8 @@
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     [timer invalidate];
+    
+    NSLog(@"%@ deal",NSStringFromClass([self class]));
 }
 
 /*

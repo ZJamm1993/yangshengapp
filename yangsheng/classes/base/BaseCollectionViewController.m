@@ -119,6 +119,7 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    NSLog(@"%@ deal",NSStringFromClass([self class]));
 }
 
 #pragma mark - Refresh And Load More

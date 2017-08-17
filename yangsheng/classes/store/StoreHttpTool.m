@@ -328,6 +328,7 @@
         //            NSLog(@"data:\n%@",data);
         //            NSLog(@"resp:\n%@",response);
         //            NSLog(@"erro:\n%@",error);
+        [session finishTasksAndInvalidate];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (data) {

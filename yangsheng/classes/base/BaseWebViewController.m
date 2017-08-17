@@ -39,6 +39,8 @@
 -(void)dealloc
 {
     self.ios8WebView.delegate=nil;
+    
+    NSLog(@"%@ deal",NSStringFromClass([self class]));
 }
 
 -(UIWebView*)ios8WebView
