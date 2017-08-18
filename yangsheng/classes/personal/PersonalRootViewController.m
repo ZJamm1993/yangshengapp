@@ -34,8 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    imgsArray=@[@[@"header"],@[@"my_Shop"],@[@"my_distributor"],@[@"my_curriculum"],@[@"my_account",@"my_Service"],@[@"my_dealer"]];
-    titsArray=@[@[@"header"],@[@"申请开店"],@[@"我的预约"],@[@"收藏课程"],@[@"账户设置",@"联系客服"],@[@"经销商入口"]];
+    imgsArray=@[@[@"header"],@[@"my_Shop"],@[@"my_distributor"],@[@"my_curriculum"],@[@"my_fwcx"],@[@"my_account",@"my_Service"],@[@"my_dealer"]];
+    titsArray=@[@[@"header"],@[@"申请开店"],@[@"我的预约"],@[@"收藏课程"],@[@"防伪查询"],@[@"账户设置",@"联系客服"],@[@"经销商入口"]];
     
     [self.refreshControl removeFromSuperview];
     [self.tableView setTableFooterView:[[UIView alloc]init]];
@@ -103,7 +103,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==5) {
+    if (indexPath.section==tableView.numberOfSections-1) {
         if (currentUser.type!=UserTypeDealer) {
             return 0;
         }
@@ -206,6 +206,13 @@
     else if(indexPath.section==4)
     {
         if (indexPath.row==0) {
+            ProductCodeScanViewController* scaner=[[ProductCodeScanViewController alloc]init];
+            [self.navigationController pushViewController:scaner animated:YES];
+        }
+    }
+    else if(indexPath.section==5)
+    {
+        if (indexPath.row==0) {
             if (self.isLoged) {
 //                if (currentUser.type==UserTypeDealer) {
 //                    UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"您当前身份为经销商" message:@"若要修改密码，请前往经销商入口" preferredStyle:UIAlertControllerStyleAlert];
@@ -241,7 +248,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-    else if(indexPath.section==5)
+    else if(indexPath.section==6)
     {
         if (indexPath.row==0) {
             [self.navigationController pushViewController:[[DealersManagerViewController alloc]init] animated:YES];

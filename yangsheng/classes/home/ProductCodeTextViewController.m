@@ -30,7 +30,8 @@
     }
     else
     {
-        [self.navigationController popViewControllerAnimated:YES];
+        [MBProgressHUD showErrorMessage:@"没有相关信息"];
+//        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
