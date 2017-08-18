@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Personal Register View Controller-->
@@ -109,7 +110,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwn-aM-LDg">
-                                                <rect key="frame" x="200" y="46" width="80" height="28"/>
+                                                <rect key="frame" x="200" y="40" width="80" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="Zgh-oB-SbK"/>
                                                 </constraints>
@@ -122,7 +123,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPY-8m-am7" userLabel="llll">
-                                                <rect key="frame" x="200" y="46" width="1" height="28"/>
+                                                <rect key="frame" x="200" y="43" width="1" height="34"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="0.5" id="0AI-7p-7gy"/>
@@ -170,6 +171,7 @@
                                             <constraint firstItem="Wkq-xq-bqF" firstAttribute="leading" secondItem="bqm-eO-0qk" secondAttribute="leading" id="Pdk-Xb-tuW"/>
                                             <constraint firstAttribute="trailing" secondItem="BG9-ym-aiO" secondAttribute="trailing" constant="80" id="TF5-Lt-J0B"/>
                                             <constraint firstItem="ejM-DS-hfr" firstAttribute="top" secondItem="Wkq-xq-bqF" secondAttribute="bottom" constant="15" id="TYy-aQ-uZS"/>
+                                            <constraint firstItem="ZPY-8m-am7" firstAttribute="height" secondItem="xwn-aM-LDg" secondAttribute="height" multiplier="1:1.2" id="U8O-PA-ELg"/>
                                             <constraint firstItem="ZPY-8m-am7" firstAttribute="height" secondItem="xwn-aM-LDg" secondAttribute="height" id="VPx-B6-vXj"/>
                                             <constraint firstItem="51U-Ww-YnC" firstAttribute="top" secondItem="BG9-ym-aiO" secondAttribute="bottom" id="W1T-2y-3Nt"/>
                                             <constraint firstItem="BG9-ym-aiO" firstAttribute="leading" secondItem="bqm-eO-0qk" secondAttribute="leading" id="Z6g-dW-7tT"/>
@@ -190,6 +192,7 @@
                                             <constraint firstItem="51U-Ww-YnC" firstAttribute="top" secondItem="TyR-cV-78G" secondAttribute="bottom" constant="34" id="tTy-Lb-FGw"/>
                                             <constraint firstItem="MHv-7E-zQX" firstAttribute="leading" secondItem="bqm-eO-0qk" secondAttribute="leading" id="ulA-pq-1I1"/>
                                             <constraint firstItem="xwn-aM-LDg" firstAttribute="centerY" secondItem="BG9-ym-aiO" secondAttribute="centerY" id="w5s-ye-kpf"/>
+                                            <constraint firstItem="xwn-aM-LDg" firstAttribute="height" secondItem="BG9-ym-aiO" secondAttribute="height" id="wMF-ik-ICF"/>
                                             <constraint firstAttribute="trailing" secondItem="TyR-cV-78G" secondAttribute="trailing" id="xWw-of-Y0l"/>
                                             <constraint firstItem="DpA-nF-QvU" firstAttribute="top" secondItem="BG9-ym-aiO" secondAttribute="bottom" id="yUC-H8-GCk"/>
                                         </constraints>
@@ -200,6 +203,7 @@
                                                 <exclude reference="bvS-c6-hY1"/>
                                                 <exclude reference="HXy-J5-dP4"/>
                                                 <exclude reference="Jk6-GB-nRW"/>
+                                                <exclude reference="VPx-B6-vXj"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -847,7 +851,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwy-aV-9Tn">
-                                                <rect key="frame" x="200" y="56" width="80" height="28"/>
+                                                <rect key="frame" x="200" y="50" width="80" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="inV-PC-U9c"/>
                                                 </constraints>
@@ -860,7 +864,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwS-AR-eLt" userLabel="llll">
-                                                <rect key="frame" x="200" y="56" width="1" height="28"/>
+                                                <rect key="frame" x="200" y="53" width="1" height="34"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="0.5" id="Omz-Wt-a2a"/>
@@ -870,6 +874,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="vNL-rb-PDm" secondAttribute="trailing" constant="80" id="1Cd-iM-51X"/>
                                             <constraint firstAttribute="trailing" secondItem="K3f-Pa-dBr" secondAttribute="trailing" id="1L3-v9-CDG"/>
+                                            <constraint firstItem="Mwy-aV-9Tn" firstAttribute="height" secondItem="vNL-rb-PDm" secondAttribute="height" id="4Jf-ZW-KVt"/>
                                             <constraint firstItem="Mwy-aV-9Tn" firstAttribute="centerY" secondItem="vNL-rb-PDm" secondAttribute="centerY" id="4hh-lK-Oty"/>
                                             <constraint firstAttribute="trailing" secondItem="vIB-py-1hb" secondAttribute="trailing" id="5cO-C3-d87"/>
                                             <constraint firstItem="mqe-Db-TEr" firstAttribute="leading" secondItem="mTp-xe-TRu" secondAttribute="leading" id="62O-hk-88K"/>
@@ -895,7 +900,7 @@
                                             <constraint firstItem="kig-oM-LNh" firstAttribute="top" secondItem="K3f-Pa-dBr" secondAttribute="bottom" constant="34" id="uY5-L4-b5z"/>
                                             <constraint firstItem="K3f-Pa-dBr" firstAttribute="leading" secondItem="mTp-xe-TRu" secondAttribute="leading" id="vNy-Dd-JD0"/>
                                             <constraint firstItem="vNL-rb-PDm" firstAttribute="top" secondItem="K3f-Pa-dBr" secondAttribute="bottom" constant="10" id="vps-iW-igS"/>
-                                            <constraint firstItem="nwS-AR-eLt" firstAttribute="height" secondItem="Mwy-aV-9Tn" secondAttribute="height" id="y54-oY-8fJ"/>
+                                            <constraint firstItem="nwS-AR-eLt" firstAttribute="height" secondItem="Mwy-aV-9Tn" secondAttribute="height" multiplier="1:1.2" id="y54-oY-8fJ"/>
                                             <constraint firstItem="kig-oM-LNh" firstAttribute="top" secondItem="vNL-rb-PDm" secondAttribute="bottom" constant="10" id="zId-qp-m4g"/>
                                         </constraints>
                                         <variation key="default">
@@ -1193,7 +1198,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX7-ED-iHM">
-                                                <rect key="frame" x="200" y="106" width="80" height="28"/>
+                                                <rect key="frame" x="200" y="100" width="80" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="QGn-gK-pgY"/>
                                                 </constraints>
@@ -1206,7 +1211,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFe-FB-t7I" userLabel="llll">
-                                                <rect key="frame" x="200" y="106" width="1" height="28"/>
+                                                <rect key="frame" x="200" y="103" width="1" height="34"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="0.5" id="aiO-6S-nLW"/>
@@ -1245,6 +1250,7 @@
                                             <constraint firstAttribute="trailing" secondItem="GXM-Cm-RQa" secondAttribute="trailing" id="YZe-wm-xbH"/>
                                             <constraint firstItem="a20-zc-uI1" firstAttribute="top" secondItem="Q0b-C5-SQP" secondAttribute="bottom" constant="10" id="ZBm-9i-F2M"/>
                                             <constraint firstItem="GXM-Cm-RQa" firstAttribute="leading" secondItem="LEf-o5-Uwe" secondAttribute="leading" id="aKq-MD-VoU"/>
+                                            <constraint firstItem="lX7-ED-iHM" firstAttribute="height" secondItem="a20-zc-uI1" secondAttribute="height" id="bOD-IZ-ao7"/>
                                             <constraint firstAttribute="trailing" secondItem="3fp-04-cr2" secondAttribute="trailing" id="chZ-6M-4kv"/>
                                             <constraint firstItem="6xZ-Bh-fKh" firstAttribute="top" secondItem="GXM-Cm-RQa" secondAttribute="top" id="fWN-ft-AOI"/>
                                             <constraint firstAttribute="trailing" secondItem="a20-zc-uI1" secondAttribute="trailing" constant="80" id="gEo-Zq-F3x"/>
@@ -1258,7 +1264,7 @@
                                             <constraint firstItem="3fp-04-cr2" firstAttribute="top" secondItem="Q0b-C5-SQP" secondAttribute="bottom" id="p1O-zu-20P"/>
                                             <constraint firstItem="W5Q-nb-4vD" firstAttribute="leading" secondItem="LEf-o5-Uwe" secondAttribute="leading" id="px7-LJ-E3A"/>
                                             <constraint firstItem="VIC-fP-HBC" firstAttribute="top" secondItem="a20-zc-uI1" secondAttribute="bottom" id="sqf-RO-f75"/>
-                                            <constraint firstItem="oFe-FB-t7I" firstAttribute="height" secondItem="lX7-ED-iHM" secondAttribute="height" id="x6X-aO-EKv"/>
+                                            <constraint firstItem="oFe-FB-t7I" firstAttribute="height" secondItem="lX7-ED-iHM" secondAttribute="height" multiplier="1:1.2" id="x6X-aO-EKv"/>
                                             <constraint firstItem="GXM-Cm-RQa" firstAttribute="leading" secondItem="6xZ-Bh-fKh" secondAttribute="trailing" constant="-50" id="yMN-Sb-l84"/>
                                         </constraints>
                                         <variation key="default">
