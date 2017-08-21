@@ -12,7 +12,7 @@
 #import "ZZHttpTool.h"
 //#import "WBWebProgressBar.h"
 
-@interface BaseWebViewController ()<UIWebViewDelegate>
+@interface BaseWebViewController ()<UIWebViewDelegate,WKUIDelegate,WKNavigationDelegate>
 @property (nonatomic,strong) UIWebView* ios8WebView;
 @end
 
@@ -47,8 +47,14 @@
 {
     if (_ios8WebView==nil) {
         _ios8WebView=[[UIWebView alloc]initWithFrame:self.view.bounds];
+        
+        //uiwebview's
         _ios8WebView.dataDetectorTypes=UIDataDetectorTypeNone;
         _ios8WebView.delegate=self;
+        
+        //wkwebview's
+//        _ios8WebView.navigationDelegate=self;
+//        _ios8WebView.UIDelegate=self;
         [self.view addSubview:_ios8WebView];
     }
     NSLog(@"uiwebview");
@@ -174,6 +180,8 @@
     self.webUIView.frame=self.view.bounds;
 }
 
+#pragma mark --old uiwebview delegate
+
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
     [loadingIndicator startAnimating];
@@ -182,6 +190,18 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
 //    self.ios8WebView.hidden=NO;
+    [loadingIndicator stopAnimating];
+}
+
+#pragma mark --new wkwebview delegate
+
+-(void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation
+{
+    [loadingIndicator startAnimating];
+}
+
+-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
+{
     [loadingIndicator stopAnimating];
 }
 

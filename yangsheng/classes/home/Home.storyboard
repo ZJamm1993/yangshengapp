@@ -1653,13 +1653,13 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awi-Wq-SbB">
-                                        <rect key="frame" x="145" y="151" width="31" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awi-Wq-SbB">
+                                        <rect key="frame" x="20" y="151" width="280" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guw-1o-vcq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guw-1o-vcq">
                                         <rect key="frame" x="20" y="181" width="280" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1694,6 +1694,7 @@
                                     <constraint firstAttribute="trailing" secondItem="guw-1o-vcq" secondAttribute="trailing" constant="20" id="50c-zn-0n8"/>
                                     <constraint firstItem="guw-1o-vcq" firstAttribute="top" secondItem="Awi-Wq-SbB" secondAttribute="bottom" constant="8" id="Q3b-EA-jwn"/>
                                     <constraint firstItem="Awi-Wq-SbB" firstAttribute="top" secondItem="3MV-7a-qhr" secondAttribute="bottom" constant="23" id="TSf-k2-8TE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Awi-Wq-SbB" secondAttribute="trailing" constant="20" id="VpS-vK-jUD"/>
                                     <constraint firstItem="Awi-Wq-SbB" firstAttribute="centerX" secondItem="EFp-so-JxE" secondAttribute="centerX" id="a1z-hd-eh2"/>
                                     <constraint firstItem="riQ-J0-S4y" firstAttribute="top" secondItem="guw-1o-vcq" secondAttribute="bottom" constant="70" id="aYK-df-Xyb"/>
                                     <constraint firstItem="riQ-J0-S4y" firstAttribute="centerX" secondItem="EFp-so-JxE" secondAttribute="centerX" id="bhI-WZ-qv9"/>
@@ -1702,7 +1703,13 @@
                                     <constraint firstItem="guw-1o-vcq" firstAttribute="centerX" secondItem="EFp-so-JxE" secondAttribute="centerX" id="oJ6-gx-teg"/>
                                     <constraint firstItem="guw-1o-vcq" firstAttribute="leading" secondItem="EFp-so-JxE" secondAttribute="leading" constant="20" id="pxQ-hO-fnl"/>
                                     <constraint firstItem="3MV-7a-qhr" firstAttribute="centerX" secondItem="EFp-so-JxE" secondAttribute="centerX" id="q8v-3D-cx7"/>
+                                    <constraint firstItem="Awi-Wq-SbB" firstAttribute="leading" secondItem="EFp-so-JxE" secondAttribute="leading" constant="20" id="xgA-dR-RM0"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="a1z-hd-eh2"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -1391,7 +1391,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yangsheng/classes/tool/AMap",
-					"$(PROJECT_DIR)/yangsheng/classes/tool/Sonic",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";
@@ -1422,7 +1421,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yangsheng/classes/tool/AMap",
-					"$(PROJECT_DIR)/yangsheng/classes/tool/Sonic",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";
