@@ -302,7 +302,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
             BaseModel* en=[enterArray objectAtIndex:row-1];
             c.pubContentLabel.text=en.ios_content;
             c.pubTitleLabel.text=en.post_title;
-//            [c.pubImageView sd_setImageWithURL:[en.thumb urlWithMainUrl]];
+            [c.pubImageView sd_setImageWithURL:[en.post_excerpt urlWithMainUrl]];
 //            [c.webView loadHTMLString:en.post_content baseURL:nil];
 //            c.webView.delegate=self;
             return c;
