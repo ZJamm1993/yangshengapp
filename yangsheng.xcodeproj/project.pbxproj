@@ -47,6 +47,8 @@
 		399604B81F2304A00026297B /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 399604B71F2304A00026297B /* AMap.bundle */; };
 		399834A41F29849000C60F0A /* StoreDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399834A31F29849000C60F0A /* StoreDetailContentCell.m */; };
 		39F5DD1D1F3FE7D700CFB520 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 39F5DD1C1F3FE7D700CFB520 /* hhh.html */; };
+		8F4287181F4BC91D00430B5F /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4287171F4BC91D00430B5F /* JRSwizzle.m */; };
+		8F42871E1F4BC9A700430B5F /* NSObject+SwizzleClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F42871D1F4BC9A700430B5F /* NSObject+SwizzleClasses.m */; };
 		8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */; };
 		8F507D291F1CAE14003DF63D /* StoreMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D281F1CAE14003DF63D /* StoreMapAnnotation.m */; };
 		8F507D2C1F1CBBFF003DF63D /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D2B1F1CBBFF003DF63D /* ProductSearchViewController.m */; };
@@ -254,6 +256,10 @@
 		399834A21F29849000C60F0A /* StoreDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailContentCell.h; sourceTree = "<group>"; };
 		399834A31F29849000C60F0A /* StoreDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailContentCell.m; sourceTree = "<group>"; };
 		39F5DD1C1F3FE7D700CFB520 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
+		8F4287161F4BC91D00430B5F /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		8F4287171F4BC91D00430B5F /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		8F42871C1F4BC9A700430B5F /* NSObject+SwizzleClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleClasses.h"; sourceTree = "<group>"; };
+		8F42871D1F4BC9A700430B5F /* NSObject+SwizzleClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SwizzleClasses.m"; sourceTree = "<group>"; };
 		8F507D241F1C481A003DF63D /* StoreApplyProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreApplyProtocolViewController.h; sourceTree = "<group>"; };
 		8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreApplyProtocolViewController.m; sourceTree = "<group>"; };
 		8F507D271F1CAE14003DF63D /* StoreMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreMapAnnotation.h; sourceTree = "<group>"; };
@@ -663,6 +669,8 @@
 				8FADBE671F0F39BE002F5911 /* SDWebImage */,
 				396910B81F0E855E00EF6D52 /* ZZHttpTool.h */,
 				396910B91F0E855E00EF6D52 /* ZZHttpTool.m */,
+				8F4287161F4BC91D00430B5F /* JRSwizzle.h */,
+				8F4287171F4BC91D00430B5F /* JRSwizzle.m */,
 				8FADBE451F0F1B5A002F5911 /* ZZUrlTool.h */,
 				8FADBE461F0F1B5A002F5911 /* ZZUrlTool.m */,
 				8FC242BC1F15C4F80064A845 /* ZZnotificationName.h */,
@@ -1001,6 +1009,8 @@
 				8FC2431D1F1704060064A845 /* UIView+ext.m */,
 				8F665D681F30298700B408B2 /* UIImage+ext.h */,
 				8F665D691F30298700B408B2 /* UIImage+ext.m */,
+				8F42871C1F4BC9A700430B5F /* NSObject+SwizzleClasses.h */,
+				8F42871D1F4BC9A700430B5F /* NSObject+SwizzleClasses.m */,
 			);
 			path = ext;
 			sourceTree = "<group>";
@@ -1189,6 +1199,7 @@
 				8F507D291F1CAE14003DF63D /* StoreMapAnnotation.m in Sources */,
 				8FC6DCB81F2196E800566F96 /* FounderCollectionViewCell.m in Sources */,
 				8FADBE5F1F0F2E6E002F5911 /* HomeHttpTool.m in Sources */,
+				8F42871E1F4BC9A700430B5F /* NSObject+SwizzleClasses.m in Sources */,
 				8FC6DCC71F21B58E00566F96 /* UniversalHttpTool.m in Sources */,
 				395247BA1F111D5E000A6E20 /* PlayerController.m in Sources */,
 				8F507D881F1F4069003DF63D /* ZZSearchBar.m in Sources */,
@@ -1213,6 +1224,7 @@
 				8FADBE941F0F39BF002F5911 /* NSData+ImageContentType.m in Sources */,
 				8FA935F01F11DBE1001E29CF /* HomeTeamExtCell.m in Sources */,
 				8FC243751F1862B60064A845 /* TeamCompanyListViewController.m in Sources */,
+				8F4287181F4BC91D00430B5F /* JRSwizzle.m in Sources */,
 				8FC242BE1F15C4F80064A845 /* ZZnotificationName.m in Sources */,
 				8F5219611F25D1FE00FE7733 /* ProductCodeScanViewController.m in Sources */,
 				8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */,

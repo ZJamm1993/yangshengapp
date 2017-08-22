@@ -18,6 +18,7 @@
     NSInteger lastCount;
     BOOL hasNetwork;
     NothingWarningView* nothingView;
+    BOOL isManualReload;
 }
 @end
 
@@ -67,6 +68,9 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scheduleRefresh) name:ScheduleRefreshNetWorkNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadDataNotification:) name:UITableViewReloadDataNotification object:nil];
+
+//    [self.refreshControl beginRefreshing];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -116,6 +120,22 @@
     [self refresh];
 }
 
+-(void)reloadDataNotification:(NSNotification*)notification
+{
+    NSDictionary* userDef=notification.userInfo;
+    UITableView* tableVi=[userDef valueForKey:@"tableView"];
+    if (tableVi==self.tableView) {
+        if (isManualReload) {
+            NSLog(@"%@ reloaded data",NSStringFromClass([self class]));
+            [self.refreshControl endRefreshing];
+        }
+        else
+        {
+            isManualReload=YES;
+        }
+    }
+}
+
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
@@ -140,7 +160,7 @@
 
 -(void)stopRefreshAfterSeconds
 {
-    [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:2];
+//    [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:2];
 }
 
 -(void)loadMore

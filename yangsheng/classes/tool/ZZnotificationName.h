@@ -16,6 +16,9 @@
 
 #define ScheduleRefreshNetWorkNotification @"ScheduleRefreshNetWorkNotification"
 
+#define UITableViewReloadDataNotification @"UITableViewReloadDataNotification"
+#define UICollectionViewReloadSectionsNotification @"UICollectionViewReloadSectionsNotification"
+
 @interface ZZnotificationName : NSObject
 
 @end

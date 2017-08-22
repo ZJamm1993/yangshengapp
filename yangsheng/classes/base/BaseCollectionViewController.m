@@ -16,6 +16,8 @@
     UIRefreshControl* refreshControl;
     BOOL hasNetwork;
     NSInteger lastCount;
+    
+    BOOL isManualReload;
 }
 
 @property (nonatomic,strong) AdvertiseView* advHeader;
@@ -39,6 +41,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scheduleRefresh) name:ScheduleRefreshNetWorkNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadSectionsNotification:) name:UICollectionViewReloadSectionsNotification object:nil];
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -116,6 +119,22 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 
+-(void)reloadSectionsNotification:(NSNotification*)notification
+{
+    NSDictionary* userDef=notification.userInfo;
+    UICollectionView* collecVi=[userDef valueForKey:@"collectionView"];
+    if (collecVi==self.collectionView) {
+//        if (isManualReload) {
+            NSLog(@"%@ reloaded sections",NSStringFromClass([self class]));
+            [refreshControl endRefreshing];
+//        }
+//        else
+//        {
+//            isManualReload=YES;
+//        }
+    }
+}
+
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
@@ -149,7 +168,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)stopRefreshAfterSeconds
 {
-    [refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:2];
+//    [refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:2];
 }
 
 -(void)loadMore
