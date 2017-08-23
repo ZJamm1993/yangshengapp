@@ -126,7 +126,7 @@ static NSString * const reuseIdentifier = @"Cell";
     if (collecVi==self.collectionView) {
 //        if (isManualReload) {
             NSLog(@"%@ reloaded sections",NSStringFromClass([self class]));
-            [refreshControl endRefreshing];
+        [refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:1];
 //        }
 //        else
 //        {

@@ -127,7 +127,7 @@
     if (tableVi==self.tableView) {
         if (isManualReload) {
             NSLog(@"%@ reloaded data",NSStringFromClass([self class]));
-            [self.refreshControl endRefreshing];
+            [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:1];
         }
         else
         {
