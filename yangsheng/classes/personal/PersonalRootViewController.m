@@ -156,6 +156,8 @@
             UIView* sha=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1/[[UIScreen mainScreen]scale])];
             sha.backgroundColor=[UIColor groupTableViewBackgroundColor];
             [cell.contentView addSubview:sha];
+            
+            cell.clipsToBounds=YES;
         }
         NSString* imgname=[[imgsArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
         NSString* title=[[titsArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];

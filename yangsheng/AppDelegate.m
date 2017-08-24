@@ -46,12 +46,12 @@
         [[AMapServices sharedServices]setApiKey:@"5a0dbb8ca2f251b16d210c8d91f7cad6"];
         [[AMapServices sharedServices]setEnableHTTPS:YES];
         
-        NSString* buildVersion=[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleVersion"];
-        NSString* lastBuild=[[NSUserDefaults standardUserDefaults]valueForKey:LastBuildVersionKey];
-        if (![lastBuild isEqualToString:buildVersion]) {
-            [[NSURLCache sharedURLCache]removeAllCachedResponses];
-            [[NSUserDefaults standardUserDefaults]setValue:buildVersion forKey:LastBuildVersionKey];
-        }
+//        NSString* buildVersion=[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleVersion"];
+//        NSString* lastBuild=[[NSUserDefaults standardUserDefaults]valueForKey:LastBuildVersionKey];
+//        if (![lastBuild isEqualToString:buildVersion]) {
+//            [[NSURLCache sharedURLCache]removeAllCachedResponses];
+//            [[NSUserDefaults standardUserDefaults]setValue:buildVersion forKey:LastBuildVersionKey];
+//        }
         
     });
     

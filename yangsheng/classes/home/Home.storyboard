@@ -83,6 +83,7 @@
                                             <constraints>
                                                 <constraint firstItem="e9b-4m-NSh" firstAttribute="centerY" secondItem="A2u-O0-xmU" secondAttribute="centerY" id="M49-EP-QEJ"/>
                                                 <constraint firstItem="e9b-4m-NSh" firstAttribute="leading" secondItem="A2u-O0-xmU" secondAttribute="leading" constant="15" id="TrB-A4-Dq1"/>
+                                                <constraint firstAttribute="height" constant="40" id="Uck-fI-Pfd"/>
                                                 <constraint firstAttribute="trailing" secondItem="WIl-5w-JNJ" secondAttribute="trailing" constant="15" id="dd3-kX-D9N"/>
                                                 <constraint firstItem="WIl-5w-JNJ" firstAttribute="centerY" secondItem="A2u-O0-xmU" secondAttribute="centerY" id="nef-LA-cag"/>
                                             </constraints>
@@ -99,6 +100,11 @@
                                         <constraint firstItem="A2u-O0-xmU" firstAttribute="top" secondItem="fzH-Pq-2ew" secondAttribute="bottom" id="d0v-f8-pfd"/>
                                         <constraint firstAttribute="bottom" secondItem="A2u-O0-xmU" secondAttribute="bottom" id="hzq-MR-sAi"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="XNa-Cm-pGU"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="productName" destination="e9b-4m-NSh" id="v88-l2-i1q"/>
