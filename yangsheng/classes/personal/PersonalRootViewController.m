@@ -150,6 +150,8 @@
         if (cell==nil) {
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ccc"];
             
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            
             cell.textLabel.textColor=[UIColor grayColor];
             cell.textLabel.font=[UIFont systemFontOfSize:15];
             

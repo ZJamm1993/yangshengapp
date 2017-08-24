@@ -102,13 +102,13 @@
 -(void)refreshCityButton:(NSString*)c
 {
     NSString* title=@"选择城市";
-    if (selectedCity.name.length>0) {
-        title=selectedCity.name;
-    }
     if (c.length>0) {
         title=c;
     }
-    cityItem.title=title;
+    if (selectedCity.name.length>0) {
+        title=selectedCity.name;
+    }
+    [cityItem setTitle:title];
 }
 
 -(void)selectCity
