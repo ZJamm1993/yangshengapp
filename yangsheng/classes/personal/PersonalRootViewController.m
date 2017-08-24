@@ -24,7 +24,7 @@
 {
     NSArray* imgsArray;
     NSArray* titsArray;
-    __weak UIImageView* headerBgImage;
+    UIImageView* headerBgImage;
     UserModel* currentUser;
 }
 @end
@@ -45,6 +45,19 @@
 //    [self didLogin:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshUser) name:LoginUserSuccessNotification object:nil];
+    
+    NSString* version=[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleShortVersionString"];
+    version=[NSString stringWithFormat:@"v %@",version];
+    
+    UILabel* verLab=[[UILabel alloc]initWithFrame:CGRectMake(0, -100, self.view.frame.size.width, 20)];
+    verLab.text=version;
+    verLab.textAlignment=NSTextAlignmentCenter;
+    verLab.textColor=[UIColor colorWithWhite:1 alpha:0.5];
+    [self.tableView addSubview:verLab];
+    
+    headerBgImage=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, [self tableView:self.tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]])];
+    headerBgImage.image=[UIImage imageNamed:@"my_bg"];
+    [self.tableView insertSubview:headerBgImage atIndex:0];
 }
 
 //-(void)didLogin:(NSNotification*)noti
@@ -103,7 +116,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==tableView.numberOfSections-1) {
+    if (indexPath.section==0) {
+        return 159;
+    }
+    else if (indexPath.section==tableView.numberOfSections-1) {
         if (currentUser.type!=UserTypeDealer) {
             return 0;
         }
@@ -125,12 +141,22 @@
         cell.username.text=currentUser.user_nicename;
         cell.userid.text=[NSString stringWithFormat:@"ID:%@",currentUser.idd];
         [cell.headImage sd_setImageWithURL:[currentUser.avatar urlWithMainUrl] placeholderImage:[UIImage imageNamed:@"user_tx"]];
-        headerBgImage=cell.my_bgImage;
         return cell;
     }
     else
     {
-        UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//        UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ccc"];
+        if (cell==nil) {
+            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ccc"];
+            
+            cell.textLabel.textColor=[UIColor grayColor];
+            cell.textLabel.font=[UIFont systemFontOfSize:15];
+            
+            UIView* sha=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1/[[UIScreen mainScreen]scale])];
+            sha.backgroundColor=[UIColor groupTableViewBackgroundColor];
+            [cell.contentView addSubview:sha];
+        }
         NSString* imgname=[[imgsArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
         NSString* title=[[titsArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
         cell.imageView.image=[UIImage imageNamed:imgname];
@@ -270,19 +296,23 @@
     [self.navigationController pushViewController:scaner animated:YES];
 }
 
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    if (scrollView==self.tableView) {
-//        CGFloat off=scrollView.contentOffset.y-scrollView.contentInset.top;
-//        CGFloat sca=1;
-//        if (off<0) {
-//            CGFloat h_2=headerBgImage.bounds.size.height/2;
-//            CGFloat n_h_2=h_2-off;
-//            sca=n_h_2/h_2;
-//        }
-//        
-//        headerBgImage.transform=CGAffineTransformMakeScale(sca, sca);
-//    }
-//}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView==self.tableView) {
+        CGFloat off=scrollView.contentOffset.y-scrollView.contentInset.top-1;
+        CGFloat cellHeight=[self tableView:self.tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        CGRect oldFra=headerBgImage.frame;
+        if (off<0) {
+            oldFra.size.height=cellHeight-off;
+            oldFra.origin.y=off;
+        }
+        else
+        {
+            oldFra.origin.y=0;
+            oldFra.size.height=cellHeight;
+        }
+        headerBgImage.frame=oldFra;
+    }
+}
 
 @end
