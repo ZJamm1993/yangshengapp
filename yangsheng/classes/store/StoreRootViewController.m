@@ -94,19 +94,19 @@
 -(void)reloadCity
 {
     CityModel* c=[CityModel getCity];
-    [self refreshCityButton:c];
+    [self refreshCityButton:c.name];
     selectedCity=c;
     [self refreshWithCache:YES];
 }
 
--(void)refreshCityButton:(CityModel*)c
+-(void)refreshCityButton:(NSString*)c
 {
     NSString* title=@"选择城市";
     if (selectedCity.name.length>0) {
         title=selectedCity.name;
     }
-    if (c.name.length>0) {
-        title=c.name;
+    if (c.length>0) {
+        title=c;
     }
     cityItem.title=title;
 }
@@ -164,7 +164,7 @@
     currentLng=[loca valueForKey:UserLastLocationLongitudeKey];
     currentLat=[loca valueForKey:UserLastLocationLatitudeKey];
 //#endif
-    [StoreHttpTool getNeighbourStoreListPage:1 lng:currentLng lat:currentLat mult:5 cityCode:selectedCity.citycode success:^(NSArray *datasource,CityModel* city) {
+    [StoreHttpTool getNeighbourStoreListPage:1 lng:currentLng lat:currentLat mult:5 cityCode:selectedCity.citycode success:^(NSArray *datasource,NSString* city) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datasource];
         [self tableViewReloadData];

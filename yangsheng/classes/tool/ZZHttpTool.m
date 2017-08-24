@@ -105,7 +105,7 @@
         NSURLSessionDataTask* dataTast=[session dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
 //            NSLog(@"data:\n%@",data);
 //            NSLog(@"resp:\n%@",response);
-//            NSLog(@"erro:\n%@",error);
+            NSLog(@"erro:\n%@",error);
             
             NSDictionary* result=[ZZHttpTool dictionaryWithResponseData:data];
             [session finishTasksAndInvalidate];

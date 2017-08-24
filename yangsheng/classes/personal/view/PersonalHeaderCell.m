@@ -41,10 +41,13 @@
 {
     [super layoutSubviews];
     
-    self.headImage.layer.borderColor=[UIColor whiteColor].CGColor;
-    self.headImage.layer.borderWidth=3;
+//    self.headImage.layer.borderColor=[UIColor whiteColor].CGColor;
+////    self.headImage.layer.borderWidth=-3;
     self.headImage.layer.cornerRadius=self.headImage.bounds.size.width/2;
     self.headImage.clipsToBounds=YES;
+    
+    self.headImageBg.layer.cornerRadius=self.self.headImageBg.bounds.size.width/2;
+    self.headImageBg.clipsToBounds=YES;
     
 }
 

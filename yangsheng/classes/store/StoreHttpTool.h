@@ -12,7 +12,7 @@
 
 @interface StoreHttpTool : ZZHttpTool
 
-+(void)getNeighbourStoreListPage:(NSInteger)page lng:(NSString*)lng lat:(NSString*)lat mult:(NSInteger)mult cityCode:(NSString*)cityCode success:(void(^) (NSArray* datasource,CityModel* city))success isCache:(BOOL)isCache;
++(void)getNeighbourStoreListPage:(NSInteger)page lng:(NSString*)lng lat:(NSString*)lat mult:(NSInteger)mult cityCode:(NSString*)cityCode success:(void(^) (NSArray* datasource,NSString* cityName))success isCache:(BOOL)isCache;
 
 +(void)getAllStoreListPage:(NSInteger)page success:(void (^)(NSArray *))success isCache:(BOOL)isCache;
 

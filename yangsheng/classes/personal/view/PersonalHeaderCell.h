@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *unlogedView;
 @property (weak, nonatomic) IBOutlet UIView *logedView;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
+@property (weak, nonatomic) IBOutlet UIView *headImageBg;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *userid;
 @property (weak, nonatomic) IBOutlet UIImageView *my_bgImage;

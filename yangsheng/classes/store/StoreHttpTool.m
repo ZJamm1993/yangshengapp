@@ -10,7 +10,7 @@
 
 @implementation StoreHttpTool
 
-+(void)getNeighbourStoreListPage:(NSInteger)page lng:(NSString *)lng lat:(NSString *)lat mult:(NSInteger)mult cityCode:(NSString*)cityCode success:(void (^)(NSArray *,CityModel*))success isCache:(BOOL)isCache
++(void)getNeighbourStoreListPage:(NSInteger)page lng:(NSString *)lng lat:(NSString *)lat mult:(NSInteger)mult cityCode:(NSString*)cityCode success:(void (^)(NSArray *,NSString*))success isCache:(BOOL)isCache
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Entity/Store/list"];
     if (lng.length==0) {
@@ -35,9 +35,11 @@
             [arr addObject:store];
         }
         NSDictionary* loc=[data valueForKey:@"location"];
-        CityModel* city=[[CityModel alloc]initWithDictionary:loc];
+//        CityModel* city=[[CityModel alloc]initWithDictionary:loc];
+        NSString* name=[loc valueForKey:@"city"];
+        NSString* cityName=name.description;
         if (success) {
-            success(arr,city);
+            success(arr,cityName);
         }
     } failure:^(NSError *f) {
         
