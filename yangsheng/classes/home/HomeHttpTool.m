@@ -20,11 +20,11 @@
             BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
-        if (datasource.count>0) {
+//        if (datasource.count>0) {
             if (success) {
                 success(datasource);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
@@ -42,11 +42,11 @@
             BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
-        if (datasource.count>0) {
+//        if (datasource.count>0) {
             if (success) {
                 success(datasource);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
@@ -63,11 +63,11 @@
             BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
-        if (datasource.count>0) {
+//        if (datasource.count>0) {
             if (success) {
                 success(datasource);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
@@ -84,11 +84,11 @@
             BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
-        if (datasource.count>0) {
+//        if (datasource.count>0) {
             if (success) {
                 success(datasource);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
@@ -105,11 +105,11 @@
         }
         BaseModel* en=[[BaseModel alloc] initWithDictionary:data];
         NSArray* sour=[NSArray arrayWithObject:en];
-        if (sour.count>0) {
+//        if (sour.count>0) {
             if (success) {
                 success(sour);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
@@ -149,11 +149,11 @@
             BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
-        if (datasource.count>0) {
+//        if (datasource.count>0) {
             if (success) {
                 success(datasource);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
@@ -170,11 +170,11 @@
             BaseModel * class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
-        if (datasource.count>0) {
+//        if (datasource.count>0) {
             if (success) {
                 success(datasource);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
@@ -194,11 +194,11 @@
             BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
             [sou addObject:m];
         }
-        if (sou.count>0) {
+//        if (sou.count>0) {
             if (success) {
                 success(sou);
             }
-        }
+//        }
     } failure:^(NSError *err) {
         
     }];
@@ -241,11 +241,11 @@
             BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
             [sou addObject:m];
         }
-        if (sou.count>0) {
+//        if (sou.count>0) {
             if (success) {
                 success(sou);
             }
-        }
+//        }
     } failure:^(NSError *err) {
         
     }];
@@ -313,11 +313,11 @@
             BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
-        if (datasource.count>0) {
+//        if (datasource.count>0) {
             if (success) {
                 success(datasource);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
@@ -340,11 +340,11 @@
             BaseModel* class=[[BaseModel alloc]initWithDictionary:cl];
             [datasource addObject:class];
         }
-        if (datasource.count>0) {
+//        if (datasource.count>0) {
             if (success) {
                 success(datasource);
             }
-        }
+//        }
     } failure:^(NSError *error) {
         
     }];
@@ -363,11 +363,11 @@
             BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
             [sou addObject:m];
         }
-        if (sou.count>0) {
+//        if (sou.count>0) {
             if (success) {
                 success(sou);
             }
-        }
+//        }
     } failure:^(NSError *err) {
         
     }];
@@ -386,11 +386,11 @@
             BaseModel* m=[[BaseModel alloc]initWithDictionary:cl];
             [sou addObject:m];
         }
-        if (sou.count>0) {
+//        if (sou.count>0) {
             if (success) {
                 success(sou);
             }
-        }
+//        }
     } failure:^(NSError *err) {
         
     }];
