@@ -361,16 +361,17 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
                 if (b.mp4_path.length==0) {
                     return;
                 }
-                UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否观看企业视频?" message:@"可能会产生额外流量费用" preferredStyle:UIAlertControllerStyleAlert];
-                [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-                [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                    NSURL* mp4url=[b.mp4_path urlWithMainUrl];
-                    PlayerController* player=[[PlayerController alloc]init];
-                    player.url=mp4url;
-                    [self presentMoviePlayerViewControllerAnimated:player];
-                }]];
-                [self presentViewController:alert animated:YES completion:nil];
+//                UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否观看企业视频?" message:@"可能会产生额外流量费用" preferredStyle:UIAlertControllerStyleAlert];
+//                [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+//                [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                NSURL* mp4url=[b.mp4_path urlWithMainUrl];
+                PlayerController* player=[[PlayerController alloc]init];
+                player.url=mp4url;
+                [self presentMoviePlayerViewControllerAnimated:player];
+                
+//                }]];
+//                [self presentViewController:alert animated:YES completion:nil];
             }
         }
     }
@@ -415,36 +416,6 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     else if (index==1) {
         NeewsListViewController* nl=[[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"NeewsListViewController"];
         [self.navigationController pushViewController:nl animated:YES];
-    }
-    else if(index==2)
-    {
-//        UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否打开QQ联系客服" message:nil preferredStyle:UIAlertControllerStyleAlert];
-//        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-//        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            
-////            NSURL* url=QQURL;
-////            if ([[UIApplication sharedApplication]canOpenURL:url]) {
-////                [[UIApplication sharedApplication]openURL:url];
-////            }
-////            else
-////            {
-////                [MBProgressHUD showErrorMessage:@"联系客服发生错误"];
-////            }
-//        }]];
-//        [self presentViewController:alert animated:YES completion:nil];
-        
-//        JumpToBizProfileReq *req = [[JumpToBizProfileReq alloc]init];
-//        req.profileType = WXBizProfileType_Normal;
-//        req.username = @"lkhxaVbEZwsYrRIK9x2E"; //公众号原始ID
-//        [WXApi sendReq:req];
-        
-        UIViewController* vc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomerServiceViewController"];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if(index==3)
-    {
-        ProductCodeScanViewController* scaner=[[ProductCodeScanViewController alloc]init];
-        [self.navigationController pushViewController:scaner animated:YES];
     }
 }
 

@@ -11,7 +11,7 @@
 @implementation StoreDetailBaseMessageCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
     
     self.storeNaviButton.layer.cornerRadius=2;
     self.storeNaviButton.layer.borderColor=[UIColor lightGrayColor].CGColor;

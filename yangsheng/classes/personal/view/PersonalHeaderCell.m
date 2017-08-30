@@ -11,7 +11,7 @@
 @implementation PersonalHeaderCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
     
     
 }

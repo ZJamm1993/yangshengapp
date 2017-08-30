@@ -11,7 +11,7 @@
 @implementation ClassroomVideoShareCollectionCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
 }
 
 @end

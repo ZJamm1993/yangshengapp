@@ -36,10 +36,18 @@
         }
         NSDictionary* loc=[data valueForKey:@"location"];
 //        CityModel* city=[[CityModel alloc]initWithDictionary:loc];
-        NSString* name=[loc valueForKey:@"city"];
-        NSString* cityName=name.description;
+        NSString* cityName=[loc valueForKey:@"city"];
+        NSString* provinceName=[loc valueForKey:@"province"];
+        NSString* name;
+        if (provinceName) {
+            name=provinceName;
+        }
+        else if(cityName)
+        {
+            name=cityName;
+        }
         if (success) {
-            success(arr,cityName);
+            success(arr,name);
         }
     } failure:^(NSError *f) {
         

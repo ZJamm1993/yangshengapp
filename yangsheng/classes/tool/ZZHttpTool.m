@@ -181,7 +181,10 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
         for (id value in (NSArray *)JSONObject) {
             [mutableArray addObject:AFJSONObjectByRemovingKeysWithNullValues(value, readingOptions)];
         }
-        
+        if(((NSArray*)JSONObject).count==0)
+        {
+            return nil;
+        }
         return (readingOptions & NSJSONReadingMutableContainers) ? mutableArray : [NSArray arrayWithArray:mutableArray];
     } else if ([JSONObject isKindOfClass:[NSDictionary class]]) {
         NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:JSONObject];
@@ -193,7 +196,10 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
                 mutableDictionary[key] = AFJSONObjectByRemovingKeysWithNullValues(value, readingOptions);
             }
         }
-        
+        if(((NSDictionary*)JSONObject).count==0)
+        {
+            return nil;
+        }
         return (readingOptions & NSJSONReadingMutableContainers) ? mutableDictionary : [NSDictionary dictionaryWithDictionary:mutableDictionary];
     }
     

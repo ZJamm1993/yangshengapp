@@ -12,7 +12,7 @@
 @implementation ClassroomVideoShareHeaderView
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
 }
 
 @end

@@ -11,7 +11,7 @@
 @implementation FounderCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
 }
 
 @end

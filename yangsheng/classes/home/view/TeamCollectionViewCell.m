@@ -11,7 +11,7 @@
 @implementation TeamCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
 }
 
 @end

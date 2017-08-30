@@ -36,11 +36,6 @@
         NSString* mainBundle=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];//[[NSBundle mainBundle]bundlePath];
         NSLog(@"path:%@",mainBundle);
         
-        reach=[Reachability reachabilityForInternetConnection];
-        [reach startNotifier];
-        
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
-        
         [WXApi registerApp:@"wxa2d7f862857d33f7"];
         
         [[AMapServices sharedServices]setApiKey:@"5a0dbb8ca2f251b16d210c8d91f7cad6"];
@@ -55,6 +50,10 @@
         
     });
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
+    
+    reach=[Reachability reachabilityForInternetConnection];
+    [reach startNotifier];
     
     scheduleRefreshTimer=[NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(scheduleTimer) userInfo:nil repeats:YES];
     [scheduleRefreshTimer setFireDate:[NSDate dateWithTimeIntervalSinceNow:2]];

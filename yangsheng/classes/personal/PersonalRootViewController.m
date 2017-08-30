@@ -244,12 +244,6 @@
     {
         if (indexPath.row==0) {
             if (self.isLoged) {
-//                if (currentUser.type==UserTypeDealer) {
-//                    UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"您当前身份为经销商" message:@"若要修改密码，请前往经销商入口" preferredStyle:UIAlertControllerStyleAlert];
-//                    [alert addAction:[UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleCancel handler:nil]];
-//                    [self presentViewController:alert animated:YES completion:nil];
-//                    return;
-//                }
                 PersonalAccountSettingViewController* acc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalAccountSettingViewController"];
                 [self.navigationController pushViewController:acc animated:YES];
             }
@@ -260,20 +254,6 @@
         }
         else if(indexPath.row==1)
         {
-//            UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否打开QQ联系客服" message:nil preferredStyle:UIAlertControllerStyleAlert];
-//            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-//            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-////                NSURL* url=QQURL;
-////                if ([[UIApplication sharedApplication]canOpenURL:url]) {
-////                    [[UIApplication sharedApplication]openURL:url];
-////                }
-////                else
-////                {
-////                    [MBProgressHUD showErrorMessage:@"联系客服发生错误"];
-////                }
-//            }]];
-//            [self presentViewController:alert animated:YES completion:nil];
-            
             UIViewController* vc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomerServiceViewController"];
             [self.navigationController pushViewController:vc animated:YES];
         }

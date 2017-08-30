@@ -347,13 +347,7 @@
             }];
         }
         else{
-            UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"出现问题" message:@"设备不支持拨打电话" preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                
-            }]];
-            [self presentViewController:alert animated:YES completion:^{
-                
-            }];
+            [MBProgressHUD showErrorMessage:@"设备不支持拨打电话"];
         }
     }
     else if(type==AppointmentTypeNormal)
