@@ -285,16 +285,21 @@
     if (scrollView==self.tableView) {
         CGFloat off=scrollView.contentOffset.y-scrollView.contentInset.top-1;
         CGFloat cellHeight=[self tableView:self.tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        CGFloat sw=[scrollView frame].size.width;
         CGRect oldFra=headerBgImage.frame;
         if (off<0) {
             oldFra.size.height=cellHeight-off;
             oldFra.origin.y=off;
+            CGFloat w=oldFra.size.width=sw/cellHeight*oldFra.size.height;
+            oldFra.size.width=w;
         }
         else
         {
             oldFra.origin.y=0;
             oldFra.size.height=cellHeight;
+            oldFra.size.width=sw;
         }
+        oldFra.origin.x=sw/2-oldFra.size.width/2;
         headerBgImage.frame=oldFra;
     }
 }
