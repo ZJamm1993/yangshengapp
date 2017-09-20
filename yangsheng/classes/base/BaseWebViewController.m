@@ -182,6 +182,12 @@
 
 #pragma mark --old uiwebview delegate
 
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSLog(@"%@",request);
+    return YES;
+}
+
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
     [loadingIndicator startAnimating];
@@ -193,16 +199,16 @@
     [loadingIndicator stopAnimating];
 }
 
-#pragma mark --new wkwebview delegate
-
--(void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation
-{
-    [loadingIndicator startAnimating];
-}
-
--(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
-{
-    [loadingIndicator stopAnimating];
-}
+//#pragma mark --new wkwebview delegate
+//
+//-(void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation
+//{
+//    [loadingIndicator startAnimating];
+//}
+//
+//-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
+//{
+//    [loadingIndicator stopAnimating];
+//}
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ZZHttpTool.h"
 #import "Reachability.h"
+#import <UMMobClick/MobClick.h>
 
 @implementation ZZHttpTool
 
@@ -47,6 +48,10 @@
     BOOL isGet=[method isEqualToString:@"GET"];
     BOOL isPost=[method isEqualToString:@"POST"];
     if (isGet||isPost) {
+        
+        NSString* suburl=[url stringByReplacingOccurrencesOfString:[ZZUrlTool main] withString:@"main/"];
+        NSString* getorpost=[NSString stringWithFormat:@"%@:%@",method,suburl];
+        [MobClick event:@"getorpost" attributes:[NSDictionary dictionaryWithObject:getorpost forKey:@"method:url"]];
         
         NSArray* keys=[params allKeys];
         NSMutableArray* keysAndValues=[NSMutableArray array];
@@ -105,7 +110,7 @@
         NSURLSessionDataTask* dataTast=[session dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
 //            NSLog(@"data:\n%@",data);
 //            NSLog(@"resp:\n%@",response);
-            NSLog(@"erro:\n%@",error);
+//            NSLog(@"erro:\n%@",error);
             
             NSDictionary* result=[ZZHttpTool dictionaryWithResponseData:data];
             [session finishTasksAndInvalidate];

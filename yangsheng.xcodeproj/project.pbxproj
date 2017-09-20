@@ -47,6 +47,8 @@
 		399604B81F2304A00026297B /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 399604B71F2304A00026297B /* AMap.bundle */; };
 		399834A41F29849000C60F0A /* StoreDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399834A31F29849000C60F0A /* StoreDetailContentCell.m */; };
 		39F5DD1D1F3FE7D700CFB520 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 39F5DD1C1F3FE7D700CFB520 /* hhh.html */; };
+		8EA3246D1F720EC9001CD26D /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3246C1F720EC9001CD26D /* UMMobClick.framework */; };
+		8EA3246F1F720F52001CD26D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3246E1F720F52001CD26D /* libsqlite3.tbd */; };
 		8F4287181F4BC91D00430B5F /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4287171F4BC91D00430B5F /* JRSwizzle.m */; };
 		8F42871E1F4BC9A700430B5F /* NSObject+SwizzleClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F42871D1F4BC9A700430B5F /* NSObject+SwizzleClasses.m */; };
 		8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */; };
@@ -256,6 +258,8 @@
 		399834A21F29849000C60F0A /* StoreDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailContentCell.h; sourceTree = "<group>"; };
 		399834A31F29849000C60F0A /* StoreDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailContentCell.m; sourceTree = "<group>"; };
 		39F5DD1C1F3FE7D700CFB520 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
+		8EA3246C1F720EC9001CD26D /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
+		8EA3246E1F720F52001CD26D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8F4287161F4BC91D00430B5F /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		8F4287171F4BC91D00430B5F /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		8F42871C1F4BC9A700430B5F /* NSObject+SwizzleClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleClasses.h"; sourceTree = "<group>"; };
@@ -516,8 +520,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA3246F1F720F52001CD26D /* libsqlite3.tbd in Frameworks */,
 				8F9420951F3B1A0F00EF4373 /* WebKit.framework in Frameworks */,
 				395F56AA1F24583E008A5FA8 /* MapKit.framework in Frameworks */,
+				8EA3246D1F720EC9001CD26D /* UMMobClick.framework in Frameworks */,
 				399604B51F22FEAB0026297B /* QuartzCore.framework in Frameworks */,
 				399604B31F22FE9F0026297B /* libstdc++.6.0.9.tbd in Frameworks */,
 				399604B11F22FE900026297B /* GLKit.framework in Frameworks */,
@@ -661,6 +667,7 @@
 		396910B71F0E855E00EF6D52 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				8EA3246B1F720EC9001CD26D /* UMMobClick */,
 				399604A71F22FE4F0026297B /* AMap */,
 				8FC242E11F162ADB0064A845 /* Foundation+Log.m */,
 				8F507D721F1F30DB003DF63D /* WeChatOpenSDK1.7.8 */,
@@ -788,6 +795,14 @@
 			path = AMap;
 			sourceTree = "<group>";
 		};
+		8EA3246B1F720EC9001CD26D /* UMMobClick */ = {
+			isa = PBXGroup;
+			children = (
+				8EA3246C1F720EC9001CD26D /* UMMobClick.framework */,
+			);
+			path = UMMobClick;
+			sourceTree = "<group>";
+		};
 		8F507D721F1F30DB003DF63D /* WeChatOpenSDK1.7.8 */ = {
 			isa = PBXGroup;
 			children = (
@@ -814,6 +829,7 @@
 		8FA3EBEF1F2F227600A5B0E8 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				8EA3246E1F720F52001CD26D /* libsqlite3.tbd */,
 				8F9420941F3B1A0F00EF4373 /* WebKit.framework */,
 				395F56A91F24583E008A5FA8 /* MapKit.framework */,
 				399604B71F2304A00026297B /* AMap.bundle */,
@@ -1403,6 +1419,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yangsheng/classes/tool/AMap",
+					"$(PROJECT_DIR)/yangsheng/classes/tool/UMMobClick",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";
@@ -1433,6 +1450,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yangsheng/classes/tool/AMap",
+					"$(PROJECT_DIR)/yangsheng/classes/tool/UMMobClick",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";

@@ -13,6 +13,7 @@
 #import "UniversalHttpTool.h"
 #import "WXApi.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
+#import <UMMobClick/MobClick.h>
 
 #define LastBuildVersionKey @"aoisfj23989uUUKJHIUhiuhhi"
 
@@ -38,6 +39,10 @@
         
         [WXApi registerApp:@"wxa2d7f862857d33f7"];
         
+        [MobClick setLogEnabled:YES];
+        UMConfigInstance.appKey = @"59c1d002e88bad29cf00000c";
+        [MobClick startWithConfigure:UMConfigInstance];
+        
         [[AMapServices sharedServices]setApiKey:@"5a0dbb8ca2f251b16d210c8d91f7cad6"];
         [[AMapServices sharedServices]setEnableHTTPS:YES];
         
@@ -55,7 +60,7 @@
     reach=[Reachability reachabilityForInternetConnection];
     [reach startNotifier];
     
-    scheduleRefreshTimer=[NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(scheduleTimer) userInfo:nil repeats:YES];
+    scheduleRefreshTimer=[NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(scheduleTimer) userInfo:nil repeats:YES];
     [scheduleRefreshTimer setFireDate:[NSDate dateWithTimeIntervalSinceNow:2]];
     
     return YES;
@@ -150,6 +155,7 @@
     return YES;
 }
 
+//wechat
 -(void)onResp:(BaseResp *)resp
 {
     if ([resp isKindOfClass:[SendAuthResp class]]) {

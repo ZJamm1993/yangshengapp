@@ -75,8 +75,9 @@
 
 +(void)getAdversType:(NSInteger)type success:(void (^)(NSArray *))success isCache:(BOOL)isCache
 {
-    NSString* str=[ZZUrlTool fullUrlWithTail:[NSString stringWithFormat:@"/Content/Slide/index?cid=%d",(int)type]];
-    [self get:str params:nil usingCache:isCache success:^(NSDictionary *responseObject) {
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Slide/index"];
+    
+    [self get:str params:@{@"cid":@(type)} usingCache:isCache success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
         NSMutableArray* datasource=[NSMutableArray array];

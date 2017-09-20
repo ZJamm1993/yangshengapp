@@ -15,6 +15,8 @@
 
 +(void)post:(NSString *)url params:(NSDictionary *)params success:(void(^)(NSDictionary* responseObject))success failure:(void(^)(NSError *error))failure;
 
++(void)requestMethod:(NSString*)method url:(NSString *)url params:(NSDictionary *)params usingCache:(BOOL)isCache success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure;
+
 +(NSMutableDictionary*)pageParams;
 
 +(NSMutableDictionary*)pageParamsWithPage:(NSInteger)page size:(NSInteger)size;
