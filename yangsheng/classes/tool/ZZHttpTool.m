@@ -59,7 +59,8 @@
             NSString* value=[params valueForKey:key];
             if([value isKindOfClass:[NSString class]])
             {
-                value=[self encodeURL:value];
+//                value=[self encodeURL:value];
+                value=[value stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet URLFragmentAllowedCharacterSet]invertedSet]];
             }
             NSString* kv=[NSString stringWithFormat:@"%@=%@",key,value];
             [keysAndValues addObject:kv];
@@ -72,7 +73,8 @@
         
         if (isGet&&body.length>0) {
             url=[NSString stringWithFormat:@"%@?%@",url,body];
-            url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//            url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
         }
         
         NSURL* _ur=[NSURL URLWithString:url];

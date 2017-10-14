@@ -316,6 +316,14 @@
     if ([annotation isKindOfClass:[StoreMapAnnotation class]]) {
         StoreMapAnnotation* ano=(StoreMapAnnotation*)annotation;
         ZZNaviMapSelectionViewController* selection=[ZZNaviMapSelectionViewController naviAlertControllerWithTargetName:ano.title targetCoordinate:ano.coordinate];
+        if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad){
+            
+            UIView* view=[map viewForAnnotation:annotation];
+            selection.popoverPresentationController.sourceView = view;
+            selection.popoverPresentationController.sourceRect = CGRectMake(view.center.x, view.center.y, 0, 0);
+            selection.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+        }
+
         [self presentViewController:selection animated:YES completion:nil];
     }
 }

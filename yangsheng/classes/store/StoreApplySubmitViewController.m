@@ -239,6 +239,14 @@
     pick.delegate=self;
     
     UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"选择身份证照片" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad){
+        
+        alert.popoverPresentationController.sourceView = isPosi?self.positiveButton:self.negativeButton;
+        UIView* sourceV=alert.popoverPresentationController.sourceView;
+        alert.popoverPresentationController.sourceRect = CGRectMake(sourceV.center.x, sourceV.center.y, 0, 0);
+        alert.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    }
+    
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"打开照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         pick.sourceType=UIImagePickerControllerSourceTypeCamera;

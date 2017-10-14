@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>访问麦克风以录制声音</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>访问相册以获取图片</string>
+	<key>NSCameraUsageDescription</key>
+	<string>访问相机以识别二维码或拍摄照片</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>

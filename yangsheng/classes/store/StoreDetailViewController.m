@@ -68,6 +68,13 @@
     [self refresh];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.tableView setContentOffset:CGPointZero];
+}
+
 -(void)dealloc
 {
     testWebView=nil;
@@ -163,6 +170,7 @@
         }
         else if(scrollView.contentOffset.y>0)
         {
+            NSLog(@"%f",scrollView.contentOffset.y);
 //            if (!tableViewScrolling) {
                 [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 //            }

@@ -432,7 +432,6 @@
                                         <constraint firstAttribute="bottom" secondItem="Qwi-zt-ozj" secondAttribute="bottom" id="oaY-f5-KGV"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="headImage" destination="Afg-cl-Atz" id="T3q-rd-gKt"/>
                                     <outlet property="headImageBg" destination="ppF-yH-Ghv" id="gub-oP-vRi"/>
