@@ -60,6 +60,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // Do any additional setup after loading the view.
     
     [self showLoadMoreView];
+    self.collectionView.backgroundColor=[UIColor whiteColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated
