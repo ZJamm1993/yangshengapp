@@ -32,4 +32,7 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section;
 
+-(void)showLoadMoreView;
+-(void)hideLoadMoreView;
+
 @end

@@ -16,7 +16,7 @@
 {
     NSMutableDictionary* d=[NSMutableDictionary dictionary];
     [d setValue:@"1" forKey:@"page"];
-    [d setValue:@"1000" forKey:@"pagesize"];
+    [d setValue:@"30" forKey:@"pagesize"];
     return d;
 }
 

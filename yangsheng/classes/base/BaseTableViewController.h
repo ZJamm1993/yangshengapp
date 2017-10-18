@@ -32,6 +32,9 @@
 -(void)showNothingLabelText:(NSString*)text;
 -(void)hideNothingLabel;
 
+-(void)showLoadMoreView;
+-(void)hideLoadMoreView;
+
 -(void)tableViewReloadData;
 
 @end

@@ -10,14 +10,16 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "Reachability.h"
 #import "BaseModel.h"
+#import "BaseLoadMoreFooterView.h"
 
-@interface BaseCollectionViewController ()
+@interface BaseCollectionViewController ()<BaseLoadMoreFooterViewDelegate>
 {
     UIRefreshControl* refreshControl;
     BOOL hasNetwork;
     NSInteger lastCount;
     
     BOOL isManualReload;
+    BaseLoadMoreFooterView* loadMoreFooter;
 }
 
 @property (nonatomic,strong) AdvertiseView* advHeader;
@@ -52,10 +54,12 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.alwaysBounceVertical=YES;
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"h"];
-    self.collectionView.backgroundColor=[UIColor colorWithWhite:1 alpha:1];
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"f"];
     
 //    [self setAdvertiseHeaderViewWithPicturesUrls:@[@"",@""]];
     // Do any additional setup after loading the view.
+    
+    [self showLoadMoreView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -132,6 +136,7 @@ static NSString * const reuseIdentifier = @"Cell";
 //        {
 //            isManualReload=YES;
 //        }
+        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"加载更多" afterDelay:1];
     }
 }
 
@@ -189,13 +194,13 @@ static NSString * const reuseIdentifier = @"Cell";
     selectedBg.backgroundColor=[UIColor groupTableViewBackgroundColor];
     cell.selectedBackgroundView=selectedBg;
     
-    if ((indexPath.section==[collectionView numberOfSections]-1)&&(indexPath.row==[collectionView numberOfItemsInSection:indexPath.section]-1)) {
-        self.shouldLoadMore=_dataSource.count!=lastCount;
-        lastCount=_dataSource.count;
-        if (self.shouldLoadMore) {
-            [self loadMore];
-        }
-    }
+//    if ((indexPath.section==[collectionView numberOfSections]-1)&&(indexPath.row==[collectionView numberOfItemsInSection:indexPath.section]-1)) {
+//        self.shouldLoadMore=_dataSource.count!=lastCount;
+//        lastCount=_dataSource.count;
+//        if (self.shouldLoadMore) {
+//            [self loadMore];
+//        }
+//    }
 }
 
 #pragma mark - Advertiseview header
@@ -361,12 +366,21 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(UICollectionReusableView*)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-//    if ([kind isEqualToString:UICollectionElementKindSectionHeader]&&indexPath.section==0) {
-        UICollectionReusableView* view=[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"h" forIndexPath:indexPath];
-        view.backgroundColor=[UIColor redColor];
+    if([kind isEqualToString:UICollectionElementKindSectionFooter])
+    {
+        UICollectionReusableView* view=[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"f" forIndexPath:indexPath];
+        if (indexPath.section==collectionView.numberOfSections-1) {
+            [loadMoreFooter removeFromSuperview];
+            [view addSubview:loadMoreFooter];
+        }
         return view;
-//    }
-//    return nil;
+    }
+    else
+    {
+        UICollectionReusableView* view=[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"h" forIndexPath:indexPath];
+        //        view.backgroundColor=[UIColor redColor];
+        return view;
+    }
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
@@ -375,6 +389,14 @@ static NSString * const reuseIdentifier = @"Cell";
         if (self.advHeader.picturesUrls.count>0) {
             return self.advHeader.frame.size;
         }
+    }
+    return CGSizeZero;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    if (section==collectionView.numberOfSections-1) {
+        return loadMoreFooter.bounds.size;
     }
     return CGSizeZero;
 }
@@ -408,5 +430,30 @@ static NSString * const reuseIdentifier = @"Cell";
 	
 }
 */
+
+#pragma mark - loadmore something
+
+-(void)showLoadMoreView
+{
+    if (loadMoreFooter==nil) {
+        loadMoreFooter=[BaseLoadMoreFooterView defaultFooter];
+        loadMoreFooter.delegate=self;
+    }
+//    self.tableView.tableFooterView=nil;
+//    self.tableView.tableFooterView=loadMoreFooter;
+}
+
+-(void)hideLoadMoreView
+{
+//    if (self.tableView.tableFooterView==loadMoreFooter) {
+//        self.tableView.tableFooterView=nil;
+//    }
+}
+
+-(void)loadMoreFooterViewShouldStartLoadMore:(BaseLoadMoreFooterView *)footerView
+{
+    footerView.loading=YES;
+    [self loadMore];
+}
 
 @end

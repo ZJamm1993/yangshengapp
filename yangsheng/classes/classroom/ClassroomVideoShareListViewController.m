@@ -210,7 +210,7 @@
         hea.title.text=title;
         return hea;
     }
-    return nil;
+    return [super collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
 }
 
 @end
