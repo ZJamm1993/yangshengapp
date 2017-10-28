@@ -167,11 +167,12 @@
 -(void)stopRefreshAfterSeconds
 {
 //    [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:2];
+    [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:1];
 }
 
 -(void)loadMore
 {
-    
+    [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"" afterDelay:1];
 }
 
 -(void)reloadWithDictionary:(NSDictionary*)dict

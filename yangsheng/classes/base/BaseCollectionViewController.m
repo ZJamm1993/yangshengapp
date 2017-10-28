@@ -170,16 +170,18 @@ static NSString * const reuseIdentifier = @"Cell";
     //    } failure:^(NSError *error) {
     //
     //    }];
+    [refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:1];
 }
 
 -(void)stopRefreshAfterSeconds
 {
 //    [refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:2];
+    
 }
 
 -(void)loadMore
 {
-    
+    [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"" afterDelay:1];
 }
 
 -(void)reloadWithDictionary:(NSDictionary*)dict
