@@ -10,6 +10,7 @@
 #import "AdvertiseView.h"
 #import "ZZHttpTool.h"
 #import "NothingFooterCell.h"
+#import "AdvertisePushController.h"
 
 @interface BaseCollectionViewController : UICollectionViewController<AdvertiseViewDelegate,UICollectionViewDelegateFlowLayout>
 

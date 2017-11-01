@@ -45,6 +45,9 @@
         if (_idd.length==0) {
             _idd=[dictionary valueForKey:@"post_id"];
         }
+        
+        _requestedToken=[[dictionary valueForKey:@"requestedToken"]boolValue];
+        _href=[dictionary valueForKey:@"href"];
     }
     
     return self;

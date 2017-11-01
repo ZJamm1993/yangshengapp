@@ -237,8 +237,7 @@
         NSObject* ob=[self.advsArray objectAtIndex:index];
         if ([ob isKindOfClass:[BaseModel class]]) {
             BaseModel* mo=(BaseModel*)ob;
-            NSLog(@"adv type:%@, id:%@",mo.name,mo.idd);
-            [self.navigationController pushViewController:[[BaseWebViewController alloc]initWithUrl:[NSURL URLWithString:@"https://m.baidu.com"]] animated:YES];
+            [AdvertisePushController handleController:self withObject:mo];
         }
     }
 }

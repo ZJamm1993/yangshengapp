@@ -11,6 +11,8 @@
 #import "NothingFooterCell.h"
 #import "ZZHttpTool.h"
 
+#import "AdvertisePushController.h"
+
 @interface BaseTableViewController : UITableViewController<AdvertiseViewDelegate>
 
 @property (nonatomic,strong) NSMutableArray* dataSource;

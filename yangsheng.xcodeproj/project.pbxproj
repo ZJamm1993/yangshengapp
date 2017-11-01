@@ -48,6 +48,7 @@
 		399834A41F29849000C60F0A /* StoreDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399834A31F29849000C60F0A /* StoreDetailContentCell.m */; };
 		39F5DD1D1F3FE7D700CFB520 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 39F5DD1C1F3FE7D700CFB520 /* hhh.html */; };
 		8E9B0CCE1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CCD1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m */; };
+		8E9B0CD11FA9BB8600770F8D /* AdvertisePushController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CD01FA9BB8600770F8D /* AdvertisePushController.m */; };
 		8EA3246F1F720F52001CD26D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3246E1F720F52001CD26D /* libsqlite3.tbd */; };
 		8EB674BA1F96F256008CC196 /* BaseLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674B91F96F256008CC196 /* BaseLoadMoreFooterView.m */; };
 		8F4287181F4BC91D00430B5F /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4287171F4BC91D00430B5F /* JRSwizzle.m */; };
@@ -261,6 +262,8 @@
 		39F5DD1C1F3FE7D700CFB520 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
 		8E9B0CCC1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		8E9B0CCD1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		8E9B0CCF1FA9BB8600770F8D /* AdvertisePushController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisePushController.h; sourceTree = "<group>"; };
+		8E9B0CD01FA9BB8600770F8D /* AdvertisePushController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertisePushController.m; sourceTree = "<group>"; };
 		8EA3246E1F720F52001CD26D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8EB674B81F96F256008CC196 /* BaseLoadMoreFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoadMoreFooterView.h; sourceTree = "<group>"; };
 		8EB674B91F96F256008CC196 /* BaseLoadMoreFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoadMoreFooterView.m; sourceTree = "<group>"; };
@@ -634,6 +637,8 @@
 				8FC6DCC91F21B5B800566F96 /* UniversalModel.m */,
 				8EB674B81F96F256008CC196 /* BaseLoadMoreFooterView.h */,
 				8EB674B91F96F256008CC196 /* BaseLoadMoreFooterView.m */,
+				8E9B0CCF1FA9BB8600770F8D /* AdvertisePushController.h */,
+				8E9B0CD01FA9BB8600770F8D /* AdvertisePushController.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1209,6 +1214,7 @@
 				8FC243401F1710190064A845 /* StoreSmallCell.m in Sources */,
 				8FC243641F1783FD0064A845 /* StoreAllViewController.m in Sources */,
 				8FC243971F19EBEE0064A845 /* StoreCitySelectionViewController.m in Sources */,
+				8E9B0CD11FA9BB8600770F8D /* AdvertisePushController.m in Sources */,
 				8FADBEAB1F0F3B62002F5911 /* UIView+WebCacheOperation.m in Sources */,
 				8F507D291F1CAE14003DF63D /* StoreMapAnnotation.m in Sources */,
 				8FC6DCB81F2196E800566F96 /* FounderCollectionViewCell.m in Sources */,
