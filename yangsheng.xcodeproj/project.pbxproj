@@ -47,7 +47,7 @@
 		399604B81F2304A00026297B /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 399604B71F2304A00026297B /* AMap.bundle */; };
 		399834A41F29849000C60F0A /* StoreDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399834A31F29849000C60F0A /* StoreDetailContentCell.m */; };
 		39F5DD1D1F3FE7D700CFB520 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 39F5DD1C1F3FE7D700CFB520 /* hhh.html */; };
-		8EA3246D1F720EC9001CD26D /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3246C1F720EC9001CD26D /* UMMobClick.framework */; };
+		8E9B0CCE1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CCD1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m */; };
 		8EA3246F1F720F52001CD26D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3246E1F720F52001CD26D /* libsqlite3.tbd */; };
 		8EB674BA1F96F256008CC196 /* BaseLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674B91F96F256008CC196 /* BaseLoadMoreFooterView.m */; };
 		8F4287181F4BC91D00430B5F /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4287171F4BC91D00430B5F /* JRSwizzle.m */; };
@@ -259,7 +259,8 @@
 		399834A21F29849000C60F0A /* StoreDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailContentCell.h; sourceTree = "<group>"; };
 		399834A31F29849000C60F0A /* StoreDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailContentCell.m; sourceTree = "<group>"; };
 		39F5DD1C1F3FE7D700CFB520 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
-		8EA3246C1F720EC9001CD26D /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
+		8E9B0CCC1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		8E9B0CCD1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		8EA3246E1F720F52001CD26D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8EB674B81F96F256008CC196 /* BaseLoadMoreFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoadMoreFooterView.h; sourceTree = "<group>"; };
 		8EB674B91F96F256008CC196 /* BaseLoadMoreFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoadMoreFooterView.m; sourceTree = "<group>"; };
@@ -526,7 +527,6 @@
 				8EA3246F1F720F52001CD26D /* libsqlite3.tbd in Frameworks */,
 				8F9420951F3B1A0F00EF4373 /* WebKit.framework in Frameworks */,
 				395F56AA1F24583E008A5FA8 /* MapKit.framework in Frameworks */,
-				8EA3246D1F720EC9001CD26D /* UMMobClick.framework in Frameworks */,
 				399604B51F22FEAB0026297B /* QuartzCore.framework in Frameworks */,
 				399604B31F22FE9F0026297B /* libstdc++.6.0.9.tbd in Frameworks */,
 				399604B11F22FE900026297B /* GLKit.framework in Frameworks */,
@@ -672,7 +672,6 @@
 		396910B71F0E855E00EF6D52 /* tool */ = {
 			isa = PBXGroup;
 			children = (
-				8EA3246B1F720EC9001CD26D /* UMMobClick */,
 				399604A71F22FE4F0026297B /* AMap */,
 				8FC242E11F162ADB0064A845 /* Foundation+Log.m */,
 				8F507D721F1F30DB003DF63D /* WeChatOpenSDK1.7.8 */,
@@ -798,14 +797,6 @@
 				399604AA1F22FE4F0026297B /* MAMapKit.framework */,
 			);
 			path = AMap;
-			sourceTree = "<group>";
-		};
-		8EA3246B1F720EC9001CD26D /* UMMobClick */ = {
-			isa = PBXGroup;
-			children = (
-				8EA3246C1F720EC9001CD26D /* UMMobClick.framework */,
-			);
-			path = UMMobClick;
 			sourceTree = "<group>";
 		};
 		8F507D721F1F30DB003DF63D /* WeChatOpenSDK1.7.8 */ = {
@@ -1022,6 +1013,8 @@
 		8FC243171F1704060064A845 /* ext */ = {
 			isa = PBXGroup;
 			children = (
+				8E9B0CCC1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.h */,
+				8E9B0CCD1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m */,
 				8FC243181F1704060064A845 /* NSDictionary+ext.h */,
 				8FC243191F1704060064A845 /* NSDictionary+ext.m */,
 				8FC2431A1F1704060064A845 /* NSString+ext.h */,
@@ -1249,6 +1242,7 @@
 				8FC242BE1F15C4F80064A845 /* ZZnotificationName.m in Sources */,
 				8F5219611F25D1FE00FE7733 /* ProductCodeScanViewController.m in Sources */,
 				8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */,
+				8E9B0CCE1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m in Sources */,
 				8FADBEA01F0F39BF002F5911 /* UIImage+MultiFormat.m in Sources */,
 				8FADBE9B1F0F39BF002F5911 /* SDWebImageDownloaderOperation.m in Sources */,
 				396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */,
@@ -1425,7 +1419,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yangsheng/classes/tool/AMap",
-					"$(PROJECT_DIR)/yangsheng/classes/tool/UMMobClick",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";
@@ -1457,7 +1450,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yangsheng/classes/tool/AMap",
-					"$(PROJECT_DIR)/yangsheng/classes/tool/UMMobClick",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yangsheng/PrefixHeader.pch";

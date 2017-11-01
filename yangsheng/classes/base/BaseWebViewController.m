@@ -111,9 +111,9 @@
             abs=[NSString stringWithFormat:@"%@%@%@",abs,[abs containsString:@"?"]?@"":@"?",body];
         }
         
-        if (![abs containsString:[ZZUrlTool main]]) {
-            abs=[ZZUrlTool fullUrlWithTail:abs];
-        }
+//        if (![abs containsString:[ZZUrlTool main]]) {
+//            abs=[ZZUrlTool fullUrlWithTail:abs];
+//        }
 //        abs=@"http://192.168.1.131:82/index.html";
 //        abs=@"https://www.baidu.com";
         self.url=[NSURL URLWithString:abs];
@@ -199,16 +199,13 @@
     [loadingIndicator stopAnimating];
 }
 
-//#pragma mark --new wkwebview delegate
-//
-//-(void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation
-//{
-//    [loadingIndicator startAnimating];
-//}
-//
-//-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
-//{
-//    [loadingIndicator stopAnimating];
-//}
+-(BOOL)navigationShouldPopOnBackButton
+{
+    if (self.ios8WebView.canGoBack) {
+        [self.ios8WebView goBack];
+        return NO;
+    }
+    return YES;
+}
 
 @end

@@ -8,7 +8,7 @@
 
 #import "NSObject+SwizzleClasses.h"
 
-#import <UMMobClick/MobClick.h>
+//#import <UMMobClick/MobClick.h>
 #import "UIImageView+WebCache.h"
 
 @implementation NSObject (SwizzleClasses)
@@ -70,7 +70,7 @@
     BOOL isChecked=isNotUIViewController&&isNotNavgationController&&isNotTabbarController;
     if (isChecked) {
         
-        [MobClick event:@"viewdidload" attributes:[NSDictionary dictionaryWithObject:NSStringFromClass([self class]) forKey:@"viewcontroller"]];
+//        [MobClick event:@"viewdidload" attributes:[NSDictionary dictionaryWithObject:NSStringFromClass([self class]) forKey:@"viewcontroller"]];
     }
     [self myViewDidLoad];
 }
@@ -90,8 +90,8 @@
 {
     NSString* urlstr=[url absoluteString];
     NSLog(@"load image: %@",urlstr);
-    NSString* suburl=[urlstr stringByReplacingOccurrencesOfString:[ZZUrlTool main] withString:@"main/"];
-    [MobClick event:@"loadimage" attributes:[NSDictionary dictionaryWithObject:suburl forKey:@"imageurl"]];
+//    NSString* suburl=[urlstr stringByReplacingOccurrencesOfString:[ZZUrlTool main] withString:@"main/"];
+//    [MobClick event:@"loadimage" attributes:[NSDictionary dictionaryWithObject:suburl forKey:@"imageurl"]];
     [self my_sd_setImageWithURL:url];
 }
 
