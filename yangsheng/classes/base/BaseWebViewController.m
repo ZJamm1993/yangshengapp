@@ -10,9 +10,11 @@
 #import "ZZUrlTool.h"
 #import "UserModel.h"
 #import "ZZHttpTool.h"
+#import "WebScanCodeViewController.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 //#import "WBWebProgressBar.h"
 
-@interface BaseWebViewController ()<UIWebViewDelegate,WKUIDelegate,WKNavigationDelegate>
+@interface BaseWebViewController ()<UIWebViewDelegate,WKUIDelegate,WKNavigationDelegate,CodeScanerViewControllerDelegate>
 @property (nonatomic,strong) UIWebView* ios8WebView;
 @end
 
@@ -92,6 +94,7 @@
             [params setValue:self.type forKey:@"type"];
         }
         [params setValue:@"ios" forKey:@"sys"];
+        [params setValue:@"1" forKey:@"time"];
         NSString* access_token=[[UserModel getUser]access_token];
         if (access_token.length>0) {
             [params setValue:access_token forKey:@"access_token"];
@@ -189,6 +192,13 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSLog(@"%@",request);
+    if ([request.URL.absoluteString isEqualToString:@"action://scancode"]) {
+//        WebScanCodeViewController* we=[[WebScanCodeViewController alloc]init];
+//        we.delegate=self;
+//        [self.navigationController pushViewController:we animated:YES];
+        [self codeScanerOnResult:@"aaaa"];
+        return NO;
+    }
     return YES;
 }
 
@@ -201,6 +211,13 @@
 {
 //    self.ios8WebView.hidden=NO;
     [loadingIndicator stopAnimating];
+    
+    NSString* netitle = [self.ios8WebView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    if (netitle.length>0) {
+        self.title=netitle;
+    }
+    
+    NSLog(@"%@",[self.ios8WebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]);
 }
 
 -(BOOL)navigationShouldPopOnBackButton
@@ -210,6 +227,21 @@
         return NO;
     }
     return YES;
+}
+
+-(void)codeScanerOnResult:(NSString *)result
+{
+    NSString* js=[NSString stringWithFormat:@"onmarked('%@');",result];
+//    js=[NSString stringWithFormat:@"alert('%@');",result];
+//    js=@"alert(11);";
+//    [self.ios8WebView stringByEvaluatingJavaScriptFromString:js ];
+//    NSLog(@"%@",netitle);
+    
+    JSContext *context = [self.ios8WebView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    //oc 调用 js
+    NSString *textJS = js;
+    JSValue* val=[context evaluateScript:textJS];
+    NSLog(@"%@",val);
 }
 
 @end
