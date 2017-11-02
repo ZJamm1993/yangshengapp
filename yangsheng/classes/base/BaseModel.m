@@ -46,7 +46,7 @@
             _idd=[dictionary valueForKey:@"post_id"];
         }
         
-        _requestedToken=[[dictionary valueForKey:@"requestedToken"]boolValue];
+        _requested_token=[[dictionary valueForKey:@"requested_token"]boolValue];
         _href=[dictionary valueForKey:@"href"];
     }
     

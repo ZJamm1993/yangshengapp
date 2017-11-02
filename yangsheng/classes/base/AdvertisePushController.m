@@ -24,7 +24,7 @@
     
     if (href.length>0) {
         
-        if (object.requestedToken) {
+        if (object.requested_token) {
             if ([[UserModel getUser]access_token].length==0) {
                 [MBProgressHUD showErrorMessage:@"需要登录"];
                 return;

@@ -86,6 +86,7 @@
         NSString* abs=[self.url absoluteString];
         
         NSMutableDictionary* params=[NSMutableDictionary dictionary];
+        
         [params setValue:[NSNumber numberWithInteger:self.idd] forKey:@"id"];
         if (self.type.length>0) {
             [params setValue:self.type forKey:@"type"];
@@ -108,7 +109,10 @@
         NSString* body=[keysAndValues componentsJoinedByString:@"&"];
         
         if (body.length>0) {
-            abs=[NSString stringWithFormat:@"%@%@%@",abs,[abs containsString:@"?"]?@"":@"?",body];
+            if ([abs containsString:[ZZUrlTool main]])
+            {
+                abs=[NSString stringWithFormat:@"%@%@%@",abs,[abs containsString:@"?"]?@"":@"?",body];
+            }
         }
         
 //        if (![abs containsString:[ZZUrlTool main]]) {

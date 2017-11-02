@@ -42,7 +42,7 @@
 @property (nonatomic,strong) NSString* title;
 
 //advtisement
-@property (nonatomic,assign) BOOL requestedToken;
+@property (nonatomic,assign) BOOL requested_token;
 @property (nonatomic,strong) NSString* href;
 
 @end
