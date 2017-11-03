@@ -30,6 +30,8 @@
 
 #import "WXApi.h"
 
+#import "LargePosterView.h"
+
 typedef NS_ENUM(NSInteger,HomeStorySection)
 {
     HomeStorySectionHeader,
@@ -40,7 +42,7 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     HomeStorySectionNumbers
 };
 
-@interface HomeStoryViewController ()<ButtonsCellDelegate,CollectionViewTableViewCellDelegate>
+@interface HomeStoryViewController ()<ButtonsCellDelegate,CollectionViewTableViewCellDelegate,LargePosterDelegate>
 {
     NSMutableArray* productClassArray;
     NSMutableArray* qaArray;
@@ -48,6 +50,8 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     NSMutableArray* enterArray;
     
     UICollectionViewFlowLayout* flow;
+    
+    BOOL firstCome;
 }
 @end
 
@@ -73,6 +77,24 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
 
     [self firstLoad];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (!firstCome) {
+        [[LargePosterView posterWithImageName:@"1111activity" url:@"/themes/ys/ys-activity/page/activityRule.html" delegate:self]show];
+    }
+    firstCome=YES;
+}
+
+-(void)largePosterDidTappedUrl:(NSString *)url
+{
+    if (url.length>0) {
+        BaseWebViewController* web=[[BaseWebViewController alloc]initWithUrl:[url urlWithMainUrl]];
+        [self.navigationController pushViewController:web animated:YES];
+    }
 }
 
 -(void)firstLoad

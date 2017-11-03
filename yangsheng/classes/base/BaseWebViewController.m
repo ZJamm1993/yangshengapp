@@ -193,10 +193,10 @@
 {
     NSLog(@"%@",request);
     if ([request.URL.absoluteString isEqualToString:@"action://scancode"]) {
-//        WebScanCodeViewController* we=[[WebScanCodeViewController alloc]init];
-//        we.delegate=self;
-//        [self.navigationController pushViewController:we animated:YES];
-        [self codeScanerOnResult:@"aaaa"];
+        WebScanCodeViewController* we=[[WebScanCodeViewController alloc]init];
+        we.delegate=self;
+        [self.navigationController pushViewController:we animated:YES];
+//        [self codeScanerOnResult:@"aaaa"];
         return NO;
     }
     return YES;
@@ -234,14 +234,14 @@
     NSString* js=[NSString stringWithFormat:@"onmarked('%@');",result];
 //    js=[NSString stringWithFormat:@"alert('%@');",result];
 //    js=@"alert(11);";
-//    [self.ios8WebView stringByEvaluatingJavaScriptFromString:js ];
+    [self.ios8WebView performSelector:@selector(stringByEvaluatingJavaScriptFromString:) withObject:js afterDelay:0.1];
 //    NSLog(@"%@",netitle);
     
-    JSContext *context = [self.ios8WebView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    //oc 调用 js
-    NSString *textJS = js;
-    JSValue* val=[context evaluateScript:textJS];
-    NSLog(@"%@",val);
+//    JSContext *context = [self.ios8WebView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+//    //oc 调用 js
+//    NSString *textJS = js;
+//    JSValue* val=[context evaluateScript:textJS];
+//    NSLog(@"%@",val);
 }
 
 @end

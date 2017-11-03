@@ -23,4 +23,7 @@
 
 +(instancetype)posterWithImageName:(NSString*)imageName url:(NSString*)url delegate:(id)delegate;
 
+-(void)show;
+-(void)hide;
+
 @end

@@ -48,6 +48,9 @@
         
         _requested_token=[[dictionary valueForKey:@"requested_token"]boolValue];
         _href=[dictionary valueForKey:@"href"];
+        
+        //
+//        _href=@"themes/ys/ys-activity/page/giftList.html";
     }
     
     return self;
