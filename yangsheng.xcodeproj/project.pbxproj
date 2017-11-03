@@ -53,6 +53,7 @@
 		8E9B0CF11FAB13CE00770F8D /* LargePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CF01FAB13CE00770F8D /* LargePosterView.m */; };
 		8EA3246F1F720F52001CD26D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3246E1F720F52001CD26D /* libsqlite3.tbd */; };
 		8EB674BA1F96F256008CC196 /* BaseLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674B91F96F256008CC196 /* BaseLoadMoreFooterView.m */; };
+		8EC258011FAC5F8400167832 /* PosterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC258001FAC5F8400167832 /* PosterTool.m */; };
 		8F4287181F4BC91D00430B5F /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4287171F4BC91D00430B5F /* JRSwizzle.m */; };
 		8F42871E1F4BC9A700430B5F /* NSObject+SwizzleClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F42871D1F4BC9A700430B5F /* NSObject+SwizzleClasses.m */; };
 		8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */; };
@@ -273,6 +274,8 @@
 		8EA3246E1F720F52001CD26D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8EB674B81F96F256008CC196 /* BaseLoadMoreFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoadMoreFooterView.h; sourceTree = "<group>"; };
 		8EB674B91F96F256008CC196 /* BaseLoadMoreFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoadMoreFooterView.m; sourceTree = "<group>"; };
+		8EC257FF1FAC5F8400167832 /* PosterTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosterTool.h; sourceTree = "<group>"; };
+		8EC258001FAC5F8400167832 /* PosterTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosterTool.m; sourceTree = "<group>"; };
 		8F4287161F4BC91D00430B5F /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		8F4287171F4BC91D00430B5F /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		8F42871C1F4BC9A700430B5F /* NSObject+SwizzleClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleClasses.h"; sourceTree = "<group>"; };
@@ -680,6 +683,8 @@
 				8FC6DCA81F204B2500566F96 /* PickerShadowContainer.m */,
 				8E9B0CEF1FAB13CE00770F8D /* LargePosterView.h */,
 				8E9B0CF01FAB13CE00770F8D /* LargePosterView.m */,
+				8EC257FF1FAC5F8400167832 /* PosterTool.h */,
+				8EC258001FAC5F8400167832 /* PosterTool.m */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -1189,6 +1194,7 @@
 			files = (
 				8F507D4B1F1DE4D8003DF63D /* StoreAnnotationView.m in Sources */,
 				8F507D3C1F1DB8EC003DF63D /* StoreAppointmentHeaderCell.m in Sources */,
+				8EC258011FAC5F8400167832 /* PosterTool.m in Sources */,
 				8FADBE581F0F2C4D002F5911 /* BaseModel.m in Sources */,
 				8FC243581F17518A0064A845 /* ClassroomVideoShareCollectionCell.m in Sources */,
 				395AD5A21F1B2B540009F44D /* ClassroomAnalystListViewController.m in Sources */,

@@ -79,23 +79,23 @@ typedef NS_ENUM(NSInteger,HomeStorySection)
     // Do any additional setup after loading the view.
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    if (!firstCome) {
-        [[LargePosterView posterWithImageName:@"1111activity" url:@"/themes/ys/ys-activity/page/activityRule.html" delegate:self]show];
-    }
-    firstCome=YES;
-}
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    if (!firstCome) {
+//        [[LargePosterView posterWithImageName:@"1111activity" url:@"/themes/ys/ys-activity/page/activityRule.html" delegate:self]show];
+//    }
+//    firstCome=YES;
+//}
 
--(void)largePosterDidTappedUrl:(NSString *)url
-{
-    if (url.length>0) {
-        BaseWebViewController* web=[[BaseWebViewController alloc]initWithUrl:[url urlWithMainUrl]];
-        [self.navigationController pushViewController:web animated:YES];
-    }
-}
+//-(void)largePosterDidTappedUrl:(NSString *)url
+//{
+//    if (url.length>0) {
+//        BaseWebViewController* web=[[BaseWebViewController alloc]initWithUrl:[url urlWithMainUrl]];
+//        [self.navigationController pushViewController:web animated:YES];
+//    }
+//}
 
 -(void)firstLoad
 {
