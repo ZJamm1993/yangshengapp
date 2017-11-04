@@ -117,8 +117,14 @@
 -(void)logSuccessWithUser:(UserModel*)user
 {
     [UserModel saveUser:user];
-    [self.navigationController popViewControllerAnimated:YES];
-    
+    if ([self.delegate respondsToSelector:@selector(personalLoginViewControllerDidLoginToken:)]) {
+        [self.delegate personalLoginViewControllerDidLoginToken:user.access_token];
+        [self.navigationController popViewControllerAnimated:NO];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     [[NSNotificationCenter defaultCenter]postNotificationName:LoginUserSuccessNotification object:nil];
 }
 

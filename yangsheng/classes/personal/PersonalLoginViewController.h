@@ -8,6 +8,15 @@
 
 #import "BaseViewController.h"
 
+@protocol PersonalLoginViewControllerDelegate <NSObject>
+
+@optional
+-(void)personalLoginViewControllerDidLoginToken:(NSString*)token;
+
+@end
+
 @interface PersonalLoginViewController : BaseViewController
+
+@property (nonatomic,weak) id<PersonalLoginViewControllerDelegate>delegate;
 
 @end

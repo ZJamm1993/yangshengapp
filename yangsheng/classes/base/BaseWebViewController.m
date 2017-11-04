@@ -11,10 +11,11 @@
 #import "UserModel.h"
 #import "ZZHttpTool.h"
 #import "WebScanCodeViewController.h"
+#import "PersonalLoginViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 //#import "WBWebProgressBar.h"
 
-@interface BaseWebViewController ()<UIWebViewDelegate,WKUIDelegate,WKNavigationDelegate,CodeScanerViewControllerDelegate>
+@interface BaseWebViewController ()<UIWebViewDelegate,WKUIDelegate,WKNavigationDelegate,CodeScanerViewControllerDelegate,PersonalLoginViewControllerDelegate>
 @property (nonatomic,strong) UIWebView* ios8WebView;
 @end
 
@@ -210,11 +211,33 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSLog(@"%@",request);
-    if ([request.URL.absoluteString isEqualToString:@"action://scancode"]) {
+    NSString* url=request.URL.absoluteString;
+    if ([url isEqualToString:@"action://scancode"]) {
         WebScanCodeViewController* we=[[WebScanCodeViewController alloc]init];
         we.delegate=self;
         [self.navigationController pushViewController:we animated:YES];
 //        [self codeScanerOnResult:@"aaaa"];
+        return NO;
+    }
+    if ([url isEqualToString:@"action://asktologin"])
+    {
+        if ([[[UserModel getUser]access_token]length]>0)
+        {
+            return NO;
+        }
+        UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"需要登录" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"去登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            PersonalLoginViewController* lo=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalLoginViewController"];
+            lo.delegate=self;
+            [self.navigationController pushViewController:lo animated:YES];
+        }]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
         return NO;
     }
     return YES;
@@ -250,16 +273,14 @@
 -(void)codeScanerOnResult:(NSString *)result
 {
     NSString* js=[NSString stringWithFormat:@"onmarked('%@');",result];
-//    js=[NSString stringWithFormat:@"alert('%@');",result];
-//    js=@"alert(11);";
     [self.ios8WebView performSelector:@selector(stringByEvaluatingJavaScriptFromString:) withObject:js afterDelay:0.1];
-//    NSLog(@"%@",netitle);
-    
-//    JSContext *context = [self.ios8WebView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-//    //oc 调用 js
-//    NSString *textJS = js;
-//    JSValue* val=[context evaluateScript:textJS];
-//    NSLog(@"%@",val);
+}
+
+-(void)personalLoginViewControllerDidLoginToken:(NSString *)token
+{
+    //我想要你在giftlist那里判断没有token的时候，发出action://asktologin，然后由我来弹出对话框去登录，登录之后我在执行你的didlogin(token)函数。
+    NSString* js=[NSString stringWithFormat:@"didlogin('%@');",token];
+    [self.ios8WebView performSelector:@selector(stringByEvaluatingJavaScriptFromString:) withObject:js afterDelay:0.1];
 }
 
 @end
