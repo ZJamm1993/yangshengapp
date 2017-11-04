@@ -94,7 +94,7 @@
             [params setValue:self.type forKey:@"type"];
         }
         [params setValue:@"ios" forKey:@"sys"];
-        [params setValue:@"1" forKey:@"time"];
+        [params setValue:[NSNumber numberWithInteger:[[NSDate date]timeIntervalSince1970]] forKey:@"time"];
         NSString* access_token=[[UserModel getUser]access_token];
         if (access_token.length>0) {
             [params setValue:access_token forKey:@"access_token"];
@@ -217,7 +217,7 @@
         self.title=netitle;
     }
     
-//    NSLog(@"%@",[self.ios8WebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]);
+    NSLog(@"%@",[self.ios8WebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]);
 }
 
 -(BOOL)navigationShouldPopOnBackButton
