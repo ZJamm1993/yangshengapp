@@ -168,6 +168,24 @@
         [loadingIndicator startAnimating];
         
     }
+    
+    UIBarButtonItem* x=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"x"] style:UIBarButtonItemStylePlain target:self action:@selector(closeWebView)];
+    UIBarButtonItem* ba=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(popOrBack)];
+    self.navigationItem.leftBarButtonItems=[NSArray arrayWithObjects:ba,x, nil];
+}
+
+-(void)closeWebView
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)popOrBack
+{
+    if ([self.ios8WebView canGoBack]) {
+        [self.ios8WebView goBack];
+        return;
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)loadHtml:(NSString*)htmlString
@@ -220,14 +238,14 @@
     NSLog(@"%@",[self.ios8WebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]);
 }
 
--(BOOL)navigationShouldPopOnBackButton
-{
-    if (self.ios8WebView.canGoBack) {
-        [self.ios8WebView goBack];
-        return NO;
-    }
-    return YES;
-}
+//-(BOOL)navigationShouldPopOnBackButton
+//{
+//    if (self.ios8WebView.canGoBack) {
+//        [self.ios8WebView goBack];
+//        return NO;
+//    }
+//    return YES;
+//}
 
 -(void)codeScanerOnResult:(NSString *)result
 {

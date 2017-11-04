@@ -47,7 +47,6 @@
 		399604B81F2304A00026297B /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 399604B71F2304A00026297B /* AMap.bundle */; };
 		399834A41F29849000C60F0A /* StoreDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399834A31F29849000C60F0A /* StoreDetailContentCell.m */; };
 		39F5DD1D1F3FE7D700CFB520 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 39F5DD1C1F3FE7D700CFB520 /* hhh.html */; };
-		8E9B0CCE1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CCD1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m */; };
 		8E9B0CD11FA9BB8600770F8D /* AdvertisePushController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CD01FA9BB8600770F8D /* AdvertisePushController.m */; };
 		8E9B0CEE1FAAF0B000770F8D /* WebScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CED1FAAF0B000770F8D /* WebScanCodeViewController.m */; };
 		8E9B0CF11FAB13CE00770F8D /* LargePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CF01FAB13CE00770F8D /* LargePosterView.m */; };
@@ -263,8 +262,6 @@
 		399834A21F29849000C60F0A /* StoreDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailContentCell.h; sourceTree = "<group>"; };
 		399834A31F29849000C60F0A /* StoreDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailContentCell.m; sourceTree = "<group>"; };
 		39F5DD1C1F3FE7D700CFB520 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
-		8E9B0CCC1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
-		8E9B0CCD1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		8E9B0CCF1FA9BB8600770F8D /* AdvertisePushController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisePushController.h; sourceTree = "<group>"; };
 		8E9B0CD01FA9BB8600770F8D /* AdvertisePushController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertisePushController.m; sourceTree = "<group>"; };
 		8E9B0CEC1FAAF0B000770F8D /* WebScanCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebScanCodeViewController.h; sourceTree = "<group>"; };
@@ -1033,8 +1030,6 @@
 		8FC243171F1704060064A845 /* ext */ = {
 			isa = PBXGroup;
 			children = (
-				8E9B0CCC1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.h */,
-				8E9B0CCD1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m */,
 				8FC243181F1704060064A845 /* NSDictionary+ext.h */,
 				8FC243191F1704060064A845 /* NSDictionary+ext.m */,
 				8FC2431A1F1704060064A845 /* NSString+ext.h */,
@@ -1266,7 +1261,6 @@
 				8FC242BE1F15C4F80064A845 /* ZZnotificationName.m in Sources */,
 				8F5219611F25D1FE00FE7733 /* ProductCodeScanViewController.m in Sources */,
 				8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */,
-				8E9B0CCE1FA9B4BC00770F8D /* UIViewController+BackButtonHandler.m in Sources */,
 				8FADBEA01F0F39BF002F5911 /* UIImage+MultiFormat.m in Sources */,
 				8FADBE9B1F0F39BF002F5911 /* SDWebImageDownloaderOperation.m in Sources */,
 				396910BA1F0E855E00EF6D52 /* BaseTableViewController.m in Sources */,

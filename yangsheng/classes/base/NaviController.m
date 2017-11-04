@@ -25,6 +25,9 @@
     
     self.navigationBar.shadowImage=[UIImage imageWithColor:[UIColor groupTableViewBackgroundColor] size:CGSizeMake(self.navigationBar.bounds.size.width, 0.5)];
     
+    [self.navigationBar setBackIndicatorImage:[UIImage imageNamed:@"back"]];
+    [self.navigationBar setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"back"]];
+    
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height+20)] forBarMetrics:UIBarMetricsDefault];
     // Do any additional setup after loading the view.
 }
