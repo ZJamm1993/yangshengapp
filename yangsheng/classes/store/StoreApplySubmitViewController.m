@@ -117,6 +117,8 @@
 //    ob.isStoreLocation=YES;
 //    PopOverNavigationController* pop=[[PopOverNavigationController alloc]initWithRootViewController:ob sourceView:self.mapButton];
 //    [self presentViewController:pop animated:YES completion:nil];
+    
+    [self.view endEditing:YES];
     if (cityPicker==nil) {
         cityPicker=[CitySelectionPicker defaultCityPickerWithSections:2];
     }
@@ -217,12 +219,16 @@
     }
     else
     {
-        if (positive.length==0||negative.length==0) {
-            [MBProgressHUD showErrorMessage:@"请等待身份证上传"];
+        if(!(name.length>0&&phone.length>0&&idcard.length>0&&area.length>0&&address.length))
+        {
+            [MBProgressHUD showErrorMessage:@"请填写完整个人信息"];
+        }
+        else if (positive.length==0||negative.length==0) {
+            [MBProgressHUD showErrorMessage:@"请上传身份证照片"];
         }
         else
         {
-            [MBProgressHUD showErrorMessage:@"请填写完整"];
+            [MBProgressHUD showErrorMessage:@"请填写完整个人信息"];
         }
     }
 }
@@ -275,8 +281,9 @@
     whichButton.enabled=NO;
     whichImageView.image=originImage;
     [StoreHttpTool uploadIDCard:originImage token:[[UserModel getUser]access_token] success:^(NSString *str) {
-        [whichButton setTitle:@"OK" forState:UIControlStateDisabled];
+//        [whichButton setTitle:@"重新上传" forState:UIControlStateDisabled];
         [whichButton setTitle:str forState:UIControlStateSelected];
+        whichButton.enabled=YES;
     }];
     
     [picker dismissViewControllerAnimated:YES completion:nil];
