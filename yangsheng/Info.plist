@@ -47,6 +47,7 @@
 	<string>1.36</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>mqq</string>
 		<string>qqmap</string>
 		<string>comgooglemaps</string>
 		<string>iosamap</string>

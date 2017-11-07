@@ -256,6 +256,9 @@
         {
             UIViewController* vc=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomerServiceViewController"];
             [self.navigationController pushViewController:vc animated:YES];
+//            NSString* qq=@"mqq://im/chat?chat_type=wpa&uin=320675819&version=1&src_type=web";
+////            NSString* qq=@"https://wpa.qq.com/msgrd?v=3&uin=320675819&site=qq";
+//            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:qq]];
         }
     }
     else if(indexPath.section==6)
