@@ -105,8 +105,16 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section==0) {
+        return 44;
+    }
     return UITableViewAutomaticDimension;
 }
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return UITableViewAutomaticDimension;
+//}
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -159,7 +167,7 @@
         negative=@"";
     }
     
-    BOOL ok=name.length>0&&phone.length>0&&idcard.length>0&&area.length>0&&address.length>0&&positive.length>0&&negative.length>0&&[phone isMobileNumber];
+    BOOL ok=name.length>0&&phone.length>0&&idcard.length>0&&area.length>0&&address.length>0&&positive.length>0&&negative.length>0&&[phone isMobileNumber]&&[idcard isIdNumber];
     if (ok) {
         [MBProgressHUD showProgressMessage:@"正在申请"];
         [StoreHttpTool applyStoreSubmitName:name tel:phone idcard:idcard area:area address:address positive:positive negative:negative token:[[UserModel getUser]access_token] success:^(BOOL applied, NSString *msg) {
@@ -213,17 +221,30 @@
             }
         }];
     }
+    else if(name.length>0)
+    {
+        [MBProgressHUD showErrorMessage:@"请填写姓名"];
+    }
+    else if(![idcard isIdNumber])
+    {
+        [MBProgressHUD showErrorMessage:@"请填写正确的身份证号码"];
+    }
     else if(![phone isMobileNumber])
     {
         [MBProgressHUD showErrorMessage:@"请填写正确的手机号码"];
     }
+    else if(area.length>0)
+    {
+        [MBProgressHUD showErrorMessage:@"请选择地区"];
+    }
+    else if(address.length>0)
+    {
+        [MBProgressHUD showErrorMessage:@"请填写详细地址"];
+    }
+
     else
     {
-        if(!(name.length>0&&phone.length>0&&idcard.length>0&&area.length>0&&address.length))
-        {
-            [MBProgressHUD showErrorMessage:@"请填写完整个人信息"];
-        }
-        else if (positive.length==0||negative.length==0) {
+        if (positive.length==0||negative.length==0) {
             [MBProgressHUD showErrorMessage:@"请上传身份证照片"];
         }
         else

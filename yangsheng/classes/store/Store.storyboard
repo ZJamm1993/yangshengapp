@@ -120,7 +120,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="名字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-eE-HqF">
-                                                    <rect key="frame" x="94" y="13" width="206" height="17"/>
+                                                    <rect key="frame" x="94" y="0.0" width="206" height="43"/>
                                                     <color key="textColor" red="0.77254901960784317" green="0.062745098039215685" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -128,6 +128,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Wlz-eE-HqF" firstAttribute="leading" secondItem="dMC-MN-1eW" secondAttribute="trailing" constant="10" id="AWx-C4-opf"/>
+                                                <constraint firstItem="Wlz-eE-HqF" firstAttribute="top" secondItem="MWk-nE-hd6" secondAttribute="top" id="YUG-5P-PMr"/>
                                                 <constraint firstItem="dMC-MN-1eW" firstAttribute="centerY" secondItem="MWk-nE-hd6" secondAttribute="centerY" id="j4G-Ms-Gr2"/>
                                                 <constraint firstItem="Wlz-eE-HqF" firstAttribute="centerY" secondItem="MWk-nE-hd6" secondAttribute="centerY" id="wMu-Jw-xhz"/>
                                                 <constraint firstAttribute="trailing" secondItem="Wlz-eE-HqF" secondAttribute="trailing" constant="20" id="wgp-dK-QTn"/>
@@ -152,7 +153,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="11位手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-rk-HOE">
-                                                    <rect key="frame" x="94" y="13" width="206" height="17"/>
+                                                    <rect key="frame" x="94" y="0.0" width="206" height="43"/>
                                                     <color key="textColor" red="0.7725490196" green="0.062745098040000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -163,6 +164,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="b8Y-rk-HOE" secondAttribute="trailing" constant="20" id="4E2-5R-evG"/>
                                                 <constraint firstItem="b8Y-rk-HOE" firstAttribute="centerY" secondItem="3pP-O7-IaA" secondAttribute="centerY" id="77x-Ug-nPB"/>
                                                 <constraint firstItem="AL7-v0-UpR" firstAttribute="leading" secondItem="3pP-O7-IaA" secondAttribute="leading" constant="20" id="JzF-SK-WMD"/>
+                                                <constraint firstItem="b8Y-rk-HOE" firstAttribute="top" secondItem="3pP-O7-IaA" secondAttribute="top" id="awN-zg-kmd"/>
                                                 <constraint firstItem="b8Y-rk-HOE" firstAttribute="leading" secondItem="AL7-v0-UpR" secondAttribute="trailing" constant="10" id="fwU-2n-YBP"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -184,7 +186,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="身份证号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3u1-WP-iy6">
-                                                    <rect key="frame" x="94" y="13" width="206" height="17"/>
+                                                    <rect key="frame" x="94" y="0.0" width="206" height="43"/>
                                                     <color key="textColor" red="0.7725490196" green="0.062745098040000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -195,6 +197,7 @@
                                                 <constraint firstItem="3u1-WP-iy6" firstAttribute="leading" secondItem="CSJ-5p-Qnh" secondAttribute="trailing" constant="10" id="dcZ-J2-bmZ"/>
                                                 <constraint firstItem="3u1-WP-iy6" firstAttribute="centerY" secondItem="Onk-7h-Wq1" secondAttribute="centerY" id="lR8-cH-kWf"/>
                                                 <constraint firstItem="CSJ-5p-Qnh" firstAttribute="leading" secondItem="Onk-7h-Wq1" secondAttribute="leading" constant="20" id="ldu-9A-5i6"/>
+                                                <constraint firstItem="3u1-WP-iy6" firstAttribute="top" secondItem="Onk-7h-Wq1" secondAttribute="top" id="oPY-Em-532"/>
                                                 <constraint firstItem="CSJ-5p-Qnh" firstAttribute="centerY" secondItem="Onk-7h-Wq1" secondAttribute="centerY" id="opJ-43-bXy"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -215,8 +218,8 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="地区信息" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jom-rg-j0B">
-                                                    <rect key="frame" x="94" y="8" width="176" height="27"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="地区信息" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jom-rg-j0B">
+                                                    <rect key="frame" x="94" y="0.0" width="176" height="43"/>
                                                     <color key="textColor" red="0.7725490196" green="0.062745098040000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -236,6 +239,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="jom-rg-j0B" firstAttribute="top" secondItem="cOB-Wj-Kel" secondAttribute="top" id="2qW-s0-X3Z"/>
                                                 <constraint firstAttribute="bottom" secondItem="XVh-GA-wmE" secondAttribute="bottom" id="6Ri-tN-5tT"/>
                                                 <constraint firstItem="XVh-GA-wmE" firstAttribute="top" secondItem="cOB-Wj-Kel" secondAttribute="top" id="8MT-QE-Ebd"/>
                                                 <constraint firstItem="xsf-Fw-lpl" firstAttribute="leading" secondItem="cOB-Wj-Kel" secondAttribute="leading" constant="20" id="92V-Ha-4am"/>
@@ -275,7 +279,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="街道门牌号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AT9-ae-DLC">
-                                                    <rect key="frame" x="94" y="13" width="206" height="17"/>
+                                                    <rect key="frame" x="94" y="0.0" width="206" height="43"/>
                                                     <color key="textColor" red="0.7725490196" green="0.062745098040000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -283,6 +287,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="orY-oV-woW" firstAttribute="centerY" secondItem="fmS-yn-B0u" secondAttribute="centerY" id="5V4-RZ-FMf"/>
+                                                <constraint firstItem="AT9-ae-DLC" firstAttribute="top" secondItem="fmS-yn-B0u" secondAttribute="top" id="766-sI-VVc"/>
                                                 <constraint firstItem="AT9-ae-DLC" firstAttribute="leading" secondItem="orY-oV-woW" secondAttribute="trailing" constant="10" id="HdP-zo-MTt"/>
                                                 <constraint firstAttribute="trailing" secondItem="AT9-ae-DLC" secondAttribute="trailing" constant="20" id="JO3-uF-ebT"/>
                                                 <constraint firstItem="AT9-ae-DLC" firstAttribute="centerY" secondItem="fmS-yn-B0u" secondAttribute="centerY" id="U45-hg-0AO"/>

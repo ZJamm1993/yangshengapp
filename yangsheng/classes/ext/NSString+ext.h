@@ -13,6 +13,7 @@
 -(NSURL*)urlWithMainUrl;
 
 -(BOOL)isMobileNumber;
+-(BOOL)isIdNumber;
 
 @property (nonatomic,assign) BOOL passwordLength;
 

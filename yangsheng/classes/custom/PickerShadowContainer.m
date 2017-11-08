@@ -61,6 +61,7 @@
 
 -(void)hide:(UIView*)view
 {
+    
     [UIView animateWithDuration:0.25 animations:^{
         CGRect fr=view.frame;
         fr.origin.y=[UIScreen mainScreen].bounds.size.height;
@@ -71,10 +72,10 @@
     }];
 }
 
-//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//    [self removeFromSuperview];
-//}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self removeFromSuperview];
+}
 
 -(void)ok
 {

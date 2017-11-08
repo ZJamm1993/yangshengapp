@@ -258,7 +258,7 @@
         self.title=netitle;
     }
     
-    NSLog(@"%@",[self.ios8WebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]);
+//    NSLog(@"%@",[self.ios8WebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]);
 }
 
 //-(BOOL)navigationShouldPopOnBackButton
