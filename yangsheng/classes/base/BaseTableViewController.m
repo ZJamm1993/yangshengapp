@@ -65,7 +65,7 @@
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     self.tableView.tableFooterView=[[UIView alloc]init];
-    [self showLoadMoreView];
+//    [self showLoadMoreView];
     
     self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
     
@@ -136,8 +136,12 @@
         {
             isManualReload=YES;
         }
-        
-        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"加载更多" afterDelay:1];
+        NSString* loadmoreText=@"加载更多";
+        if (lastCount==self.dataSource.count&&!self.refreshControl.refreshing) {
+            loadmoreText=@"没有更多了";
+        }
+        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:loadmoreText afterDelay:1];
+        lastCount=self.dataSource.count;
     }
     
 }
@@ -256,6 +260,32 @@
         [self.tableView endEditing:YES];
     }
 }
+
+//-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+//{
+//    NSLog(@"%i",decelerate);
+//    if (scrollView==self.tableView) {
+//        CGFloat trigger=50;
+//        
+//        CGFloat offY=scrollView.contentOffset.y;
+//        CGFloat sizH=scrollView.frame.size.height;
+//        CGFloat conH=scrollView.contentSize.height;
+//        
+//        BOOL shouldloadmore=NO;
+//        
+//        BOOL isLongContent=sizH<=conH;
+//        if (isLongContent) {
+//            shouldloadmore=-(conH-offY-sizH)>trigger;
+//        }
+//        else
+//        {
+//            shouldloadmore=offY>trigger;
+//        }
+//        if (shouldloadmore) {
+//            [loadMoreFooter startLoading];
+//        }
+//    }
+//}
 
 #pragma mark - nothing label
 

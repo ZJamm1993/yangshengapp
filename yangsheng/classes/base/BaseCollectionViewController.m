@@ -137,7 +137,12 @@ static NSString * const reuseIdentifier = @"Cell";
 //        {
 //            isManualReload=YES;
 //        }
-        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"加载更多" afterDelay:1];
+        NSString* loadmoreText=@"加载更多";
+        if (lastCount==self.dataSource.count&&!refreshControl.refreshing) {
+            loadmoreText=@"没有更多了";
+        }
+        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:loadmoreText afterDelay:1];
+        lastCount=self.dataSource.count;
     }
 }
 

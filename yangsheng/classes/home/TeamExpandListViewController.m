@@ -21,6 +21,7 @@
     self.title=@"团队拓展";
     // Do any additional setup after loading the view.
     [self loadMore];
+    [self showLoadMoreView];
     // Do any additional setup after loading the view.
 }
 

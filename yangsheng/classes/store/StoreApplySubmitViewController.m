@@ -280,6 +280,7 @@
     [whichButton setTitle:@"上传中..." forState:UIControlStateDisabled];
     whichButton.enabled=NO;
     whichImageView.image=originImage;
+    [whichButton setTitle:@"" forState:UIControlStateSelected];
     [StoreHttpTool uploadIDCard:originImage token:[[UserModel getUser]access_token] success:^(NSString *str) {
         [whichButton setTitle:@"重新选择" forState:UIControlStateNormal];
         [whichButton setTitle:str forState:UIControlStateSelected];

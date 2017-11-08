@@ -28,6 +28,7 @@
     //#warning test searching
     //    _searchBar.text=@"品";
     _searchBar.delegate=self;
+    [self showLoadMoreView];
     
     self.navigationItem.titleView=_searchBar;
     // Do any additional setup after loading the view.

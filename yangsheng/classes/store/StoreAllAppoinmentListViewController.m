@@ -25,6 +25,7 @@
     // Do any additional setup after loading the view.
     self.title=@"我的预约";
     [self refresh];
+    [self showLoadMoreView];
     // Do any additional setup after loading the view.
 }
 

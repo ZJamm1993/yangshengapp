@@ -20,6 +20,7 @@
     
     self.title=@"每月之星";
     [self loadMore];
+    [self showLoadMoreView];
     // Do any additional setup after loading the view.
 }
 

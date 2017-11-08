@@ -22,6 +22,7 @@
     [super viewDidLoad];
     self.title=@"系统消息";
     [self loadMore];
+    [self showLoadMoreView];
     // Do any additional setup after loading the view.
 }
 

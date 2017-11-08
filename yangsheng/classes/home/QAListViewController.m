@@ -24,6 +24,7 @@
     self.title=@"问答Q&A";
     
     [self loadMore];
+    [self showLoadMoreView];
     // Do any additional setup after loading the view.
 }
 

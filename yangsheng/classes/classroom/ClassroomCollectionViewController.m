@@ -22,6 +22,7 @@
     self.title=@"收藏课程";
     // Do any additional setup after loading the view.
     [self refresh];
+    [self showLoadMoreView];
     // Do any additional setup after loading the view.
     
     //    [self setAdvertiseHeaderViewWithPicturesUrls:@[@"a",@"b"]];

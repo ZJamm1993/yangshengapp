@@ -51,7 +51,7 @@
 
 -(void)addViews
 {
-    second=3;
+    second=2;
     
     imageView=[[UIImageView alloc]initWithFrame:self.bounds];
     [self addSubview:imageView];

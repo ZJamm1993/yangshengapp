@@ -33,6 +33,7 @@
     self.collectionView.backgroundColor=gray(240);
 
     [self loadMore];
+    [self showLoadMoreView];
     // Do any additional setup after loading the view.
     
     //    [self setAdvertiseHeaderViewWithPicturesUrls:@[@"a",@"b"]];

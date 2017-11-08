@@ -82,7 +82,7 @@
 
 -(void)startLoading
 {
-    self.loading=YES;
+    [self goToLoadMore];
 }
 
 -(void)endLoadingWithText:(NSString *)text

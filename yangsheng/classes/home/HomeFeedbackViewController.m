@@ -29,6 +29,7 @@
     
     if (self.isOneKindList) {
         [self loadMore];
+        [self showLoadMoreView];
     }
     else
     {

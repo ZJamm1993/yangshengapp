@@ -23,6 +23,7 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"TeamCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TeamCollectionViewCell"];
     
     [self loadMore];
+    [self showLoadMoreView];
     // Do any additional setup after loading the view.
     
 //    [self setAdvertiseHeaderViewWithPicturesUrls:@[@"a",@"b"]];
