@@ -55,7 +55,7 @@
 
 -(NSInteger)numbersOfChildControllersInPagerController:(ZZPagerController *)pager
 {
-    return 4;
+    return 3;
 }
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
@@ -63,13 +63,13 @@
     if (index==0) {
         return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"HomeStory"];
     }
+//    else if (index==1) {
+//        return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"HomeTeam"];;
+//    }
     else if (index==1) {
-        return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"HomeTeam"];;
-    }
-    else if (index==2) {
         return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"HomeFeedback"];;
     }
-    else if (index==3) {
+    else if (index==2) {
         return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]instantiateViewControllerWithIdentifier:@"HomeNews"];;
     }
     return nil;
@@ -80,13 +80,13 @@
     if (index==0) {
         return @"企业文化";
     }
+//    else if (index==1) {
+//        return @"服务团队";
+//    }
     else if (index==1) {
-        return @"服务团队";
-    }
-    else if (index==2) {
         return @"案例反馈";
     }
-    else if (index==3) {
+    else if (index==2) {
         return @"大事件";
     }
     return nil;

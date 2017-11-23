@@ -221,7 +221,7 @@
             }
         }];
     }
-    else if(!name.length>0)
+    else if(name.length==0)
     {
         [MBProgressHUD showErrorMessage:@"请填写姓名"];
     }
@@ -233,11 +233,11 @@
     {
         [MBProgressHUD showErrorMessage:@"请填写正确的手机号码"];
     }
-    else if(!area.length>0)
+    else if(area.length==0)
     {
         [MBProgressHUD showErrorMessage:@"请选择地区"];
     }
-    else if(!address.length>0)
+    else if(address.length==0)
     {
         [MBProgressHUD showErrorMessage:@"请填写详细地址"];
     }
