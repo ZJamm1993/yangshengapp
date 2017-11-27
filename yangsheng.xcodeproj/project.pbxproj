@@ -47,12 +47,22 @@
 		399604B81F2304A00026297B /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 399604B71F2304A00026297B /* AMap.bundle */; };
 		399834A41F29849000C60F0A /* StoreDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399834A31F29849000C60F0A /* StoreDetailContentCell.m */; };
 		39F5DD1D1F3FE7D700CFB520 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 39F5DD1C1F3FE7D700CFB520 /* hhh.html */; };
+		8E2910901FCBF1A4005B16CE /* StoreObjectClassesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E29108F1FCBF1A4005B16CE /* StoreObjectClassesViewController.m */; };
+		8E2910931FCBF256005B16CE /* StoreClassLongImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2910921FCBF256005B16CE /* StoreClassLongImageTableViewCell.m */; };
+		8E2910961FCBF7DF005B16CE /* StoreObjectClassItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2910951FCBF7DF005B16CE /* StoreObjectClassItemsTableViewController.m */; };
+		8E2910991FCBFA70005B16CE /* StoreClassItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2910981FCBFA70005B16CE /* StoreClassItemTableViewCell.m */; };
 		8E9B0CD11FA9BB8600770F8D /* AdvertisePushController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CD01FA9BB8600770F8D /* AdvertisePushController.m */; };
 		8E9B0CEE1FAAF0B000770F8D /* WebScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CED1FAAF0B000770F8D /* WebScanCodeViewController.m */; };
 		8E9B0CF11FAB13CE00770F8D /* LargePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CF01FAB13CE00770F8D /* LargePosterView.m */; };
 		8EA3246F1F720F52001CD26D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3246E1F720F52001CD26D /* libsqlite3.tbd */; };
 		8EB674BA1F96F256008CC196 /* BaseLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674B91F96F256008CC196 /* BaseLoadMoreFooterView.m */; };
 		8EC258011FAC5F8400167832 /* PosterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC258001FAC5F8400167832 /* PosterTool.m */; };
+		8EC93F3E1FCBB34F001D55F7 /* SimpleButtonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC93F3D1FCBB34F001D55F7 /* SimpleButtonsTableViewCell.m */; };
+		8EC93F411FCBBB9F001D55F7 /* FourButtonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC93F401FCBBB9F001D55F7 /* FourButtonsTableViewCell.m */; };
+		8EC93F441FCBBBC4001D55F7 /* LinedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC93F431FCBBBC4001D55F7 /* LinedTableViewCell.m */; };
+		8EC93F471FCBC129001D55F7 /* StoreHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC93F461FCBC129001D55F7 /* StoreHeaderCell.m */; };
+		8EC93F4B1FCBC400001D55F7 /* StoreLargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC93F491FCBC400001D55F7 /* StoreLargeCell.m */; };
+		8EC93F4C1FCBC400001D55F7 /* StoreLargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC93F4A1FCBC400001D55F7 /* StoreLargeCell.xib */; };
 		8F4287181F4BC91D00430B5F /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4287171F4BC91D00430B5F /* JRSwizzle.m */; };
 		8F42871E1F4BC9A700430B5F /* NSObject+SwizzleClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F42871D1F4BC9A700430B5F /* NSObject+SwizzleClasses.m */; };
 		8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */; };
@@ -262,6 +272,14 @@
 		399834A21F29849000C60F0A /* StoreDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailContentCell.h; sourceTree = "<group>"; };
 		399834A31F29849000C60F0A /* StoreDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailContentCell.m; sourceTree = "<group>"; };
 		39F5DD1C1F3FE7D700CFB520 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
+		8E29108E1FCBF1A4005B16CE /* StoreObjectClassesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreObjectClassesViewController.h; sourceTree = "<group>"; };
+		8E29108F1FCBF1A4005B16CE /* StoreObjectClassesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreObjectClassesViewController.m; sourceTree = "<group>"; };
+		8E2910911FCBF256005B16CE /* StoreClassLongImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreClassLongImageTableViewCell.h; sourceTree = "<group>"; };
+		8E2910921FCBF256005B16CE /* StoreClassLongImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreClassLongImageTableViewCell.m; sourceTree = "<group>"; };
+		8E2910941FCBF7DF005B16CE /* StoreObjectClassItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreObjectClassItemsTableViewController.h; sourceTree = "<group>"; };
+		8E2910951FCBF7DF005B16CE /* StoreObjectClassItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreObjectClassItemsTableViewController.m; sourceTree = "<group>"; };
+		8E2910971FCBFA70005B16CE /* StoreClassItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreClassItemTableViewCell.h; sourceTree = "<group>"; };
+		8E2910981FCBFA70005B16CE /* StoreClassItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreClassItemTableViewCell.m; sourceTree = "<group>"; };
 		8E9B0CCF1FA9BB8600770F8D /* AdvertisePushController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisePushController.h; sourceTree = "<group>"; };
 		8E9B0CD01FA9BB8600770F8D /* AdvertisePushController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertisePushController.m; sourceTree = "<group>"; };
 		8E9B0CEC1FAAF0B000770F8D /* WebScanCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebScanCodeViewController.h; sourceTree = "<group>"; };
@@ -273,6 +291,17 @@
 		8EB674B91F96F256008CC196 /* BaseLoadMoreFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoadMoreFooterView.m; sourceTree = "<group>"; };
 		8EC257FF1FAC5F8400167832 /* PosterTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosterTool.h; sourceTree = "<group>"; };
 		8EC258001FAC5F8400167832 /* PosterTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosterTool.m; sourceTree = "<group>"; };
+		8EC93F3C1FCBB34F001D55F7 /* SimpleButtonsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButtonsTableViewCell.h; sourceTree = "<group>"; };
+		8EC93F3D1FCBB34F001D55F7 /* SimpleButtonsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleButtonsTableViewCell.m; sourceTree = "<group>"; };
+		8EC93F3F1FCBBB9F001D55F7 /* FourButtonsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourButtonsTableViewCell.h; sourceTree = "<group>"; };
+		8EC93F401FCBBB9F001D55F7 /* FourButtonsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourButtonsTableViewCell.m; sourceTree = "<group>"; };
+		8EC93F421FCBBBC4001D55F7 /* LinedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinedTableViewCell.h; sourceTree = "<group>"; };
+		8EC93F431FCBBBC4001D55F7 /* LinedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinedTableViewCell.m; sourceTree = "<group>"; };
+		8EC93F451FCBC129001D55F7 /* StoreHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreHeaderCell.h; sourceTree = "<group>"; };
+		8EC93F461FCBC129001D55F7 /* StoreHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreHeaderCell.m; sourceTree = "<group>"; };
+		8EC93F481FCBC400001D55F7 /* StoreLargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreLargeCell.h; sourceTree = "<group>"; };
+		8EC93F491FCBC400001D55F7 /* StoreLargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreLargeCell.m; sourceTree = "<group>"; };
+		8EC93F4A1FCBC400001D55F7 /* StoreLargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreLargeCell.xib; sourceTree = "<group>"; };
 		8F4287161F4BC91D00430B5F /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		8F4287171F4BC91D00430B5F /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		8F42871C1F4BC9A700430B5F /* NSObject+SwizzleClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleClasses.h"; sourceTree = "<group>"; };
@@ -655,12 +684,16 @@
 			isa = PBXGroup;
 			children = (
 				39F5DD1C1F3FE7D700CFB520 /* hhh.html */,
+				8EC93F421FCBBBC4001D55F7 /* LinedTableViewCell.h */,
+				8EC93F431FCBBBC4001D55F7 /* LinedTableViewCell.m */,
 				396910B51F0E855E00EF6D52 /* ZZPagerController.h */,
 				396910B61F0E855E00EF6D52 /* ZZPagerController.m */,
 				3942B6031F276945003434CF /* WBWebProgressBar.h */,
 				3942B6041F276945003434CF /* WBWebProgressBar.m */,
 				8FA935DE1F11BE9D001E29CF /* AdvertiseView.h */,
 				8FA935DF1F11BE9D001E29CF /* AdvertiseView.m */,
+				8EC93F3C1FCBB34F001D55F7 /* SimpleButtonsTableViewCell.h */,
+				8EC93F3D1FCBB34F001D55F7 /* SimpleButtonsTableViewCell.m */,
 				8FA935E11F11C965001E29CF /* ButtonsCell.h */,
 				8FA935E21F11C965001E29CF /* ButtonsCell.m */,
 				8FA935E61F11C9D0001E29CF /* NothingFooterCell.h */,
@@ -792,8 +825,6 @@
 		3971BC061F0E7047004016C2 /* yangsheng */ = {
 			isa = PBXGroup;
 			children = (
-				8FA3EBEF1F2F227600A5B0E8 /* framework */,
-				396910AA1F0E855E00EF6D52 /* classes */,
 				3971BC2F1F0E7A07004016C2 /* PrefixHeader.pch */,
 				3971BC081F0E7047004016C2 /* main.m */,
 				3971BC0A1F0E7047004016C2 /* AppDelegate.h */,
@@ -802,6 +833,8 @@
 				3971BC131F0E7047004016C2 /* Assets.xcassets */,
 				3971BC181F0E7047004016C2 /* Info.plist */,
 				8F6C14A91F3F198F002BA690 /* LaunchScreen.storyboard */,
+				8FA3EBEF1F2F227600A5B0E8 /* framework */,
+				396910AA1F0E855E00EF6D52 /* classes */,
 			);
 			path = yangsheng;
 			sourceTree = "<group>";
@@ -990,6 +1023,10 @@
 				8F507D2E1F1D9942003DF63D /* StoreAppointmentViewController.m */,
 				8F507D301F1DB263003DF63D /* StoreAllAppoinmentListViewController.h */,
 				8F507D311F1DB263003DF63D /* StoreAllAppoinmentListViewController.m */,
+				8E29108E1FCBF1A4005B16CE /* StoreObjectClassesViewController.h */,
+				8E29108F1FCBF1A4005B16CE /* StoreObjectClassesViewController.m */,
+				8E2910941FCBF7DF005B16CE /* StoreObjectClassItemsTableViewController.h */,
+				8E2910951FCBF7DF005B16CE /* StoreObjectClassItemsTableViewController.m */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -1058,6 +1095,8 @@
 		8FC2433A1F170EC80064A845 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				8EC93F3F1FCBBB9F001D55F7 /* FourButtonsTableViewCell.h */,
+				8EC93F401FCBBB9F001D55F7 /* FourButtonsTableViewCell.m */,
 				395663651F17B2460084E2E2 /* ServiceObjectCell.h */,
 				395663661F17B2460084E2E2 /* ServiceObjectCell.m */,
 				395663671F17B2460084E2E2 /* ServiceObjectCell.xib */,
@@ -1079,6 +1118,15 @@
 				399834A31F29849000C60F0A /* StoreDetailContentCell.m */,
 				8FB7D65F1F33055200AA295C /* CitySelectionPicker.h */,
 				8FB7D6601F33055200AA295C /* CitySelectionPicker.m */,
+				8EC93F451FCBC129001D55F7 /* StoreHeaderCell.h */,
+				8EC93F461FCBC129001D55F7 /* StoreHeaderCell.m */,
+				8EC93F481FCBC400001D55F7 /* StoreLargeCell.h */,
+				8EC93F491FCBC400001D55F7 /* StoreLargeCell.m */,
+				8EC93F4A1FCBC400001D55F7 /* StoreLargeCell.xib */,
+				8E2910911FCBF256005B16CE /* StoreClassLongImageTableViewCell.h */,
+				8E2910921FCBF256005B16CE /* StoreClassLongImageTableViewCell.m */,
+				8E2910971FCBFA70005B16CE /* StoreClassItemTableViewCell.h */,
+				8E2910981FCBFA70005B16CE /* StoreClassItemTableViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1167,6 +1215,7 @@
 				8FC6DCC11F219E0D00566F96 /* TeamCollectionViewCell.xib in Resources */,
 				8FC6DCB11F2059A000566F96 /* ClassroomVideoShareHeaderView.xib in Resources */,
 				8FC2434E1F174B2B0064A845 /* Classroom.storyboard in Resources */,
+				8EC93F4C1FCBC400001D55F7 /* StoreLargeCell.xib in Resources */,
 				3971BC141F0E7047004016C2 /* Assets.xcassets in Resources */,
 				8FC6DCB91F2196E800566F96 /* FounderCollectionViewCell.xib in Resources */,
 				3971BC121F0E7047004016C2 /* Main.storyboard in Resources */,
@@ -1190,8 +1239,10 @@
 				8F507D4B1F1DE4D8003DF63D /* StoreAnnotationView.m in Sources */,
 				8F507D3C1F1DB8EC003DF63D /* StoreAppointmentHeaderCell.m in Sources */,
 				8EC258011FAC5F8400167832 /* PosterTool.m in Sources */,
+				8E2910901FCBF1A4005B16CE /* StoreObjectClassesViewController.m in Sources */,
 				8FADBE581F0F2C4D002F5911 /* BaseModel.m in Sources */,
 				8FC243581F17518A0064A845 /* ClassroomVideoShareCollectionCell.m in Sources */,
+				8EC93F471FCBC129001D55F7 /* StoreHeaderCell.m in Sources */,
 				395AD5A21F1B2B540009F44D /* ClassroomAnalystListViewController.m in Sources */,
 				8FC243721F18628F0064A845 /* TeamMonthStarViewController.m in Sources */,
 				395F56A81F245809008A5FA8 /* ZZNaviMapSelectionViewController.m in Sources */,
@@ -1206,6 +1257,7 @@
 				8FC243161F1703C50064A845 /* UserModel.m in Sources */,
 				8FADBE9C1F0F39BF002F5911 /* SDWebImageManager.m in Sources */,
 				8FADBE441F0F1A92002F5911 /* HomeNewsViewController.m in Sources */,
+				8E2910991FCBFA70005B16CE /* StoreClassItemTableViewCell.m in Sources */,
 				8FC242E81F1630380064A845 /* SystemMessageListViewController.m in Sources */,
 				396910C61F0E864200EF6D52 /* HomeRootViewController.m in Sources */,
 				3971BC0C1F0E7047004016C2 /* AppDelegate.m in Sources */,
@@ -1221,8 +1273,11 @@
 				8FB7D6611F33055200AA295C /* CitySelectionPicker.m in Sources */,
 				396910BF1F0E855E00EF6D52 /* ZZHttpTool.m in Sources */,
 				8FC243811F1873E40064A845 /* ClassroomHttpTool.m in Sources */,
+				8EC93F4B1FCBC400001D55F7 /* StoreLargeCell.m in Sources */,
+				8EC93F441FCBBBC4001D55F7 /* LinedTableViewCell.m in Sources */,
 				8F52195E1F25CB6000FE7733 /* ProductCodeTextViewController.m in Sources */,
 				8FADBE501F0F28DC002F5911 /* HomeProductHeaderCell.m in Sources */,
+				8E2910931FCBF256005B16CE /* StoreClassLongImageTableViewCell.m in Sources */,
 				8FC243401F1710190064A845 /* StoreSmallCell.m in Sources */,
 				8FC243641F1783FD0064A845 /* StoreAllViewController.m in Sources */,
 				8FC243971F19EBEE0064A845 /* StoreCitySelectionViewController.m in Sources */,
@@ -1254,6 +1309,7 @@
 				8FADBE971F0F39BF002F5911 /* SDImageCacheConfig.m in Sources */,
 				8FC242C51F15E5C60064A845 /* MBProgressHUD.m in Sources */,
 				8FC243151F1703C50064A845 /* PersonalRegisterViewController.m in Sources */,
+				8EC93F3E1FCBB34F001D55F7 /* SimpleButtonsTableViewCell.m in Sources */,
 				8FADBE941F0F39BF002F5911 /* NSData+ImageContentType.m in Sources */,
 				8FA935F01F11DBE1001E29CF /* HomeTeamExtCell.m in Sources */,
 				8FC243751F1862B60064A845 /* TeamCompanyListViewController.m in Sources */,
@@ -1296,6 +1352,7 @@
 				8FC243431F1712A80064A845 /* StoreHttpTool.m in Sources */,
 				8FC2431E1F1704060064A845 /* NSDictionary+ext.m in Sources */,
 				8FC243321F170D0D0064A845 /* PersonalChangeMobileViewController.m in Sources */,
+				8EC93F411FCBBB9F001D55F7 /* FourButtonsTableViewCell.m in Sources */,
 				8F54BDAE1F131175009E3C0B /* NewsLargeCell.m in Sources */,
 				8FA9360D1F1229FF001E29CF /* HomeFeedBackHeaderCell.m in Sources */,
 				395AD5AB1F1B42F50009F44D /* StoreApplyResultViewController.m in Sources */,
@@ -1311,6 +1368,7 @@
 				8F9420981F3BFD7900EF4373 /* WaiterCollectionCell.m in Sources */,
 				8F54BDB51F132B2B009E3C0B /* NeewsListViewController.m in Sources */,
 				8FB7D65E1F32BE8C00AA295C /* DealersManagerViewController.m in Sources */,
+				8E2910961FCBF7DF005B16CE /* StoreObjectClassItemsTableViewController.m in Sources */,
 				8EB674BA1F96F256008CC196 /* BaseLoadMoreFooterView.m in Sources */,
 				8FC2437B1F1863590064A845 /* BaseCollectionViewController.m in Sources */,
 				8FC243851F18952C0064A845 /* CollectionViewTableViewCell.m in Sources */,

@@ -27,6 +27,8 @@
 #import "BaseWebViewController.h"
 #import "NaviController.h"
 
+#import "LinedTableViewCell.h"
+
 //UIcolors
 
 #define rgba(a, b, c, d) ([UIColor colorWithRed:(a/255.0) green:(b/255.0) blue:(c/255.0) alpha:d])
@@ -34,6 +36,19 @@
 
 #define graya(w,a) [UIColor colorWithWhite:(w/255.0) alpha:a]
 #define gray(w) [UIColor colorWithWhite:(w/255.0) alpha:1]
+
+//grays
+#define gray_051 gray(51) //0.2
+#define gray_102 gray(102) //0.4
+#define gray_153 gray(153) //0.6
+#define gray_221 gray(221) //0.8 lines
+#define gray_230 gray(230) //0.9 tableview bgs
+
+#define gray_2 gray_051
+#define gray_4 gray_102
+#define gray_6 gray_153
+#define gray_8 gray_221
+#define gray_9 gray_230
 
 #define pinkColor rgb(233,0,117)
 

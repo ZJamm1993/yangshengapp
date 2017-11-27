@@ -30,26 +30,26 @@
 -(void)refresh
 {
     [self stopRefreshAfterSeconds];
-    [StoreHttpTool getStoreItemsSuccess:^(NSArray *datasource) {
-        if (datasource.count>0) {
-            [self.dataSource removeAllObjects];
-            [self.dataSource addObjectsFromArray:datasource];
-            //            [self.collectionView reloadData];
-            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
-        }
-    } isCache:NO];
+//    [StoreHttpTool getStoreItemsSuccess:^(NSArray *datasource) {
+//        if (datasource.count>0) {
+//            [self.dataSource removeAllObjects];
+//            [self.dataSource addObjectsFromArray:datasource];
+//            //            [self.collectionView reloadData];
+//            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
+//        }
+//    } isCache:NO];
 }
 
 -(void)firstLoad
 {
-    [StoreHttpTool getStoreItemsSuccess:^(NSArray *datasource) {
-        if (datasource.count>0) {
-            [self.dataSource removeAllObjects];
-            [self.dataSource addObjectsFromArray:datasource];
-            //            [self.collectionView reloadData];
-            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
-        }
-    } isCache:YES];
+//    [StoreHttpTool getStoreItemsSuccess:^(NSArray *datasource) {
+//        if (datasource.count>0) {
+//            [self.dataSource removeAllObjects];
+//            [self.dataSource addObjectsFromArray:datasource];
+//            //            [self.collectionView reloadData];
+//            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.collectionView.numberOfSections)]];
+//        }
+//    } isCache:YES];
 }
 
 -(UICollectionViewLayout*)collectionViewLayout

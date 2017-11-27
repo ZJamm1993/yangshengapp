@@ -35,7 +35,7 @@
         _thumb=[dictionary valueForKey:@"thumb"];
         _lng=[dictionary valueForKey:@"lng"];
         _lat=[dictionary valueForKey:@"lat"];
-        _distance=[dictionary valueForKey:@"distance"];
+        _distance=[[dictionary valueForKey:@"distance"]integerValue];
         
         _store_content=[dictionary valueForKey:@"store_content"];
         NSString* html=_store_content;
@@ -99,6 +99,7 @@
         self.name=[dictionary valueForKey:@"name"];
         self.code=[dictionary valueForKey:@"code"];
         self.thumb=[dictionary valueForKey:@"thumb"];
+        self.post_title=[dictionary valueForKey:@"post_title"];
         if(self.idd.length==0)
         {
             self.idd=[dictionary valueForKey:@"item_id"];

@@ -23,7 +23,7 @@
 @property (nonatomic,strong) NSString* thumb;
 @property (nonatomic,strong) NSString* lng;
 @property (nonatomic,strong) NSString* lat;
-@property (nonatomic,strong) NSString* distance;
+@property (nonatomic,assign) NSInteger distance;
 
 @property (nonatomic,strong) NSString* store_content;
 @property (nonatomic,strong) NSArray* smetas;
@@ -44,6 +44,7 @@
 @property (nonatomic,strong) NSString* idd;
 @property (nonatomic,strong) NSString* name;
 @property (nonatomic,strong) NSString* code;
+@property (nonatomic,strong) NSString* post_title;
 @property (nonatomic,strong) NSString* thumb;
 
 -(instancetype)initWithDictionary:(NSDictionary*)dictionary;

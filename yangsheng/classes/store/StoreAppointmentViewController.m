@@ -8,12 +8,20 @@
 
 #import "StoreAppointmentViewController.h"
 #import "PickerShadowContainer.h"
+#import "StoreAppointmentView.h"
 
-@interface StoreAppointmentViewController ()<UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
+@interface StoreAppointmentViewController ()<UITextFieldDelegate,UITextViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource,StoreAppointmentViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *storeNameLabe;
+@property (weak, nonatomic) IBOutlet UILabel *storeContact;
+@property (weak, nonatomic) IBOutlet UILabel *storeAddress;
+
 @property (weak, nonatomic) IBOutlet UITextField *appointmentTime;
 @property (weak, nonatomic) IBOutlet UITextField *appointmentProject;
+@property (weak, nonatomic) IBOutlet UITextField *appointmentProjectClass;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (weak, nonatomic) IBOutlet UILabel *markPlaceHolder;
+@property (weak, nonatomic) IBOutlet UITextView *markTextView;
 
 @end
 
@@ -21,6 +29,7 @@
 {
     UIDatePicker* datePickerView;
     UIPickerView* projectPickerView;
+    StoreAppointmentView* appointmentView;
 }
 
 - (void)viewDidLoad {
@@ -28,22 +37,24 @@
     
     self.title=@"在线预约";
     
+    self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 49, 0);
+    
     self.storeNameLabe.text=self.store.store_title;
+    self.storeContact.text=[NSString stringWithFormat:@"%@/%@",self.store.store_author,self.store.store_tel];
+    self.storeAddress.text=self.store.store_address;
     
     self.appointmentTime.delegate=self;
     self.appointmentProject.delegate=self;
+    self.appointmentProjectClass.delegate=self;
     self.phoneTextField.delegate=self;
-    
-    self.appointmentProject.superview.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    self.appointmentProject.superview.layer.borderWidth=0.5;
-    
-    self.appointmentTime.superview.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    self.appointmentTime.superview.layer.borderWidth=0.5;
-    
-    self.phoneTextField.superview.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    self.phoneTextField.superview.layer.borderWidth=0.5;
+    self.markTextView.delegate=self;
     
     [self.refreshControl removeFromSuperview];
+    
+    appointmentView=[StoreAppointmentView defaultAppointmentViewWithTypes:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AppointmentTypeCheck],[NSNumber numberWithInteger:AppointmentTypeNormal],nil]];
+    appointmentView.delegate=self;
+    
+    [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];
     // Do any additional setup after loading the view.
 }
 
@@ -103,6 +114,15 @@
 //    if (textField) {
 //        statements
 //    }
+    return YES;
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
     return YES;
 }
 
@@ -204,6 +224,49 @@
 {
     if (pickerView==projectPickerView) {
         self.appointmentProject.text=[self pickerView:pickerView titleForRow:row forComponent:component];
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        return 12;
+    }
+    return 0.001;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 12;
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return nil;
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView==self.tableView) {
+        CGFloat offy=scrollView.contentOffset.y;
+        CGFloat h=scrollView.frame.size.height;
+        CGFloat b=scrollView.contentInset.bottom;
+        CGRect appf=appointmentView.frame;
+        appf.origin.y=offy+h-b;
+        appointmentView.frame=appf;
+        
+        [appointmentView removeFromSuperview];
+        [self.tableView addSubview:appointmentView];
     }
 }
 

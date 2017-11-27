@@ -53,26 +53,17 @@
     
     self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 49, 0);
     
-    appointmentView=[StoreAppointmentView defaultAppointmentView];
+    appointmentView=[StoreAppointmentView defaultAppointmentViewWithTypes:[NSArray arrayWithObjects:[NSNumber numberWithInteger:AppointmentTypePhone],[NSNumber numberWithInteger:AppointmentTypeNormal],nil]];
     appointmentView.delegate=self;
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"CollectionViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"StoreItemCell"];
-    // Do any additional setup after loading the view.
-    
-//    webViewHeight=1;
-//    
-//    testWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1)];
-//    testWebView.delegate=self;
-    
-    [self loadDetail];
-    [self refresh];
+    [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self.tableView setContentOffset:CGPointZero];
+//    [self.tableView setContentOffset:CGPointZero];
 }
 
 -(void)dealloc
@@ -168,9 +159,9 @@
             [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
             [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y+y) animated:NO];
         }
-        else if(scrollView.contentOffset.y>0)
+        else if(scrollView.contentOffset.y>10)
         {
-            NSLog(@"%f",scrollView.contentOffset.y);
+//            NSLog(@"%f",scrollView.contentOffset.y);
 //            if (!tableViewScrolling) {
                 [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 //            }
@@ -257,11 +248,11 @@
         }
         else
         {
-            CollectionViewTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"StoreItemCell" forIndexPath:indexPath];
-            [cell registerNib:[UINib nibWithNibName:@"ServiceObjectCell" bundle:nil] forCellWithReuseIdentifier:@"ServiceObjectCell"];
-            cell.delegate=self;
-            cell.flowLayout=flow;
-            return cell;
+//            CollectionViewTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"StoreItemCell" forIndexPath:indexPath];
+//            [cell registerNib:[UINib nibWithNibName:@"ServiceObjectCell" bundle:nil] forCellWithReuseIdentifier:@"ServiceObjectCell"];
+//            cell.delegate=self;
+//            cell.flowLayout=flow;
+//            return cell;
         }
     }
     else if(sec==2)
@@ -293,10 +284,10 @@
             return cell;
         }
     }
-    else
-    {
-        return nil;
-    }
+//    else
+//    {
+        return [[UITableViewCell alloc]init];
+//    }
 }
 
 #pragma mark -collectionviewtableviewcelldelegate

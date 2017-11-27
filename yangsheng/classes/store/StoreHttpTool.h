@@ -20,7 +20,8 @@
 
 +(void)searchStoreWithKeyword:(NSString*)keyword page:(NSInteger)page success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
-+(void)getStoreItemsSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
++(void)getStoreItemsCid:(NSString*)cid success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
++(void)getStoreClassItemsSuccess:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 
 +(void)getStoreDetailWithId:(NSString*)idd success:(void(^) (NSArray* datasource))success isCache:(BOOL)isCache;
 

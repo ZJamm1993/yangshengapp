@@ -10,36 +10,50 @@
 
 @implementation StoreAppointmentView
 
-+(instancetype)defaultAppointmentView
++(instancetype)defaultAppointmentViewWithTypes:(NSArray *)types
 {
     StoreAppointmentView* v=[[StoreAppointmentView alloc]init];//[[[UINib nibWithNibName:@"StoreAppointmentView" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
     v.frame=CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, 49);
     
-    UIButton* phone=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, v.frame.size.width/2, v.frame.size.height)];
-    phone.backgroundColor=[UIColor whiteColor];
-    [phone setTitle:@"电话预约" forState:UIControlStateNormal];
-    [phone setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateNormal];
-    [phone.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [phone setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [phone addTarget:v action:@selector(phoneAppointment:) forControlEvents:UIControlEventTouchUpInside];
-    [v addSubview:phone];
-    
-    UIButton* rig=[[UIButton alloc]initWithFrame:CGRectMake(v.frame.size.width/2, 0, v.frame.size.width/2, v.frame.size.height)];
-    rig.backgroundColor=pinkColor;
-    [rig setTitle:@"立即预约" forState:UIControlStateNormal];
-    [rig.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [rig setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [rig addTarget:v action:@selector(rightnowAppointment:) forControlEvents:UIControlEventTouchUpInside];
-    [v addSubview:rig];
+    if (types.count>0) {
+        CGFloat w=v.frame.size.width/types.count;
+        for (NSInteger i=0; i<types.count; i++) {
+            AppointmentType typ=[[types objectAtIndex:i]integerValue];
+            
+            UIButton* phone=[[UIButton alloc]initWithFrame:CGRectMake(i*w, 0, w, v.frame.size.height)];
+            phone.tag=typ;
+            
+            phone.backgroundColor=[UIColor whiteColor];
+            [phone.titleLabel setFont:[UIFont systemFontOfSize:14]];
+            [phone setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            
+            [phone addTarget:v action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+            [v addSubview:phone];
+            
+            if (typ==AppointmentTypePhone) {
+                [phone setTitle:@"电话预约" forState:UIControlStateNormal];
+                [phone setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateNormal];
+            }
+            else if(typ==AppointmentTypeCheck)
+            {
+                [phone setTitle:@"查看预约" forState:UIControlStateNormal];
+            }
+            else if(typ==AppointmentTypeNormal)
+            {
+                phone.backgroundColor=pinkColor;
+                [phone setTitle:@"立即预约" forState:UIControlStateNormal];
+                [phone setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            }
+        }
+    }
     
     return v;
 }
 
-- (IBAction)phoneAppointment:(id)sender {
-    [self selectType:AppointmentTypePhone];
-}
-- (IBAction)rightnowAppointment:(id)sender {
-    [self selectType:AppointmentTypeNormal];
+-(void)buttonClick:(UIButton*)button
+{
+    NSInteger tag=button.tag;
+    [self selectType:tag];
 }
 
 -(void)selectType:(AppointmentType)type

@@ -13,6 +13,7 @@ typedef NS_ENUM(NSInteger,AppointmentType)
     
     AppointmentTypeNormal,
     AppointmentTypePhone,
+    AppointmentTypeCheck,
 };
 
 @class StoreAppointmentView;
@@ -26,6 +27,6 @@ typedef NS_ENUM(NSInteger,AppointmentType)
 @interface StoreAppointmentView : UIView
 
 @property (nonatomic,weak) id<StoreAppointmentViewDelegate>delegate;
-+(instancetype)defaultAppointmentView;
++(instancetype)defaultAppointmentViewWithTypes:(NSArray*)types;
 
 @end

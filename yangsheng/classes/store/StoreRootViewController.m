@@ -26,8 +26,14 @@
 
 #import "ButtonsCell.h"
 #import "StoreSmallCell.h"
+#import "FourButtonsTableViewCell.h"
+#import "StoreHeaderCell.h"
+#import "StoreLargeCell.h"
+
 #import "CitySelectionPicker.h"
 #import "PickerShadowContainer.h"
+
+#import "SimpleButtonsTableViewCell.h"
 
 #import <CoreLocation/CoreLocation.h>
 
@@ -35,7 +41,7 @@
 #define UserLastLocationLatitudeKey @"iiuiuuhwefiu"
 #define UserLastLocationLongitudeKey @"i298sdfiosdfoi"
 
-@interface StoreRootViewController ()<ButtonsCellDelegate,CLLocationManagerDelegate>
+@interface StoreRootViewController ()<ButtonsCellDelegate,CLLocationManagerDelegate,SimpleButtonsTableViewCellDelegate,StoreHeaderCellDelegate>
 {
      
 //    StoreSearchViewController* searchVc;
@@ -48,6 +54,9 @@
     CitySelectionPicker* cityPicker;
     
     CityModel* selectedCity;
+    NSArray* arrayWithSimpleButtons;
+    
+    NSInteger dataType;
 }
 @end
 
@@ -57,6 +66,8 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[ButtonsCell class] forCellReuseIdentifier:@"TopButtonsCell"];
+    
+//    [self.tableView registerNib:[UINib nibWithNibName:@"StoreLargeCell" bundle:nil] forCellReuseIdentifier:@"StoreLargeCell"];
     // Do any additional setup after loading the view.
     
     
@@ -65,13 +76,15 @@
     cityItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(selectCity)];
     self.navigationItem.leftBarButtonItem=cityItem;
     
-//    UIBarButtonItem* sea=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(goToSearch)];
-//    self.navigationItem.rightBarButtonItem=sea;
+    UIBarButtonItem* sea=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(goToSearch)];
+    self.navigationItem.rightBarButtonItem=sea;
+    
 //
 //#if TARGET_IPHONE_SIMULATOR
 //    currentLat=@"23.12672";
 //    currentLng=@"113.395";
 //#else
+    
     locationManager=[[CLLocationManager alloc]init];
     locationManager.delegate=self;
     locationManager.desiredAccuracy=kCLLocationAccuracyHundredMeters;
@@ -89,7 +102,24 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadCity) name:SelectedNewCityNotification object:nil];
 }
 
-
+-(NSArray*)arrayWithSimpleButtons
+{
+    if (arrayWithSimpleButtons.count==0) {
+        
+        NSMutableArray* array=[NSMutableArray array];
+        NSArray* titles=[NSArray arrayWithObjects:@"签到领劵",@"立即预约",@"服务项目",@"申请开店",@"会员专享",@"推荐好友",@"美人记",@"讨论区",@"",@"", nil];
+        NSArray* images=[NSArray arrayWithObjects:@"_qdlj",@"_ljyy",@"_fwxm",@"_sqkd",@"_hyzx",@"_tjhy",@"_mrj",@"_tlq",@"",@"", nil];
+        NSArray* identis=[NSArray arrayWithObjects:
+                          @"",@"",
+                          @"StoreObjectClassesViewController",@"StoreApplyProtocolViewController", nil];
+        for (NSInteger i=0; i<8; i++) {
+            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:[images objectAtIndex:i] identifier:i<identis.count?[identis objectAtIndex:i]:@"" type:i+1];
+            [array addObject:mo];
+        }
+        arrayWithSimpleButtons=array;
+    }
+    return arrayWithSimpleButtons;
+}
 
 -(void)reloadCity
 {
@@ -192,15 +222,25 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) {
-        return 90;
-    }
+//    if (indexPath.section==0) {
+//        return 90;
+//    }
     return UITableViewAutomaticDimension;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.01;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 12;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -218,26 +258,34 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        ButtonsCell* c=[tableView dequeueReusableCellWithIdentifier:@"TopButtonsCell" forIndexPath:indexPath];
-        c.delegate=self;
-        c.buttonsTitles=[NSArray arrayWithObjects:@"服务项目",@"搜索门店",@"申请开店",@"门店地图", nil];
-        c.buttonsImageNames=[NSArray arrayWithObjects:@"fwxm",@"ssmd",@"sqkd",@"mddt", nil];
+//        ButtonsCell* c=[tableView dequeueReusableCellWithIdentifier:@"TopButtonsCell" forIndexPath:indexPath];
+//        c.delegate=self;
+//        c.buttonsTitles=[NSArray arrayWithObjects:@"服务项目",@"搜索门店",@"申请开店",@"门店地图",@"asdf", nil];
+//        c.buttonsImageNames=[NSArray arrayWithObjects:@"fwxm",@"ssmd",@"sqkd",@"mddt",@"asdf", nil];
+        FourButtonsTableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"FourButtonsTableViewCell" forIndexPath:indexPath];
+        [c setDelegate:self];
+        [c setButtons:[self arrayWithSimpleButtons]];
         return c;
     }
     else if(indexPath.section==1)
     {
         if (indexPath.row==0) {
-            UITableViewCell* c=[tableView dequeueReusableCellWithIdentifier:@"StoreHeaderCell" forIndexPath:indexPath];
+            StoreHeaderCell* c=[tableView dequeueReusableCellWithIdentifier:@"StoreHeaderCell" forIndexPath:indexPath];
+            c.delegate=self;
+            c.type=dataType;
             return c;
         }
         else
         {
-            StoreSmallCell* c=[tableView dequeueReusableCellWithIdentifier:@"StoreSmallCell" forIndexPath:indexPath];
+            StoreLargeCell* c=[tableView dequeueReusableCellWithIdentifier:@"StoreLargeCell" forIndexPath:indexPath];
             StoreModel* m=[self.dataSource objectAtIndex:indexPath.row-1];
-            c.storeAddress.text=m.store_address;
-            c.storeContact.text=[NSString stringWithFormat:@"%@/%@",m.store_author,m.store_tel];
-            c.storeName.text=m.store_title;
-            [c.storeImage sd_setImageWithURL:[m.thumb urlWithMainUrl]];
+//            c..text=m.store_address;
+//            c.storeContact.text=[NSString stringWithFormat:@"%@/%@",m.store_author,m.store_tel];
+            c.title.text=m.store_title;
+            [c.image sd_setImageWithURL:[m.thumb urlWithMainUrl]];
+            c.distance.text=[NSString stringWithFormat:@"%ldkm",m.distance/1000] ;
+            c.showAppointment=NO;
+            c.store=m;
             return c;
         }
     }
@@ -253,11 +301,11 @@
     
     if (indexPath.section==1) {
         if (indexPath.row==0) {
-            StoreAllViewController* all=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreAllViewController"];
-            all.lat=currentLat;
-            all.lng=currentLng;
-            all.citycode=selectedCity.citycode;
-            [self.navigationController pushViewController:all animated:YES];
+//            StoreAllViewController* all=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreAllViewController"];
+//            all.lat=currentLat;
+//            all.lng=currentLng;
+//            all.citycode=selectedCity.citycode;
+//            [self.navigationController pushViewController:all animated:YES];
         }
         else
         {
@@ -336,6 +384,19 @@
 //            mapVc.center=CLLocationCoordinate2DMake(currentLat.doubleValue, currentLng.doubleValue);
 //        }
         [self.navigationController pushViewController:mapVc animated:YES];
+    }
+}
+
+-(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
+{
+    if (model.identifier.length>0) {
+        
+        UIViewController* control=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:model.identifier];
+        [self.navigationController pushViewController:control animated:YES];
+    }
+    else
+    {
+        [MBProgressHUD showErrorMessage:@"..."];
     }
 }
 
