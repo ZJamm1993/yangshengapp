@@ -9,6 +9,7 @@
 #import "StoreAppointmentViewController.h"
 #import "PickerShadowContainer.h"
 #import "StoreAppointmentView.h"
+#import "StoreMapViewController.h"
 
 @interface StoreAppointmentViewController ()<UITextFieldDelegate,UITextViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource,StoreAppointmentViewDelegate>
 
@@ -62,7 +63,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)goToNavi:(id)sender {
+    StoreMapViewController* map=[[StoreMapViewController alloc]init];
+    map.presetShops=[NSArray arrayWithObject:self.store];
+    [self.navigationController pushViewController:map animated:YES];
+}
 - (IBAction)goToAppointment:(id)sender {
+    
+#warning unfinish
     NSString* store_id=self.store.idd;
     NSString* date=self.appointmentTime.text;
     NSString* u_tel=self.phoneTextField.text;
@@ -267,6 +275,25 @@
         
         [appointmentView removeFromSuperview];
         [self.tableView addSubview:appointmentView];
+    }
+}
+
+-(void)storeAppointmentView:(StoreAppointmentView *)view didSelectType:(AppointmentType)type
+{
+    UserModel* usr=[UserModel getUser];
+    if (usr.access_token.length==0) {
+        UIViewController* lo=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalLoginViewController"];
+        [self.navigationController pushViewController:lo animated:YES];
+        [MBProgressHUD showErrorMessage:@"请先登录"];
+        return;
+    }
+    if (type==AppointmentTypeCheck) {
+        UIViewController* app=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:@"StoreAllAppoinmentListViewController"];
+        [self.navigationController pushViewController:app animated:YES];
+    }
+    else if(type==AppointmentTypeNormal)
+    {
+        [self goToAppointment:nil];
     }
 }
 

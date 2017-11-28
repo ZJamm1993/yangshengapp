@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger,AppointmentType)
 @class StoreAppointmentView;
 
 @protocol StoreAppointmentViewDelegate <NSObject>
-
+@optional
 -(void)storeAppointmentView:(StoreAppointmentView*)view didSelectType:(AppointmentType)type;
 
 @end

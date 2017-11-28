@@ -52,7 +52,8 @@
 //            [[NSURLCache sharedURLCache]removeAllCachedResponses];
 //            [[NSUserDefaults standardUserDefaults]setValue:buildVersion forKey:LastBuildVersionKey];
 //        }
-        
+        BaseWebViewController* web=[[BaseWebViewController alloc]init];
+        web.view.backgroundColor=[UIColor whiteColor];
     });
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];

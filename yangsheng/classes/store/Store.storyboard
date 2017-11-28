@@ -898,7 +898,7 @@
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="goToNavi:" destination="YSx-2V-u5n" eventType="touchUpInside" id="1n4-p0-XTP"/>
+                                                        <action selector="goToNavi:" destination="GZ6-8S-QxW" eventType="touchUpInside" id="RDD-pq-yVw"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihc-DE-1zf">
@@ -1078,8 +1078,8 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="sqR-fi-e6w"/>
                                                     <exclude reference="lhf-zc-rGU"/>
+                                                    <exclude reference="sqR-fi-e6w"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1367,6 +1367,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qih-4R-qbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1535" y="909"/>
+        </scene>
+        <!--Store Sign Up View Controller-->
+        <scene sceneID="sf6-JI-40i">
+            <objects>
+                <tableViewController storyboardIdentifier="StoreSignUpViewController" id="tRs-YJ-iP4" customClass="StoreSignUpViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="163" sectionHeaderHeight="28" sectionFooterHeight="28" id="7qX-Bl-hd8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SignupButtonTableViewCell" rowHeight="266" id="PMA-pQ-0Pl" customClass="SignupButtonTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="320" height="266"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PMA-pQ-0Pl" id="Uom-qe-AB7">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="265"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupBg" translatesAutoresizingMaskIntoConstraints="NO" id="MBm-JK-xvg">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="265"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="256" id="Xn6-5q-Xdb"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Xn6-5q-Xdb"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2w-D4-J0a">
+                                            <rect key="frame" x="87" y="20" width="147" height="147"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                            <state key="normal" title="点我签到" backgroundImage="largeCircle">
+                                                <color key="titleColor" red="0.96707767248153687" green="0.36326736211776733" blue="0.3147963285446167" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <state key="disabled" image="largeCircle">
+                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted" image="largeCircle"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你已经连续签到10000天了" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agq-c6-c5G">
+                                            <rect key="frame" x="93" y="177" width="135" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="f2w-D4-J0a" firstAttribute="top" secondItem="Uom-qe-AB7" secondAttribute="top" constant="20" id="IAq-mB-roD"/>
+                                        <constraint firstItem="f2w-D4-J0a" firstAttribute="centerX" secondItem="Uom-qe-AB7" secondAttribute="centerX" id="JRM-h6-EpI"/>
+                                        <constraint firstAttribute="bottom" secondItem="agq-c6-c5G" secondAttribute="bottom" constant="44" id="JtI-W0-w85"/>
+                                        <constraint firstItem="agq-c6-c5G" firstAttribute="top" secondItem="f2w-D4-J0a" secondAttribute="bottom" constant="10" id="NeU-wq-fwK"/>
+                                        <constraint firstAttribute="bottom" secondItem="MBm-JK-xvg" secondAttribute="bottom" id="QoX-VT-Vk7"/>
+                                        <constraint firstAttribute="trailing" secondItem="MBm-JK-xvg" secondAttribute="trailing" id="SCI-EP-c4Q"/>
+                                        <constraint firstItem="MBm-JK-xvg" firstAttribute="leading" secondItem="Uom-qe-AB7" secondAttribute="leading" id="XMc-nB-FuT"/>
+                                        <constraint firstItem="MBm-JK-xvg" firstAttribute="top" secondItem="Uom-qe-AB7" secondAttribute="top" id="buQ-iU-Og8"/>
+                                        <constraint firstItem="agq-c6-c5G" firstAttribute="centerX" secondItem="f2w-D4-J0a" secondAttribute="centerX" id="hmx-Cq-ikh"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="signButton" destination="f2w-D4-J0a" id="6Wh-3x-kex"/>
+                                    <outlet property="signDays" destination="agq-c6-c5G" id="pTe-JT-qHX"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="259" id="YrY-fb-2LZ">
+                                <rect key="frame" x="0.0" y="294" width="320" height="259"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YrY-fb-2LZ" id="Bdg-NQ-vk1">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="258"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tRs-YJ-iP4" id="mK9-3Y-5RM"/>
+                            <outlet property="delegate" destination="tRs-YJ-iP4" id="9HA-G3-M6P"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fl2-zx-paW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1885" y="909"/>
         </scene>
         <!--Store All View Controller-->
         <scene sceneID="Mue-qR-DnW">
@@ -1755,6 +1837,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="largeCircle" width="147" height="147"/>
         <image name="position" width="22" height="22"/>
+        <image name="signupBg" width="375" height="227"/>
     </resources>
 </document>

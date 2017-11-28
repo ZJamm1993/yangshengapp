@@ -63,37 +63,37 @@
 -(void)myViewDidLoad
 {
     NSLog(@"\"%@\" view did load",NSStringFromClass([self class]));
-    BOOL isNotUIViewController=![self isMemberOfClass:[UIViewController class]];
-    BOOL isNotNavgationController=![self isKindOfClass:[UINavigationController class]];
-    BOOL isNotTabbarController=![self isKindOfClass:[UITabBarController class]];
-    
-    BOOL isChecked=isNotUIViewController&&isNotNavgationController&&isNotTabbarController;
-    if (isChecked) {
-        
-//        [MobClick event:@"viewdidload" attributes:[NSDictionary dictionaryWithObject:NSStringFromClass([self class]) forKey:@"viewcontroller"]];
-    }
+//    BOOL isNotUIViewController=![self isMemberOfClass:[UIViewController class]];
+//    BOOL isNotNavgationController=![self isKindOfClass:[UINavigationController class]];
+//    BOOL isNotTabbarController=![self isKindOfClass:[UITabBarController class]];
+//    
+//    BOOL isChecked=isNotUIViewController&&isNotNavgationController&&isNotTabbarController;
+//    if (isChecked) {
+//        
+////        [MobClick event:@"viewdidload" attributes:[NSDictionary dictionaryWithObject:NSStringFromClass([self class]) forKey:@"viewcontroller"]];
+//    }
     [self myViewDidLoad];
 }
 
 @end
 
-@implementation UIImageView(SwizzleClasses)
-
-+(void)load
-{
-    NSLog(@"UIImageView Class Load");
-//    NSLog(@"swizzle sd_setImageWithURL");
-//    [[self class]jr_swizzleMethod:@selector(sd_setImageWithURL:) withMethod:@selector(my_sd_setImageWithURL:) error:nil];
-}
-
--(void)my_sd_setImageWithURL:(NSURL*)url
-{
-    NSString* urlstr=[url absoluteString];
-    NSLog(@"load image: %@",urlstr);
-//    NSString* suburl=[urlstr stringByReplacingOccurrencesOfString:[ZZUrlTool main] withString:@"main/"];
-//    [MobClick event:@"loadimage" attributes:[NSDictionary dictionaryWithObject:suburl forKey:@"imageurl"]];
-    [self my_sd_setImageWithURL:url];
-}
-
-@end
+//@implementation UIImageView(SwizzleClasses)
+//
+//+(void)load
+//{
+//    NSLog(@"UIImageView Class Load");
+////    NSLog(@"swizzle sd_setImageWithURL");
+////    [[self class]jr_swizzleMethod:@selector(sd_setImageWithURL:) withMethod:@selector(my_sd_setImageWithURL:) error:nil];
+//}
+//
+//-(void)my_sd_setImageWithURL:(NSURL*)url
+//{
+//    NSString* urlstr=[url absoluteString];
+//    NSLog(@"load image: %@",urlstr);
+////    NSString* suburl=[urlstr stringByReplacingOccurrencesOfString:[ZZUrlTool main] withString:@"main/"];
+////    [MobClick event:@"loadimage" attributes:[NSDictionary dictionaryWithObject:suburl forKey:@"imageurl"]];
+//    [self my_sd_setImageWithURL:url];
+//}
+//
+//@end
 

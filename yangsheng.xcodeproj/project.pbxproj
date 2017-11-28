@@ -63,6 +63,8 @@
 		8EC93F471FCBC129001D55F7 /* StoreHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC93F461FCBC129001D55F7 /* StoreHeaderCell.m */; };
 		8EC93F4B1FCBC400001D55F7 /* StoreLargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC93F491FCBC400001D55F7 /* StoreLargeCell.m */; };
 		8EC93F4C1FCBC400001D55F7 /* StoreLargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC93F4A1FCBC400001D55F7 /* StoreLargeCell.xib */; };
+		8ED503A91FCD08A800BA2A84 /* StoreSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED503A81FCD08A800BA2A84 /* StoreSignUpViewController.m */; };
+		8ED503AC1FCD0A1F00BA2A84 /* SignupButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED503AB1FCD0A1F00BA2A84 /* SignupButtonTableViewCell.m */; };
 		8F4287181F4BC91D00430B5F /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4287171F4BC91D00430B5F /* JRSwizzle.m */; };
 		8F42871E1F4BC9A700430B5F /* NSObject+SwizzleClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F42871D1F4BC9A700430B5F /* NSObject+SwizzleClasses.m */; };
 		8F507D261F1C481A003DF63D /* StoreApplyProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F507D251F1C481A003DF63D /* StoreApplyProtocolViewController.m */; };
@@ -302,6 +304,10 @@
 		8EC93F481FCBC400001D55F7 /* StoreLargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreLargeCell.h; sourceTree = "<group>"; };
 		8EC93F491FCBC400001D55F7 /* StoreLargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreLargeCell.m; sourceTree = "<group>"; };
 		8EC93F4A1FCBC400001D55F7 /* StoreLargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreLargeCell.xib; sourceTree = "<group>"; };
+		8ED503A71FCD08A800BA2A84 /* StoreSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreSignUpViewController.h; sourceTree = "<group>"; };
+		8ED503A81FCD08A800BA2A84 /* StoreSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreSignUpViewController.m; sourceTree = "<group>"; };
+		8ED503AA1FCD0A1F00BA2A84 /* SignupButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupButtonTableViewCell.h; sourceTree = "<group>"; };
+		8ED503AB1FCD0A1F00BA2A84 /* SignupButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupButtonTableViewCell.m; sourceTree = "<group>"; };
 		8F4287161F4BC91D00430B5F /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		8F4287171F4BC91D00430B5F /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		8F42871C1F4BC9A700430B5F /* NSObject+SwizzleClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleClasses.h"; sourceTree = "<group>"; };
@@ -1027,6 +1033,8 @@
 				8E29108F1FCBF1A4005B16CE /* StoreObjectClassesViewController.m */,
 				8E2910941FCBF7DF005B16CE /* StoreObjectClassItemsTableViewController.h */,
 				8E2910951FCBF7DF005B16CE /* StoreObjectClassItemsTableViewController.m */,
+				8ED503A71FCD08A800BA2A84 /* StoreSignUpViewController.h */,
+				8ED503A81FCD08A800BA2A84 /* StoreSignUpViewController.m */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -1127,6 +1135,8 @@
 				8E2910921FCBF256005B16CE /* StoreClassLongImageTableViewCell.m */,
 				8E2910971FCBFA70005B16CE /* StoreClassItemTableViewCell.h */,
 				8E2910981FCBFA70005B16CE /* StoreClassItemTableViewCell.m */,
+				8ED503AA1FCD0A1F00BA2A84 /* SignupButtonTableViewCell.h */,
+				8ED503AB1FCD0A1F00BA2A84 /* SignupButtonTableViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1264,6 +1274,7 @@
 				8E9B0CEE1FAAF0B000770F8D /* WebScanCodeViewController.m in Sources */,
 				8FC6DCCA1F21B5B800566F96 /* UniversalModel.m in Sources */,
 				8FC2438C1F19A78F0064A845 /* StoreDetailBaseMessageCell.m in Sources */,
+				8ED503A91FCD08A800BA2A84 /* StoreSignUpViewController.m in Sources */,
 				8FC2435C1F17582A0064A845 /* CodeScanerViewController.m in Sources */,
 				8FC243141F1703C50064A845 /* PersonalLoginViewController.m in Sources */,
 				8FC243491F1721650064A845 /* StoreSearchViewController.m in Sources */,
@@ -1304,6 +1315,7 @@
 				8FC243941F19E7E70064A845 /* PopOverNavigationController.m in Sources */,
 				8FADBEA31F0F39BF002F5911 /* UIImageView+WebCache.m in Sources */,
 				8FADBEA11F0F39BF002F5911 /* UIImage+WebP.m in Sources */,
+				8ED503AC1FCD0A1F00BA2A84 /* SignupButtonTableViewCell.m in Sources */,
 				395AD5A81F1B42CE0009F44D /* StoreApplySubmitViewController.m in Sources */,
 				8FC242CB1F15F7900064A845 /* Reachability.m in Sources */,
 				8FADBE971F0F39BF002F5911 /* SDImageCacheConfig.m in Sources */,

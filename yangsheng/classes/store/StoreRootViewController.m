@@ -110,8 +110,8 @@
         NSArray* titles=[NSArray arrayWithObjects:@"签到领劵",@"立即预约",@"服务项目",@"申请开店",@"会员专享",@"推荐好友",@"美人记",@"讨论区",@"",@"", nil];
         NSArray* images=[NSArray arrayWithObjects:@"_qdlj",@"_ljyy",@"_fwxm",@"_sqkd",@"_hyzx",@"_tjhy",@"_mrj",@"_tlq",@"",@"", nil];
         NSArray* identis=[NSArray arrayWithObjects:
-                          @"",@"",
-                          @"StoreObjectClassesViewController",@"StoreApplyProtocolViewController", nil];
+                          @"StoreSignUpViewController",@"StoreAllViewController",
+                          @"StoreObjectClassesViewController",@"apply", nil];
         for (NSInteger i=0; i<8; i++) {
             SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:[images objectAtIndex:i] identifier:i<identis.count?[identis objectAtIndex:i]:@"" type:i+1];
             [array addObject:mo];
@@ -390,7 +390,10 @@
 -(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
 {
     if (model.identifier.length>0) {
-        
+        if ([model.identifier isEqualToString:@"apply"]) {
+            [self buttonsCell:nil didClickedIndex:2];
+            return;
+        }
         UIViewController* control=[[UIStoryboard storyboardWithName:@"Store" bundle:nil]instantiateViewControllerWithIdentifier:model.identifier];
         [self.navigationController pushViewController:control animated:YES];
     }

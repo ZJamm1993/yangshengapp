@@ -9,22 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "JRSwizzle.h"
 
-@interface NSObject (SwizzleClasses)
+//@interface NSObject (SwizzleClasses)
+//
+//@end
+//
+//@interface UITableView (SwizzleClasses)
+//
+//@end
+//
+//@interface UICollectionView (SwizzleClasses)
+//
+//@end
+//
+//@interface UIViewController (SwizzleClasses)
+//
+//@end
 
-@end
-
-@interface UITableView (SwizzleClasses)
-
-@end
-
-@interface UICollectionView (SwizzleClasses)
-
-@end
-
-@interface UIViewController (SwizzleClasses)
-
-@end
-
-@interface UIImageView (SwizzleClasses)
-
-@end
+//@interface UIImageView (SwizzleClasses)
+//
+//@end
